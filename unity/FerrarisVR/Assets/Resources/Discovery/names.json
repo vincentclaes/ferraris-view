@@ -1,0 +1,31 @@
+{
+  "entries": [
+    {
+      "name": "Winksele",
+      "earlier": "Wenekensele (1133) → Winksele",
+      "certainty": "Waarschijnlijke naamverklaring",
+      "x": 1.953125,
+      "z": 26.3671875,
+      "explanation": "De gemeente Herent verklaart de naam waarschijnlijk uit de persoonsnaam Winiko en het Germaanse sele, een woning met één ruimte. De betekenis zou dus een woning van Winiko zijn. Dat is een taalkundige verklaring, geen bewijs dat we weten wie Winiko was of waar zijn woning stond. De marker staat in de dorpskern, niet op een bewezen vroegmiddeleeuws erf.",
+      "evidence": "Bron: Gemeente Herent, Ontstaansgeschiedenis Winksele-Delle.\nhttps://www.herent.be/product/288/ontstaansgeschiedenis-winksele-delle\n\nGedocumenteerd in deze bron: de oude schrijfwijze en een waarschijnlijke etymologie. De plaats van een woning van Winiko is onbekend; de marker is een verkenningspunt."
+    },
+    {
+      "name": "Villa Julienne",
+      "earlier": "Latere huisnaam aan de huidige Dalenstraat 9",
+      "certainty": "Naamgeving beschreven in gemeentelijke bron",
+      "x": 70.38,
+      "z": -40.597,
+      "explanation": "De naam herinnert aan Julienne Page, de vrouw van Emile Brandt. Volgens de gemeentelijke erfgoedbeschrijving gaf Brandt de verbouwde woning haar naam. Dit gebeurde na de hoevebouw van 1820: Villa Julienne is dus geen naam voor een villa die je hier in 1775 zou zien. De bron beschrijft op de Ferrariskaart twee kleine gebouwen aan de kant van de huidige Dorpsstraat.",
+      "evidence": "Bron: Gemeente Herent, Villa Julienne.\nhttps://www.herent.be/product/341/villa-julienne\n\nDe bron verbindt de latere huisnaam met Julienne Page. Het huidige adrespunt komt uit Digitaal Vlaanderen. Het punt bewijst niet de exacte ligging van beide kleine Ferrarisgebouwen; de huidige villa is niet als gebouw uit 1775 gereconstrueerd."
+    },
+    {
+      "name": "Dalenstraat",
+      "earlier": "Huidige straatnaam; vroegere lokale naam niet vastgesteld",
+      "certainty": "Lokale naamherkomst onbekend",
+      "x": 82.38,
+      "z": -40.597,
+      "explanation": "De huidige naam is bevestigd door het Adressenregister en het adres van Villa Julienne. Het woord dal kan aan een laagte doen denken, maar zonder plaatselijke naamkundige bron is dat nog geen verklaring van déze straatnaam. We kennen hier geen bewezen naamgevingsdatum of oudere gelijknamige weg. Ook de Ferrariskaart bepaalt dat niet automatisch.",
+      "evidence": "Bronnen voor de huidige naam en plaats:\nDigitaal Vlaanderen, Adressenregister (momentopname 2026-09-12).\nhttps://geo.api.vlaanderen.be/Adressenregister\nGemeente Herent, Villa Julienne:\nhttps://www.herent.be/product/341/villa-julienne\n\nGeen van deze bronnen bewijst de etymologie van Dalenstraat. De naam wordt daarom niet gebruikt als bewijs voor historisch reliëf of landgebruik."
+    }
+  ]
+}
