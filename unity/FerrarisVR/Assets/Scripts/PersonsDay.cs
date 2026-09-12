@@ -39,13 +39,13 @@ namespace Ferraris
             if(panel!=null&&metres!=lastMetres&&(metres<=22||lastMetres<=22))Draw();lastMetres=metres;
         }
         public void Open(){ui.ClosePanel?.Invoke();evidence=false;Draw();}
-        public void Close(){if(panel!=null)Destroy(panel);panel=null;ui.PanelOpen=false;ui.ClosePanel=null;}
+        public void Close(){ui.RemovePanel(panel);panel=null;ui.PanelOpen=false;ui.ClosePanel=null;ui.ClearKeyboardFocus();}
         public void Pause(){Progress.Pause();Close();}
         public void Resume(){Progress.Resume();if(!app.InWorld&&!Progress.Complete(Content.stops.Length)){var s=Content.stops[Progress.Step];app.Locate(s.x,s.z);app.EnterWorld(s.x,s.z);}Draw();}
         public void Advance(){if(Progress.Advance(Distance<=22,Content.stops.Length))Draw();}
         void Draw()
         {
-            if(panel!=null)Destroy(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,197,610,40),Content.title,28,panel.transform);ui.Button(new Rect(690,197,76,40),"Sluiten",Close,panel.transform,19);
             bool end=Progress.Complete(Content.stops.Length);
             string text=evidence?string.Join("\n\n",Content.evidence.Split("\n\n").Skip(evidencePage*3).Take(3)):end?"De dag is rond\nMarie legt haar mand neer. Van erf naar akker, boomgaard en dorp: voedsel, werk en ontmoetingen verbinden het landschap.\n\nDit was een verzonnen dag, geen gevonden levensverhaal. Welke taak zou jou het meeste tijd kosten? Je kunt nu vrij verder wandelen.":$"{Content.introduction}\n\nStop {Progress.Step+1}/{Content.stops.Length} — {Content.stops[Progress.Step].title}\n{Content.stops[Progress.Step].text}";

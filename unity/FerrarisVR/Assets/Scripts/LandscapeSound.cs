@@ -49,10 +49,10 @@ namespace Ferraris
             cue.text=nearest==null?"Geluidsplekken: geen bron dichtbij.\nOpen Luister om de plekken te vinden.":$"{(Muted||Volume==0?"Geluid gedempt • ":"")}{nearest.name}\n{Vector3.Distance(app.View.transform.position,nearest.source.transform.position):F0} m • {Bearing(app.View.transform.InverseTransformPoint(nearest.source.transform.position))}\nIllustratief geluid • Open Luister voor uitleg";
         }
         public void Open(){ui.ClosePanel?.Invoke();evidence=false;Draw();}
-        public void Close(){if(panel!=null)Destroy(panel);panel=null;ui.PanelOpen=false;ui.ClosePanel=null;}
+        public void Close(){ui.RemovePanel(panel);panel=null;ui.PanelOpen=false;ui.ClosePanel=null;ui.ClearKeyboardFocus();}
         void Draw()
         {
-            if(panel!=null)Destroy(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,197,610,42),"Luister naar het landschap",28,panel.transform);ui.Button(new Rect(690,197,76,40),"Sluiten",Close,panel.transform,19);
             ui.Text(new Rect(48,258,710,45),$"Omgevingsgeluid: {Volume*100:F0}% {(Muted?"(gedempt)":"")}",25,panel.transform);
             ui.Button(new Rect(48,310,160,48),"Zachter",()=>SetVolume(Volume-.2f),panel.transform);ui.Button(new Rect(224,310,160,48),"Luider",()=>SetVolume(Volume+.2f),panel.transform);ui.Button(new Rect(400,310,210,48),Muted?"Geluid aan":"Dempen",()=>SetMuted(!Muted),panel.transform);

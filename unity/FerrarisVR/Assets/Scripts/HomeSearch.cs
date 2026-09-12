@@ -10,6 +10,8 @@ namespace Ferraris
         public string Query { get; private set; }="";
         VisitorUI ui;FerrarisApp app;AddressBook book;GameObject panel;bool evidence;
         Keyboard keyboard;
+        public bool IsOpen=>panel!=null&&panel.activeSelf;
+        public bool AcceptsText=>IsOpen&&Selected==null&&!ui.HasKeyboardFocus;
         public static CurrentAddress[] Search(AddressBook book,string query)
         {
             var tokens=(query??"").Trim().Split(' ',StringSplitOptions.RemoveEmptyEntries);
@@ -41,10 +43,14 @@ namespace Ferraris
             keyboard=Keyboard.current;if(keyboard!=null)keyboard.onTextInput+=Typed;
         }
         void OnDestroy(){if(keyboard!=null)keyboard.onTextInput-=Typed;}
-        void Typed(char c){if(panel==null||!panel.activeSelf||char.IsControl(c))return;SetQuery(Query+c);}
-        void Update(){if(panel!=null&&panel.activeSelf&&Keyboard.current?.backspaceKey.wasPressedThisFrame==true)SetQuery(Query.Length>0?Query[..^1]:"");}
-        public void Toggle(){if(panel!=null&&panel.activeSelf){Close();return;}ui.ClosePanel?.Invoke();Draw();}
-        public void Close(){if(panel!=null)Destroy(panel);panel=null;ui.ClosePanel=null;ui.PanelOpen=false;}
+        void Typed(char c){if(!AcceptsText||char.IsControl(c))return;SetQuery(Query+c);}
+        void Update()
+        {
+            if(keyboard!=Keyboard.current){if(keyboard!=null)keyboard.onTextInput-=Typed;keyboard=Keyboard.current;if(keyboard!=null)keyboard.onTextInput+=Typed;}
+            if(AcceptsText&&keyboard?.backspaceKey.wasPressedThisFrame==true)SetQuery(Query.Length>0?Query[..^1]:"");
+        }
+        public void Toggle(){if(IsOpen){Close();return;}ui.ClosePanel?.Invoke();ui.ClearKeyboardFocus();Draw();}
+        public void Close(){ui.RemovePanel(panel);panel=null;ui.ClosePanel=null;ui.PanelOpen=false;ui.ClearKeyboardFocus();}
         public void SetQuery(string query){Query=query.Length>80?query[..80]:query;Selected=null;evidence=false;Draw();}
         public void Choose(CurrentAddress address)
         {
@@ -54,11 +60,11 @@ namespace Ferraris
         }
         void Draw()
         {
-            if(panel!=null)Destroy(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;
             Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,195,675,35),"Wat stond waar mijn huis nu staat?",27,panel.transform);
             ui.Button(new Rect(690,195,76,40),"Sluiten",Close,panel.transform,19);
-            ui.Text(new Rect(48,240,705,36),"Adres: "+Query+" ▏",25,panel.transform);
+            ui.Button(new Rect(48,240,705,36),"Adres: "+Query+" ▏",()=>{Selected=null;ui.ClearKeyboardFocus();Draw();},panel.transform,25);
             if(Selected==null)
             {
                 var matches=Search(book,Query);
@@ -80,7 +86,7 @@ namespace Ferraris
             ui.Button(new Rect(603,590,158,43),"Wis letter",()=>SetQuery(Query.Length>0?Query[..^1]:""),panel.transform,20);
             ui.Button(new Rect(603,638,158,43),"Spatie",()=>SetQuery(Query+" "),panel.transform,20);
             ui.Button(new Rect(603,686,158,43),"Wis alles",()=>SetQuery(""),panel.transform,20);
-            ui.Text(new Rect(48,793,700,55),"Tab / linker X: menu • Rechter richtstraal + trekker: kies\nOffline adresgegevens: Digitaal Vlaanderen",19,panel.transform);
+            ui.Text(new Rect(48,793,700,55),app.IsXR?"Linker X: menu • Rechter richtstraal + trekker: kies\nOffline adresgegevens: Digitaal Vlaanderen":"Typ je adres • Tab: kies knop • Enter: bevestig • Escape: sluiten\nKlik op het adresveld om verder te typen. Bron: Digitaal Vlaanderen",19,panel.transform);
         }
     }
 }
