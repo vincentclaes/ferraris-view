@@ -44,7 +44,7 @@ namespace Ferraris.Editor
         {
             var graphics=new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/GraphicsSettings.asset")[0]);
             var included=graphics.FindProperty("m_AlwaysIncludedShaders");
-            foreach(string name in new[]{"Unlit/Texture","Unlit/Color","Standard","Ferraris/MobileLandscape"})
+            foreach(string name in new[]{"Unlit/Texture","Unlit/Color","Standard","Ferraris/MobileLandscape","Ferraris/WorldSurface","Ferraris/TerrainSurface","Ferraris/Foliage","Ferraris/ChurchPBR","Skybox/Panoramic"})
             {
                 Shader shader=Shader.Find(name);if(shader==null)throw new InvalidOperationException("Missing shader "+name);
                 bool found=false;for(int i=0;i<included.arraySize;i++)if(included.GetArrayElementAtIndex(i).objectReferenceValue==shader)found=true;

@@ -1,0 +1,218 @@
+{
+  "license": "CC0",
+  "license_url": "https://polyhaven.com/license",
+  "api_credit": "Powered by Poly Haven",
+  "files": [
+    {
+      "asset": "leafy_grass",
+      "file": "grass_diff.jpg",
+      "size": 1195394,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/leafy_grass/leafy_grass_diff_1k.jpg",
+      "md5": "0dbc071e91d6905edfcfbe8eb785a1ab"
+    },
+    {
+      "asset": "leafy_grass",
+      "file": "grass_normal.jpg",
+      "size": 1466049,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/leafy_grass/leafy_grass_nor_gl_1k.jpg",
+      "md5": "8279e096e204ea326d57a318869f99df"
+    },
+    {
+      "asset": "leafy_grass",
+      "file": "grass_rough.jpg",
+      "size": 511385,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/leafy_grass/leafy_grass_rough_1k.jpg",
+      "md5": "05f6bb1383e12b327727d313c5899cf2"
+    },
+    {
+      "asset": "brown_mud_dry",
+      "file": "soil_diff.jpg",
+      "size": 920456,
+      "md5": "0c0ad82fec60f091690c69c23657cb74",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_mud_dry/brown_mud_dry_diff_1k.jpg"
+    },
+    {
+      "asset": "brown_mud_dry",
+      "file": "soil_normal.jpg",
+      "size": 1539092,
+      "md5": "a842517bea5187ccbceb69fd26629d1e",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_mud_dry/brown_mud_dry_nor_gl_1k.jpg"
+    },
+    {
+      "asset": "brown_mud_dry",
+      "file": "soil_rough.jpg",
+      "size": 390385,
+      "md5": "4e047a601af768eded6468faab4ec615",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_mud_dry/brown_mud_dry_rough_1k.jpg"
+    },
+    {
+      "asset": "medieval_red_brick",
+      "file": "brick_diff.jpg",
+      "size": 872053,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/medieval_red_brick/medieval_red_brick_diff_1k.jpg",
+      "md5": "217f3e9db4fa2a89dfa49d5bf5e5bf97"
+    },
+    {
+      "asset": "medieval_red_brick",
+      "file": "brick_normal.jpg",
+      "size": 1186400,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/medieval_red_brick/medieval_red_brick_nor_gl_1k.jpg",
+      "md5": "e4e1bde5cf80bd1aa9c4614d2d06ef53"
+    },
+    {
+      "asset": "medieval_red_brick",
+      "file": "brick_rough.jpg",
+      "size": 432817,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/medieval_red_brick/medieval_red_brick_rough_1k.jpg",
+      "md5": "5af35ac7a1933a1f08fc5c83959b4edf"
+    },
+    {
+      "asset": "worn_plaster_wall",
+      "file": "plaster_diff.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/worn_plaster_wall/worn_plaster_wall_diff_1k.jpg",
+      "md5": "31aab3a5bf3859361cd423e15b9735bc",
+      "size": 750361
+    },
+    {
+      "asset": "worn_plaster_wall",
+      "file": "plaster_normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/worn_plaster_wall/worn_plaster_wall_nor_gl_1k.jpg",
+      "md5": "2e1cb2651163105acda653e9c9b9b7b8",
+      "size": 680164
+    },
+    {
+      "asset": "worn_plaster_wall",
+      "file": "plaster_rough.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/worn_plaster_wall/worn_plaster_wall_rough_1k.jpg",
+      "md5": "7584ca081047d7e025fd80adbdcec4df",
+      "size": 242497
+    },
+    {
+      "asset": "wood_planks_grey",
+      "file": "wood_diff.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_planks_grey/wood_planks_grey_diff_1k.jpg",
+      "size": 228279,
+      "md5": "f2b4a70fed329c13850917c5f2d1498c"
+    },
+    {
+      "asset": "wood_planks_grey",
+      "file": "wood_normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_planks_grey/wood_planks_grey_nor_gl_1k.jpg",
+      "size": 157419,
+      "md5": "fe633ea606ac22b732d4204a7fa52b03"
+    },
+    {
+      "asset": "wood_planks_grey",
+      "file": "wood_rough.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_planks_grey/wood_planks_grey_rough_1k.jpg",
+      "size": 186804,
+      "md5": "eb620bf4c075153d9272de00f1bf7633"
+    },
+    {
+      "asset": "grey_roof_tiles",
+      "file": "roof_diff.jpg",
+      "size": 596156,
+      "md5": "9a0d2c1ca66e79972c7c35cefa238cf7",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/grey_roof_tiles/grey_roof_tiles_diff_1k.jpg"
+    },
+    {
+      "asset": "grey_roof_tiles",
+      "file": "roof_normal.jpg",
+      "size": 522186,
+      "md5": "95003919cdb2fcb2f499594bdf0ee827",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/grey_roof_tiles/grey_roof_tiles_nor_gl_1k.jpg"
+    },
+    {
+      "asset": "grey_roof_tiles",
+      "file": "roof_rough.jpg",
+      "size": 260780,
+      "md5": "19961a96ab55dfe97dd76981c59ccb1a",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/grey_roof_tiles/grey_roof_tiles_rough_1k.jpg"
+    },
+    {
+      "asset": "tree_bark_03",
+      "file": "bark_diff.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/tree_bark_03/tree_bark_03_diff_1k.jpg",
+      "md5": "7f09750a7529c52977f79dae90f1d713",
+      "size": 1046404
+    },
+    {
+      "asset": "tree_bark_03",
+      "file": "bark_normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/tree_bark_03/tree_bark_03_nor_gl_1k.jpg",
+      "md5": "1cd06150599a6202807f71f34ce8fe41",
+      "size": 1255491
+    },
+    {
+      "asset": "tree_bark_03",
+      "file": "bark_rough.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/tree_bark_03/tree_bark_03_rough_1k.jpg",
+      "md5": "47a0470b02a4aa3f73b9a88dd75e77f0",
+      "size": 464563
+    },
+    {
+      "asset": "kloppenheim_06_puresky",
+      "file": "sky.hdr",
+      "size": 4434394,
+      "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloppenheim_06_puresky_2k.hdr",
+      "md5": "590a829b3cf71216451655e601d542c6"
+    },
+    {
+      "asset": "tree_small_02",
+      "file": "leaves_diff.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/tree_small_02/tree_small_02_leaves_diff_1k.png",
+      "md5": "2c667193084725e8553062ddbdc73c7d",
+      "size": 2338424
+    },
+    {
+      "asset": "tree_small_02",
+      "file": "leaves_alpha.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/tree_small_02/tree_small_02_leaves_alpha_1k.png",
+      "md5": "63199ba87a9e8928424bd8c3b8017bd0",
+      "size": 264711
+    },
+    {
+      "asset": "grass_medium_02",
+      "file": "../Meadow.fbx",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/grass_medium_02/grass_medium_02_1k.fbx",
+      "md5": "d410420c30dd6529920bea9609ebc2ea",
+      "size": 313740,
+      "include": {
+        "textures/grass_medium_02_alpha_1k.png": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/grass_medium_02/grass_medium_02_alpha_1k.png",
+          "md5": "b231cd6a1b5eb7ae21e7c2e626f8318c",
+          "size": 110617
+        },
+        "textures/grass_medium_02_diff_1k.jpg": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/grass_medium_02/grass_medium_02_diff_1k.jpg",
+          "md5": "4bb5230e09358d60dd767331685b2d36",
+          "size": 161235
+        },
+        "textures/grass_medium_02_nor_gl_1k.exr": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/grass_medium_02/grass_medium_02_nor_gl_1k.exr",
+          "md5": "d6cf0459753aaa6935204cb6d3c2dc7f",
+          "size": 241121
+        },
+        "textures/grass_medium_02_rough_1k.exr": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/grass_medium_02/grass_medium_02_rough_1k.exr",
+          "md5": "84116a519b7054c72f0aba9e306c3466",
+          "size": 374549
+        }
+      }
+    },
+    {
+      "asset": "grass_medium_02",
+      "file": "meadow_diff.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/grass_medium_02/grass_medium_02_diff_1k.jpg",
+      "md5": "4bb5230e09358d60dd767331685b2d36",
+      "size": 161235
+    },
+    {
+      "asset": "grass_medium_02",
+      "file": "meadow_alpha.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/grass_medium_02/grass_medium_02_alpha_1k.png",
+      "md5": "b231cd6a1b5eb7ae21e7c2e626f8318c",
+      "size": 110617
+    }
+  ]
+}

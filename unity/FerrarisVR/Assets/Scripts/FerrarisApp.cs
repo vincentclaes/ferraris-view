@@ -235,7 +235,7 @@ namespace Ferraris
         public void EnterWorld(float x,float z)
         {
             ignoreLookUntilFrame=Time.frameCount+1;
-            InWorld=true;mapRoot.SetActive(false);World.gameObject.SetActive(true);rayLine.enabled=false;
+            InWorld=true;View.clearFlags=CameraClearFlags.Skybox;mapRoot.SetActive(false);World.gameObject.SetActive(true);rayLine.enabled=false;
             character.enabled=false;Player.SetPositionAndRotation(new Vector3(x,Area.Height(x,z)+.08f,z),Quaternion.identity);
             yaw=pitch=verticalSpeed=0;View.orthographic=false;if(!xr)View.fieldOfView=75;
             View.transform.localPosition=xr?headPosition.ReadValue<Vector3>():Vector3.up*1.65f;View.transform.localRotation=Quaternion.identity;
@@ -278,7 +278,7 @@ namespace Ferraris
         public void ReturnToMap()
         {
             if(!Ready)return;
-            InWorld=false;character.enabled=false;World.gameObject.SetActive(false);mapRoot.SetActive(true);
+            InWorld=false;View.clearFlags=CameraClearFlags.SolidColor;character.enabled=false;World.gameObject.SetActive(false);mapRoot.SetActive(true);
             pressed=pointerReleased=false;pendingPan=Vector2.zero;
             Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             Player.SetPositionAndRotation(Vector3.zero,Quaternion.identity);View.transform.SetLocalPositionAndRotation(Vector3.zero,Quaternion.identity);View.orthographic=!xr;

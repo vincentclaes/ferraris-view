@@ -61,6 +61,12 @@ namespace Ferraris
             InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
             if(!Check(Vector3.Distance(start,app.Player.position)>3,"Grounded locomotion",output))yield break;
             if(!Check(app.Player.position.y>=app.Area.Height(app.Player.position.x,app.Player.position.z)-.1f,"Terrain support",output))yield break;
+            // Inspect the landmark and grazing animals in the actual player.
+            app.enabled=false;
+            app.View.transform.position=new Vector3(42,app.Area.Height(42,-22)+14,-22);app.View.transform.LookAt(new Vector3(2,15,26));
+            yield return new WaitForSeconds(.7f);ScreenCapture.CaptureScreenshot(Path.Combine(output,"06-church.png"));yield return new WaitForSeconds(.4f);
+            var animal=FindAnyObjectByType<GrazingAnimal>();
+            if(animal!=null){Vector3 p=animal.transform.parent.position;app.View.transform.position=p+new Vector3(3,1.5f,4);app.View.transform.LookAt(p+Vector3.up*.8f);yield return new WaitForSeconds(.7f);ScreenCapture.CaptureScreenshot(Path.Combine(output,"07-pasture.png"));yield return new WaitForSeconds(.4f);}
             // Top-down render uses the same world meshes, enabling map comparison.
             app.enabled=false;RenderSettings.fog=false;
             app.View.transform.position=new Vector3(0,800,0);app.View.transform.rotation=Quaternion.Euler(90,0,0);app.View.orthographic=true;app.View.orthographicSize=550;

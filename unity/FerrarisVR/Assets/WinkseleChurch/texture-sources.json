@@ -1,0 +1,102 @@
+{
+  "license": "CC0",
+  "license_url": "https://polyhaven.com/license",
+  "files": [
+    {
+      "material": "wood",
+      "channel": "Diffuse",
+      "resolution": "2k",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+      "size": 998333,
+      "md5": "91ca23c2f5584014f465a3a50ada472f"
+    },
+    {
+      "material": "wood",
+      "channel": "nor_gl",
+      "resolution": "2k",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_grey/wood_planks_grey_nor_gl_2k.jpg",
+      "size": 647815,
+      "md5": "b46a35ec45e38dee2aeeb9330adb270b"
+    },
+    {
+      "material": "wood",
+      "channel": "Rough",
+      "resolution": "2k",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_grey/wood_planks_grey_rough_2k.jpg",
+      "size": 829157,
+      "md5": "91bd16df40f3784b695a6fe2dc6cd709"
+    },
+    {
+      "material": "stone",
+      "channel": "Diffuse",
+      "resolution": "4k",
+      "size": 5803405,
+      "md5": "a6bb3ab4225f09b093b68eb9be47673a",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/sandstone_blocks_08/sandstone_blocks_08_diff_4k.jpg"
+    },
+    {
+      "material": "stone",
+      "channel": "nor_gl",
+      "resolution": "4k",
+      "size": 4094349,
+      "md5": "9f79fba6b0a09014e35d529b3c79d57f",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/sandstone_blocks_08/sandstone_blocks_08_nor_gl_4k.jpg"
+    },
+    {
+      "material": "stone",
+      "channel": "Rough",
+      "resolution": "4k",
+      "size": 5062502,
+      "md5": "80eda4b5bc7aaffe9bad7674120279a2",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/sandstone_blocks_08/sandstone_blocks_08_rough_4k.jpg"
+    },
+    {
+      "material": "rubble",
+      "channel": "Diffuse",
+      "resolution": "4k",
+      "size": 7223031,
+      "md5": "e379c1235cc92cef94557f9f484eace8",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/sandstone_blocks_05/sandstone_blocks_05_diff_4k.jpg"
+    },
+    {
+      "material": "rubble",
+      "channel": "nor_gl",
+      "resolution": "4k",
+      "size": 12855317,
+      "md5": "91060fe7ad0977eb13c8ddea5f1aab29",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/sandstone_blocks_05/sandstone_blocks_05_nor_gl_4k.jpg"
+    },
+    {
+      "material": "rubble",
+      "channel": "Rough",
+      "resolution": "4k",
+      "size": 2854635,
+      "md5": "653ee9def1b025e28cfb078bb65a01d4",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/sandstone_blocks_05/sandstone_blocks_05_rough_4k.jpg"
+    },
+    {
+      "material": "slate",
+      "channel": "Diffuse",
+      "resolution": "2k",
+      "size": 2039152,
+      "md5": "304912638959851b052610a992e05274",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_diff_2k.jpg"
+    },
+    {
+      "material": "slate",
+      "channel": "nor_gl",
+      "resolution": "2k",
+      "size": 1504796,
+      "md5": "6d1ef876fc9750d81c8c8f6008ca0317",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_nor_gl_2k.jpg"
+    },
+    {
+      "material": "slate",
+      "channel": "Rough",
+      "resolution": "2k",
+      "size": 1009346,
+      "md5": "b726b64fb47ae1be160e5d5d2073aed0",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_rough_2k.jpg"
+    }
+  ]
+}
