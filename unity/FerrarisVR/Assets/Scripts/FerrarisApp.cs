@@ -29,6 +29,7 @@ namespace Ferraris
         bool pointerReleased;
         Mouse pointerDevice;
         public bool TracePointer;
+        public float VrMaxSpeed=6f;
         int ignoreLookUntilFrame;
         float yaw,pitch,verticalSpeed,turnCooldown,fps;
         bool pressed,dragged,triggerHeld,backHeld,xr,overlayShown;
@@ -186,7 +187,7 @@ namespace Ferraris
             {
                 turnCooldown-=Time.deltaTime;
                 if(Mathf.Abs(right.x)>.7f && turnCooldown<=0){Player.RotateAround(View.transform.position,Vector3.up,Mathf.Sign(right.x)*30);turnCooldown=.3f;}
-                Move(left,1.8f,Time.deltaTime);
+                Move(LocomotionInput(left),VrMaxSpeed,Time.deltaTime);
             }
             else
             {
@@ -257,6 +258,12 @@ namespace Ferraris
         {
             foreach(Collider c in Physics.OverlapCapsule(p+Vector3.up*.4f,p+Vector3.up*1.5f,.3f))if(c!=character&&c.gameObject!=World.TerrainObject)return true;
             return false;
+        }
+        // Preserve stick magnitude: a gentle push creeps, full tilt runs.
+        public static Vector2 LocomotionInput(Vector2 stick)
+        {
+            stick=Vector2.ClampMagnitude(stick,1);
+            return stick*Mathf.Sqrt(stick.magnitude);
         }
         public void Move(Vector2 input,float speed,float dt)
         {

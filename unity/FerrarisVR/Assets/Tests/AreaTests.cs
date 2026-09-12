@@ -5,6 +5,14 @@ namespace Ferraris.Tests
 {
     public class AreaTests
     {
+        [Test] public void JoystickPressureProgressivelyIncreasesSpeedWithoutDiagonalBoost()
+        {
+            Assert.That(FerrarisApp.LocomotionInput(Vector2.zero),Is.EqualTo(Vector2.zero));
+            Assert.That(FerrarisApp.LocomotionInput(Vector2.up*.25f).magnitude*6,Is.EqualTo(.75f).Within(.001));
+            Assert.That(FerrarisApp.LocomotionInput(Vector2.up*.5f).magnitude*6,Is.EqualTo(2.1213f).Within(.001));
+            Assert.That(FerrarisApp.LocomotionInput(Vector2.up).magnitude*6,Is.EqualTo(6).Within(.001));
+            Assert.That(FerrarisApp.LocomotionInput(Vector2.one).magnitude,Is.EqualTo(1).Within(.001));
+        }
         [Test] public void ResourcesLoadAndOriginMapsToZero()
         {
             var area=JsonUtility.FromJson<AreaData>(Resources.Load<TextAsset>("Winksele/area").text);
