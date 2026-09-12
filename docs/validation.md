@@ -1,5 +1,7 @@
 # Validation log — 12 September 2026
 
+Latest update: pressure-sensitive locomotion and the detailed surroundings pass build successfully for desktop and Quest. Three Unity tests and the built desktop journey pass. The Quest currently reports `unauthorized`, so the updated graphics APK has not yet been installed or measured. See [graphics validation](visual-upgrade.md); the hardware frame-rate measurements below describe the earlier simple scene.
+
 ## Verified independently of Unity
 
 - Official Ferraris WMS layer exists and advertises EPSG:31370. KBR/NGI lookup identifies Winksele on sheet 93, Cortenberghe.

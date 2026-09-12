@@ -24,6 +24,8 @@ Unlike the Ferraris raster, these CC0 art assets may be versioned with the appli
 
 ## Validation and limits
 
-Desktop imports/builds and the real built-player map-to-world journey pass. Rendered street, landmark, pasture and top-down views are captured in `artifacts`. Visual inspection caught and corrected inward-facing roof triangles, incorrect facade UVs and unsuitable whole-atlas leaf sampling.
+Three Unity tests pass, including analog speed and world construction with the church LOD and animals. Desktop imports/builds and the real built-player map-to-world journey pass. Rendered street, landmark, pasture and top-down views are captured in `artifacts/03-world.png`, `06-church.png`, `07-pasture.png` and `04-world-topdown.png`. Visual inspection caught and corrected inward-facing roof triangles, incorrect facade UVs and unsuitable whole-atlas leaf sampling. The final scanned grass instance uses 1,542 vertices instead of importing all five variants together (7,031 vertices).
+
+The updated Android APK builds and its signature verifies (about 103 MB). SHA-256: `df94df7b5405d701010f985afa31a5c734a79c4f165def2917d75d69a2771b2f`. Installation of this graphics build is pending renewed headset USB authorization; the app already installed on the Quest is the earlier prototype.
 
 The earlier Quest 72–73 FPS sample belongs to the simpler scene. This pass needs its own on-device performance and visual check. The scene now contains richer geometry and surfaces, while the livestock and rural architecture remain procedural approximations; it should not be described as finished AAA or film-quality graphics.

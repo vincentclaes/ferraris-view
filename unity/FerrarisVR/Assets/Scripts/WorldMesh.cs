@@ -17,6 +17,11 @@ namespace Ferraris
             int n=vertices.Count;vertices.AddRange(new[]{a,b,c,d});
             float w=Vector3.Distance(a,b)*repeat,h=Vector3.Distance(b,c)*repeat;
             uv.AddRange(new[]{Vector2.zero,new Vector2(w,0),new Vector2(w,h),new Vector2(0,h)});
+            // Front/right box faces wind upward first; keep brick courses horizontal.
+            if(Mathf.Abs((b-a).normalized.y)>.9f)
+            {
+                uv[n]=Vector2.zero;uv[n+1]=new Vector2(0,w);uv[n+2]=new Vector2(h,w);uv[n+3]=new Vector2(h,0);
+            }
             for(int i=0;i<4;i++)colors.Add(color);
             triangles.AddRange(new[]{n,n+1,n+2,n,n+2,n+3});
         }
