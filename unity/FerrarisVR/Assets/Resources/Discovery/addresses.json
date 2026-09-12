@@ -1,0 +1,7734 @@
+{
+  "date": "2026-09-12",
+  "source": "https://geo.api.vlaanderen.be/Adressenregister/ogc/features/v1/collections/Adres/items?bbox=4.631,50.891,4.657,50.905&limit=1000&f=application%2Fgeo%2Bjson",
+  "addresses": [
+    {
+      "id": "https://data.vlaanderen.be/id/adres/384936",
+      "street": "Aardeweg",
+      "number": "1",
+      "locality": "Herent",
+      "x": -689.6,
+      "z": -310.677
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2394589",
+      "street": "Aardeweg",
+      "number": "3",
+      "locality": "Herent",
+      "x": -700.58,
+      "z": -312.067
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31454959",
+      "street": "Albert Devuestraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": 494.29,
+      "z": 520.234
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20648354",
+      "street": "Albert Devuestraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": 472.71,
+      "z": 552.163
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20783006",
+      "street": "Albert Devuestraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": 445.97,
+      "z": 504.214
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20086043",
+      "street": "Albert Devuestraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": 445.28,
+      "z": 546.644
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20783004",
+      "street": "Albert Devuestraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": 463.82,
+      "z": 506.524
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20086047",
+      "street": "Albert Devuestraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": 437.46,
+      "z": 545.063
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31454967",
+      "street": "Albert Devuestraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": 495.78,
+      "z": 510.293
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20934782",
+      "street": "Albert Devuestraat",
+      "number": "18A",
+      "locality": "Herent",
+      "x": 382.85,
+      "z": 526.164
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30178957",
+      "street": "Albert Devuestraat",
+      "number": "18B",
+      "locality": "Herent",
+      "x": 366.54,
+      "z": 522.264
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20947533",
+      "street": "Albert Devuestraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": 380.49,
+      "z": 486.754
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20947534",
+      "street": "Albert Devuestraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": 384.14,
+      "z": 468.974
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20947539",
+      "street": "Albert Devuestraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": 405.73,
+      "z": 468.964
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3867946",
+      "street": "Albert Devuestraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": 428.79,
+      "z": 472.114
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3867945",
+      "street": "Albert Devuestraat",
+      "number": "28",
+      "locality": "Herent",
+      "x": 437.7,
+      "z": 473.313
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20782993",
+      "street": "Albert Devuestraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": 462.63,
+      "z": 515.413
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3904443",
+      "street": "Albert Devuestraat",
+      "number": "30",
+      "locality": "Herent",
+      "x": 477.76,
+      "z": 465.824
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3904656",
+      "street": "Albert Devuestraat",
+      "number": "32",
+      "locality": "Herent",
+      "x": 488.94,
+      "z": 467.344
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3904657",
+      "street": "Albert Devuestraat",
+      "number": "34",
+      "locality": "Herent",
+      "x": 497.59,
+      "z": 468.494
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3904658",
+      "street": "Albert Devuestraat",
+      "number": "36",
+      "locality": "Herent",
+      "x": 508.75,
+      "z": 469.964
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3904659",
+      "street": "Albert Devuestraat",
+      "number": "38",
+      "locality": "Herent",
+      "x": 517.41,
+      "z": 471.104
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20636714",
+      "street": "Albert Devuestraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": 528.73,
+      "z": 529.214
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3904660",
+      "street": "Albert Devuestraat",
+      "number": "40",
+      "locality": "Herent",
+      "x": 528.56,
+      "z": 472.593
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20783005",
+      "street": "Albert Devuestraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": 444.79,
+      "z": 513.124
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3853172",
+      "street": "Albert Devuestraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": 505.97,
+      "z": 559.833
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19339504",
+      "street": "Albert Devuestraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": 413.12,
+      "z": 508.823
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20648355",
+      "street": "Albert Devuestraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": 480.54,
+      "z": 553.734
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20036387",
+      "street": "Albert Devuestraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": 414.31,
+      "z": 499.934
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/705163",
+      "street": "Bodemveldstraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": 433.37,
+      "z": -73.267
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1872259",
+      "street": "Bodemveldstraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": 540.31,
+      "z": -65.697
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/875045",
+      "street": "Bodemveldstraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": 547.63,
+      "z": -64.937
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1157023",
+      "street": "Bodemveldstraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": 567.76,
+      "z": -60.387
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2143253",
+      "street": "Bodemveldstraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": 443.89,
+      "z": -73.256
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31399529",
+      "street": "Bodemveldstraat",
+      "number": "3B",
+      "locality": "Herent",
+      "x": 470.85,
+      "z": -71.676
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2384735",
+      "street": "Bodemveldstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": 481.08,
+      "z": -73.006
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1652081",
+      "street": "Bodemveldstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": 490.54,
+      "z": -71.946
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1775087",
+      "street": "Bodemveldstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": 496.71,
+      "z": -71.066
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807627",
+      "street": "Bodemveldstraat",
+      "number": "9A",
+      "locality": "Herent",
+      "x": 511.1,
+      "z": -68.427
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807628",
+      "street": "Bodemveldstraat",
+      "number": "9B",
+      "locality": "Herent",
+      "x": 520.05,
+      "z": -67.326
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/835796",
+      "street": "Brusselsesteenweg",
+      "number": "118",
+      "locality": "Herent",
+      "x": 557.59,
+      "z": -756.467
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2461653",
+      "street": "Brusselsesteenweg",
+      "number": "119",
+      "locality": "Herent",
+      "x": 234.22,
+      "z": -774.986
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1951693",
+      "street": "Brusselsesteenweg",
+      "number": "120",
+      "locality": "Herent",
+      "x": 537.54,
+      "z": -773.726
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2205230",
+      "street": "Brusselsesteenweg",
+      "number": "122",
+      "locality": "Herent",
+      "x": 518.52,
+      "z": -749.266
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1029510",
+      "street": "Brusselsesteenweg",
+      "number": "126",
+      "locality": "Herent",
+      "x": 511.02,
+      "z": -655.586
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1316590",
+      "street": "Brusselsesteenweg",
+      "number": "128",
+      "locality": "Herent",
+      "x": 463.3,
+      "z": -733.186
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2276485",
+      "street": "Brusselsesteenweg",
+      "number": "129",
+      "locality": "Herent",
+      "x": 105.46,
+      "z": -723.676
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1704150",
+      "street": "Brusselsesteenweg",
+      "number": "134",
+      "locality": "Herent",
+      "x": 431.85,
+      "z": -732.377
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1261203",
+      "street": "Brusselsesteenweg",
+      "number": "138",
+      "locality": "Herent",
+      "x": 389.99,
+      "z": -774.037
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/421133",
+      "street": "Brusselsesteenweg",
+      "number": "141",
+      "locality": "Herent",
+      "x": -204.16,
+      "z": -664.056
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1349888",
+      "street": "Brusselsesteenweg",
+      "number": "142",
+      "locality": "Herent",
+      "x": 365.2,
+      "z": -767.057
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1546324",
+      "street": "Brusselsesteenweg",
+      "number": "150",
+      "locality": "Herent",
+      "x": 395.7,
+      "z": -559.106
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1876487",
+      "street": "Brusselsesteenweg",
+      "number": "152",
+      "locality": "Herent",
+      "x": 427.37,
+      "z": -532.196
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/891764",
+      "street": "Brusselsesteenweg",
+      "number": "154",
+      "locality": "Herent",
+      "x": 307.28,
+      "z": -601.706
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1217765",
+      "street": "Brusselsesteenweg",
+      "number": "156",
+      "locality": "Herent",
+      "x": 334.81,
+      "z": -657.526
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1608905",
+      "street": "Brusselsesteenweg",
+      "number": "162",
+      "locality": "Herent",
+      "x": 310.0,
+      "z": -762.897
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/836854",
+      "street": "Brusselsesteenweg",
+      "number": "164",
+      "locality": "Herent",
+      "x": 298.07,
+      "z": -755.576
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1078063",
+      "street": "Brusselsesteenweg",
+      "number": "166",
+      "locality": "Herent",
+      "x": 299.62,
+      "z": -650.716
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/666382",
+      "street": "Brusselsesteenweg",
+      "number": "168",
+      "locality": "Herent",
+      "x": 263.18,
+      "z": -734.287
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/914009",
+      "street": "Brusselsesteenweg",
+      "number": "172",
+      "locality": "Herent",
+      "x": 220.61,
+      "z": -720.046
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1271209",
+      "street": "Brusselsesteenweg",
+      "number": "174",
+      "locality": "Herent",
+      "x": 202.61,
+      "z": -718.776
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/350041",
+      "street": "Brusselsesteenweg",
+      "number": "176",
+      "locality": "Herent",
+      "x": 3.49,
+      "z": -647.566
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/546849",
+      "street": "Brusselsesteenweg",
+      "number": "178",
+      "locality": "Herent",
+      "x": -12.35,
+      "z": -646.786
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3806456",
+      "street": "Brusselsesteenweg",
+      "number": "180",
+      "locality": "Herent",
+      "x": -36.61,
+      "z": -628.156
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2153899",
+      "street": "Brusselsesteenweg",
+      "number": "188",
+      "locality": "Herent",
+      "x": -156.5,
+      "z": -546.316
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/904915",
+      "street": "Brusselsesteenweg",
+      "number": "190",
+      "locality": "Herent",
+      "x": -203.3,
+      "z": -552.647
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1509840",
+      "street": "Brusselsesteenweg",
+      "number": "250",
+      "locality": "Herent",
+      "x": -788.94,
+      "z": -372.307
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1679343",
+      "street": "Brusselsesteenweg",
+      "number": "252",
+      "locality": "Herent",
+      "x": -829.48,
+      "z": -354.987
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/814859",
+      "street": "Brusselsesteenweg",
+      "number": "254",
+      "locality": "Herent",
+      "x": -847.5,
+      "z": -353.096
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2586712",
+      "street": "Brusselsesteenweg",
+      "number": "262",
+      "locality": "Herent",
+      "x": -916.16,
+      "z": -304.386
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2160705",
+      "street": "Dalenstraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": 93.46,
+      "z": -62.326
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1234144",
+      "street": "Dalenstraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": 162.36,
+      "z": -53.166
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2484470",
+      "street": "Dalenstraat",
+      "number": "11A",
+      "locality": "Herent",
+      "x": 184.33,
+      "z": -51.476
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1337280",
+      "street": "Dalenstraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": 102.03,
+      "z": -63.936
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/396276",
+      "street": "Dalenstraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": 207.64,
+      "z": -53.487
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1699827",
+      "street": "Dalenstraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": 109.43,
+      "z": -65.376
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/791225",
+      "street": "Dalenstraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": 236.26,
+      "z": -60.627
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/837411",
+      "street": "Dalenstraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": 126.48,
+      "z": -66.486
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2126435",
+      "street": "Dalenstraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": 243.12,
+      "z": -60.126
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/373485",
+      "street": "Dalenstraat",
+      "number": "17A",
+      "locality": "Herent",
+      "x": 266.4,
+      "z": -55.206
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1721911",
+      "street": "Dalenstraat",
+      "number": "17B",
+      "locality": "Herent",
+      "x": 289.19,
+      "z": -54.326
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/245399",
+      "street": "Dalenstraat",
+      "number": "17C",
+      "locality": "Herent",
+      "x": 312.08,
+      "z": -60.926
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1119721",
+      "street": "Dalenstraat",
+      "number": "18",
+      "locality": "Herent",
+      "x": 134.48,
+      "z": -71.426
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2407472",
+      "street": "Dalenstraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": 334.99,
+      "z": -65.886
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1093201",
+      "street": "Dalenstraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": -5.22,
+      "z": -74.306
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2325685",
+      "street": "Dalenstraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": 159.48,
+      "z": -73.416
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/218099",
+      "street": "Dalenstraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": 367.36,
+      "z": -60.656
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1729836",
+      "street": "Dalenstraat",
+      "number": "21A",
+      "locality": "Herent",
+      "x": 382.04,
+      "z": -67.507
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1450809",
+      "street": "Dalenstraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": 168.89,
+      "z": -77.346
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/595872",
+      "street": "Dalenstraat",
+      "number": "23",
+      "locality": "Herent",
+      "x": 394.93,
+      "z": -69.986
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1197698",
+      "street": "Dalenstraat",
+      "number": "23A",
+      "locality": "Herent",
+      "x": 419.31,
+      "z": -71.586
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1897795",
+      "street": "Dalenstraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": 176.42,
+      "z": -78.417
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1987306",
+      "street": "Dalenstraat",
+      "number": "25",
+      "locality": "Herent",
+      "x": 460.74,
+      "z": -99.056
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/986325",
+      "street": "Dalenstraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": 191.99,
+      "z": -82.426
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/430987",
+      "street": "Dalenstraat",
+      "number": "26A",
+      "locality": "Herent",
+      "x": 228.34,
+      "z": -89.627
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1439832",
+      "street": "Dalenstraat",
+      "number": "26B",
+      "locality": "Herent",
+      "x": 236.38,
+      "z": -94.866
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3818578",
+      "street": "Dalenstraat",
+      "number": "26C",
+      "locality": "Herent",
+      "x": 210.03,
+      "z": -88.947
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1247107",
+      "street": "Dalenstraat",
+      "number": "28",
+      "locality": "Herent",
+      "x": 251.79,
+      "z": -88.496
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1388935",
+      "street": "Dalenstraat",
+      "number": "29",
+      "locality": "Herent",
+      "x": 471.69,
+      "z": -102.606
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2539144",
+      "street": "Dalenstraat",
+      "number": "29A",
+      "locality": "Herent",
+      "x": 481.96,
+      "z": -107.987
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1387325",
+      "street": "Dalenstraat",
+      "number": "30",
+      "locality": "Herent",
+      "x": 259.49,
+      "z": -86.776
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/301473",
+      "street": "Dalenstraat",
+      "number": "31",
+      "locality": "Herent",
+      "x": 500.06,
+      "z": -112.886
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1689772",
+      "street": "Dalenstraat",
+      "number": "32",
+      "locality": "Herent",
+      "x": 273.98,
+      "z": -91.406
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2680843",
+      "street": "Dalenstraat",
+      "number": "33",
+      "locality": "Herent",
+      "x": 521.23,
+      "z": -121.146
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/825858",
+      "street": "Dalenstraat",
+      "number": "34",
+      "locality": "Herent",
+      "x": 283.28,
+      "z": -91.397
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1300476",
+      "street": "Dalenstraat",
+      "number": "34A",
+      "locality": "Herent",
+      "x": 305.6,
+      "z": -100.276
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1381956",
+      "street": "Dalenstraat",
+      "number": "34B",
+      "locality": "Herent",
+      "x": 325.53,
+      "z": -99.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1093200",
+      "street": "Dalenstraat",
+      "number": "36",
+      "locality": "Herent",
+      "x": 346.03,
+      "z": -102.226
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20476863",
+      "street": "Dalenstraat",
+      "number": "38A",
+      "locality": "Herent",
+      "x": 371.3,
+      "z": -103.336
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3913132",
+      "street": "Dalenstraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": 39.36,
+      "z": -84.046
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20476862",
+      "street": "Dalenstraat",
+      "number": "40",
+      "locality": "Herent",
+      "x": 386.3,
+      "z": -99.787
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1813172",
+      "street": "Dalenstraat",
+      "number": "42",
+      "locality": "Herent",
+      "x": 394.44,
+      "z": -99.026
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/908213",
+      "street": "Dalenstraat",
+      "number": "44",
+      "locality": "Herent",
+      "x": 404.81,
+      "z": -102.886
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1183352",
+      "street": "Dalenstraat",
+      "number": "46",
+      "locality": "Herent",
+      "x": 413.28,
+      "z": -103.736
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721568",
+      "street": "Dalenstraat",
+      "number": "46A",
+      "locality": "Herent",
+      "x": 424.64,
+      "z": -118.127
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3100579",
+      "street": "Dalenstraat",
+      "number": "46B",
+      "locality": "Herent",
+      "x": 447.71,
+      "z": -125.587
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1089022",
+      "street": "Dalenstraat",
+      "number": "48",
+      "locality": "Herent",
+      "x": 478.92,
+      "z": -130.126
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807625",
+      "street": "Dalenstraat",
+      "number": "4A",
+      "locality": "Herent",
+      "x": 39.36,
+      "z": -84.046
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1534394",
+      "street": "Dalenstraat",
+      "number": "50",
+      "locality": "Herent",
+      "x": 507.07,
+      "z": -147.546
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/499226",
+      "street": "Dalenstraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": 62.33,
+      "z": -62.436
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/913466",
+      "street": "Dalenstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": 119.26,
+      "z": -43.156
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2265294",
+      "street": "Dalenstraat",
+      "number": "7A",
+      "locality": "Herent",
+      "x": 98.5,
+      "z": -36.666
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1914650",
+      "street": "Dalenstraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": 72.91,
+      "z": -61.906
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1198111",
+      "street": "Dalenstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": 70.38,
+      "z": -40.597
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/375250",
+      "street": "Dalenstraat",
+      "number": "9D",
+      "locality": "Herent",
+      "x": 136.94,
+      "z": -44.717
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1888840",
+      "street": "Dieriksgroebe",
+      "number": "1",
+      "locality": "Herent",
+      "x": 167.58,
+      "z": -142.387
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/237996",
+      "street": "Dieriksgroebe",
+      "number": "1A",
+      "locality": "Herent",
+      "x": 165.36,
+      "z": -134.636
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1642553",
+      "street": "Dieriksgroebe",
+      "number": "1B",
+      "locality": "Herent",
+      "x": 166.76,
+      "z": -118.027
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/926637",
+      "street": "Dieriksgroebe",
+      "number": "2",
+      "locality": "Herent",
+      "x": 140.28,
+      "z": -111.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3683363",
+      "street": "Dieriksgroebe",
+      "number": "2A",
+      "locality": "Herent",
+      "x": 142.18,
+      "z": -127.976
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1620955",
+      "street": "Dieriksgroebe",
+      "number": "3",
+      "locality": "Herent",
+      "x": 184.06,
+      "z": -161.946
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/633794",
+      "street": "Dieriksgroebe",
+      "number": "4",
+      "locality": "Herent",
+      "x": 142.17,
+      "z": -143.677
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1376652",
+      "street": "Dieriksgroebe",
+      "number": "5",
+      "locality": "Herent",
+      "x": 180.91,
+      "z": -191.667
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/378144",
+      "street": "Dieriksgroebe",
+      "number": "6",
+      "locality": "Herent",
+      "x": 147.26,
+      "z": -162.746
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3077620",
+      "street": "Dieriksgroebe",
+      "number": "6A",
+      "locality": "Herent",
+      "x": 154.13,
+      "z": -183.337
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1002186",
+      "street": "Dieriksgroebe",
+      "number": "6B",
+      "locality": "Herent",
+      "x": 156.68,
+      "z": -201.926
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2443852",
+      "street": "Dieriksgroebe",
+      "number": "6C",
+      "locality": "Herent",
+      "x": 165.99,
+      "z": -223.676
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1960332",
+      "street": "Dieriksgroebe",
+      "number": "8",
+      "locality": "Herent",
+      "x": 168.04,
+      "z": -231.506
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1074644",
+      "street": "Dorpsstraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": -48.05,
+      "z": 15.354
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1403745",
+      "street": "Dorpsstraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": 33.44,
+      "z": 85.844
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/375483",
+      "street": "Dorpsstraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": -13.23,
+      "z": 67.653
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1179905",
+      "street": "Dorpsstraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": 39.76,
+      "z": 94.643
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2383896",
+      "street": "Dorpsstraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": -6.8,
+      "z": 73.294
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/754652",
+      "street": "Dorpsstraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": 50.61,
+      "z": 101.594
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/430100",
+      "street": "Dorpsstraat",
+      "number": "14A",
+      "locality": "Herent",
+      "x": 64.17,
+      "z": 108.344
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3574614",
+      "street": "Dorpsstraat",
+      "number": "14B",
+      "locality": "Herent",
+      "x": 64.17,
+      "z": 108.344
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2158119",
+      "street": "Dorpsstraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": 31.83,
+      "z": -10.677
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/506777",
+      "street": "Dorpsstraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": 73.13,
+      "z": 129.054
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1761618",
+      "street": "Dorpsstraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": 0.17,
+      "z": 85.264
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/937552",
+      "street": "Dorpsstraat",
+      "number": "18",
+      "locality": "Herent",
+      "x": 126.44,
+      "z": 177.734
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1517603",
+      "street": "Dorpsstraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": 4.0,
+      "z": 99.514
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2221977",
+      "street": "Dorpsstraat",
+      "number": "1A",
+      "locality": "Herent",
+      "x": -50.74,
+      "z": -2.086
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2348533",
+      "street": "Dorpsstraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": 6.11,
+      "z": 23.983
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31365042",
+      "street": "Dorpsstraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": 142.76,
+      "z": 190.214
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2264709",
+      "street": "Dorpsstraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": 11.52,
+      "z": 101.304
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1898740",
+      "street": "Dorpsstraat",
+      "number": "23",
+      "locality": "Herent",
+      "x": 21.14,
+      "z": 110.134
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1642308",
+      "street": "Dorpsstraat",
+      "number": "25",
+      "locality": "Herent",
+      "x": 27.93,
+      "z": 116.954
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2238963",
+      "street": "Dorpsstraat",
+      "number": "27A",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/932108",
+      "street": "Dorpsstraat",
+      "number": "27B",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2201547",
+      "street": "Dorpsstraat",
+      "number": "27C",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/894805",
+      "street": "Dorpsstraat",
+      "number": "27D",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1940830",
+      "street": "Dorpsstraat",
+      "number": "27E",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/639238",
+      "street": "Dorpsstraat",
+      "number": "27F",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1655710",
+      "street": "Dorpsstraat",
+      "number": "27G",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/329574",
+      "street": "Dorpsstraat",
+      "number": "27H",
+      "locality": "Herent",
+      "x": 46.07,
+      "z": 137.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31475126",
+      "street": "Dorpsstraat",
+      "number": "29",
+      "locality": "Herent",
+      "x": 58.24,
+      "z": 148.103
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/760416",
+      "street": "Dorpsstraat",
+      "number": "29B",
+      "locality": "Herent",
+      "x": 82.01,
+      "z": 180.614
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1354232",
+      "street": "Dorpsstraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": -42.2,
+      "z": 31.563
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2411730",
+      "street": "Dorpsstraat",
+      "number": "31",
+      "locality": "Herent",
+      "x": 90.38,
+      "z": 193.474
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/622019",
+      "street": "Dorpsstraat",
+      "number": "31A",
+      "locality": "Herent",
+      "x": 108.21,
+      "z": 223.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1687734",
+      "street": "Dorpsstraat",
+      "number": "31B",
+      "locality": "Herent",
+      "x": 111.11,
+      "z": 230.063
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2105483",
+      "street": "Dorpsstraat",
+      "number": "33",
+      "locality": "Herent",
+      "x": 115.18,
+      "z": 250.854
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/292317",
+      "street": "Dorpsstraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": 37.44,
+      "z": 54.354
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3168475",
+      "street": "Dorpsstraat",
+      "number": "4A",
+      "locality": "Herent",
+      "x": 54.88,
+      "z": 34.263
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1748162",
+      "street": "Dorpsstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": -33.91,
+      "z": 43.824
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/691582",
+      "street": "Dorpsstraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": 50.88,
+      "z": 14.334
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2007855",
+      "street": "Dorpsstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": -27.96,
+      "z": 47.654
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1025841",
+      "street": "Dorpsstraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": 22.36,
+      "z": 68.074
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2236705",
+      "street": "Dorpsstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": -23.51,
+      "z": 60.644
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1011909",
+      "street": "Duigemstraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": 581.31,
+      "z": 796.414
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/202462",
+      "street": "Duigemstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": 565.71,
+      "z": 748.874
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/542568",
+      "street": "Frans Rochettestraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": -460.44,
+      "z": 161.494
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/806103",
+      "street": "Frans Rochettestraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": -373.44,
+      "z": 214.844
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/535434",
+      "street": "Frans Rochettestraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": -351.75,
+      "z": 226.534
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3915778",
+      "street": "Frans Rochettestraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": -342.5,
+      "z": 207.323
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1878505",
+      "street": "Frans Rochettestraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": -399.27,
+      "z": 155.643
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3685055",
+      "street": "Frans Rochettestraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": -441.82,
+      "z": 168.444
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2182403",
+      "street": "Frans Rochettestraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": -382.02,
+      "z": 163.064
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1007333",
+      "street": "Frans Rochettestraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": -424.33,
+      "z": 176.504
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2449140",
+      "street": "Frans Rochettestraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": -351.68,
+      "z": 176.343
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1387050",
+      "street": "Frans Rochettestraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": -409.56,
+      "z": 189.103
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1604522",
+      "street": "Frans Rochettestraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": -390.96,
+      "z": 200.463
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/461780",
+      "street": "Heidestraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": -17.06,
+      "z": -577.157
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1981980",
+      "street": "Heidestraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": -4.29,
+      "z": -368.476
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1456680",
+      "street": "Heidestraat",
+      "number": "10A",
+      "locality": "Herent",
+      "x": -12.49,
+      "z": -355.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/984352",
+      "street": "Heidestraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": -55.51,
+      "z": -192.067
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1733257",
+      "street": "Heidestraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": -29.79,
+      "z": -345.706
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1316226",
+      "street": "Heidestraat",
+      "number": "12A",
+      "locality": "Herent",
+      "x": -27.58,
+      "z": -326.186
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/651674",
+      "street": "Heidestraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": -58.13,
+      "z": -164.336
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2516162",
+      "street": "Heidestraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": -40.46,
+      "z": -308.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/351352",
+      "street": "Heidestraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": -49.23,
+      "z": -144.526
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1018089",
+      "street": "Heidestraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": -50.17,
+      "z": -289.187
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2376829",
+      "street": "Heidestraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": -50.8,
+      "z": -120.036
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/795023",
+      "street": "Heidestraat",
+      "number": "18",
+      "locality": "Herent",
+      "x": -43.77,
+      "z": -263.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2564949",
+      "street": "Heidestraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": -41.38,
+      "z": -93.026
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2190963",
+      "street": "Heidestraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": -42.79,
+      "z": -241.827
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815800",
+      "street": "Heidestraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": -45.93,
+      "z": -66.357
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1943104",
+      "street": "Heidestraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": -32.41,
+      "z": -228.096
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815798",
+      "street": "Heidestraat",
+      "number": "23",
+      "locality": "Herent",
+      "x": -45.93,
+      "z": -66.357
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1468721",
+      "street": "Heidestraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": -34.15,
+      "z": -220.346
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1230318",
+      "street": "Heidestraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": -23.42,
+      "z": -192.236
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/939397",
+      "street": "Heidestraat",
+      "number": "28",
+      "locality": "Herent",
+      "x": -21.51,
+      "z": -173.796
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/263307",
+      "street": "Heidestraat",
+      "number": "2A",
+      "locality": "Herent",
+      "x": 42.86,
+      "z": -636.447
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1539367",
+      "street": "Heidestraat",
+      "number": "2B",
+      "locality": "Herent",
+      "x": 33.9,
+      "z": -459.706
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3769829",
+      "street": "Heidestraat",
+      "number": "2C",
+      "locality": "Herent",
+      "x": 46.08,
+      "z": -515.066
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2513195",
+      "street": "Heidestraat",
+      "number": "2D",
+      "locality": "Herent",
+      "x": 33.58,
+      "z": -486.766
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3641369",
+      "street": "Heidestraat",
+      "number": "2E",
+      "locality": "Herent",
+      "x": 92.87,
+      "z": -517.336
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/826766",
+      "street": "Heidestraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": -76.03,
+      "z": -409.626
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1731093",
+      "street": "Heidestraat",
+      "number": "30",
+      "locality": "Herent",
+      "x": -13.52,
+      "z": -145.987
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1382012",
+      "street": "Heidestraat",
+      "number": "32",
+      "locality": "Herent",
+      "x": -9.58,
+      "z": -126.507
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815801",
+      "street": "Heidestraat",
+      "number": "34",
+      "locality": "Herent",
+      "x": -14.12,
+      "z": -107.196
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815805",
+      "street": "Heidestraat",
+      "number": "36",
+      "locality": "Herent",
+      "x": -12.8,
+      "z": -97.846
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30175753",
+      "street": "Heidestraat",
+      "number": "3A",
+      "locality": "Herent",
+      "x": -39.78,
+      "z": -395.196
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20530440",
+      "street": "Heidestraat",
+      "number": "3B",
+      "locality": "Herent",
+      "x": -68.97,
+      "z": -356.847
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30175754",
+      "street": "Heidestraat",
+      "number": "3C",
+      "locality": "Herent",
+      "x": -64.23,
+      "z": -372.906
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2098261",
+      "street": "Heidestraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": 22.52,
+      "z": -415.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850359",
+      "street": "Heidestraat",
+      "number": "4A",
+      "locality": "Herent",
+      "x": 27.42,
+      "z": -439.206
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20722695",
+      "street": "Heidestraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": -73.29,
+      "z": -341.466
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3232440",
+      "street": "Heidestraat",
+      "number": "5A",
+      "locality": "Herent",
+      "x": -76.83,
+      "z": -315.026
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2407192",
+      "street": "Heidestraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": 24.42,
+      "z": -394.516
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1420665",
+      "street": "Heidestraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": -79.49,
+      "z": -280.287
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/418396",
+      "street": "Heidestraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": 0.82,
+      "z": -382.877
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1765514",
+      "street": "Heidestraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": -61.51,
+      "z": -214.606
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1631430",
+      "street": "Heidestraat",
+      "number": "9A",
+      "locality": "Herent",
+      "x": -57.27,
+      "z": -199.916
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2208754",
+      "street": "Keeromstraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": 548.0,
+      "z": -174.517
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1070989",
+      "street": "Keeromstraat",
+      "number": "1A",
+      "locality": "Herent",
+      "x": 550.66,
+      "z": -210.116
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3551666",
+      "street": "Keeromstraat",
+      "number": "1B",
+      "locality": "Herent",
+      "x": 551.29,
+      "z": -189.007
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/340183",
+      "street": "Keeromstraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": 545.59,
+      "z": -234.706
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1473766",
+      "street": "Keeromstraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": 514.35,
+      "z": -182.517
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/552443",
+      "street": "Keeromstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": 556.04,
+      "z": -271.607
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529691",
+      "street": "Keeromstraat",
+      "number": "5A",
+      "locality": "Herent",
+      "x": 600.93,
+      "z": -472.096
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1827780",
+      "street": "Keeromstraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": 523.42,
+      "z": -542.706
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1435670",
+      "street": "Klein Dalenstraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": 101.17,
+      "z": 144.224
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1742311",
+      "street": "Klein Dalenstraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": 213.28,
+      "z": 92.104
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1988529",
+      "street": "Klein Dalenstraat",
+      "number": "10A",
+      "locality": "Herent",
+      "x": 251.48,
+      "z": 138.044
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3878197",
+      "street": "Klein Dalenstraat",
+      "number": "10bis",
+      "locality": "Herent",
+      "x": 231.95,
+      "z": 119.783
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/523467",
+      "street": "Klein Dalenstraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": 134.28,
+      "z": 140.333
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3574434",
+      "street": "Klein Dalenstraat",
+      "number": "11A",
+      "locality": "Herent",
+      "x": 158.57,
+      "z": 110.663
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3581596",
+      "street": "Klein Dalenstraat",
+      "number": "11B",
+      "locality": "Herent",
+      "x": 163.56,
+      "z": 114.014
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2090573",
+      "street": "Klein Dalenstraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": 269.89,
+      "z": 162.754
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/882102",
+      "street": "Klein Dalenstraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": 170.02,
+      "z": 129.873
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30250296",
+      "street": "Klein Dalenstraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": 286.31,
+      "z": 179.214
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30250295",
+      "street": "Klein Dalenstraat",
+      "number": "14A",
+      "locality": "Herent",
+      "x": 293.81,
+      "z": 184.083
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1121586",
+      "street": "Klein Dalenstraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": 177.7,
+      "z": 142.844
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2253400",
+      "street": "Klein Dalenstraat",
+      "number": "15B",
+      "locality": "Herent",
+      "x": 206.92,
+      "z": 154.773
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/419584",
+      "street": "Klein Dalenstraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": 303.1,
+      "z": 199.343
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1072162",
+      "street": "Klein Dalenstraat",
+      "number": "16A",
+      "locality": "Herent",
+      "x": 315.62,
+      "z": 205.154
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2356472",
+      "street": "Klein Dalenstraat",
+      "number": "16B",
+      "locality": "Herent",
+      "x": 321.77,
+      "z": 209.594
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1421343",
+      "street": "Klein Dalenstraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": 218.87,
+      "z": 162.073
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/678755",
+      "street": "Klein Dalenstraat",
+      "number": "18",
+      "locality": "Herent",
+      "x": 327.86,
+      "z": 226.224
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1680253",
+      "street": "Klein Dalenstraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": 236.27,
+      "z": 179.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/405069",
+      "street": "Klein Dalenstraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": 89.2,
+      "z": 113.384
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1610490",
+      "street": "Klein Dalenstraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": 334.83,
+      "z": 230.194
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/875311",
+      "street": "Klein Dalenstraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": 248.02,
+      "z": 187.653
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3685060",
+      "street": "Klein Dalenstraat",
+      "number": "21A",
+      "locality": "Herent",
+      "x": 252.91,
+      "z": 196.623
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1894890",
+      "street": "Klein Dalenstraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": 344.65,
+      "z": 237.553
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/266317",
+      "street": "Klein Dalenstraat",
+      "number": "22A",
+      "locality": "Herent",
+      "x": 352.58,
+      "z": 247.504
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1293277",
+      "street": "Klein Dalenstraat",
+      "number": "23",
+      "locality": "Herent",
+      "x": 291.58,
+      "z": 237.434
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/707114",
+      "street": "Klein Dalenstraat",
+      "number": "23A",
+      "locality": "Herent",
+      "x": 312.27,
+      "z": 259.103
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2309632",
+      "street": "Klein Dalenstraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": 364.48,
+      "z": 246.663
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1557212",
+      "street": "Klein Dalenstraat",
+      "number": "25",
+      "locality": "Herent",
+      "x": 325.51,
+      "z": 266.914
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815816",
+      "street": "Klein Dalenstraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": 382.26,
+      "z": 260.363
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1112594",
+      "street": "Klein Dalenstraat",
+      "number": "26A",
+      "locality": "Herent",
+      "x": 451.11,
+      "z": 281.813
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2436884",
+      "street": "Klein Dalenstraat",
+      "number": "26B",
+      "locality": "Herent",
+      "x": 405.86,
+      "z": 263.344
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1811237",
+      "street": "Klein Dalenstraat",
+      "number": "27",
+      "locality": "Herent",
+      "x": 332.32,
+      "z": 269.994
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/508054",
+      "street": "Klein Dalenstraat",
+      "number": "28",
+      "locality": "Herent",
+      "x": 498.4,
+      "z": 268.314
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2073277",
+      "street": "Klein Dalenstraat",
+      "number": "29",
+      "locality": "Herent",
+      "x": 345.68,
+      "z": 281.874
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1010747",
+      "street": "Klein Dalenstraat",
+      "number": "29A",
+      "locality": "Herent",
+      "x": 381.64,
+      "z": 298.864
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/580634",
+      "street": "Klein Dalenstraat",
+      "number": "29B",
+      "locality": "Herent",
+      "x": 407.81,
+      "z": 309.464
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3355051",
+      "street": "Klein Dalenstraat",
+      "number": "29C",
+      "locality": "Herent",
+      "x": 424.05,
+      "z": 316.584
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/590061",
+      "street": "Klein Dalenstraat",
+      "number": "29D",
+      "locality": "Herent",
+      "x": 442.21,
+      "z": 326.724
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2240051",
+      "street": "Klein Dalenstraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": 104.18,
+      "z": 139.603
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2027400",
+      "street": "Klein Dalenstraat",
+      "number": "30",
+      "locality": "Herent",
+      "x": 475.69,
+      "z": 300.523
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2270083",
+      "street": "Klein Dalenstraat",
+      "number": "30A",
+      "locality": "Herent",
+      "x": 492.92,
+      "z": 302.413
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/745574",
+      "street": "Klein Dalenstraat",
+      "number": "31",
+      "locality": "Herent",
+      "x": 460.65,
+      "z": 329.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815818",
+      "street": "Klein Dalenstraat",
+      "number": "32",
+      "locality": "Herent",
+      "x": 509.3,
+      "z": 308.843
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/929437",
+      "street": "Klein Dalenstraat",
+      "number": "32A",
+      "locality": "Herent",
+      "x": 533.63,
+      "z": 313.273
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1772923",
+      "street": "Klein Dalenstraat",
+      "number": "32B",
+      "locality": "Herent",
+      "x": 551.7,
+      "z": 319.693
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1156762",
+      "street": "Klein Dalenstraat",
+      "number": "33",
+      "locality": "Herent",
+      "x": 479.94,
+      "z": 326.704
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/424161",
+      "street": "Klein Dalenstraat",
+      "number": "34",
+      "locality": "Herent",
+      "x": 627.93,
+      "z": 225.624
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1435669",
+      "street": "Klein Dalenstraat",
+      "number": "35",
+      "locality": "Herent",
+      "x": 487.79,
+      "z": 333.514
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20851980",
+      "street": "Klein Dalenstraat",
+      "number": "35A",
+      "locality": "Herent",
+      "x": 499.5,
+      "z": 341.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/655351",
+      "street": "Klein Dalenstraat",
+      "number": "36",
+      "locality": "Herent",
+      "x": 674.12,
+      "z": 358.094
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1671125",
+      "street": "Klein Dalenstraat",
+      "number": "37",
+      "locality": "Herent",
+      "x": 514.79,
+      "z": 347.894
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/962693",
+      "street": "Klein Dalenstraat",
+      "number": "38",
+      "locality": "Herent",
+      "x": 680.05,
+      "z": 358.903
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1977441",
+      "street": "Klein Dalenstraat",
+      "number": "39",
+      "locality": "Herent",
+      "x": 539.55,
+      "z": 348.543
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3878734",
+      "street": "Klein Dalenstraat",
+      "number": "39A",
+      "locality": "Herent",
+      "x": 553.69,
+      "z": 360.424
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2504400",
+      "street": "Klein Dalenstraat",
+      "number": "39D",
+      "locality": "Herent",
+      "x": 622.05,
+      "z": 384.694
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1244298",
+      "street": "Klein Dalenstraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": 100.15,
+      "z": 95.574
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2074950",
+      "street": "Klein Dalenstraat",
+      "number": "40",
+      "locality": "Herent",
+      "x": 694.9,
+      "z": 364.203
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/647402",
+      "street": "Klein Dalenstraat",
+      "number": "40A",
+      "locality": "Herent",
+      "x": 731.92,
+      "z": 308.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/836342",
+      "street": "Klein Dalenstraat",
+      "number": "41",
+      "locality": "Herent",
+      "x": 651.17,
+      "z": 395.853
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2240910",
+      "street": "Klein Dalenstraat",
+      "number": "42",
+      "locality": "Herent",
+      "x": 698.97,
+      "z": 514.433
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807615",
+      "street": "Klein Dalenstraat",
+      "number": "42B",
+      "locality": "Herent",
+      "x": 698.97,
+      "z": 514.433
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3913057",
+      "street": "Klein Dalenstraat",
+      "number": "44",
+      "locality": "Herent",
+      "x": 755.63,
+      "z": 549.384
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1896938",
+      "street": "Klein Dalenstraat",
+      "number": "45",
+      "locality": "Herent",
+      "x": 624.43,
+      "z": 561.533
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31321840",
+      "street": "Klein Dalenstraat",
+      "number": "45A",
+      "locality": "Herent",
+      "x": 645.76,
+      "z": 539.934
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/574564",
+      "street": "Klein Dalenstraat",
+      "number": "46",
+      "locality": "Herent",
+      "x": 760.93,
+      "z": 604.683
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/335129",
+      "street": "Klein Dalenstraat",
+      "number": "48",
+      "locality": "Herent",
+      "x": 674.73,
+      "z": 554.854
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1956996",
+      "street": "Klein Dalenstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": 114.82,
+      "z": 123.814
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2035148",
+      "street": "Klein Dalenstraat",
+      "number": "50",
+      "locality": "Herent",
+      "x": 669.98,
+      "z": 571.354
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/378268",
+      "street": "Klein Dalenstraat",
+      "number": "52",
+      "locality": "Herent",
+      "x": 664.0,
+      "z": 591.953
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1077309",
+      "street": "Klein Dalenstraat",
+      "number": "56",
+      "locality": "Herent",
+      "x": 645.93,
+      "z": 632.553
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/894782",
+      "street": "Klein Dalenstraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": 114.1,
+      "z": 82.373
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1321658",
+      "street": "Klein Dalenstraat",
+      "number": "6A",
+      "locality": "Herent",
+      "x": 131.89,
+      "z": 45.833
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/482338",
+      "street": "Klein Dalenstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": 113.54,
+      "z": 116.584
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1826253",
+      "street": "Klein Dalenstraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": 150.24,
+      "z": 60.754
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721572",
+      "street": "Klein Dalenstraat",
+      "number": "8B",
+      "locality": "Herent",
+      "x": 190.2,
+      "z": 76.164
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/275084",
+      "street": "Klein Dalenstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": 117.14,
+      "z": 110.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2154224",
+      "street": "Klein Dalenstraat",
+      "number": "9A",
+      "locality": "Herent",
+      "x": 138.36,
+      "z": 94.184
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3878733",
+      "street": "Klein Dalenstraat",
+      "number": "9B",
+      "locality": "Herent",
+      "x": 126.64,
+      "z": 105.294
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3823619",
+      "street": "Kleine Spekstraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": -520.76,
+      "z": 718.274
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3823186",
+      "street": "Kleine Spekstraat",
+      "number": "2A",
+      "locality": "Herent",
+      "x": -497.31,
+      "z": 692.433
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1643507",
+      "street": "Kroonstraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": -891.34,
+      "z": 206.034
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/726115",
+      "street": "Kroonstraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": -897.01,
+      "z": 204.474
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1279853",
+      "street": "Kroonstraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": -912.98,
+      "z": 200.953
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/560141",
+      "street": "Kroonstraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": -855.25,
+      "z": 227.664
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529705",
+      "street": "Kroonstraat",
+      "number": "2A",
+      "locality": "Herent",
+      "x": -855.25,
+      "z": 227.664
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721573",
+      "street": "Kroonstraat",
+      "number": "2B",
+      "locality": "Herent",
+      "x": -855.25,
+      "z": 227.664
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1123719",
+      "street": "Kroonstraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": -843.46,
+      "z": 201.133
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1945883",
+      "street": "Kroonstraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": -864.85,
+      "z": 222.033
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1189363",
+      "street": "Kroonstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": -864.58,
+      "z": 192.034
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/338385",
+      "street": "Kroonstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": -876.93,
+      "z": 186.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1345615",
+      "street": "Kroonstraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": -884.63,
+      "z": 211.724
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/589583",
+      "street": "Kroonstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": -883.92,
+      "z": 179.244
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3552056",
+      "street": "Lenneke Mare",
+      "number": "1",
+      "locality": "Herent",
+      "x": 267.54,
+      "z": 212.414
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3562699",
+      "street": "Lenneke Mare",
+      "number": "10",
+      "locality": "Herent",
+      "x": 249.71,
+      "z": 325.194
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3683367",
+      "street": "Lenneke Mare",
+      "number": "11",
+      "locality": "Herent",
+      "x": 205.59,
+      "z": 310.404
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529707",
+      "street": "Lenneke Mare",
+      "number": "12",
+      "locality": "Herent",
+      "x": 238.81,
+      "z": 340.564
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721575",
+      "street": "Lenneke Mare",
+      "number": "13",
+      "locality": "Herent",
+      "x": 201.9,
+      "z": 317.114
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3597657",
+      "street": "Lenneke Mare",
+      "number": "2",
+      "locality": "Herent",
+      "x": 271.7,
+      "z": 266.814
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3574112",
+      "street": "Lenneke Mare",
+      "number": "4",
+      "locality": "Herent",
+      "x": 261.36,
+      "z": 279.273
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721574",
+      "street": "Lenneke Mare",
+      "number": "5",
+      "locality": "Herent",
+      "x": 244.04,
+      "z": 248.923
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3592209",
+      "street": "Lenneke Mare",
+      "number": "6",
+      "locality": "Herent",
+      "x": 256.18,
+      "z": 287.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3692488",
+      "street": "Lenneke Mare",
+      "number": "7",
+      "locality": "Herent",
+      "x": 226.29,
+      "z": 275.724
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3541624",
+      "street": "Lenneke Mare",
+      "number": "8",
+      "locality": "Herent",
+      "x": 259.37,
+      "z": 309.963
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20640874",
+      "street": "Lenneke Mare",
+      "number": "9",
+      "locality": "Herent",
+      "x": 215.49,
+      "z": 294.413
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30345045",
+      "street": "Lipselaan",
+      "number": "1",
+      "locality": "Herent",
+      "x": 112.36,
+      "z": 619.354
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/436519",
+      "street": "Lipselaan",
+      "number": "10",
+      "locality": "Herent",
+      "x": 117.05,
+      "z": 739.334
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1402324",
+      "street": "Lipselaan",
+      "number": "11",
+      "locality": "Herent",
+      "x": 61.34,
+      "z": 754.673
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1270084",
+      "street": "Lipselaan",
+      "number": "12",
+      "locality": "Herent",
+      "x": 105.34,
+      "z": 760.524
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2200856",
+      "street": "Lipselaan",
+      "number": "13",
+      "locality": "Herent",
+      "x": 44.11,
+      "z": 782.084
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807631",
+      "street": "Lipselaan",
+      "number": "14",
+      "locality": "Herent",
+      "x": 96.45,
+      "z": 781.344
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30345044",
+      "street": "Lipselaan",
+      "number": "1A",
+      "locality": "Herent",
+      "x": 108.08,
+      "z": 633.034
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3265171",
+      "street": "Lipselaan",
+      "number": "2",
+      "locality": "Herent",
+      "x": 151.41,
+      "z": 624.253
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/344005",
+      "street": "Lipselaan",
+      "number": "3",
+      "locality": "Herent",
+      "x": 105.65,
+      "z": 651.874
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2504248",
+      "street": "Lipselaan",
+      "number": "5",
+      "locality": "Herent",
+      "x": 99.21,
+      "z": 669.164
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1649450",
+      "street": "Lipselaan",
+      "number": "6",
+      "locality": "Herent",
+      "x": 133.76,
+      "z": 683.444
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2131307",
+      "street": "Lipselaan",
+      "number": "7",
+      "locality": "Herent",
+      "x": 93.6,
+      "z": 691.254
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/793727",
+      "street": "Lipselaan",
+      "number": "8",
+      "locality": "Herent",
+      "x": 125.19,
+      "z": 703.354
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2424668",
+      "street": "Lipselaan",
+      "number": "9",
+      "locality": "Herent",
+      "x": 76.89,
+      "z": 722.604
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1217305",
+      "street": "Neerijsestraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": 30.32,
+      "z": 176.583
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1525073",
+      "street": "Neerijsestraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": 12.91,
+      "z": 221.484
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/371454",
+      "street": "Neerijsestraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": -71.06,
+      "z": 225.174
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1251657",
+      "street": "Neerijsestraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": 1.93,
+      "z": 223.494
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2211434",
+      "street": "Neerijsestraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": -71.0,
+      "z": 228.234
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/934270",
+      "street": "Neerijsestraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": -4.91,
+      "z": 226.274
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2560783",
+      "street": "Neerijsestraat",
+      "number": "14A",
+      "locality": "Herent",
+      "x": -22.0,
+      "z": 231.433
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/626510",
+      "street": "Neerijsestraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": -95.39,
+      "z": 276.954
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/285360",
+      "street": "Neerijsestraat",
+      "number": "16A",
+      "locality": "Herent",
+      "x": -119.1,
+      "z": 300.194
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1616212",
+      "street": "Neerijsestraat",
+      "number": "16B",
+      "locality": "Herent",
+      "x": -142.84,
+      "z": 319.854
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1720550",
+      "street": "Neerijsestraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": -110.76,
+      "z": 253.714
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1305264",
+      "street": "Neerijsestraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": -72.22,
+      "z": 254.654
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31475136",
+      "street": "Neerijsestraat",
+      "number": "1A",
+      "locality": "Herent",
+      "x": 47.49,
+      "z": 162.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1428992",
+      "street": "Neerijsestraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": -49.6,
+      "z": 248.064
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3310250",
+      "street": "Neerijsestraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": -39.41,
+      "z": 263.493
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2078015",
+      "street": "Neerijsestraat",
+      "number": "23",
+      "locality": "Herent",
+      "x": -63.01,
+      "z": 281.693
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/750981",
+      "street": "Neerijsestraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": -28.86,
+      "z": 276.814
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1772138",
+      "street": "Neerijsestraat",
+      "number": "25",
+      "locality": "Herent",
+      "x": -60.53,
+      "z": 305.174
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/479121",
+      "street": "Neerijsestraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": -17.24,
+      "z": 291.764
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1508245",
+      "street": "Neerijsestraat",
+      "number": "27",
+      "locality": "Herent",
+      "x": -55.21,
+      "z": 310.964
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1168912",
+      "street": "Neerijsestraat",
+      "number": "29",
+      "locality": "Herent",
+      "x": -38.79,
+      "z": 316.653
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3355449",
+      "street": "Neerijsestraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": 5.51,
+      "z": 189.254
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807618",
+      "street": "Neerijsestraat",
+      "number": "30",
+      "locality": "Herent",
+      "x": 0.76,
+      "z": 310.404
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2248983",
+      "street": "Neerijsestraat",
+      "number": "31",
+      "locality": "Herent",
+      "x": -25.27,
+      "z": 328.693
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/960611",
+      "street": "Neerijsestraat",
+      "number": "32",
+      "locality": "Herent",
+      "x": 11.16,
+      "z": 323.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2048194",
+      "street": "Neerijsestraat",
+      "number": "33",
+      "locality": "Herent",
+      "x": -13.16,
+      "z": 335.174
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/608630",
+      "street": "Neerijsestraat",
+      "number": "34",
+      "locality": "Herent",
+      "x": 22.55,
+      "z": 329.143
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1620039",
+      "street": "Neerijsestraat",
+      "number": "35",
+      "locality": "Herent",
+      "x": -9.77,
+      "z": 338.734
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/341984",
+      "street": "Neerijsestraat",
+      "number": "36",
+      "locality": "Herent",
+      "x": 22.55,
+      "z": 329.143
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30360969",
+      "street": "Neerijsestraat",
+      "number": "37",
+      "locality": "Herent",
+      "x": 81.86,
+      "z": 343.744
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2361011",
+      "street": "Neerijsestraat",
+      "number": "38",
+      "locality": "Herent",
+      "x": 28.18,
+      "z": 333.694
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/254559",
+      "street": "Neerijsestraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": 52.15,
+      "z": 188.553
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1476496",
+      "street": "Neerijsestraat",
+      "number": "40",
+      "locality": "Herent",
+      "x": 31.79,
+      "z": 336.503
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30020677",
+      "street": "Neerijsestraat",
+      "number": "42",
+      "locality": "Herent",
+      "x": 55.29,
+      "z": 338.254
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3867199",
+      "street": "Neerijsestraat",
+      "number": "46",
+      "locality": "Herent",
+      "x": 65.77,
+      "z": 295.124
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3867200",
+      "street": "Neerijsestraat",
+      "number": "48",
+      "locality": "Herent",
+      "x": 59.33,
+      "z": 289.683
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3318036",
+      "street": "Neerijsestraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": -8.47,
+      "z": 196.524
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3879717",
+      "street": "Neerijsestraat",
+      "number": "53",
+      "locality": "Herent",
+      "x": 86.68,
+      "z": 270.184
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3879718",
+      "street": "Neerijsestraat",
+      "number": "55",
+      "locality": "Herent",
+      "x": 80.13,
+      "z": 264.663
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/543263",
+      "street": "Neerijsestraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": 29.36,
+      "z": 208.294
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807619",
+      "street": "Neerijsestraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": -25.76,
+      "z": 203.694
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1122837",
+      "street": "Neerijsestraat",
+      "number": "7A",
+      "locality": "Herent",
+      "x": -40.0,
+      "z": 207.714
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2372010",
+      "street": "Neerijsestraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": -46.31,
+      "z": 210.444
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/992639",
+      "street": "Nieuwe steenweg",
+      "number": "1",
+      "locality": "Herent",
+      "x": 101.16,
+      "z": -664.566
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1399725",
+      "street": "Nieuwe steenweg",
+      "number": "10",
+      "locality": "Herent",
+      "x": 263.01,
+      "z": -617.186
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1042463",
+      "street": "Nieuwe steenweg",
+      "number": "10A",
+      "locality": "Herent",
+      "x": 255.55,
+      "z": -544.897
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/391866",
+      "street": "Nieuwe steenweg",
+      "number": "11",
+      "locality": "Herent",
+      "x": 192.55,
+      "z": -434.557
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1142097",
+      "street": "Nieuwe steenweg",
+      "number": "12",
+      "locality": "Herent",
+      "x": 263.77,
+      "z": -514.017
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2351314",
+      "street": "Nieuwe steenweg",
+      "number": "13",
+      "locality": "Herent",
+      "x": 200.16,
+      "z": -420.556
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/415670",
+      "street": "Nieuwe steenweg",
+      "number": "13A",
+      "locality": "Herent",
+      "x": 189.93,
+      "z": -363.366
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1447313",
+      "street": "Nieuwe steenweg",
+      "number": "13B",
+      "locality": "Herent",
+      "x": 179.65,
+      "z": -326.106
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/426913",
+      "street": "Nieuwe steenweg",
+      "number": "13C",
+      "locality": "Herent",
+      "x": 188.81,
+      "z": -393.596
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30086540",
+      "street": "Nieuwe steenweg",
+      "number": "14",
+      "locality": "Herent",
+      "x": 248.71,
+      "z": -496.466
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30086539",
+      "street": "Nieuwe steenweg",
+      "number": "14A",
+      "locality": "Herent",
+      "x": 246.83,
+      "z": -480.967
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3912753",
+      "street": "Nieuwe steenweg",
+      "number": "15",
+      "locality": "Herent",
+      "x": 157.58,
+      "z": -330.266
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/489586",
+      "street": "Nieuwe steenweg",
+      "number": "16",
+      "locality": "Herent",
+      "x": 257.36,
+      "z": -453.167
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1749616",
+      "street": "Nieuwe steenweg",
+      "number": "17",
+      "locality": "Herent",
+      "x": 133.84,
+      "z": -324.636
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/322312",
+      "street": "Nieuwe steenweg",
+      "number": "18",
+      "locality": "Herent",
+      "x": 240.48,
+      "z": -439.466
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2073932",
+      "street": "Nieuwe steenweg",
+      "number": "18A",
+      "locality": "Herent",
+      "x": 240.28,
+      "z": -421.886
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30285381",
+      "street": "Nieuwe steenweg",
+      "number": "18B",
+      "locality": "Herent",
+      "x": 237.24,
+      "z": -404.766
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1575098",
+      "street": "Nieuwe steenweg",
+      "number": "19",
+      "locality": "Herent",
+      "x": 116.71,
+      "z": -300.916
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2209837",
+      "street": "Nieuwe steenweg",
+      "number": "1A",
+      "locality": "Herent",
+      "x": 170.92,
+      "z": -714.236
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/822520",
+      "street": "Nieuwe steenweg",
+      "number": "1B",
+      "locality": "Herent",
+      "x": 90.28,
+      "z": -635.996
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2356274",
+      "street": "Nieuwe steenweg",
+      "number": "2",
+      "locality": "Herent",
+      "x": 161.19,
+      "z": -675.047
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1524785",
+      "street": "Nieuwe steenweg",
+      "number": "20",
+      "locality": "Herent",
+      "x": 229.72,
+      "z": -375.267
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2330334",
+      "street": "Nieuwe steenweg",
+      "number": "21",
+      "locality": "Herent",
+      "x": 62.89,
+      "z": -160.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1297566",
+      "street": "Nieuwe steenweg",
+      "number": "22",
+      "locality": "Herent",
+      "x": 229.89,
+      "z": -359.707
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/960344",
+      "street": "Nieuwe steenweg",
+      "number": "24",
+      "locality": "Herent",
+      "x": 223.69,
+      "z": -346.866
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/637456",
+      "street": "Nieuwe steenweg",
+      "number": "26",
+      "locality": "Herent",
+      "x": 221.44,
+      "z": -331.666
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2455970",
+      "street": "Nieuwe steenweg",
+      "number": "26A",
+      "locality": "Herent",
+      "x": 219.42,
+      "z": -317.237
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1156421",
+      "street": "Nieuwe steenweg",
+      "number": "26B",
+      "locality": "Herent",
+      "x": 213.89,
+      "z": -295.897
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1334957",
+      "street": "Nieuwe steenweg",
+      "number": "3",
+      "locality": "Herent",
+      "x": 105.19,
+      "z": -606.016
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1176147",
+      "street": "Nieuwe steenweg",
+      "number": "30",
+      "locality": "Herent",
+      "x": 173.88,
+      "z": -283.656
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/755261",
+      "street": "Nieuwe steenweg",
+      "number": "32",
+      "locality": "Herent",
+      "x": 146.45,
+      "z": -281.657
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/556631",
+      "street": "Nieuwe steenweg",
+      "number": "32A",
+      "locality": "Herent",
+      "x": 107.77,
+      "z": -171.896
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1591561",
+      "street": "Nieuwe steenweg",
+      "number": "32B",
+      "locality": "Herent",
+      "x": 110.47,
+      "z": -190.137
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/387863",
+      "street": "Nieuwe steenweg",
+      "number": "32C",
+      "locality": "Herent",
+      "x": 115.6,
+      "z": -208.067
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3355189",
+      "street": "Nieuwe steenweg",
+      "number": "32D",
+      "locality": "Herent",
+      "x": 119.18,
+      "z": -227.126
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2318237",
+      "street": "Nieuwe steenweg",
+      "number": "32E",
+      "locality": "Herent",
+      "x": 125.31,
+      "z": -243.896
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/474833",
+      "street": "Nieuwe steenweg",
+      "number": "34",
+      "locality": "Herent",
+      "x": 92.34,
+      "z": -158.367
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/294207",
+      "street": "Nieuwe steenweg",
+      "number": "36",
+      "locality": "Herent",
+      "x": 89.68,
+      "z": -136.296
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2203686",
+      "street": "Nieuwe steenweg",
+      "number": "38",
+      "locality": "Herent",
+      "x": 85.41,
+      "z": -126.387
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1911224",
+      "street": "Nieuwe steenweg",
+      "number": "38A",
+      "locality": "Herent",
+      "x": 103.27,
+      "z": -121.136
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/331851",
+      "street": "Nieuwe steenweg",
+      "number": "4",
+      "locality": "Herent",
+      "x": 148.7,
+      "z": -635.216
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1000776",
+      "street": "Nieuwe steenweg",
+      "number": "40",
+      "locality": "Herent",
+      "x": 78.93,
+      "z": -105.166
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1687267",
+      "street": "Nieuwe steenweg",
+      "number": "5",
+      "locality": "Herent",
+      "x": 144.87,
+      "z": -558.146
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/667215",
+      "street": "Nieuwe steenweg",
+      "number": "6",
+      "locality": "Herent",
+      "x": 148.83,
+      "z": -614.347
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2011490",
+      "street": "Nieuwe steenweg",
+      "number": "7",
+      "locality": "Herent",
+      "x": 190.4,
+      "z": -559.017
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1377549",
+      "street": "Nieuwe steenweg",
+      "number": "7A",
+      "locality": "Herent",
+      "x": 206.76,
+      "z": -518.787
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/389299",
+      "street": "Nieuwe steenweg",
+      "number": "7B",
+      "locality": "Herent",
+      "x": 206.8,
+      "z": -499.297
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1100717",
+      "street": "Nieuwe steenweg",
+      "number": "8",
+      "locality": "Herent",
+      "x": 156.35,
+      "z": -595.937
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30001427",
+      "street": "Nieuwe steenweg",
+      "number": "8A",
+      "locality": "Herent",
+      "x": 195.79,
+      "z": -602.736
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850378",
+      "street": "Nieuwe steenweg",
+      "number": "8B",
+      "locality": "Herent",
+      "x": 195.79,
+      "z": -602.736
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30001431",
+      "street": "Nieuwe steenweg",
+      "number": "8C",
+      "locality": "Herent",
+      "x": 195.79,
+      "z": -602.736
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30001434",
+      "street": "Nieuwe steenweg",
+      "number": "8D",
+      "locality": "Herent",
+      "x": 195.79,
+      "z": -602.736
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850388",
+      "street": "Nieuwe steenweg",
+      "number": "8E",
+      "locality": "Herent",
+      "x": 198.15,
+      "z": -639.576
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850386",
+      "street": "Nieuwe steenweg",
+      "number": "8F",
+      "locality": "Herent",
+      "x": 198.15,
+      "z": -639.576
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850384",
+      "street": "Nieuwe steenweg",
+      "number": "8G",
+      "locality": "Herent",
+      "x": 198.15,
+      "z": -639.576
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850383",
+      "street": "Nieuwe steenweg",
+      "number": "8H",
+      "locality": "Herent",
+      "x": 198.15,
+      "z": -639.576
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850399",
+      "street": "Nieuwe steenweg",
+      "number": "8I",
+      "locality": "Herent",
+      "x": 225.62,
+      "z": -658.856
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850398",
+      "street": "Nieuwe steenweg",
+      "number": "8J",
+      "locality": "Herent",
+      "x": 225.62,
+      "z": -658.856
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850397",
+      "street": "Nieuwe steenweg",
+      "number": "8K",
+      "locality": "Herent",
+      "x": 225.62,
+      "z": -658.856
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850400",
+      "street": "Nieuwe steenweg",
+      "number": "8L",
+      "locality": "Herent",
+      "x": 225.62,
+      "z": -658.856
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850395",
+      "street": "Nieuwe steenweg",
+      "number": "8M",
+      "locality": "Herent",
+      "x": 259.8,
+      "z": -664.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850394",
+      "street": "Nieuwe steenweg",
+      "number": "8N",
+      "locality": "Herent",
+      "x": 259.8,
+      "z": -664.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850393",
+      "street": "Nieuwe steenweg",
+      "number": "8O",
+      "locality": "Herent",
+      "x": 259.8,
+      "z": -664.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850375",
+      "street": "Nieuwe steenweg",
+      "number": "8Q",
+      "locality": "Herent",
+      "x": 230.35,
+      "z": -590.176
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850372",
+      "street": "Nieuwe steenweg",
+      "number": "8R",
+      "locality": "Herent",
+      "x": 230.35,
+      "z": -590.176
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850374",
+      "street": "Nieuwe steenweg",
+      "number": "8S",
+      "locality": "Herent",
+      "x": 230.35,
+      "z": -590.176
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850376",
+      "street": "Nieuwe steenweg",
+      "number": "8T",
+      "locality": "Herent",
+      "x": 230.35,
+      "z": -590.176
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2344735",
+      "street": "Nieuwe steenweg",
+      "number": "9",
+      "locality": "Herent",
+      "x": 206.33,
+      "z": -481.476
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1061776",
+      "street": "Nieuwe steenweg",
+      "number": "9A",
+      "locality": "Herent",
+      "x": 197.18,
+      "z": -453.266
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2487169",
+      "street": "Paardenveldstraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": 162.69,
+      "z": -482.306
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3844468",
+      "street": "Paardenveldstraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": 103.6,
+      "z": -379.987
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31313613",
+      "street": "Paardenveldstraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": 85.14,
+      "z": -315.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2318569",
+      "street": "Paardenveldstraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": 60.47,
+      "z": -285.937
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/208077",
+      "street": "Paardenveldstraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": 75.68,
+      "z": -267.207
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/534048",
+      "street": "Paardenveldstraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": 71.07,
+      "z": -252.226
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1534906",
+      "street": "Paardenveldstraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": 203.62,
+      "z": -681.627
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2277819",
+      "street": "Paardenveldstraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": 69.95,
+      "z": -224.637
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/407942",
+      "street": "Paardenveldstraat",
+      "number": "25",
+      "locality": "Herent",
+      "x": 61.11,
+      "z": -179.077
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3853171",
+      "street": "Paardenveldstraat",
+      "number": "2A",
+      "locality": "Herent",
+      "x": 198.1,
+      "z": -700.216
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/757594",
+      "street": "Paardenveldstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": 121.76,
+      "z": -471.546
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1627070",
+      "street": "Paardenveldstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": 113.5,
+      "z": -443.366
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/660845",
+      "street": "Paardenveldstraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": 167.81,
+      "z": -503.856
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1343878",
+      "street": "Paardenveldstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": 106.92,
+      "z": -410.127
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1983673",
+      "street": "Rijkestraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": -8.04,
+      "z": 412.054
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2246555",
+      "street": "Rijkestraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": -22.6,
+      "z": 424.283
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/411070",
+      "street": "Rijkestraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": -310.62,
+      "z": 390.973
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1400782",
+      "street": "Rijkestraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": -30.73,
+      "z": 446.234
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1750109",
+      "street": "Rijkestraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": -42.24,
+      "z": 472.233
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2099796",
+      "street": "Rijkestraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": -42.24,
+      "z": 472.233
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/792829",
+      "street": "Rijkestraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": 31.02,
+      "z": 414.554
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1118760",
+      "street": "Rijkestraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": 18.94,
+      "z": 417.234
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/259072",
+      "street": "Rijkestraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": 9.85,
+      "z": 431.894
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/628477",
+      "street": "Rijkestraat",
+      "number": "28",
+      "locality": "Herent",
+      "x": 7.21,
+      "z": 442.704
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1001299",
+      "street": "Rijkestraat",
+      "number": "30",
+      "locality": "Herent",
+      "x": 1.19,
+      "z": 448.854
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807617",
+      "street": "Rijkestraat",
+      "number": "30A",
+      "locality": "Herent",
+      "x": -2.72,
+      "z": 455.823
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1259372",
+      "street": "Rijkestraat",
+      "number": "32",
+      "locality": "Herent",
+      "x": 2.04,
+      "z": 475.084
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3791611",
+      "street": "Rijkestraat",
+      "number": "34",
+      "locality": "Herent",
+      "x": -13.25,
+      "z": 478.173
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807616",
+      "street": "Rijkestraat",
+      "number": "36",
+      "locality": "Herent",
+      "x": -19.7,
+      "z": 491.073
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/452900",
+      "street": "Sint-Jobsweg",
+      "number": "1",
+      "locality": "Herent",
+      "x": 25.02,
+      "z": 657.584
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2051641",
+      "street": "Sint-Jobsweg",
+      "number": "10",
+      "locality": "Herent",
+      "x": 8.28,
+      "z": 699.814
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1699529",
+      "street": "Sint-Jobsweg",
+      "number": "12",
+      "locality": "Herent",
+      "x": -5.16,
+      "z": 692.004
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1337859",
+      "street": "Sint-Jobsweg",
+      "number": "14",
+      "locality": "Herent",
+      "x": -21.84,
+      "z": 685.403
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1126144",
+      "street": "Sint-Jobsweg",
+      "number": "16",
+      "locality": "Herent",
+      "x": -41.71,
+      "z": 679.293
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721582",
+      "street": "Sint-Jobsweg",
+      "number": "18",
+      "locality": "Herent",
+      "x": -35.26,
+      "z": 646.614
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3558644",
+      "street": "Sint-Jobsweg",
+      "number": "1A",
+      "locality": "Herent",
+      "x": 42.57,
+      "z": 667.904
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19054908",
+      "street": "Sint-Jobsweg",
+      "number": "22",
+      "locality": "Herent",
+      "x": -20.68,
+      "z": 609.043
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/806094",
+      "street": "Sint-Jobsweg",
+      "number": "3",
+      "locality": "Herent",
+      "x": -1.39,
+      "z": 650.034
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2050174",
+      "street": "Sint-Jobsweg",
+      "number": "4",
+      "locality": "Herent",
+      "x": 55.49,
+      "z": 704.584
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2375307",
+      "street": "Sint-Jobsweg",
+      "number": "6",
+      "locality": "Herent",
+      "x": 45.29,
+      "z": 698.764
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/366952",
+      "street": "Sint-Jobsweg",
+      "number": "8",
+      "locality": "Herent",
+      "x": 26.58,
+      "z": 701.144
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30254804",
+      "street": "Speelbergweg",
+      "number": "10",
+      "locality": "Herent",
+      "x": -864.45,
+      "z": 155.154
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30254805",
+      "street": "Speelbergweg",
+      "number": "10A",
+      "locality": "Herent",
+      "x": -855.37,
+      "z": 155.064
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1121186",
+      "street": "Speelbergweg",
+      "number": "11",
+      "locality": "Herent",
+      "x": -849.55,
+      "z": 122.384
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/434369",
+      "street": "Speelbergweg",
+      "number": "12",
+      "locality": "Herent",
+      "x": -837.13,
+      "z": 156.644
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1415437",
+      "street": "Speelbergweg",
+      "number": "13",
+      "locality": "Herent",
+      "x": -843.56,
+      "z": 123.424
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1565119",
+      "street": "Speelbergweg",
+      "number": "15",
+      "locality": "Herent",
+      "x": -830.34,
+      "z": 130.333
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/903199",
+      "street": "Speelbergweg",
+      "number": "16",
+      "locality": "Herent",
+      "x": -816.38,
+      "z": 157.673
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2049611",
+      "street": "Speelbergweg",
+      "number": "17",
+      "locality": "Herent",
+      "x": -829.4,
+      "z": 65.663
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1230113",
+      "street": "Speelbergweg",
+      "number": "18",
+      "locality": "Herent",
+      "x": -798.34,
+      "z": 158.464
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/770271",
+      "street": "Speelbergweg",
+      "number": "2",
+      "locality": "Herent",
+      "x": -920.32,
+      "z": 158.303
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2344983",
+      "street": "Speelbergweg",
+      "number": "20",
+      "locality": "Herent",
+      "x": -792.97,
+      "z": 167.614
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1805636",
+      "street": "Speelbergweg",
+      "number": "23",
+      "locality": "Herent",
+      "x": -783.45,
+      "z": 136.304
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2029634",
+      "street": "Speelbergweg",
+      "number": "25",
+      "locality": "Herent",
+      "x": -777.96,
+      "z": 136.474
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2356219",
+      "street": "Speelbergweg",
+      "number": "27",
+      "locality": "Herent",
+      "x": -761.86,
+      "z": 117.394
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1918774",
+      "street": "Speelbergweg",
+      "number": "27A",
+      "locality": "Herent",
+      "x": -761.86,
+      "z": 117.394
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30071041",
+      "street": "Speelbergweg",
+      "number": "28",
+      "locality": "Herent",
+      "x": -737.07,
+      "z": 186.714
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/361971",
+      "street": "Speelbergweg",
+      "number": "29",
+      "locality": "Herent",
+      "x": -751.79,
+      "z": 146.264
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/606973",
+      "street": "Speelbergweg",
+      "number": "3",
+      "locality": "Herent",
+      "x": -921.01,
+      "z": 124.553
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3751261",
+      "street": "Speelbergweg",
+      "number": "30",
+      "locality": "Herent",
+      "x": -707.33,
+      "z": 197.914
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3044244",
+      "street": "Speelbergweg",
+      "number": "31",
+      "locality": "Herent",
+      "x": -741.93,
+      "z": 148.484
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1651526",
+      "street": "Speelbergweg",
+      "number": "33",
+      "locality": "Herent",
+      "x": -733.89,
+      "z": 151.934
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1887665",
+      "street": "Speelbergweg",
+      "number": "35",
+      "locality": "Herent",
+      "x": -727.97,
+      "z": 153.134
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2208982",
+      "street": "Speelbergweg",
+      "number": "37",
+      "locality": "Herent",
+      "x": -720.45,
+      "z": 155.564
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/211266",
+      "street": "Speelbergweg",
+      "number": "39",
+      "locality": "Herent",
+      "x": -710.86,
+      "z": 168.824
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1627500",
+      "street": "Speelbergweg",
+      "number": "4",
+      "locality": "Herent",
+      "x": -904.92,
+      "z": 159.063
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/374502",
+      "street": "Speelbergweg",
+      "number": "5",
+      "locality": "Herent",
+      "x": -904.05,
+      "z": 123.194
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1365748",
+      "street": "Speelbergweg",
+      "number": "6",
+      "locality": "Herent",
+      "x": -897.94,
+      "z": 158.484
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2571309",
+      "street": "Speelbergweg",
+      "number": "7",
+      "locality": "Herent",
+      "x": -886.35,
+      "z": 121.423
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1115072",
+      "street": "Speelbergweg",
+      "number": "9",
+      "locality": "Herent",
+      "x": -869.31,
+      "z": 129.864
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2000641",
+      "street": "Stationsplein",
+      "number": "12",
+      "locality": "Herent",
+      "x": -761.81,
+      "z": 227.063
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/892587",
+      "street": "Stationsplein",
+      "number": "13",
+      "locality": "Herent",
+      "x": -751.98,
+      "z": 218.554
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3291338",
+      "street": "Stationsplein",
+      "number": "13A",
+      "locality": "Herent",
+      "x": -751.98,
+      "z": 218.554
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/974971",
+      "street": "Stationsplein",
+      "number": "6",
+      "locality": "Herent",
+      "x": -810.32,
+      "z": 221.933
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1671995",
+      "street": "Stationsplein",
+      "number": "7",
+      "locality": "Herent",
+      "x": -800.15,
+      "z": 217.134
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/648456",
+      "street": "Stationsplein",
+      "number": "8",
+      "locality": "Herent",
+      "x": -792.16,
+      "z": 223.793
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1441988",
+      "street": "Stationsplein",
+      "number": "9",
+      "locality": "Herent",
+      "x": -785.11,
+      "z": 225.404
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2115596",
+      "street": "Stationsstraat",
+      "number": "41",
+      "locality": "Herent",
+      "x": -917.55,
+      "z": 337.344
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/207639",
+      "street": "Stationsstraat",
+      "number": "43",
+      "locality": "Herent",
+      "x": -901.68,
+      "z": 328.664
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/541113",
+      "street": "Stationsstraat",
+      "number": "45",
+      "locality": "Herent",
+      "x": -896.51,
+      "z": 331.553
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/560771",
+      "street": "Stationsstraat",
+      "number": "47",
+      "locality": "Herent",
+      "x": -887.19,
+      "z": 320.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2367198",
+      "street": "Stationsstraat",
+      "number": "51",
+      "locality": "Herent",
+      "x": -876.0,
+      "z": 322.084
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/254893",
+      "street": "Stationsstraat",
+      "number": "61",
+      "locality": "Herent",
+      "x": -793.29,
+      "z": 307.563
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/452814",
+      "street": "Stationsstraat",
+      "number": "63",
+      "locality": "Herent",
+      "x": -778.41,
+      "z": 307.604
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/788968",
+      "street": "Stationsstraat",
+      "number": "65",
+      "locality": "Herent",
+      "x": -771.11,
+      "z": 308.914
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1104421",
+      "street": "Stationsstraat",
+      "number": "67",
+      "locality": "Herent",
+      "x": -757.84,
+      "z": 314.403
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1389543",
+      "street": "Stationsstraat",
+      "number": "69",
+      "locality": "Herent",
+      "x": -743.09,
+      "z": 318.554
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/599158",
+      "street": "Stationsstraat",
+      "number": "73",
+      "locality": "Herent",
+      "x": -720.66,
+      "z": 315.083
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3220347",
+      "street": "Stationsstraat",
+      "number": "74",
+      "locality": "Herent",
+      "x": -927.2,
+      "z": 306.073
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/967300",
+      "street": "Stationsstraat",
+      "number": "75",
+      "locality": "Herent",
+      "x": -710.35,
+      "z": 316.603
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2316625",
+      "street": "Stationsstraat",
+      "number": "76",
+      "locality": "Herent",
+      "x": -908.2,
+      "z": 296.714
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1199597",
+      "street": "Stationsstraat",
+      "number": "77",
+      "locality": "Herent",
+      "x": -702.42,
+      "z": 316.263
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/263040",
+      "street": "Stationsstraat",
+      "number": "78",
+      "locality": "Herent",
+      "x": -885.49,
+      "z": 294.153
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1535799",
+      "street": "Stationsstraat",
+      "number": "79",
+      "locality": "Herent",
+      "x": -693.38,
+      "z": 322.954
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/471417",
+      "street": "Stationsstraat",
+      "number": "81",
+      "locality": "Herent",
+      "x": -685.69,
+      "z": 325.954
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/728213",
+      "street": "Stationsstraat",
+      "number": "83",
+      "locality": "Herent",
+      "x": -667.79,
+      "z": 330.074
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1078654",
+      "street": "Stationsstraat",
+      "number": "85",
+      "locality": "Herent",
+      "x": -652.41,
+      "z": 331.853
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1439870",
+      "street": "Stationsstraat",
+      "number": "87",
+      "locality": "Herent",
+      "x": -641.09,
+      "z": 330.254
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2009008",
+      "street": "Termereboslaan",
+      "number": "12",
+      "locality": "Herent",
+      "x": -265.76,
+      "z": -773.286
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1725004",
+      "street": "Termereboslaan",
+      "number": "2",
+      "locality": "Herent",
+      "x": -467.23,
+      "z": -625.887
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/883025",
+      "street": "Termereboslaan",
+      "number": "4",
+      "locality": "Herent",
+      "x": -290.0,
+      "z": -726.087
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1017237",
+      "street": "Termereboslaan",
+      "number": "6",
+      "locality": "Herent",
+      "x": -288.29,
+      "z": -745.296
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/218361",
+      "street": "Termereboslaan",
+      "number": "8",
+      "locality": "Herent",
+      "x": -351.48,
+      "z": -762.756
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1434255",
+      "street": "Termerestraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": -344.65,
+      "z": -440.426
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30084939",
+      "street": "Termerestraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": -239.77,
+      "z": -381.547
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30084940",
+      "street": "Termerestraat",
+      "number": "10A",
+      "locality": "Herent",
+      "x": -233.47,
+      "z": -378.006
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/498918",
+      "street": "Termerestraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": -230.27,
+      "z": -326.276
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/936620",
+      "street": "Termerestraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": -224.71,
+      "z": -361.466
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3515583",
+      "street": "Termerestraat",
+      "number": "12A",
+      "locality": "Herent",
+      "x": -217.12,
+      "z": -353.726
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1958354",
+      "street": "Termerestraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": -229.29,
+      "z": -295.406
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1249889",
+      "street": "Termerestraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": -202.2,
+      "z": -345.237
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2305235",
+      "street": "Termerestraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": -196.31,
+      "z": -301.337
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/573264",
+      "street": "Termerestraat",
+      "number": "15A",
+      "locality": "Herent",
+      "x": -181.13,
+      "z": -290.166
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1012130",
+      "street": "Termerestraat",
+      "number": "15B",
+      "locality": "Herent",
+      "x": -170.61,
+      "z": -283.016
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/390507",
+      "street": "Termerestraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": -193.18,
+      "z": -337.586
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825688",
+      "street": "Termerestraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": -145.86,
+      "z": -257.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/702674",
+      "street": "Termerestraat",
+      "number": "18",
+      "locality": "Herent",
+      "x": -178.63,
+      "z": -331.226
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825689",
+      "street": "Termerestraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": -145.86,
+      "z": -257.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807622",
+      "street": "Termerestraat",
+      "number": "19A",
+      "locality": "Herent",
+      "x": -195.4,
+      "z": -237.136
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807623",
+      "street": "Termerestraat",
+      "number": "19B",
+      "locality": "Herent",
+      "x": -195.4,
+      "z": -237.136
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807624",
+      "street": "Termerestraat",
+      "number": "19C",
+      "locality": "Herent",
+      "x": -185.7,
+      "z": -179.446
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825250",
+      "street": "Termerestraat",
+      "number": "1A",
+      "locality": "Herent",
+      "x": -320.55,
+      "z": -436.297
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/301606",
+      "street": "Termerestraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": -230.43,
+      "z": -539.486
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1620756",
+      "street": "Termerestraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": -170.41,
+      "z": -325.527
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1211579",
+      "street": "Termerestraat",
+      "number": "20A",
+      "locality": "Herent",
+      "x": -154.41,
+      "z": -322.356
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2067091",
+      "street": "Termerestraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": -102.82,
+      "z": -247.586
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/790997",
+      "street": "Termerestraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": -141.68,
+      "z": -311.976
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2393561",
+      "street": "Termerestraat",
+      "number": "23",
+      "locality": "Herent",
+      "x": -83.19,
+      "z": -234.117
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1155507",
+      "street": "Termerestraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": -126.94,
+      "z": -301.936
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/312196",
+      "street": "Termerestraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": -100.58,
+      "z": -293.646
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3853012",
+      "street": "Termerestraat",
+      "number": "2A",
+      "locality": "Herent",
+      "x": -313.02,
+      "z": -532.507
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3862588",
+      "street": "Termerestraat",
+      "number": "2B",
+      "locality": "Herent",
+      "x": -307.04,
+      "z": -514.986
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3862589",
+      "street": "Termerestraat",
+      "number": "2C",
+      "locality": "Herent",
+      "x": -301.73,
+      "z": -493.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20593047",
+      "street": "Termerestraat",
+      "number": "2D",
+      "locality": "Herent",
+      "x": -292.43,
+      "z": -475.326
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1021136",
+      "street": "Termerestraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": -316.77,
+      "z": -404.577
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2339240",
+      "street": "Termerestraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": -265.59,
+      "z": -454.876
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/854827",
+      "street": "Termerestraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": -302.19,
+      "z": -388.926
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1591376",
+      "street": "Termerestraat",
+      "number": "5A",
+      "locality": "Herent",
+      "x": -293.83,
+      "z": -370.556
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2172623",
+      "street": "Termerestraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": -210.46,
+      "z": -471.417
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1393512",
+      "street": "Termerestraat",
+      "number": "6A",
+      "locality": "Herent",
+      "x": -261.2,
+      "z": -413.626
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/567500",
+      "street": "Termerestraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": -277.04,
+      "z": -366.027
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1831392",
+      "street": "Termerestraat",
+      "number": "7A",
+      "locality": "Herent",
+      "x": -265.02,
+      "z": -347.966
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/548475",
+      "street": "Termerestraat",
+      "number": "7B",
+      "locality": "Herent",
+      "x": -253.79,
+      "z": -335.306
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31299899",
+      "street": "Termerestraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": -253.43,
+      "z": -400.726
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31299906",
+      "street": "Termerestraat",
+      "number": "8A",
+      "locality": "Herent",
+      "x": -247.46,
+      "z": -397.247
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3910432",
+      "street": "Termerestraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": -235.05,
+      "z": -333.327
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1005039",
+      "street": "Toverbergstraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": -928.88,
+      "z": -484.626
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1036703",
+      "street": "Veldeken",
+      "number": "10",
+      "locality": "Herent",
+      "x": 361.7,
+      "z": 384.473
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2325420",
+      "street": "Veldeken",
+      "number": "11",
+      "locality": "Herent",
+      "x": 321.7,
+      "z": 383.603
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1380065",
+      "street": "Veldeken",
+      "number": "4",
+      "locality": "Herent",
+      "x": 376.91,
+      "z": 324.843
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529786",
+      "street": "Veldeken",
+      "number": "5",
+      "locality": "Herent",
+      "x": 340.4,
+      "z": 333.984
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1613188",
+      "street": "Veldeken",
+      "number": "6",
+      "locality": "Herent",
+      "x": 371.61,
+      "z": 343.394
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2184255",
+      "street": "Veldeken",
+      "number": "7",
+      "locality": "Herent",
+      "x": 338.41,
+      "z": 357.653
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/788810",
+      "street": "Veldeken",
+      "number": "8",
+      "locality": "Herent",
+      "x": 365.64,
+      "z": 362.763
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2320252",
+      "street": "Veldeken",
+      "number": "9",
+      "locality": "Herent",
+      "x": 324.61,
+      "z": 365.043
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/836358",
+      "street": "Verbrandstraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": 329.4,
+      "z": 514.794
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/484232",
+      "street": "Verbrandstraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": 337.17,
+      "z": 482.343
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2672248",
+      "street": "Verbrandstraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": 343.08,
+      "z": 459.954
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/314231",
+      "street": "Verbrandstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": 299.67,
+      "z": 454.253
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2336477",
+      "street": "Verbrandstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": 303.84,
+      "z": 484.844
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2060224",
+      "street": "Verbrandstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": 300.75,
+      "z": 499.743
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/659624",
+      "street": "Vilvoordsebaan",
+      "number": "1",
+      "locality": "Herent",
+      "x": -635.13,
+      "z": 331.343
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/497962",
+      "street": "Vilvoordsebaan",
+      "number": "10",
+      "locality": "Herent",
+      "x": -505.08,
+      "z": 359.134
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1736487",
+      "street": "Vilvoordsebaan",
+      "number": "100",
+      "locality": "Herent",
+      "x": 735.01,
+      "z": 658.124
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2030822",
+      "street": "Vilvoordsebaan",
+      "number": "102",
+      "locality": "Herent",
+      "x": 752.77,
+      "z": 664.954
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3791920",
+      "street": "Vilvoordsebaan",
+      "number": "104",
+      "locality": "Herent",
+      "x": 770.48,
+      "z": 666.414
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/553302",
+      "street": "Vilvoordsebaan",
+      "number": "106",
+      "locality": "Herent",
+      "x": 812.01,
+      "z": 655.363
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/868028",
+      "street": "Vilvoordsebaan",
+      "number": "108",
+      "locality": "Herent",
+      "x": 837.06,
+      "z": 664.424
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1784268",
+      "street": "Vilvoordsebaan",
+      "number": "11",
+      "locality": "Herent",
+      "x": -363.74,
+      "z": 476.144
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1919889",
+      "street": "Vilvoordsebaan",
+      "number": "110",
+      "locality": "Herent",
+      "x": 854.95,
+      "z": 668.594
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2216501",
+      "street": "Vilvoordsebaan",
+      "number": "112",
+      "locality": "Herent",
+      "x": 874.02,
+      "z": 669.403
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/433755",
+      "street": "Vilvoordsebaan",
+      "number": "114",
+      "locality": "Herent",
+      "x": 895.69,
+      "z": 660.844
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/770533",
+      "street": "Vilvoordsebaan",
+      "number": "12",
+      "locality": "Herent",
+      "x": -486.8,
+      "z": 373.204
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19044476",
+      "street": "Vilvoordsebaan",
+      "number": "12A",
+      "locality": "Herent",
+      "x": -472.59,
+      "z": 376.103
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19044475",
+      "street": "Vilvoordsebaan",
+      "number": "12B",
+      "locality": "Herent",
+      "x": -466.97,
+      "z": 378.734
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2143992",
+      "street": "Vilvoordsebaan",
+      "number": "13",
+      "locality": "Herent",
+      "x": -351.49,
+      "z": 462.834
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815944",
+      "street": "Vilvoordsebaan",
+      "number": "14",
+      "locality": "Herent",
+      "x": -459.35,
+      "z": 382.223
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1777718",
+      "street": "Vilvoordsebaan",
+      "number": "14A",
+      "locality": "Herent",
+      "x": -447.28,
+      "z": 383.883
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/441420",
+      "street": "Vilvoordsebaan",
+      "number": "14B",
+      "locality": "Herent",
+      "x": -430.88,
+      "z": 388.013
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2698119",
+      "street": "Vilvoordsebaan",
+      "number": "14C",
+      "locality": "Herent",
+      "x": -403.3,
+      "z": 404.793
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3355472",
+      "street": "Vilvoordsebaan",
+      "number": "14D",
+      "locality": "Herent",
+      "x": -343.54,
+      "z": 424.304
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2458427",
+      "street": "Vilvoordsebaan",
+      "number": "14E",
+      "locality": "Herent",
+      "x": -311.25,
+      "z": 436.093
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2393473",
+      "street": "Vilvoordsebaan",
+      "number": "15A",
+      "locality": "Herent",
+      "x": -337.0,
+      "z": 466.084
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529788",
+      "street": "Vilvoordsebaan",
+      "number": "15B",
+      "locality": "Herent",
+      "x": -321.81,
+      "z": 471.414
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1614182",
+      "street": "Vilvoordsebaan",
+      "number": "15C",
+      "locality": "Herent",
+      "x": -304.53,
+      "z": 474.574
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/897076",
+      "street": "Vilvoordsebaan",
+      "number": "15D",
+      "locality": "Herent",
+      "x": -281.24,
+      "z": 478.984
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1366638",
+      "street": "Vilvoordsebaan",
+      "number": "16",
+      "locality": "Herent",
+      "x": -154.44,
+      "z": 456.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2093383",
+      "street": "Vilvoordsebaan",
+      "number": "16A",
+      "locality": "Herent",
+      "x": -146.59,
+      "z": 457.924
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/755726",
+      "street": "Vilvoordsebaan",
+      "number": "16B",
+      "locality": "Herent",
+      "x": -140.56,
+      "z": 459.913
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/422645",
+      "street": "Vilvoordsebaan",
+      "number": "17",
+      "locality": "Herent",
+      "x": -237.08,
+      "z": 472.504
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1950732",
+      "street": "Vilvoordsebaan",
+      "number": "17A",
+      "locality": "Herent",
+      "x": -257.57,
+      "z": 478.184
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1776966",
+      "street": "Vilvoordsebaan",
+      "number": "18",
+      "locality": "Herent",
+      "x": -132.31,
+      "z": 468.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/674356",
+      "street": "Vilvoordsebaan",
+      "number": "19",
+      "locality": "Herent",
+      "x": -169.76,
+      "z": 486.684
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3833408",
+      "street": "Vilvoordsebaan",
+      "number": "19B",
+      "locality": "Herent",
+      "x": -195.09,
+      "z": 483.624
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3810648",
+      "street": "Vilvoordsebaan",
+      "number": "19C",
+      "locality": "Herent",
+      "x": -209.29,
+      "z": 481.933
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3733017",
+      "street": "Vilvoordsebaan",
+      "number": "19D",
+      "locality": "Herent",
+      "x": -216.55,
+      "z": 479.534
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850058",
+      "street": "Vilvoordsebaan",
+      "number": "19E",
+      "locality": "Herent",
+      "x": -230.55,
+      "z": 479.574
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3489265",
+      "street": "Vilvoordsebaan",
+      "number": "1A",
+      "locality": "Herent",
+      "x": -630.62,
+      "z": 338.034
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529787",
+      "street": "Vilvoordsebaan",
+      "number": "1B",
+      "locality": "Herent",
+      "x": -624.24,
+      "z": 339.563
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3592362",
+      "street": "Vilvoordsebaan",
+      "number": "1C",
+      "locality": "Herent",
+      "x": -592.91,
+      "z": 361.553
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3581291",
+      "street": "Vilvoordsebaan",
+      "number": "1D",
+      "locality": "Herent",
+      "x": -586.52,
+      "z": 363.043
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2334769",
+      "street": "Vilvoordsebaan",
+      "number": "1E",
+      "locality": "Herent",
+      "x": -573.24,
+      "z": 371.034
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1338815",
+      "street": "Vilvoordsebaan",
+      "number": "1F",
+      "locality": "Herent",
+      "x": -565.65,
+      "z": 375.234
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1722907",
+      "street": "Vilvoordsebaan",
+      "number": "2",
+      "locality": "Herent",
+      "x": -577.12,
+      "z": 328.013
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/653940",
+      "street": "Vilvoordsebaan",
+      "number": "20",
+      "locality": "Herent",
+      "x": -118.1,
+      "z": 470.484
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1951616",
+      "street": "Vilvoordsebaan",
+      "number": "21",
+      "locality": "Herent",
+      "x": -159.95,
+      "z": 492.203
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/927646",
+      "street": "Vilvoordsebaan",
+      "number": "22",
+      "locality": "Herent",
+      "x": -96.47,
+      "z": 479.283
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3489264",
+      "street": "Vilvoordsebaan",
+      "number": "22A",
+      "locality": "Herent",
+      "x": -81.75,
+      "z": 486.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2313171",
+      "street": "Vilvoordsebaan",
+      "number": "23",
+      "locality": "Herent",
+      "x": -148.4,
+      "z": 488.554
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1245950",
+      "street": "Vilvoordsebaan",
+      "number": "24",
+      "locality": "Herent",
+      "x": -74.27,
+      "z": 490.424
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815022",
+      "street": "Vilvoordsebaan",
+      "number": "24A",
+      "locality": "Herent",
+      "x": -61.3,
+      "z": 498.284
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/214164",
+      "street": "Vilvoordsebaan",
+      "number": "25",
+      "locality": "Herent",
+      "x": -136.63,
+      "z": 507.743
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1607746",
+      "street": "Vilvoordsebaan",
+      "number": "26",
+      "locality": "Herent",
+      "x": -50.01,
+      "z": 501.223
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721586",
+      "street": "Vilvoordsebaan",
+      "number": "26A",
+      "locality": "Herent",
+      "x": -31.04,
+      "z": 512.074
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3721587",
+      "street": "Vilvoordsebaan",
+      "number": "26B",
+      "locality": "Herent",
+      "x": -15.04,
+      "z": 519.994
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850675",
+      "street": "Vilvoordsebaan",
+      "number": "26C",
+      "locality": "Herent",
+      "x": -1.6,
+      "z": 531.354
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/582857",
+      "street": "Vilvoordsebaan",
+      "number": "27",
+      "locality": "Herent",
+      "x": -111.27,
+      "z": 509.144
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2081336",
+      "street": "Vilvoordsebaan",
+      "number": "27A",
+      "locality": "Herent",
+      "x": -96.07,
+      "z": 523.194
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1824413",
+      "street": "Vilvoordsebaan",
+      "number": "28",
+      "locality": "Herent",
+      "x": 6.04,
+      "z": 533.744
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2799132",
+      "street": "Vilvoordsebaan",
+      "number": "29",
+      "locality": "Herent",
+      "x": -86.93,
+      "z": 560.694
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/973625",
+      "street": "Vilvoordsebaan",
+      "number": "3",
+      "locality": "Herent",
+      "x": -549.66,
+      "z": 383.033
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/797726",
+      "street": "Vilvoordsebaan",
+      "number": "30",
+      "locality": "Herent",
+      "x": 11.91,
+      "z": 536.173
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2076045",
+      "street": "Vilvoordsebaan",
+      "number": "31",
+      "locality": "Herent",
+      "x": -56.33,
+      "z": 535.154
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1179021",
+      "street": "Vilvoordsebaan",
+      "number": "32",
+      "locality": "Herent",
+      "x": 36.87,
+      "z": 544.574
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2396433",
+      "street": "Vilvoordsebaan",
+      "number": "33",
+      "locality": "Herent",
+      "x": -49.24,
+      "z": 537.044
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1578777",
+      "street": "Vilvoordsebaan",
+      "number": "33A",
+      "locality": "Herent",
+      "x": -36.33,
+      "z": 549.854
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/615317",
+      "street": "Vilvoordsebaan",
+      "number": "33B",
+      "locality": "Herent",
+      "x": -28.68,
+      "z": 551.414
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1356036",
+      "street": "Vilvoordsebaan",
+      "number": "34",
+      "locality": "Herent",
+      "x": 44.94,
+      "z": 546.384
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/412122",
+      "street": "Vilvoordsebaan",
+      "number": "35",
+      "locality": "Herent",
+      "x": -1.72,
+      "z": 560.894
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1765815",
+      "street": "Vilvoordsebaan",
+      "number": "36",
+      "locality": "Herent",
+      "x": 67.68,
+      "z": 546.664
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/763078",
+      "street": "Vilvoordsebaan",
+      "number": "37",
+      "locality": "Herent",
+      "x": 6.13,
+      "z": 566.864
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2028256",
+      "street": "Vilvoordsebaan",
+      "number": "38",
+      "locality": "Herent",
+      "x": 73.42,
+      "z": 549.164
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1077168",
+      "street": "Vilvoordsebaan",
+      "number": "39",
+      "locality": "Herent",
+      "x": 22.63,
+      "z": 570.444
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/244148",
+      "street": "Vilvoordsebaan",
+      "number": "39A",
+      "locality": "Herent",
+      "x": 33.6,
+      "z": 574.564
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2033509",
+      "street": "Vilvoordsebaan",
+      "number": "4",
+      "locality": "Herent",
+      "x": -565.08,
+      "z": 336.494
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815020",
+      "street": "Vilvoordsebaan",
+      "number": "40A",
+      "locality": "Herent",
+      "x": 168.53,
+      "z": 548.294
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815950",
+      "street": "Vilvoordsebaan",
+      "number": "40B",
+      "locality": "Herent",
+      "x": 178.67,
+      "z": 518.823
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815952",
+      "street": "Vilvoordsebaan",
+      "number": "40C",
+      "locality": "Herent",
+      "x": 200.22,
+      "z": 487.714
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815951",
+      "street": "Vilvoordsebaan",
+      "number": "40D",
+      "locality": "Herent",
+      "x": 204.16,
+      "z": 449.923
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2131024",
+      "street": "Vilvoordsebaan",
+      "number": "41",
+      "locality": "Herent",
+      "x": 52.25,
+      "z": 577.593
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1199759",
+      "street": "Vilvoordsebaan",
+      "number": "42",
+      "locality": "Herent",
+      "x": 188.81,
+      "z": 556.063
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/971868",
+      "street": "Vilvoordsebaan",
+      "number": "43",
+      "locality": "Herent",
+      "x": 73.95,
+      "z": 580.044
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1515037",
+      "street": "Vilvoordsebaan",
+      "number": "44",
+      "locality": "Herent",
+      "x": 193.7,
+      "z": 555.773
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/423603",
+      "street": "Vilvoordsebaan",
+      "number": "45",
+      "locality": "Herent",
+      "x": 93.0,
+      "z": 583.924
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1768471",
+      "street": "Vilvoordsebaan",
+      "number": "46",
+      "locality": "Herent",
+      "x": 198.35,
+      "z": 555.684
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/519397",
+      "street": "Vilvoordsebaan",
+      "number": "47",
+      "locality": "Herent",
+      "x": 108.95,
+      "z": 592.734
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1804255",
+      "street": "Vilvoordsebaan",
+      "number": "48",
+      "locality": "Herent",
+      "x": 204.62,
+      "z": 557.284
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1150342",
+      "street": "Vilvoordsebaan",
+      "number": "49",
+      "locality": "Herent",
+      "x": 161.94,
+      "z": 592.113
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807629",
+      "street": "Vilvoordsebaan",
+      "number": "49A",
+      "locality": "Herent",
+      "x": 171.74,
+      "z": 590.044
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/518906",
+      "street": "Vilvoordsebaan",
+      "number": "49B",
+      "locality": "Herent",
+      "x": 192.75,
+      "z": 596.254
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1222416",
+      "street": "Vilvoordsebaan",
+      "number": "5",
+      "locality": "Herent",
+      "x": -535.08,
+      "z": 380.214
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/959171",
+      "street": "Vilvoordsebaan",
+      "number": "50",
+      "locality": "Herent",
+      "x": 204.62,
+      "z": 557.284
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2413219",
+      "street": "Vilvoordsebaan",
+      "number": "51",
+      "locality": "Herent",
+      "x": 236.26,
+      "z": 588.264
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1353401",
+      "street": "Vilvoordsebaan",
+      "number": "52",
+      "locality": "Herent",
+      "x": 231.29,
+      "z": 553.364
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/368358",
+      "street": "Vilvoordsebaan",
+      "number": "53",
+      "locality": "Herent",
+      "x": 250.77,
+      "z": 587.004
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1638824",
+      "street": "Vilvoordsebaan",
+      "number": "54",
+      "locality": "Herent",
+      "x": 264.23,
+      "z": 534.863
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/637373",
+      "street": "Vilvoordsebaan",
+      "number": "55",
+      "locality": "Herent",
+      "x": 256.76,
+      "z": 589.423
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1906389",
+      "street": "Vilvoordsebaan",
+      "number": "56",
+      "locality": "Herent",
+      "x": 285.28,
+      "z": 551.503
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/873136",
+      "street": "Vilvoordsebaan",
+      "number": "57",
+      "locality": "Herent",
+      "x": 272.77,
+      "z": 590.183
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2254812",
+      "street": "Vilvoordsebaan",
+      "number": "58",
+      "locality": "Herent",
+      "x": 324.26,
+      "z": 555.414
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1319927",
+      "street": "Vilvoordsebaan",
+      "number": "59",
+      "locality": "Herent",
+      "x": 292.84,
+      "z": 595.623
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1707930",
+      "street": "Vilvoordsebaan",
+      "number": "59A",
+      "locality": "Herent",
+      "x": 312.66,
+      "z": 601.874
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/354891",
+      "street": "Vilvoordsebaan",
+      "number": "59B",
+      "locality": "Herent",
+      "x": 336.2,
+      "z": 605.564
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1647660",
+      "street": "Vilvoordsebaan",
+      "number": "59C",
+      "locality": "Herent",
+      "x": 352.38,
+      "z": 613.574
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/323787",
+      "street": "Vilvoordsebaan",
+      "number": "59D",
+      "locality": "Herent",
+      "x": 374.77,
+      "z": 620.104
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2186695",
+      "street": "Vilvoordsebaan",
+      "number": "6",
+      "locality": "Herent",
+      "x": -556.96,
+      "z": 334.923
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1108570",
+      "street": "Vilvoordsebaan",
+      "number": "60",
+      "locality": "Herent",
+      "x": 331.64,
+      "z": 559.754
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/929156",
+      "street": "Vilvoordsebaan",
+      "number": "61",
+      "locality": "Herent",
+      "x": 388.97,
+      "z": 629.663
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1596034",
+      "street": "Vilvoordsebaan",
+      "number": "62",
+      "locality": "Herent",
+      "x": 340.74,
+      "z": 563.564
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/515784",
+      "street": "Vilvoordsebaan",
+      "number": "63",
+      "locality": "Herent",
+      "x": 395.78,
+      "z": 631.574
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3676897",
+      "street": "Vilvoordsebaan",
+      "number": "63A",
+      "locality": "Herent",
+      "x": 409.34,
+      "z": 636.544
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20886866",
+      "street": "Vilvoordsebaan",
+      "number": "63B",
+      "locality": "Herent",
+      "x": 416.5,
+      "z": 640.103
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1739392",
+      "street": "Vilvoordsebaan",
+      "number": "64",
+      "locality": "Herent",
+      "x": 348.19,
+      "z": 567.284
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/749066",
+      "street": "Vilvoordsebaan",
+      "number": "65",
+      "locality": "Herent",
+      "x": 424.11,
+      "z": 657.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2100100",
+      "street": "Vilvoordsebaan",
+      "number": "66",
+      "locality": "Herent",
+      "x": 357.06,
+      "z": 569.304
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1070618",
+      "street": "Vilvoordsebaan",
+      "number": "67",
+      "locality": "Herent",
+      "x": 430.57,
+      "z": 660.024
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2399375",
+      "street": "Vilvoordsebaan",
+      "number": "68",
+      "locality": "Herent",
+      "x": 365.12,
+      "z": 571.344
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1406257",
+      "street": "Vilvoordsebaan",
+      "number": "69",
+      "locality": "Herent",
+      "x": 449.54,
+      "z": 657.223
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3332069",
+      "street": "Vilvoordsebaan",
+      "number": "6A",
+      "locality": "Herent",
+      "x": -546.74,
+      "z": 346.474
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2521780",
+      "street": "Vilvoordsebaan",
+      "number": "6B",
+      "locality": "Herent",
+      "x": -538.48,
+      "z": 349.584
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1517270",
+      "street": "Vilvoordsebaan",
+      "number": "7",
+      "locality": "Herent",
+      "x": -514.85,
+      "z": 390.483
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1324046",
+      "street": "Vilvoordsebaan",
+      "number": "70",
+      "locality": "Herent",
+      "x": 370.89,
+      "z": 572.984
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/332460",
+      "street": "Vilvoordsebaan",
+      "number": "71",
+      "locality": "Herent",
+      "x": 463.22,
+      "z": 662.234
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1653451",
+      "street": "Vilvoordsebaan",
+      "number": "72",
+      "locality": "Herent",
+      "x": 376.87,
+      "z": 579.634
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/640119",
+      "street": "Vilvoordsebaan",
+      "number": "73",
+      "locality": "Herent",
+      "x": 480.34,
+      "z": 665.034
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1877409",
+      "street": "Vilvoordsebaan",
+      "number": "74",
+      "locality": "Herent",
+      "x": 384.94,
+      "z": 582.773
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2221937",
+      "street": "Vilvoordsebaan",
+      "number": "76",
+      "locality": "Herent",
+      "x": 402.18,
+      "z": 588.523
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2095111",
+      "street": "Vilvoordsebaan",
+      "number": "78",
+      "locality": "Herent",
+      "x": 412.35,
+      "z": 589.144
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/572453",
+      "street": "Vilvoordsebaan",
+      "number": "7A",
+      "locality": "Herent",
+      "x": -497.48,
+      "z": 404.544
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1856586",
+      "street": "Vilvoordsebaan",
+      "number": "7B",
+      "locality": "Herent",
+      "x": -481.79,
+      "z": 418.484
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/618057",
+      "street": "Vilvoordsebaan",
+      "number": "7C",
+      "locality": "Herent",
+      "x": -459.84,
+      "z": 424.514
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/221990",
+      "street": "Vilvoordsebaan",
+      "number": "8",
+      "locality": "Herent",
+      "x": -514.1,
+      "z": 347.404
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1500975",
+      "street": "Vilvoordsebaan",
+      "number": "80",
+      "locality": "Herent",
+      "x": 436.9,
+      "z": 604.304
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1791289",
+      "street": "Vilvoordsebaan",
+      "number": "82",
+      "locality": "Herent",
+      "x": 454.42,
+      "z": 607.404
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807613",
+      "street": "Vilvoordsebaan",
+      "number": "82A",
+      "locality": "Herent",
+      "x": 454.42,
+      "z": 607.404
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2077312",
+      "street": "Vilvoordsebaan",
+      "number": "84",
+      "locality": "Herent",
+      "x": 484.98,
+      "z": 619.653
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2321211",
+      "street": "Vilvoordsebaan",
+      "number": "86",
+      "locality": "Herent",
+      "x": 596.52,
+      "z": 618.574
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3633951",
+      "street": "Vilvoordsebaan",
+      "number": "86A",
+      "locality": "Herent",
+      "x": 527.44,
+      "z": 627.784
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1772062",
+      "street": "Vilvoordsebaan",
+      "number": "9",
+      "locality": "Herent",
+      "x": -440.97,
+      "z": 430.983
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1871183",
+      "street": "Vilvoordsebaan",
+      "number": "92",
+      "locality": "Herent",
+      "x": 665.98,
+      "z": 638.694
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3239282",
+      "street": "Vilvoordsebaan",
+      "number": "94",
+      "locality": "Herent",
+      "x": 684.43,
+      "z": 645.803
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/31418770",
+      "street": "Vilvoordsebaan",
+      "number": "96",
+      "locality": "Herent",
+      "x": 700.97,
+      "z": 650.884
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3824264",
+      "street": "Vilvoordsebaan",
+      "number": "98",
+      "locality": "Herent",
+      "x": 717.78,
+      "z": 657.473
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/808838",
+      "street": "Vilvoordsebaan",
+      "number": "9A",
+      "locality": "Herent",
+      "x": -395.86,
+      "z": 451.494
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2177519",
+      "street": "Vilvoordsebaan",
+      "number": "9B",
+      "locality": "Herent",
+      "x": -428.08,
+      "z": 440.994
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19392272",
+      "street": "Vlotgras",
+      "number": "1",
+      "locality": "Herent",
+      "x": 100.47,
+      "z": 553.704
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19387325",
+      "street": "Vlotgras",
+      "number": "2",
+      "locality": "Herent",
+      "x": 103.99,
+      "z": 544.884
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19387326",
+      "street": "Vlotgras",
+      "number": "3",
+      "locality": "Herent",
+      "x": 111.31,
+      "z": 530.934
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19387341",
+      "street": "Vlotgras",
+      "number": "4",
+      "locality": "Herent",
+      "x": 115.83,
+      "z": 522.584
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19387324",
+      "street": "Vlotgras",
+      "number": "5",
+      "locality": "Herent",
+      "x": 120.05,
+      "z": 501.204
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3815799",
+      "street": "Warotstraat",
+      "number": "1",
+      "locality": "Herent",
+      "x": -45.93,
+      "z": -66.357
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/762935",
+      "street": "Warotstraat",
+      "number": "10",
+      "locality": "Herent",
+      "x": -167.22,
+      "z": 34.244
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3848445",
+      "street": "Warotstraat",
+      "number": "11",
+      "locality": "Herent",
+      "x": -96.16,
+      "z": -36.886
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30324840",
+      "street": "Warotstraat",
+      "number": "11A",
+      "locality": "Herent",
+      "x": -155.68,
+      "z": -59.217
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1660129",
+      "street": "Warotstraat",
+      "number": "12",
+      "locality": "Herent",
+      "x": -184.88,
+      "z": 38.024
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825850",
+      "street": "Warotstraat",
+      "number": "13",
+      "locality": "Herent",
+      "x": -189.92,
+      "z": 5.214
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1498975",
+      "street": "Warotstraat",
+      "number": "14",
+      "locality": "Herent",
+      "x": -200.15,
+      "z": 42.933
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825851",
+      "street": "Warotstraat",
+      "number": "15",
+      "locality": "Herent",
+      "x": -202.17,
+      "z": 10.603
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825858",
+      "street": "Warotstraat",
+      "number": "15A",
+      "locality": "Herent",
+      "x": -272.24,
+      "z": 41.384
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2266787",
+      "street": "Warotstraat",
+      "number": "16",
+      "locality": "Herent",
+      "x": -217.78,
+      "z": 58.654
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1232965",
+      "street": "Warotstraat",
+      "number": "17",
+      "locality": "Herent",
+      "x": -295.38,
+      "z": 50.924
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1975916",
+      "street": "Warotstraat",
+      "number": "18",
+      "locality": "Herent",
+      "x": -233.59,
+      "z": 68.154
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2535050",
+      "street": "Warotstraat",
+      "number": "19",
+      "locality": "Herent",
+      "x": -309.97,
+      "z": 57.914
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2598603",
+      "street": "Warotstraat",
+      "number": "19A",
+      "locality": "Herent",
+      "x": -317.3,
+      "z": 61.134
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1363694",
+      "street": "Warotstraat",
+      "number": "1B",
+      "locality": "Herent",
+      "x": -52.72,
+      "z": -25.256
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1965931",
+      "street": "Warotstraat",
+      "number": "2",
+      "locality": "Herent",
+      "x": -65.96,
+      "z": -14.147
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/892839",
+      "street": "Warotstraat",
+      "number": "20",
+      "locality": "Herent",
+      "x": -275.37,
+      "z": 75.944
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/541909",
+      "street": "Warotstraat",
+      "number": "21",
+      "locality": "Herent",
+      "x": -339.49,
+      "z": 68.554
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1753028",
+      "street": "Warotstraat",
+      "number": "22",
+      "locality": "Herent",
+      "x": -283.19,
+      "z": 82.594
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/279111",
+      "street": "Warotstraat",
+      "number": "23",
+      "locality": "Herent",
+      "x": -369.6,
+      "z": 84.553
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2004346",
+      "street": "Warotstraat",
+      "number": "23A",
+      "locality": "Herent",
+      "x": -383.81,
+      "z": 90.814
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1585013",
+      "street": "Warotstraat",
+      "number": "24",
+      "locality": "Herent",
+      "x": -283.19,
+      "z": 82.594
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1176429",
+      "street": "Warotstraat",
+      "number": "25",
+      "locality": "Herent",
+      "x": -388.48,
+      "z": 96.493
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2429634",
+      "street": "Warotstraat",
+      "number": "26",
+      "locality": "Herent",
+      "x": -305.01,
+      "z": 89.233
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/641449",
+      "street": "Warotstraat",
+      "number": "26A",
+      "locality": "Herent",
+      "x": -324.45,
+      "z": 102.263
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1650341",
+      "street": "Warotstraat",
+      "number": "26B",
+      "locality": "Herent",
+      "x": -339.98,
+      "z": 111.054
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/402056",
+      "street": "Warotstraat",
+      "number": "26C",
+      "locality": "Herent",
+      "x": -311.69,
+      "z": 92.063
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/845130",
+      "street": "Warotstraat",
+      "number": "27",
+      "locality": "Herent",
+      "x": -402.05,
+      "z": 101.264
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2150454",
+      "street": "Warotstraat",
+      "number": "28",
+      "locality": "Herent",
+      "x": -360.95,
+      "z": 114.374
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1679210",
+      "street": "Warotstraat",
+      "number": "29",
+      "locality": "Herent",
+      "x": -438.81,
+      "z": 111.963
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1867408",
+      "street": "Warotstraat",
+      "number": "3",
+      "locality": "Herent",
+      "x": -59.32,
+      "z": -48.486
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30265994",
+      "street": "Warotstraat",
+      "number": "30",
+      "locality": "Herent",
+      "x": -372.95,
+      "z": 131.814
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/623641",
+      "street": "Warotstraat",
+      "number": "31",
+      "locality": "Herent",
+      "x": -456.23,
+      "z": 124.594
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/30265995",
+      "street": "Warotstraat",
+      "number": "32",
+      "locality": "Herent",
+      "x": -384.35,
+      "z": 134.273
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/425877",
+      "street": "Warotstraat",
+      "number": "33",
+      "locality": "Herent",
+      "x": -491.59,
+      "z": 125.264
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2294431",
+      "street": "Warotstraat",
+      "number": "34",
+      "locality": "Herent",
+      "x": -429.47,
+      "z": 137.984
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2183652",
+      "street": "Warotstraat",
+      "number": "34A",
+      "locality": "Herent",
+      "x": -423.52,
+      "z": 134.453
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1292440",
+      "street": "Warotstraat",
+      "number": "35",
+      "locality": "Herent",
+      "x": -538.49,
+      "z": 159.484
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1965932",
+      "street": "Warotstraat",
+      "number": "36",
+      "locality": "Herent",
+      "x": -496.92,
+      "z": 175.983
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/511407",
+      "street": "Warotstraat",
+      "number": "38",
+      "locality": "Herent",
+      "x": -496.92,
+      "z": 175.983
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/527445",
+      "street": "Warotstraat",
+      "number": "4",
+      "locality": "Herent",
+      "x": -97.64,
+      "z": 0.374
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3807620",
+      "street": "Warotstraat",
+      "number": "40",
+      "locality": "Herent",
+      "x": -530.34,
+      "z": 188.513
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1529357",
+      "street": "Warotstraat",
+      "number": "42",
+      "locality": "Herent",
+      "x": -549.08,
+      "z": 189.513
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3743193",
+      "street": "Warotstraat",
+      "number": "45",
+      "locality": "Herent",
+      "x": -733.2,
+      "z": 222.294
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1652024",
+      "street": "Warotstraat",
+      "number": "5",
+      "locality": "Herent",
+      "x": -66.13,
+      "z": -47.686
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1819725",
+      "street": "Warotstraat",
+      "number": "50",
+      "locality": "Herent",
+      "x": -624.8,
+      "z": 239.864
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2311568",
+      "street": "Warotstraat",
+      "number": "52",
+      "locality": "Herent",
+      "x": -624.8,
+      "z": 239.864
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1999502",
+      "street": "Warotstraat",
+      "number": "54",
+      "locality": "Herent",
+      "x": -669.77,
+      "z": 235.884
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/952871",
+      "street": "Warotstraat",
+      "number": "6",
+      "locality": "Herent",
+      "x": -113.55,
+      "z": 4.374
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3521692",
+      "street": "Warotstraat",
+      "number": "6A",
+      "locality": "Herent",
+      "x": -125.45,
+      "z": 7.314
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/20196244",
+      "street": "Warotstraat",
+      "number": "6B",
+      "locality": "Herent",
+      "x": -121.95,
+      "z": 16.974
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2384828",
+      "street": "Warotstraat",
+      "number": "7",
+      "locality": "Herent",
+      "x": -70.32,
+      "z": -42.076
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1092651",
+      "street": "Warotstraat",
+      "number": "8",
+      "locality": "Herent",
+      "x": -138.56,
+      "z": 17.883
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/904546",
+      "street": "Warotstraat",
+      "number": "8A",
+      "locality": "Herent",
+      "x": -149.56,
+      "z": 31.143
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/19401716",
+      "street": "Warotstraat",
+      "number": "9",
+      "locality": "Herent",
+      "x": -83.16,
+      "z": -41.816
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2113423",
+      "street": "Warotveld",
+      "number": "1",
+      "locality": "Herent",
+      "x": -508.32,
+      "z": -192.356
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2393711",
+      "street": "Warotveld",
+      "number": "10",
+      "locality": "Herent",
+      "x": -569.55,
+      "z": -104.876
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/923296",
+      "street": "Warotveld",
+      "number": "100",
+      "locality": "Herent",
+      "x": -391.18,
+      "z": -33.897
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1675372",
+      "street": "Warotveld",
+      "number": "101",
+      "locality": "Herent",
+      "x": -388.31,
+      "z": -63.616
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/613301",
+      "street": "Warotveld",
+      "number": "102",
+      "locality": "Herent",
+      "x": -379.25,
+      "z": -59.396
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1358616",
+      "street": "Warotveld",
+      "number": "103",
+      "locality": "Herent",
+      "x": -354.95,
+      "z": -53.566
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2258002",
+      "street": "Warotveld",
+      "number": "104",
+      "locality": "Herent",
+      "x": -354.88,
+      "z": -63.537
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1229882",
+      "street": "Warotveld",
+      "number": "105",
+      "locality": "Herent",
+      "x": -355.96,
+      "z": -73.746
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1980560",
+      "street": "Warotveld",
+      "number": "106",
+      "locality": "Herent",
+      "x": -355.6,
+      "z": -88.727
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1115279",
+      "street": "Warotveld",
+      "number": "107",
+      "locality": "Herent",
+      "x": -355.9,
+      "z": -98.807
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1705102",
+      "street": "Warotveld",
+      "number": "108",
+      "locality": "Herent",
+      "x": -326.76,
+      "z": -77.077
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/791791",
+      "street": "Warotveld",
+      "number": "109",
+      "locality": "Herent",
+      "x": -326.22,
+      "z": -67.146
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1130034",
+      "street": "Warotveld",
+      "number": "11",
+      "locality": "Herent",
+      "x": -575.6,
+      "z": -97.017
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/495695",
+      "street": "Warotveld",
+      "number": "110",
+      "locality": "Herent",
+      "x": -326.13,
+      "z": -56.517
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1819972",
+      "street": "Warotveld",
+      "number": "111",
+      "locality": "Herent",
+      "x": -325.64,
+      "z": -46.376
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/242156",
+      "street": "Warotveld",
+      "number": "112",
+      "locality": "Herent",
+      "x": -304.07,
+      "z": -38.207
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1131450",
+      "street": "Warotveld",
+      "number": "113",
+      "locality": "Herent",
+      "x": -301.11,
+      "z": -47.736
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2425015",
+      "street": "Warotveld",
+      "number": "114",
+      "locality": "Herent",
+      "x": -300.24,
+      "z": -59.556
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/823383",
+      "street": "Warotveld",
+      "number": "115",
+      "locality": "Herent",
+      "x": -295.03,
+      "z": -67.757
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2079502",
+      "street": "Warotveld",
+      "number": "116",
+      "locality": "Herent",
+      "x": -270.48,
+      "z": -49.516
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/561929",
+      "street": "Warotveld",
+      "number": "117",
+      "locality": "Herent",
+      "x": -273.0,
+      "z": -41.656
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825857",
+      "street": "Warotveld",
+      "number": "118",
+      "locality": "Herent",
+      "x": -271.69,
+      "z": 7.293
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825856",
+      "street": "Warotveld",
+      "number": "119",
+      "locality": "Herent",
+      "x": -264.1,
+      "z": 18.493
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1550313",
+      "street": "Warotveld",
+      "number": "12",
+      "locality": "Herent",
+      "x": -585.42,
+      "z": -80.547
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825855",
+      "street": "Warotveld",
+      "number": "120",
+      "locality": "Herent",
+      "x": -257.28,
+      "z": 33.624
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825852",
+      "street": "Warotveld",
+      "number": "121",
+      "locality": "Herent",
+      "x": -217.73,
+      "z": 16.044
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825853",
+      "street": "Warotveld",
+      "number": "122",
+      "locality": "Herent",
+      "x": -229.16,
+      "z": 3.283
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825854",
+      "street": "Warotveld",
+      "number": "123",
+      "locality": "Herent",
+      "x": -234.55,
+      "z": -8.967
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2013299",
+      "street": "Warotveld",
+      "number": "124",
+      "locality": "Herent",
+      "x": -256.14,
+      "z": -16.516
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1010533",
+      "street": "Warotveld",
+      "number": "125",
+      "locality": "Herent",
+      "x": -262.98,
+      "z": -20.976
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2204181",
+      "street": "Warotveld",
+      "number": "126A",
+      "locality": "Herent",
+      "x": -279.64,
+      "z": -28.017
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529794",
+      "street": "Warotveld",
+      "number": "126B",
+      "locality": "Herent",
+      "x": -275.03,
+      "z": -26.776
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/211296",
+      "street": "Warotveld",
+      "number": "13",
+      "locality": "Herent",
+      "x": -586.44,
+      "z": -70.017
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1784047",
+      "street": "Warotveld",
+      "number": "14",
+      "locality": "Herent",
+      "x": -555.45,
+      "z": -59.676
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/547507",
+      "street": "Warotveld",
+      "number": "15",
+      "locality": "Herent",
+      "x": -549.58,
+      "z": -68.146
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/960899",
+      "street": "Warotveld",
+      "number": "16",
+      "locality": "Herent",
+      "x": -535.22,
+      "z": -52.187
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1906304",
+      "street": "Warotveld",
+      "number": "17",
+      "locality": "Herent",
+      "x": -528.71,
+      "z": -44.226
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1164334",
+      "street": "Warotveld",
+      "number": "18",
+      "locality": "Herent",
+      "x": -519.72,
+      "z": -38.016
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2254278",
+      "street": "Warotveld",
+      "number": "19",
+      "locality": "Herent",
+      "x": -506.32,
+      "z": -26.837
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/715605",
+      "street": "Warotveld",
+      "number": "2",
+      "locality": "Herent",
+      "x": -513.27,
+      "z": -183.427
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2246444",
+      "street": "Warotveld",
+      "number": "20",
+      "locality": "Herent",
+      "x": -499.38,
+      "z": -19.396
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/383572",
+      "street": "Warotveld",
+      "number": "21",
+      "locality": "Herent",
+      "x": -497.88,
+      "z": -60.847
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1421274",
+      "street": "Warotveld",
+      "number": "22",
+      "locality": "Herent",
+      "x": -505.33,
+      "z": -68.047
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/652573",
+      "street": "Warotveld",
+      "number": "23",
+      "locality": "Herent",
+      "x": -518.92,
+      "z": -78.876
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1648684",
+      "street": "Warotveld",
+      "number": "24",
+      "locality": "Herent",
+      "x": -521.29,
+      "z": -89.096
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2074873",
+      "street": "Warotveld",
+      "number": "25",
+      "locality": "Herent",
+      "x": -525.89,
+      "z": -98.816
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/735915",
+      "street": "Warotveld",
+      "number": "26",
+      "locality": "Herent",
+      "x": -529.57,
+      "z": -108.426
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2327016",
+      "street": "Warotveld",
+      "number": "27",
+      "locality": "Herent",
+      "x": -508.69,
+      "z": -128.526
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1086421",
+      "street": "Warotveld",
+      "number": "28",
+      "locality": "Herent",
+      "x": -504.87,
+      "z": -119.247
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1561478",
+      "street": "Warotveld",
+      "number": "29",
+      "locality": "Herent",
+      "x": -501.57,
+      "z": -109.236
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1738773",
+      "street": "Warotveld",
+      "number": "3",
+      "locality": "Herent",
+      "x": -518.68,
+      "z": -174.766
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1567548",
+      "street": "Warotveld",
+      "number": "30",
+      "locality": "Herent",
+      "x": -495.24,
+      "z": -100.086
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/216379",
+      "street": "Warotveld",
+      "number": "31",
+      "locality": "Herent",
+      "x": -491.31,
+      "z": -90.357
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1900077",
+      "street": "Warotveld",
+      "number": "32",
+      "locality": "Herent",
+      "x": -486.05,
+      "z": -79.726
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/480553",
+      "street": "Warotveld",
+      "number": "33",
+      "locality": "Herent",
+      "x": -470.49,
+      "z": -64.857
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/976220",
+      "street": "Warotveld",
+      "number": "34",
+      "locality": "Herent",
+      "x": -476.29,
+      "z": -56.086
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1992760",
+      "street": "Warotveld",
+      "number": "35",
+      "locality": "Herent",
+      "x": -482.13,
+      "z": -47.706
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1222617",
+      "street": "Warotveld",
+      "number": "36",
+      "locality": "Herent",
+      "x": -419.38,
+      "z": -70.876
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2186497",
+      "street": "Warotveld",
+      "number": "37",
+      "locality": "Herent",
+      "x": -424.45,
+      "z": -75.986
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/301170",
+      "street": "Warotveld",
+      "number": "38",
+      "locality": "Herent",
+      "x": -428.11,
+      "z": -81.967
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825286",
+      "street": "Warotveld",
+      "number": "39",
+      "locality": "Herent",
+      "x": -437.3,
+      "z": -93.867
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/475849",
+      "street": "Warotveld",
+      "number": "4",
+      "locality": "Herent",
+      "x": -525.2,
+      "z": -158.276
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825288",
+      "street": "Warotveld",
+      "number": "40",
+      "locality": "Herent",
+      "x": -437.3,
+      "z": -93.867
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825290",
+      "street": "Warotveld",
+      "number": "41",
+      "locality": "Herent",
+      "x": -437.3,
+      "z": -93.867
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825292",
+      "street": "Warotveld",
+      "number": "42",
+      "locality": "Herent",
+      "x": -437.3,
+      "z": -93.867
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825294",
+      "street": "Warotveld",
+      "number": "43",
+      "locality": "Herent",
+      "x": -437.3,
+      "z": -93.867
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3825296",
+      "street": "Warotveld",
+      "number": "44",
+      "locality": "Herent",
+      "x": -437.3,
+      "z": -93.867
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529796",
+      "street": "Warotveld",
+      "number": "45",
+      "locality": "Herent",
+      "x": -451.83,
+      "z": -110.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529798",
+      "street": "Warotveld",
+      "number": "46",
+      "locality": "Herent",
+      "x": -451.83,
+      "z": -110.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529800",
+      "street": "Warotveld",
+      "number": "47",
+      "locality": "Herent",
+      "x": -451.83,
+      "z": -110.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3850668",
+      "street": "Warotveld",
+      "number": "48",
+      "locality": "Herent",
+      "x": -451.83,
+      "z": -110.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1795854",
+      "street": "Warotveld",
+      "number": "49",
+      "locality": "Herent",
+      "x": -451.83,
+      "z": -110.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1546326",
+      "street": "Warotveld",
+      "number": "5",
+      "locality": "Herent",
+      "x": -533.3,
+      "z": -153.216
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1299979",
+      "street": "Warotveld",
+      "number": "50",
+      "locality": "Herent",
+      "x": -451.83,
+      "z": -110.826
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3280930",
+      "street": "Warotveld",
+      "number": "50A",
+      "locality": "Herent",
+      "x": -467.44,
+      "z": -117.247
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529792",
+      "street": "Warotveld",
+      "number": "51",
+      "locality": "Herent",
+      "x": -473.98,
+      "z": -129.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529791",
+      "street": "Warotveld",
+      "number": "52",
+      "locality": "Herent",
+      "x": -473.98,
+      "z": -129.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/3529801",
+      "street": "Warotveld",
+      "number": "53",
+      "locality": "Herent",
+      "x": -473.98,
+      "z": -129.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1329872",
+      "street": "Warotveld",
+      "number": "54",
+      "locality": "Herent",
+      "x": -473.98,
+      "z": -129.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2263272",
+      "street": "Warotveld",
+      "number": "55",
+      "locality": "Herent",
+      "x": -473.98,
+      "z": -129.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/401445",
+      "street": "Warotveld",
+      "number": "56",
+      "locality": "Herent",
+      "x": -473.98,
+      "z": -129.197
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1399525",
+      "street": "Warotveld",
+      "number": "57",
+      "locality": "Herent",
+      "x": -476.93,
+      "z": -186.286
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/647646",
+      "street": "Warotveld",
+      "number": "58",
+      "locality": "Herent",
+      "x": -479.85,
+      "z": -176.647
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1645900",
+      "street": "Warotveld",
+      "number": "59",
+      "locality": "Herent",
+      "x": -483.93,
+      "z": -166.846
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/259509",
+      "street": "Warotveld",
+      "number": "6",
+      "locality": "Herent",
+      "x": -539.87,
+      "z": -143.606
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1739328",
+      "street": "Warotveld",
+      "number": "60",
+      "locality": "Herent",
+      "x": -457.64,
+      "z": -167.066
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2177192",
+      "street": "Warotveld",
+      "number": "61",
+      "locality": "Herent",
+      "x": -451.48,
+      "z": -158.437
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/825850",
+      "street": "Warotveld",
+      "number": "62",
+      "locality": "Herent",
+      "x": -432.38,
+      "z": -153.147
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2445773",
+      "street": "Warotveld",
+      "number": "63",
+      "locality": "Herent",
+      "x": -424.6,
+      "z": -145.416
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1154330",
+      "street": "Warotveld",
+      "number": "64",
+      "locality": "Herent",
+      "x": -407.34,
+      "z": -136.977
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1556007",
+      "street": "Warotveld",
+      "number": "65",
+      "locality": "Herent",
+      "x": -402.78,
+      "z": -127.226
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/219730",
+      "street": "Warotveld",
+      "number": "66",
+      "locality": "Herent",
+      "x": -396.35,
+      "z": -119.107
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1846940",
+      "street": "Warotveld",
+      "number": "67",
+      "locality": "Herent",
+      "x": -386.62,
+      "z": -98.076
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/478188",
+      "street": "Warotveld",
+      "number": "68",
+      "locality": "Herent",
+      "x": -386.05,
+      "z": -87.837
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1293075",
+      "street": "Warotveld",
+      "number": "7",
+      "locality": "Herent",
+      "x": -547.01,
+      "z": -136.586
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1326538",
+      "street": "Warotveld",
+      "number": "72",
+      "locality": "Herent",
+      "x": -473.55,
+      "z": -5.346
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2259262",
+      "street": "Warotveld",
+      "number": "73",
+      "locality": "Herent",
+      "x": -464.42,
+      "z": -0.146
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/390899",
+      "street": "Warotveld",
+      "number": "74",
+      "locality": "Herent",
+      "x": -455.69,
+      "z": 5.233
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1425942",
+      "street": "Warotveld",
+      "number": "75",
+      "locality": "Herent",
+      "x": -435.01,
+      "z": 8.403
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/686721",
+      "street": "Warotveld",
+      "number": "76",
+      "locality": "Herent",
+      "x": -425.45,
+      "z": 13.214
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1702066",
+      "street": "Warotveld",
+      "number": "77",
+      "locality": "Herent",
+      "x": -415.73,
+      "z": 16.993
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2197258",
+      "street": "Warotveld",
+      "number": "78",
+      "locality": "Herent",
+      "x": -401.79,
+      "z": 26.374
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/795985",
+      "street": "Warotveld",
+      "number": "79",
+      "locality": "Herent",
+      "x": -392.43,
+      "z": 30.843
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2306065",
+      "street": "Warotveld",
+      "number": "8",
+      "locality": "Herent",
+      "x": -559.76,
+      "z": -123.567
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/874252",
+      "street": "Warotveld",
+      "number": "80",
+      "locality": "Herent",
+      "x": -383.08,
+      "z": 36.334
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2459218",
+      "street": "Warotveld",
+      "number": "81",
+      "locality": "Herent",
+      "x": -363.16,
+      "z": 34.364
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1117825",
+      "street": "Warotveld",
+      "number": "82",
+      "locality": "Herent",
+      "x": -354.36,
+      "z": 29.104
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1546031",
+      "street": "Warotveld",
+      "number": "83",
+      "locality": "Herent",
+      "x": -334.12,
+      "z": 19.134
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/202036",
+      "street": "Warotveld",
+      "number": "84",
+      "locality": "Herent",
+      "x": -327.94,
+      "z": 10.823
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1812087",
+      "street": "Warotveld",
+      "number": "85",
+      "locality": "Herent",
+      "x": -320.75,
+      "z": 3.464
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/502983",
+      "street": "Warotveld",
+      "number": "86",
+      "locality": "Herent",
+      "x": -308.95,
+      "z": -12.426
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/928686",
+      "street": "Warotveld",
+      "number": "87",
+      "locality": "Herent",
+      "x": -301.35,
+      "z": -8.716
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1915820",
+      "street": "Warotveld",
+      "number": "88",
+      "locality": "Herent",
+      "x": -294.39,
+      "z": -7.336
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1196325",
+      "street": "Warotveld",
+      "number": "89",
+      "locality": "Herent",
+      "x": -286.77,
+      "z": -4.666
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/942903",
+      "street": "Warotveld",
+      "number": "9",
+      "locality": "Herent",
+      "x": -565.29,
+      "z": -114.317
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2275794",
+      "street": "Warotveld",
+      "number": "91",
+      "locality": "Herent",
+      "x": -402.55,
+      "z": -5.437
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/414736",
+      "street": "Warotveld",
+      "number": "92",
+      "locality": "Herent",
+      "x": -391.18,
+      "z": 1.024
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1412611",
+      "street": "Warotveld",
+      "number": "93",
+      "locality": "Herent",
+      "x": -380.54,
+      "z": 6.954
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/666111",
+      "street": "Warotveld",
+      "number": "94",
+      "locality": "Herent",
+      "x": -367.32,
+      "z": 6.433
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1671200",
+      "street": "Warotveld",
+      "number": "95",
+      "locality": "Herent",
+      "x": -360.58,
+      "z": 1.633
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2092104",
+      "street": "Warotveld",
+      "number": "96",
+      "locality": "Herent",
+      "x": -355.9,
+      "z": -10.196
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/807832",
+      "street": "Warotveld",
+      "number": "97",
+      "locality": "Herent",
+      "x": -357.61,
+      "z": -18.587
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2502692",
+      "street": "Warotveld",
+      "number": "98",
+      "locality": "Herent",
+      "x": -367.59,
+      "z": -28.146
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1071495",
+      "street": "Warotveld",
+      "number": "99",
+      "locality": "Herent",
+      "x": -378.59,
+      "z": -30.856
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/730940",
+      "street": "Wijtham",
+      "number": "10",
+      "locality": "Herent",
+      "x": 491.58,
+      "z": 759.454
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1352718",
+      "street": "Wijtham",
+      "number": "2",
+      "locality": "Herent",
+      "x": 515.47,
+      "z": 677.324
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/2333580",
+      "street": "Wijtham",
+      "number": "4",
+      "locality": "Herent",
+      "x": 520.12,
+      "z": 709.264
+    },
+    {
+      "id": "https://data.vlaanderen.be/id/adres/1982215",
+      "street": "Wijtham",
+      "number": "6",
+      "locality": "Herent",
+      "x": 505.18,
+      "z": 723.514
+    }
+  ]
+}
