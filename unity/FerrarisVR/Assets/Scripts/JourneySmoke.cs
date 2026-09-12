@@ -76,6 +76,19 @@ namespace Ferraris
             InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
             if(!Check(!app.InWorld && app.View.orthographic,"Return to map",output))yield break;
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"05-return.png"));yield return new WaitForSeconds(.5f);
+            var home=app.GetComponent<HomeSearch>();var ui=app.GetComponent<VisitorUI>();
+            home.Toggle();home.SetQuery("Dalenstraat");yield return null;
+            if(!Check(ui.PanelOpen,"Address search panel opens",output))yield break;
+            var addresses=HomeSearch.Search(app.GetComponent<AddressDisplay>().Book,"Dalenstraat");
+            var address=Array.Find(addresses,a=>HomeSearch.Covered(a,app.Area.size));home.Choose(address);yield return null;
+            if(!Check(!app.InWorld&&Mathf.Abs(app.Selected.x-address.x)<.01f,"Address locates original map point",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"08-home-search.png"));yield return new WaitForSeconds(.5f);
+            // Click the actual entry control through the same hit handling as desktop input.
+            ui.ClickScreen(new Vector2(430,1000-547));yield return new WaitForSeconds(.4f);
+            if(!Check(app.InWorld&&!ui.PanelOpen&&app.Selected.x==address.x,"Address entry button",output))yield break;
+            var church=Array.Find(app.Data.buildings,b=>b.kind=="church");app.Locate(church.x,church.z);app.EnterWorld(church.x,church.z);
+            if(!Check(app.Selected.x==church.x&&app.Selected.z==church.z&&Vector2.Distance(new Vector2(app.Player.position.x,app.Player.position.z),new Vector2(church.x,church.z))>.5f,"Safe spawn preserves original building coordinate",output))yield break;
+            app.ReturnToMap();
             InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
             File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"Escape return\"],\"hardwareVRVerified\":false}");
             Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);

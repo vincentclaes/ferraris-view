@@ -25,7 +25,7 @@ namespace Ferraris
         WorldData data;
         GameObject mapRoot,mapPlane,marker,overlay;
         CharacterController character;
-        InputAction headPosition,headRotation,rightPosition,rightRotation,leftStick,rightStick,trigger,back;
+        InputAction headPosition,headRotation,rightPosition,rightRotation,leftStick,rightStick,trigger,back,menu;
         LineRenderer rayLine;
         Vector2 pressPosition,previousPointer,pendingPan,releasedPosition;
         bool pointerReleased;
@@ -34,7 +34,7 @@ namespace Ferraris
         public float VrMaxSpeed=6f;
         int ignoreLookUntilFrame;
         float yaw,pitch,verticalSpeed,turnCooldown,fps;
-        bool pressed,dragged,triggerHeld,backHeld,xr,overlayShown;
+        bool pressed,dragged,triggerHeld,backHeld,menuHeld,xr,overlayShown;
         Material mapMaterial;
         GUIStyle title,body;
         readonly List<InputAction> actions=new();
@@ -74,6 +74,7 @@ namespace Ferraris
                 rightPosition=Action("<XRController>{RightHand}/devicePosition");rightRotation=Action("<XRController>{RightHand}/deviceRotation");
                 leftStick=Action("<XRController>{LeftHand}/primary2DAxis");rightStick=Action("<XRController>{RightHand}/primary2DAxis");
                 trigger=Action("<XRController>{RightHand}/triggerPressed");back=Action("<XRController>{RightHand}/secondaryButton");
+                menu=Action("<XRController>{LeftHand}/primaryButton");
                 var pointerClick=new InputAction(type:InputActionType.Button,binding:"<Mouse>/leftButton");
                 pointerClick.started+=c=>{pointerDevice=(Mouse)c.control.device;PointerDown(pointerDevice.position.ReadValue());};
                 pointerClick.canceled+=c=>PointerUp(((Mouse)c.control.device).position.ReadValue());
@@ -82,7 +83,7 @@ namespace Ferraris
                 pointerPosition.performed+=c=>{if(c.control.device==pointerDevice)PointerMove(c.ReadValue<Vector2>());};
                 actions.Add(pointerPosition);pointerPosition.Enable();
                 rayLine=new GameObject("Controller map ray").AddComponent<LineRenderer>();rayLine.positionCount=2;rayLine.startWidth=rayLine.endWidth=.004f;rayLine.material=new Material(Shader.Find("Unlit/Color"));rayLine.material.color=new Color(1,.72f,.24f);
-                Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();StartCoroutine(DetectXR());
+                Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();gameObject.AddComponent<HomeSearch>();StartCoroutine(DetectXR());
                 if(Array.Exists(Environment.GetCommandLineArgs(),s=>s=="-ferraris-smoke"))gameObject.AddComponent<JourneySmoke>();
             }
             catch(Exception e){Error=e.Message;Debug.LogException(e);}
@@ -108,7 +109,10 @@ namespace Ferraris
             fps=Mathf.Lerp(fps,1/Mathf.Max(Time.unscaledDeltaTime,.001f),.04f);
             if(xr){UpdateXR();return;}
             var mouse=Mouse.current;var keyboard=Keyboard.current;
-            if(keyboard!=null && keyboard.escapeKey.wasPressedThisFrame){ReturnToMap();return;}
+            var ui=GetComponent<VisitorUI>();
+            if(keyboard?.tabKey.wasPressedThisFrame==true)GetComponent<HomeSearch>().Toggle();
+            if(keyboard!=null && keyboard.escapeKey.wasPressedThisFrame){if(ui?.PanelOpen==true)ui.ClosePanel?.Invoke();else ReturnToMap();return;}
+            if(ui?.PanelOpen==true)return;
             if(InWorld)
             {
                 if(mouse!=null && mouse.leftButton.wasPressedThisFrame && Cursor.lockState!=CursorLockMode.Locked && mouse.position.ReadValue().y<Screen.height-110)Cursor.lockState=CursorLockMode.Locked;
@@ -146,6 +150,7 @@ namespace Ferraris
         {
             if(TracePointer)Debug.Log($"POINTER down {p}");
             if(!Ready||xr)return;
+            if(GetComponent<VisitorUI>()?.ClickScreen(p)==true)return;
             if(HandleToolbar(p))return;
             if(InWorld||p.y<=110||p.y>=Screen.height-120)return;
             pressed=true;dragged=false;pointerReleased=false;pendingPan=Vector2.zero;pressPosition=previousPointer=p;
@@ -183,7 +188,13 @@ namespace Ferraris
         {
             View.transform.localPosition=headPosition.ReadValue<Vector3>();View.transform.localRotation=headRotation.ReadValue<Quaternion>();
             bool down=trigger.ReadValue<float>()>.5f,b=back.ReadValue<float>()>.5f;
-            if(b&&!backHeld)ReturnToMap();backHeld=b;
+            var ui=GetComponent<VisitorUI>();
+            if(b&&!backHeld){if(ui?.PanelOpen==true)ui.ClosePanel?.Invoke();else ReturnToMap();}backHeld=b;
+            bool m=menu.ReadValue<float>()>.5f;if(m&&!menuHeld)GetComponent<HomeSearch>().Toggle();menuHeld=m;
+            Vector3 uiOrigin=Player.TransformPoint(rightPosition.ReadValue<Vector3>());
+            Vector3 uiDirection=Player.rotation*rightRotation.ReadValue<Quaternion>()*Vector3.forward;
+            bool uiHit=ui!=null&&ui.ClickRay(new Ray(uiOrigin,uiDirection),down&&!triggerHeld,out _);
+            if(uiHit||ui?.PanelOpen==true){rayLine.enabled=true;rayLine.SetPosition(0,uiOrigin);rayLine.SetPosition(1,uiOrigin+uiDirection*2);triggerHeld=down;return;}
             Vector2 right=rightStick.ReadValue<Vector2>(),left=leftStick.ReadValue<Vector2>();
             if(InWorld)
             {
@@ -229,6 +240,7 @@ namespace Ferraris
             }
             marker.transform.localPosition=new Vector3((Selected.x/Area.size-MapPan.x/Area.size*(xr?1:0))*(xr?MapZoom:1),(Selected.z/Area.size-MapPan.y/Area.size*(xr?1:0))*(xr?MapZoom:1),-.02f);
         }
+        public void Locate(float x,float z){Selected=new MapPoint(x,z);ReturnToMap();MapZoom=2;MapPan=new Vector2(x,z);ApplyMapView();}
         public void SelectUV(float u,float v)
         {
             if(xr){u=(u-.5f)/MapZoom+.5f+MapPan.x/Area.size;v=(v-.5f)/MapZoom+.5f+MapPan.y/Area.size;}
@@ -311,7 +323,7 @@ namespace Ferraris
             GeoPoint geo=Area.UnityToGeoCoordinate(InWorld?Player.position.x:Selected.x,InWorld?Player.position.z:Selected.z);
             GUI.Label(new Rect(28,61,Screen.width-50,25),$"{(InWorld?"HISTORISCH LANDSCHAP":"FERRARISKAART")}   •   {geo.lat:F6}, {geo.lon:F6}   •   {(InWorld?$"X {Player.position.x:F1}  Z {Player.position.z:F1}  terrein {Area.Height(Player.position.x,Player.position.z)+Area.heightBase:F1}m TAW":$"Zoom {MapZoom:F1}×")}   •   {fps:F0} FPS",body);
             GUI.Box(new Rect(12,Screen.height-100,Screen.width-24,88),GUIContent.none);
-            GUI.Label(new Rect(28,Screen.height-92,Screen.width-50,25),InWorld?"WASD lopen  ·  Muis kijken  ·  Shift sneller  ·  Escape naar de kaart":"Sleep om te verschuiven  ·  Scrol om te zoomen  ·  Klik op een plek om 1775 binnen te stappen",body);
+            GUI.Label(new Rect(28,Screen.height-92,Screen.width-50,25),InWorld?"WASD lopen  ·  Muis kijken  ·  Shift sneller  ·  Tab menu  ·  Escape naar de kaart":"Sleep om te verschuiven  ·  Scrol om te zoomen  ·  Klik op een plek om 1775 binnen te stappen",body);
             if(InWorld)
             {
                 GUI.Box(ToolbarRect(28,155),"Terug naar kaart",GUI.skin.button);
