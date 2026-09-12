@@ -2,6 +2,8 @@
 
 Working brand: **Toenland**, with **Wandel door het Vlaanderen van toen.** The name joins time and landscape in accessible Dutch. No custom domain has been purchased and no trademark clearance is claimed.
 
+Live: **https://toenland.vercel.app**. Deployment `dpl_5xS1uGhJUbZSXmtoeUXwvRU9CUqs` was marked `READY` by Vercel on 12 September 2026. Vercel assigned the first default deployment to **production** automatically; later default deployments use preview. The deployed application corresponds to commit `76c64dc`; subsequent documentation changes record this receipt.
+
 ## Build and hosting
 
 `bash scripts/unity.sh web` uses Unity 6000.6.0f1 WebGL Build Support, IL2CPP/WebAssembly, WebGL 2 and the custom `Assets/WebGLTemplates/Toenland` template. It is a release build of the existing runtime, not a rewritten approximation. Desktop mouse/keyboard controls and all discovery content are shared with the native app. WebXR is not added; immersive Quest remains the Android build.
@@ -25,6 +27,6 @@ The native cached raster is temporarily moved outside Resources while building, 
 - Help and source disclosures show their content. Full-screen control enters full screen. Blocking the Unity loader produces a Dutch error and an enabled **Opnieuw laden** action.
 - Touch viewport 390×844: no horizontal overflow; desktop-play guidance is visible; the unsupported mouse/keyboard launch button is hidden; instructions and sources remain available.
 - The embedded Codex browser loaded the map but its automation connection timed out on the 3D transition. Validation continued in installed Chrome via the existing Playwright runtime. This is not a claim of compatibility with every embedded browser.
-- Local screenshots `/tmp/toenland-start.png`, `/tmp/toenland-map.png`, `/tmp/toenland-world.png`, `/tmp/toenland-object.png`, `/tmp/toenland-return.png`, `/tmp/toenland-mobile.png`, and `/tmp/toenland-load-error.png`; console capture `/tmp/toenland-console.json`. Temporary test scripts are kept outside the repository.
+- Local screenshots `/tmp/toenland-start.png`, `/tmp/toenland-map.png`, `/tmp/toenland-world.png`, `/tmp/toenland-object.png`, `/tmp/toenland-return.png`, `/tmp/toenland-mobile-viewport.png`, and `/tmp/toenland-load-error.png`; console capture `/tmp/toenland-console.json`. The mobile viewport capture preserves touch-media emulation; full-page capture temporarily changed the pointer-media rendering. Temporary test scripts are kept outside the repository.
 
 The full experience requires a desktop browser with WebGL 2, a mouse and keyboard. Mobile touch navigation, immersive browser VR, Safari/Firefox testing and physical-headset validation of this web edition are not included. Preview readiness is verified through Vercel CLI; browser interaction testing is performed locally on the exact compiled files.

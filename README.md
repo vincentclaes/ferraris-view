@@ -68,7 +68,7 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 
 ## Website — Toenland
 
-**Toenland — Wandel door het Vlaanderen van toen.** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. It has a start screen, loading progress, full-screen control, instructions and sources. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
+**[Toenland — Wandel door het Vlaanderen van toen](https://toenland.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. It has a start screen, loading progress, full-screen control, instructions and sources. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
 
 ```bash
 # Unity Hub: add WebGL Build Support for the installed editor.
@@ -79,6 +79,8 @@ bash scripts/deploy-web.sh
 ```
 
 Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets the `toenland` project in `vincentclaes-projects`; production deployment requires explicitly passing `--prod`. Unity compiles locally; Vercel serves only the generated `builds/web` directory. See [web build and validation](docs/web.md).
+
+Vercel automatically assigned the first default deployment to production on 12 September 2026. Subsequent default deployments are previews; the live site uses the domain above.
 
 The browser fetches the historical map directly from the public Digitaal Vlaanderen WMS with KBR attribution. The local raster is excluded from the hosted build and restored after building; an internet connection is needed for the map. Native builds keep their bundled offline map. The generated website is about 68 MiB; the first visit downloads the 3D assets after pressing **Stap binnen in 1775**.
 
