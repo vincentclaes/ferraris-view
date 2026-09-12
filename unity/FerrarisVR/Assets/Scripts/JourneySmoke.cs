@@ -124,6 +124,66 @@ namespace Ferraris
                 names.Open();
             }
             names.Close();app.ReturnToMap();
+            var discovery=app.GetComponent<ObjectDiscovery>();
+            // Each rendered volume type is selected using the same ray picker as the controller.
+            foreach(string kind in new[]{"house","barn","farmhouse","church","tree","cow","sheep","barrel","woodpile","fence"})
+            {
+                app.EnterWorld(0,-70);discovery.Toggle();PickedObject picked=null;
+                foreach(var volume in discovery.Picker.Volumes)
+                {
+                    if(volume.key!=kind)continue;
+                    var ray=new Ray(volume.centre+volume.rotation*new Vector3(0,0,-volume.size.z/2-.05f),volume.rotation*Vector3.forward);
+                    var candidate=discovery.Picker.Ray(ray);if(candidate.key==kind){discovery.SelectRay(ray);picked=candidate;break;}
+                }
+                if(!Check(picked!=null&&discovery.Selection.key==kind,"World object selection "+kind,output))yield break;
+                discovery.Close(true);
+            }
+            // Land-cover selection follows actual map click dispatch, including unknown terrain.
+            foreach(string kind in new[]{"road","soil","crop","grass","orchard","terrain"})
+            {
+                app.ReturnToMap();app.ZoomMap(1/app.MapZoom);app.PanMap(-app.MapPan);discovery.Toggle();MapPoint point=null;
+                for(float x=-480;x<480&&point==null;x+=12)for(float z=-480;z<480&&point==null;z+=12)if(discovery.Picker.Map(x,z).key==kind)point=new MapPoint(x,z);
+                if(!Check(point!=null,"Map sample exists "+kind,output))yield break;
+                app.SelectUV(point.x/app.Area.size+.5f,point.z/app.Area.size+.5f);yield return null;
+                if(!Check(!app.InWorld&&discovery.Selection.key==kind,"Map object selection "+kind,output))yield break;
+                discovery.Close(true);
+            }
+            app.EnterWorld(0,-70);discovery.SelectRay(new Ray(app.View.transform.position+Vector3.up*40,Vector3.up));
+            if(!Check(discovery.Selection.key=="sky","Sky selection has illustrative content",output))yield break;
+            foreach(var definition in discovery.Content.entries)
+            {
+                discovery.Show(new PickedObject{key=definition.keys[0],point=Vector3.zero,radius=3});yield return null;
+                if(!Check(discovery.Page==0&&TextFits(ui),"Readable summary "+definition.keys[0],output))yield break;
+                ui.ClickScreen(new Vector2(180,306));yield return null;
+                if(!Check(discovery.Page==1&&discovery.Section==-1&&TextFits(ui),"Expand only on request "+definition.keys[0],output))yield break;
+                for(int section=0;section<definition.sections.Length;section++)
+                {
+                    ui.ClickScreen(new Vector2(330,1000-(375+section*45)));yield return null;
+                    if(!Check(discovery.Section==section&&TextFits(ui),"Readable section "+definition.keys[0]+" / "+section,output))yield break;
+                    if(definition.keys[0]=="church"&&section==3){ScreenCapture.CaptureScreenshot(Path.Combine(output,"13-object-detail.png"));yield return new WaitForSeconds(.5f);}
+                    ui.ClickScreen(new Vector2(180,296));yield return null;
+                }
+            }
+            // Full legend paging, including unmapped categories and abbreviations.
+            ui.ClickScreen(new Vector2(330,625));yield return null;ui.ClickScreen(new Vector2(480,296));yield return null;
+            for(int page=0;page<25;page++)
+            {
+                if(!Check(discovery.Page==2&&TextFits(ui),"Readable full legend page "+page,output))yield break;
+                if(page<24){ui.ClickScreen(new Vector2(320,244));yield return null;}
+            }
+            discovery.Close(true);
+            // Render and interact with the exact world-space canvas used in Quest.
+            app.enabled=false;ui.UseWorldSpace(app.View);discovery.Show(new PickedObject{key="church",point=new Vector3(2,0,26),radius=10});yield return null;
+            bool RayClick(float x,float y)
+            {
+                Vector3 target=ui.Root.TransformPoint(new Vector3(x-720,500-y,0));return ui.ClickRay(new Ray(app.View.transform.position,(target-app.View.transform.position).normalized),true,out _);
+            }
+            if(!Check(RayClick(180,694)&&discovery.Page==1,"World-space controller ray opens details",output))yield break;yield return null;
+            if(!Check(RayClick(330,375)&&discovery.Section==0,"World-space ray selects a section",output))yield break;yield return null;
+            if(!Check(TextFits(ui),"World-space text layout",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"14-world-space-ui.png"));yield return new WaitForSeconds(.7f);
+            if(!Check(RayClick(145,817)&&discovery.Page==0,"World-space ray returns to summary",output))yield break;yield return null;
+            if(!Check(RayClick(720,217)&&!ui.PanelOpen&&!discovery.Active,"World-space ray closes inspection",output))yield break;
             InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
             File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"Escape return\"],\"hardwareVRVerified\":false}");
             Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);

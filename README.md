@@ -4,6 +4,8 @@ A local Unity 6 / OpenXR prototype: navigate the real Ferraris map, click a loca
 
 The complete map-to-world journey runs on desktop and has been confirmed on a physical Quest 3. See `docs/validation.md` for the test/build evidence and measured limits.
 
+The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. These additions pass the desktop journey and Android build; their integrated physical-headset acceptance is still pending.
+
 ## Requirements and setup
 
 - Unity **6000.6.0f1** (Apple Silicon), activated through Unity Hub. Android Build Support, SDK/NDK and OpenJDK for Quest builds.
@@ -41,6 +43,7 @@ Set `UNITY_EDITOR` to override the installed editor executable. Close the editor
 - World: WASD, mouse look, Shift to walk faster, Escape or Return to Ferraris to return. Click the world to recapture the mouse after focus loss.
 - A map click inside a building spawns at a nearby free point within 25m. The selected coordinate remains available separately.
 - Debug overlay: mode, latitude/longitude, Unity X/Z, terrain TAW elevation, FPS.
+- Discovery: **Tab** opens address search; **I** or **Onderzoek objecten** enables object selection. The menu opens the day story, sound controls and place names. **Meer weten** opens deeper explanations; closing a panel resumes exploration.
 
 ## Quest 3
 
@@ -60,6 +63,7 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 
 - Map: right controller ray + trigger selects; left stick pans; right stick up/down zooms; B returns to map.
 - World: left stick moves relative to gaze. A light push moves slowly; speed increases progressively to **6 m/s at full tilt**. Right stick snaps by 30 degrees; B returns to map.
+- Discovery: use the right ray and trigger on the world-space menu; left **X** opens address search. **B** closes an open panel before returning to the map. Object inspection enables the ray in the landscape.
 - Quest target: 72 FPS. The original simple scene measured 72–73 FPS in a short Quest 3 session. The new graphics pass adds physically based surfaces, a detailed church with LODs, short-range shadows, instanced foliage and distance-limited ground cover; it requires a new hardware performance check. See [graphics upgrade and asset sources](docs/visual-upgrade.md).
 
 ## Data and architecture
@@ -67,6 +71,8 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 `pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover texture, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` is the reviewed manual interpretation used for this area.
 
 Unity `AreaData.cs` owns coordinate/height conversion; `FerrarisApp.cs` owns mode/input/navigation; `HistoricalWorld.cs` constructs the terrain, architecture and farm animals; `WorldVegetation.cs` batches trees and nearby ground cover. `BuildProject.cs` creates the scene and desktop/Quest build configuration. `JourneySmoke.cs` exercises the real built player and captures map/world/top-down screenshots.
+
+Discovery content is bundled in `Assets/Resources/Discovery`. Implementation, source distinctions and acceptance evidence for each issue are in [docs/issues](docs/issues); [object coverage](docs/issues/07-object-discovery.md) includes the complete 150-symbol legend inventory and all 17 rendered types.
 
 See [source, license and CRS documentation](docs/data-sources.md). Raw rasters, generated Unity resources, editor caches and builds are excluded from Git. Re-run both pipeline commands after cloning. The Ferraris service metadata does not grant an open redistribution license: review rights before sharing map-containing builds.
 

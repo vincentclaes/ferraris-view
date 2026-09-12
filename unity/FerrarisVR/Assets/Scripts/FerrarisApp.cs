@@ -15,6 +15,8 @@ namespace Ferraris
         public bool InWorld { get; private set; }
         public bool IsXR => xr;
         public WorldData Data => data;
+        public Transform MapSurface => mapPlane.transform;
+        public Vector3 MapLocal(float x,float z,float depth)=>new Vector3((x/Area.size-MapPan.x/Area.size*(xr?1:0))*(xr?MapZoom:1),(z/Area.size-MapPan.y/Area.size*(xr?1:0))*(xr?MapZoom:1),depth);
         public bool Ready { get; private set; }
         public Transform Player { get; private set; }
         public Camera View { get; private set; }
@@ -83,10 +85,10 @@ namespace Ferraris
                 pointerPosition.performed+=c=>{if(c.control.device==pointerDevice)PointerMove(c.ReadValue<Vector2>());};
                 actions.Add(pointerPosition);pointerPosition.Enable();
                 rayLine=new GameObject("Controller map ray").AddComponent<LineRenderer>();rayLine.positionCount=2;rayLine.startWidth=rayLine.endWidth=.004f;rayLine.material=new Material(Shader.Find("Unlit/Color"));rayLine.material.color=new Color(1,.72f,.24f);
-                Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();gameObject.AddComponent<HomeSearch>();gameObject.AddComponent<PersonsDay>();gameObject.AddComponent<LandscapeSound>();gameObject.AddComponent<PlaceNames>();StartCoroutine(DetectXR());
+                Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();gameObject.AddComponent<HomeSearch>();gameObject.AddComponent<PersonsDay>();gameObject.AddComponent<LandscapeSound>();gameObject.AddComponent<PlaceNames>();gameObject.AddComponent<ObjectDiscovery>();StartCoroutine(DetectXR());
                 if(Array.Exists(Environment.GetCommandLineArgs(),s=>s=="-ferraris-smoke"))gameObject.AddComponent<JourneySmoke>();
             }
-            catch(Exception e){Error=e.Message;Debug.LogException(e);}
+            catch(Exception e){Error="De ervaring kon niet worden geladen. Controleer de lokale gebieds- en beeldbestanden.";Debug.LogException(e);}
         }
         InputAction Action(string binding){var a=new InputAction(binding:binding);a.Enable();actions.Add(a);return a;}
         IEnumerator DetectXR()
@@ -110,12 +112,13 @@ namespace Ferraris
             if(xr){UpdateXR();return;}
             var mouse=Mouse.current;var keyboard=Keyboard.current;
             var ui=GetComponent<VisitorUI>();
+            if(keyboard?.iKey.wasPressedThisFrame==true)GetComponent<ObjectDiscovery>().Toggle();
             if(keyboard?.tabKey.wasPressedThisFrame==true)GetComponent<HomeSearch>().Toggle();
             if(keyboard!=null && keyboard.escapeKey.wasPressedThisFrame){if(ui?.PanelOpen==true)ui.ClosePanel?.Invoke();else ReturnToMap();return;}
             if(ui?.PanelOpen==true)return;
             if(InWorld)
             {
-                if(mouse!=null && mouse.leftButton.wasPressedThisFrame && Cursor.lockState!=CursorLockMode.Locked && mouse.position.ReadValue().y<Screen.height-110)Cursor.lockState=CursorLockMode.Locked;
+                if(GetComponent<ObjectDiscovery>()?.Active!=true && mouse!=null && mouse.leftButton.wasPressedThisFrame && Cursor.lockState!=CursorLockMode.Locked && mouse.position.ReadValue().y<Screen.height-110)Cursor.lockState=CursorLockMode.Locked;
                 if(mouse!=null && Cursor.lockState==CursorLockMode.Locked && Time.frameCount>ignoreLookUntilFrame)
                 {
                     Vector2 delta=mouse.delta.ReadValue();yaw+=delta.x*.12f;pitch=Mathf.Clamp(pitch-delta.y*.12f,-85,85);
@@ -152,6 +155,7 @@ namespace Ferraris
             if(!Ready||xr)return;
             if(GetComponent<VisitorUI>()?.ClickScreen(p)==true)return;
             if(HandleToolbar(p))return;
+            if(InWorld&&GetComponent<ObjectDiscovery>()?.Active==true){GetComponent<ObjectDiscovery>().SelectRay(View.ScreenPointToRay(p));return;}
             if(InWorld||p.y<=110||p.y>=Screen.height-120)return;
             pressed=true;dragged=false;pointerReleased=false;pendingPan=Vector2.zero;pressPosition=previousPointer=p;
         }
@@ -194,6 +198,8 @@ namespace Ferraris
             Vector3 uiOrigin=Player.TransformPoint(rightPosition.ReadValue<Vector3>());
             Vector3 uiDirection=Player.rotation*rightRotation.ReadValue<Quaternion>()*Vector3.forward;
             bool uiHit=ui!=null&&ui.ClickRay(new Ray(uiOrigin,uiDirection),down&&!triggerHeld,out _);
+            var discovery=GetComponent<ObjectDiscovery>();
+            if(!uiHit&&InWorld&&discovery?.Active==true&&down&&!triggerHeld)discovery.SelectRay(new Ray(uiOrigin,uiDirection));
             if(uiHit||ui?.PanelOpen==true){rayLine.enabled=true;rayLine.SetPosition(0,uiOrigin);rayLine.SetPosition(1,uiOrigin+uiDirection*2);triggerHeld=down;return;}
             Vector2 right=rightStick.ReadValue<Vector2>(),left=leftStick.ReadValue<Vector2>();
             if(InWorld)
@@ -216,7 +222,7 @@ namespace Ferraris
                 }
                 rayLine.SetPosition(0,origin);rayLine.SetPosition(1,end);
             }
-            rayLine.enabled=!InWorld;triggerHeld=down;
+            rayLine.enabled=!InWorld||discovery?.Active==true;if(InWorld){rayLine.SetPosition(0,uiOrigin);rayLine.SetPosition(1,uiOrigin+uiDirection*12);}triggerHeld=down;
         }
         public void ZoomMap(float factor){MapZoom=Mathf.Clamp(MapZoom*factor,1,8);ApplyMapView();}
         public void PanMap(Vector2 delta){MapPan+=delta;float limit=Area.size*.5f*(1-1/MapZoom);MapPan=new Vector2(Mathf.Clamp(MapPan.x,-limit,limit),Mathf.Clamp(MapPan.y,-limit,limit));ApplyMapView();}
@@ -244,7 +250,9 @@ namespace Ferraris
         public void SelectUV(float u,float v)
         {
             if(xr){u=(u-.5f)/MapZoom+.5f+MapPan.x/Area.size;v=(v-.5f)/MapZoom+.5f+MapPan.y/Area.size;}
-            Selected=Area.MapUVToUnity(Mathf.Clamp01(u),Mathf.Clamp01(v));EnterWorld(Selected.x,Selected.z);
+            Selected=Area.MapUVToUnity(Mathf.Clamp01(u),Mathf.Clamp01(v));
+            if(GetComponent<ObjectDiscovery>()?.Active==true){GetComponent<ObjectDiscovery>().SelectMap(Selected);return;}
+            EnterWorld(Selected.x,Selected.z);
         }
         public void EnterWorld(float x,float z)
         {
