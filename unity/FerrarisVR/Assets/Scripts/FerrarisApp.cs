@@ -13,6 +13,8 @@ namespace Ferraris
         public AreaData Area { get; private set; }
         public HistoricalWorld World { get; private set; }
         public bool InWorld { get; private set; }
+        public bool IsXR => xr;
+        public WorldData Data => data;
         public bool Ready { get; private set; }
         public Transform Player { get; private set; }
         public Camera View { get; private set; }
@@ -49,13 +51,13 @@ namespace Ferraris
             {
                 var areaFile=Resources.Load<TextAsset>("Winksele/area");
                 var worldFile=Resources.Load<TextAsset>("Winksele/world");
-                if(areaFile==null || worldFile==null)throw new InvalidOperationException("Area data missing. Run pipeline/generate_area.py then pipeline/export_world.py.");
+                if(areaFile==null || worldFile==null)throw new InvalidOperationException("Gebiedsgegevens ontbreken. Bereid de lokale kaartgegevens opnieuw voor.");
                 Area=JsonUtility.FromJson<AreaData>(areaFile.text);data=JsonUtility.FromJson<WorldData>(worldFile.text);
                 // Unity's mouse-event merging can move a button-down event to
                 // the drag's final position, erasing the distinction from a click.
                 InputSystem.settings.disableRedundantEventsMerging=true;
                 var texture=Resources.Load<Texture2D>("Winksele/ferraris");
-                if(texture==null)throw new InvalidOperationException("Ferraris texture missing; run the GIS pipeline.");
+                if(texture==null)throw new InvalidOperationException("De Ferrariskaart ontbreekt. Bereid de lokale kaartgegevens opnieuw voor.");
                 Application.targetFrameRate=72;QualitySettings.vSyncCount=0;QualitySettings.antiAliasing=4;
                 RenderSettings.ambientLight=new Color(.7f,.72f,.62f);RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=160;RenderSettings.fogEndDistance=650;RenderSettings.fogColor=new Color(.71f,.77f,.75f);
                 var sun=new GameObject("Late afternoon light").AddComponent<Light>();sun.type=LightType.Directional;sun.transform.rotation=Quaternion.Euler(40,-30,0);sun.shadows=LightShadows.None;
@@ -80,7 +82,7 @@ namespace Ferraris
                 pointerPosition.performed+=c=>{if(c.control.device==pointerDevice)PointerMove(c.ReadValue<Vector2>());};
                 actions.Add(pointerPosition);pointerPosition.Enable();
                 rayLine=new GameObject("Controller map ray").AddComponent<LineRenderer>();rayLine.positionCount=2;rayLine.startWidth=rayLine.endWidth=.004f;rayLine.material=new Material(Shader.Find("Unlit/Color"));rayLine.material.color=new Color(1,.72f,.24f);
-                Ready=true;ReturnToMap();StartCoroutine(DetectXR());
+                Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();StartCoroutine(DetectXR());
                 if(Array.Exists(Environment.GetCommandLineArgs(),s=>s=="-ferraris-smoke"))gameObject.AddComponent<JourneySmoke>();
             }
             catch(Exception e){Error=e.Message;Debug.LogException(e);}
@@ -303,25 +305,25 @@ namespace Ferraris
         {
             if(xr)return;
             title??=new GUIStyle(GUI.skin.label){fontSize=26,fontStyle=FontStyle.Bold};body??=new GUIStyle(GUI.skin.label){fontSize=15};
-            GUI.Box(new Rect(12,12,Screen.width-24,98),GUIContent.none);
+            GUI.Box(new Rect(12,12,InWorld?Screen.width*.56f-12:Screen.width-24,98),GUIContent.none);
             GUI.Label(new Rect(28,20,Screen.width-40,38),"WINKSELE  /  1775",title);
-            if(!Ready){GUI.Label(new Rect(28,64,Screen.width-50,80),Error??"Loading Ferraris…",body);return;}
+            if(!Ready){GUI.Label(new Rect(28,64,Screen.width-50,80),Error??"Ferrariskaart laden…",body);return;}
             GeoPoint geo=Area.UnityToGeoCoordinate(InWorld?Player.position.x:Selected.x,InWorld?Player.position.z:Selected.z);
-            GUI.Label(new Rect(28,61,Screen.width-50,25),$"{(InWorld?"HISTORICAL LANDSCAPE":"FERRARIS MAP")}   •   {geo.lat:F6}, {geo.lon:F6}   •   {(InWorld?$"X {Player.position.x:F1}  Z {Player.position.z:F1}  terrain {Area.Height(Player.position.x,Player.position.z)+Area.heightBase:F1}m TAW":$"Zoom {MapZoom:F1}×")}   •   {fps:F0} FPS",body);
+            GUI.Label(new Rect(28,61,Screen.width-50,25),$"{(InWorld?"HISTORISCH LANDSCHAP":"FERRARISKAART")}   •   {geo.lat:F6}, {geo.lon:F6}   •   {(InWorld?$"X {Player.position.x:F1}  Z {Player.position.z:F1}  terrein {Area.Height(Player.position.x,Player.position.z)+Area.heightBase:F1}m TAW":$"Zoom {MapZoom:F1}×")}   •   {fps:F0} FPS",body);
             GUI.Box(new Rect(12,Screen.height-100,Screen.width-24,88),GUIContent.none);
-            GUI.Label(new Rect(28,Screen.height-92,Screen.width-50,25),InWorld?"WASD walk  ·  Mouse look  ·  Shift faster  ·  Escape returns to map":"Drag to pan  ·  Scroll to zoom  ·  Click a location to step into 1775",body);
+            GUI.Label(new Rect(28,Screen.height-92,Screen.width-50,25),InWorld?"WASD lopen  ·  Muis kijken  ·  Shift sneller  ·  Escape naar de kaart":"Sleep om te verschuiven  ·  Scrol om te zoomen  ·  Klik op een plek om 1775 binnen te stappen",body);
             if(InWorld)
             {
-                GUI.Box(ToolbarRect(28,155),"Return to Ferraris",GUI.skin.button);
+                GUI.Box(ToolbarRect(28,155),"Terug naar kaart",GUI.skin.button);
             }
             else
             {
                 GUI.Box(ToolbarRect(28,110),"−  Zoom",GUI.skin.button);
                 GUI.Box(ToolbarRect(148,110),"+  Zoom",GUI.skin.button);
-                GUI.Box(ToolbarRect(268,140),"Reset map",GUI.skin.button);
-                GUI.Box(ToolbarRect(418,165),overlayShown?"Hide vectors":"Show vectors",GUI.skin.button);
+                GUI.Box(ToolbarRect(268,140),"Herstel kaart",GUI.skin.button);
+                GUI.Box(ToolbarRect(418,165),overlayShown?"Verberg lijnen":"Toon lijnen",GUI.skin.button);
             }
-            GUI.Label(new Rect(Screen.width-370,Screen.height-52,345, 32),"KBR · Digitaal Vlaanderen | sheet 93",body);
+            GUI.Label(new Rect(Screen.width-370,Screen.height-52,345, 32),"KBR · Digitaal Vlaanderen | blad 93",body);
         }
 
         void OnDestroy(){foreach(var a in actions)a.Dispose();if(Instance==this)Instance=null;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;}
