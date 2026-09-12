@@ -65,7 +65,7 @@ namespace Ferraris
                 mapRoot=new GameObject("FerrarisMapScene");mapRoot.transform.SetParent(transform);
                 mapPlane=GameObject.CreatePrimitive(PrimitiveType.Quad);mapPlane.name="Ferraris map — raycast surface";mapPlane.transform.SetParent(mapRoot.transform,false);
                 mapMaterial=new Material(Shader.Find("Unlit/Texture")){mainTexture=texture};mapPlane.GetComponent<Renderer>().sharedMaterial=mapMaterial;
-                marker=GameObject.CreatePrimitive(PrimitiveType.Sphere);Destroy(marker.GetComponent<Collider>());marker.name="Selected location";marker.transform.SetParent(mapPlane.transform,false);marker.transform.localScale=Vector3.one*.014f;marker.GetComponent<Renderer>().material.color=new Color(.9f,.3f,.12f);
+                marker=GameObject.CreatePrimitive(PrimitiveType.Sphere);Destroy(marker.GetComponent<SphereCollider>());marker.name="Selected location";marker.transform.SetParent(mapPlane.transform,false);marker.transform.localScale=Vector3.one*.014f;marker.GetComponent<Renderer>().material.color=new Color(.9f,.3f,.12f);
                 overlay=new GameObject("Ferraris vector overlay");overlay.transform.SetParent(mapPlane.transform,false);BuildOverlay();overlay.SetActive(false);
                 headPosition=Action("<XRHMD>/centerEyePosition");headRotation=Action("<XRHMD>/centerEyeRotation");
                 rightPosition=Action("<XRController>{RightHand}/devicePosition");rightRotation=Action("<XRController>{RightHand}/deviceRotation");
@@ -236,7 +236,7 @@ namespace Ferraris
             ignoreLookUntilFrame=Time.frameCount+1;
             InWorld=true;mapRoot.SetActive(false);World.gameObject.SetActive(true);rayLine.enabled=false;
             character.enabled=false;Player.SetPositionAndRotation(new Vector3(x,Area.Height(x,z)+.08f,z),Quaternion.identity);
-            yaw=pitch=verticalSpeed=0;View.orthographic=false;View.fieldOfView= 75;
+            yaw=pitch=verticalSpeed=0;View.orthographic=false;if(!xr)View.fieldOfView=75;
             View.transform.localPosition=xr?headPosition.ReadValue<Vector3>():Vector3.up*1.65f;View.transform.localRotation=Quaternion.identity;
             Physics.SyncTransforms();character.enabled=true;
             // Map symbols can be clicked inside buildings. Find the nearest free

@@ -30,10 +30,14 @@ Reproduce with `bash scripts/unity.sh tests`, `bash scripts/unity.sh desktop` an
 - ARM64 / IL2CPP / Vulkan / OpenXR / Meta Quest support / Oculus Touch profile / single-pass instanced rendering are configured.
 - The packaged manifest includes the VR category and required VR head tracking; ARM64 Unity and OpenXR libraries are present. Minimum Android SDK is 29; this build targets SDK 36.
 - Selecting Android before the batch build fixed an OpenXR validator exception caused by validating against the desktop target. The final build reports only an optional OpenXR input-polling latency recommendation.
-- No physical headset is connected to ADB, so installation, headset/controller behavior and on-device frame rate remain unverified.
+- Installed and launched successfully on a physical Quest 3 on 12 September 2026. OpenXR reached `XR_SESSION_STATE_FOCUSED`; both Oculus Touch interaction profiles were recognized.
+- Vincent confirmed the complete map → select → landscape → movement → B return flow works in the headset.
+- The app's own VrApi records after the first world transition include 37 one-second samples (17:27:28–17:28:04 device time): 72–73 FPS against a 72 Hz target, median reported app time 2.4 ms. This is a short observed session, not a five-minute thermal or worst-case performance test. Evidence: `artifacts/quest-process.log` and `artifacts/quest-metrics.json`.
+- Hardware logs exposed a stripped `SphereCollider` used by the primitive map marker and a redundant VR field-of-view assignment. The marker now references its concrete collider type so IL2CPP preserves it; field of view is assigned only in desktop mode.
+- The corrected APK rebuilt successfully and its signature verifies. SHA-256: `91017f85255aff673a55599808caccf521c1e0d3459ca83ade6be6e2526b6242`. Test device: Quest 3 (`eureka`), Android build `UP1A.231005.007.A1`. Reinstallation requires renewed USB authorization after Unity restarted ADB.
 
 Builds and map-containing screenshots remain local; they are excluded from Git along with downloaded rasters and editor caches.
 
-## Hardware acceptance still required
+## Further hardware checks
 
-A physical Quest 3 is needed to verify headset/controller tracking, map ray interaction, thumbstick motion, comfort, standalone rendering and sustained 72 FPS. No headset performance claim is made before that test. An APK alone does not satisfy this acceptance criterion.
+The complete user journey is confirmed on Quest 3. Longer performance sampling across the village/tree clusters, thermal behavior, headset removal/resume and extended comfort checks remain useful follow-up work; the short measurement above does not establish those results.

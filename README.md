@@ -2,7 +2,7 @@
 
 A local Unity 6 / OpenXR prototype: navigate the real Ferraris map, click a location, explore corresponding historical roads, rural buildings, fields and trees on real Flemish terrain, then return to the map.
 
-The Unity application and GIS pipeline are implemented. See `docs/validation.md` for the current observed test/build status; hardware performance is not implied by source code or a successful APK build.
+The complete map-to-world journey runs on desktop and has been confirmed on a physical Quest 3. See `docs/validation.md` for the test/build evidence and measured limits.
 
 ## Requirements and setup
 
@@ -59,7 +59,7 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 
 - Map: right controller ray + trigger selects; left stick pans; right stick up/down zooms; B returns to map.
 - World: left stick moves relative to gaze; right stick snaps by 30 degrees; B returns to map.
-- Quest target: 72 FPS. Current scene uses a single terrain mesh/texture, combined building/road meshes, shared instanced tree mesh, simple mobile shader, no real-time shadows, 2048px ASTC map. FPS and comfort must be measured on a physical Quest 3 before claiming the target is met.
+- Quest target: 72 FPS. A short physical Quest 3 session measured 72–73 FPS at 72 Hz after entering the world. Longer stress and comfort testing remains outstanding. The scene uses a single terrain mesh/texture, combined building/road meshes, shared instanced tree mesh, simple mobile shader, no real-time shadows, and a 2048px ASTC map.
 
 ## Data and architecture
 
