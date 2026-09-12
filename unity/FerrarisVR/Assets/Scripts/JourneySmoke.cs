@@ -16,6 +16,7 @@ namespace Ferraris
             string output=Path.GetFullPath(Path.Combine(Application.dataPath,"../../../../artifacts"));
             string[] args=Environment.GetCommandLineArgs();
             int i=Array.IndexOf(args,"-evidence-dir");if(i>=0&&i+1<args.Length)output=args[i+1];Directory.CreateDirectory(output);
+            StartCoroutine(Record(output));
             var app=FerrarisApp.Instance;
             yield return new WaitForSeconds(1);
             if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
@@ -89,9 +90,27 @@ namespace Ferraris
             var church=Array.Find(app.Data.buildings,b=>b.kind=="church");app.Locate(church.x,church.z);app.EnterWorld(church.x,church.z);
             if(!Check(app.Selected.x==church.x&&app.Selected.z==church.z&&Vector2.Distance(new Vector2(app.Player.position.x,app.Player.position.z),new Vector2(church.x,church.z))>.5f,"Safe spawn preserves original building coordinate",output))yield break;
             app.ReturnToMap();
+            var day=app.GetComponent<PersonsDay>();day.Open();day.Resume();yield return new WaitForSeconds(.3f);
+            day.Pause();if(!Check(!ui.PanelOpen&&!day.Progress.Running,"Story pauses for free exploration",output))yield break;
+            day.Open();day.Resume();
+            for(int stop=0;stop<day.Content.stops.Length;stop++)
+            {
+                var target=day.Content.stops[stop];app.EnterWorld(target.x,target.z);day.Open();yield return new WaitForSeconds(.4f);
+                if(stop==0){ScreenCapture.CaptureScreenshot(Path.Combine(output,"09-story.png"));yield return new WaitForSeconds(.5f);}
+                ui.ClickScreen(new Vector2(420,1000-733));yield return null;
+                if(!Check(day.Progress.Step==stop+1,"Story stop "+(stop+1),output))yield break;
+            }
+            if(!Check(day.Progress.Complete(day.Content.stops.Length),"Story reaches ending",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"10-story-ending.png"));yield return new WaitForSeconds(.5f);day.Close();app.ReturnToMap();
             InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
             File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"Escape return\"],\"hardwareVRVerified\":false}");
             Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);
+        }
+        IEnumerator Record(string output)
+        {
+            string frames=Path.Combine(output,"journey-frames");Directory.CreateDirectory(frames);
+            foreach(string old in Directory.GetFiles(frames,"frame-*.png"))File.Delete(old);
+            for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
         }
         bool Check(bool ok,string check,string output)
         {

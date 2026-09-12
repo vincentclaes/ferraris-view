@@ -1,0 +1,42 @@
+{
+  "title": "Een dag met Marie",
+  "introduction": "Illustratief verhaal in de oogsttijd rond 1775. Marie en haar handelingen zijn verzonnen; de route volgt plekken uit de kaartinterpretatie.",
+  "evidence": "Hoe weten we dit?\n\nKaartinterpretatie: Ferraris, KBR/NGI blad 93 (1771–1778), uurl.kbr.be/1028485. Erf-, akker- en boomgaardlocaties zijn overgetrokken; functies en eigenaars zijn niet bewezen.\n\nGedocumenteerd: Onroerend Erfgoed, Maria-Hemelvaartkerk, object 41893: romaanse toren en latere verbouwingen.\n\nAlgemene werktuigen: CAG, Demasure & Woestenborghs, Collecties Bulskampveld (2016), p. 23–24. De latere museumcollectie bewijst geen specifiek gebruik op dit erf in 1775.\n\nIllustratie: Marie, haar dag, dialogen, gewaskeuze en 3D-details.",
+  "stops": [
+    {
+      "title": "Ochtend op het erf",
+      "text": "Marie, een denkbeeldige boerenvrouw, begint bij een erf. Ze neemt een mand mee en verdeelt het werk met haar huisgenoten. In dit verhaal is het erf haar thuis; de kaart bewijst niet wie hier woonde.",
+      "kind": "farmhouse",
+      "x": 22.4609375,
+      "z": -32.2265625
+    },
+    {
+      "title": "Handen aan het graan",
+      "text": "Op deze als akker geïnterpreteerde plek bekijkt Marie het graan. Ze verzamelt afgesneden halmen: oogsten met handgereedschap vraagt veel handen. Het gekozen gewas en haar werk hier zijn illustratief; de kaart vermeldt geen graansoort.",
+      "kind": "crop",
+      "x": 169.27083333333334,
+      "z": -131.83593333333332
+    },
+    {
+      "title": "Middag in de boomgaard",
+      "text": "Marie legt gevallen vruchten in haar mand en zoekt even schaduw. Fruitbomen voegen een andere oogst toe aan die van de akkers. De boomgaard volgt de kaartinterpretatie; fruitsoorten, oogstmoment en eigenaar kennen we hier niet.",
+      "kind": "orchard",
+      "x": -113.9323,
+      "z": 76.8229
+    },
+    {
+      "title": "Ontmoeting bij de kerk",
+      "text": "Bij de kerk spreekt Marie in ons verhaal een buur over het werk. De romaanse toren is een oud herkenningspunt in het dorp. Het gesprek is verzonnen; de kerk zelf is gedocumenteerd, maar haar huidige uiterlijk bevat ook latere verbouwingen.",
+      "kind": "church",
+      "x": 1.953125,
+      "z": 26.3671875
+    },
+    {
+      "title": "Avond bij de schuur",
+      "text": "Terug bij het erf bergt Marie haar mand op. Graanhalmen moeten nog gedorst worden om de korrels los te maken; een dorsvlegel is daar handgereedschap voor. We kiezen dit gebouw als schuur voor het verhaal, zonder bewijs van zijn precieze functie in 1775.",
+      "kind": "barn",
+      "x": -41.015625,
+      "z": -34.1796875
+    }
+  ]
+}
