@@ -58,6 +58,58 @@ namespace Ferraris.Editor
         {
             Configure();Build(Path.GetFullPath("../../builds/Winksele1775.app"),BuildTarget.StandaloneOSX);
         }
+        [MenuItem("Ferraris/Capture website cover")]
+        public static void WebCover()
+        {
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
+            var area=JsonUtility.FromJson<AreaData>(Resources.Load<TextAsset>("Winksele/area").text);
+            var data=JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("Winksele/world").text);
+            new GameObject("Sun").AddComponent<Light>().type=LightType.Directional;
+            var world=new GameObject("Landscape").AddComponent<HistoricalWorld>();world.Build(area,data);
+            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;
+            var camera=new GameObject("Cover camera").AddComponent<Camera>();camera.farClipPlane=1800;camera.clearFlags=CameraClearFlags.Skybox;
+            camera.transform.position=new Vector3(42,area.Height(42,-22)+14,-22);camera.transform.LookAt(new Vector3(2,15,26));
+            var target=new RenderTexture(1440,1000,24);camera.targetTexture=target;camera.Render();
+            RenderTexture.active=target;var image=new Texture2D(1440,1000,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1440,1000),0,0);image.Apply();
+            File.WriteAllBytes("../../web/cover.jpg",image.EncodeToJPG(90));RenderTexture.active=null;camera.targetTexture=null;
+            UnityEngine.Object.DestroyImmediate(image);UnityEngine.Object.DestroyImmediate(target);
+            Debug.Log("TOENLAND_COVER_CAPTURED");
+        }
+        [MenuItem("Ferraris/Build website")]
+        public static void Web()
+        {
+            Configure();
+            PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.decompressionFallback=false;
+            PlayerSettings.WebGL.dataCaching=true;
+            PlayerSettings.WebGL.template="PROJECT:Toenland";
+            PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.WebGL,false);
+            PlayerSettings.SetGraphicsAPIs(BuildTarget.WebGL,new[]{GraphicsDeviceType.OpenGLES3});
+            foreach(string guid in AssetDatabase.FindAssets("t:Texture2D",new[]{"Assets/WinkseleChurch/Textures","Assets/Resources/Visuals/Textures"}))
+            {
+                string path=AssetDatabase.GUIDToAssetPath(guid);var importer=(TextureImporter)AssetImporter.GetAtPath(path);
+                var settings=importer.GetPlatformTextureSettings("WebGL");int size=path.Contains("WinkseleChurch")||path.EndsWith(".hdr")?2048:1024;
+                if(settings.overridden&&settings.maxTextureSize==size)continue;
+                settings.name="WebGL";settings.overridden=true;settings.maxTextureSize=size;settings.format=TextureImporterFormat.Automatic;
+                importer.SetPlatformTextureSettings(settings);importer.SaveAndReimport();
+            }
+            // The website consults the public WMS directly. Never redistribute
+            // the local copyrighted map raster inside the downloadable data file.
+            const string raster="Assets/Resources/Winksele/ferraris.png",excluded="Assets/WebMapExcluded.png";
+            string error=AssetDatabase.MoveAsset(raster,excluded);
+            if(!string.IsNullOrEmpty(error))throw new InvalidOperationException(error);
+            try
+            {
+                Build(Path.GetFullPath("../../builds/web"),BuildTarget.WebGL);
+                File.Copy("../../web/vercel.json","../../builds/web/vercel.json",true);
+                File.Copy("../../web/cover.jpg","../../builds/web/cover.jpg",true);
+            }
+            finally
+            {
+                error=AssetDatabase.MoveAsset(excluded,raster);
+                if(!string.IsNullOrEmpty(error))throw new InvalidOperationException("Restore local map: "+error);
+            }
+        }
         [MenuItem("Ferraris/Configure Quest OpenXR")]
         public static void ConfigureQuest()
         {
@@ -93,8 +145,10 @@ namespace Ferraris.Editor
         {
             if(Resources.Load<TextAsset>("Winksele/world")==null)throw new InvalidOperationException("Run GIS export before building");
             Directory.CreateDirectory(Path.GetDirectoryName(path));
-            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName=path,target=target,options=BuildOptions.Development});
+            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName=path,target=target,options=target==BuildTarget.WebGL?BuildOptions.None:BuildOptions.Development});
             if(report.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Build failed: "+report.summary.result);
+            if(target==BuildTarget.WebGL)foreach(var pack in report.packedAssets)foreach(var asset in pack.contents)
+                if(asset.sourceAssetPath.EndsWith("/ferraris.png")||asset.sourceAssetPath.EndsWith("/WebMapExcluded.png"))throw new InvalidOperationException("Local map raster must not be included in the website");
             Debug.Log("FERRARIS_BUILD_SUCCESS "+path);
         }
     }

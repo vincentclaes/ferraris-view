@@ -18,6 +18,7 @@ unity/**/build/
 unity/**/Assets/Resources/Winksele/*
 builds/
 artifacts/
+.vercel/
 .DS_Store
 tests/**/bin/
 tests/**/obj/

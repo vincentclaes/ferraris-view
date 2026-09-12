@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
+#if UNITY_WEBGL && !UNITY_EDITOR
+using UnityEngine.Networking;
+#endif
 
 namespace Ferraris
 {
@@ -38,6 +41,7 @@ namespace Ferraris
         float yaw,pitch,verticalSpeed,turnCooldown,fps;
         bool pressed,dragged,triggerHeld,backHeld,menuHeld,xr,overlayShown;
         Material mapMaterial;
+        string webMapStatus;
         GUIStyle title,body;
         readonly List<InputAction> actions=new();
 
@@ -58,8 +62,12 @@ namespace Ferraris
                 // Unity's mouse-event merging can move a button-down event to
                 // the drag's final position, erasing the distinction from a click.
                 InputSystem.settings.disableRedundantEventsMerging=true;
+#if UNITY_WEBGL && !UNITY_EDITOR
+                var texture=Texture2D.grayTexture;
+#else
                 var texture=Resources.Load<Texture2D>("Winksele/ferraris");
                 if(texture==null)throw new InvalidOperationException("De Ferrariskaart ontbreekt. Bereid de lokale kaartgegevens opnieuw voor.");
+#endif
                 Application.targetFrameRate=72;QualitySettings.vSyncCount=0;QualitySettings.antiAliasing=4;
                 RenderSettings.ambientLight=new Color(.7f,.72f,.62f);RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=160;RenderSettings.fogEndDistance=650;RenderSettings.fogColor=new Color(.71f,.77f,.75f);
                 var sun=new GameObject("Late afternoon light").AddComponent<Light>();sun.type=LightType.Directional;sun.transform.rotation=Quaternion.Euler(40,-30,0);sun.shadows=LightShadows.None;
@@ -86,11 +94,31 @@ namespace Ferraris
                 actions.Add(pointerPosition);pointerPosition.Enable();
                 rayLine=new GameObject("Controller map ray").AddComponent<LineRenderer>();rayLine.positionCount=2;rayLine.startWidth=rayLine.endWidth=.004f;rayLine.material=new Material(Shader.Find("Unlit/Color"));rayLine.material.color=new Color(1,.72f,.24f);
                 Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();gameObject.AddComponent<HomeSearch>();gameObject.AddComponent<PersonsDay>();gameObject.AddComponent<LandscapeSound>();gameObject.AddComponent<PlaceNames>();gameObject.AddComponent<ObjectDiscovery>();StartCoroutine(DetectXR());
+#if UNITY_WEBGL && !UNITY_EDITOR
+                WebGLInput.captureAllKeyboardInput=false;
+                StartCoroutine(LoadWebMap());
+#endif
                 if(Array.Exists(Environment.GetCommandLineArgs(),s=>s=="-ferraris-smoke"))gameObject.AddComponent<JourneySmoke>();
             }
             catch(Exception e){Error="De ervaring kon niet worden geladen. Controleer de lokale gebieds- en beeldbestanden.";Debug.LogException(e);}
         }
         InputAction Action(string binding){var a=new InputAction(binding:binding);a.Enable();actions.Add(a);return a;}
+#if UNITY_WEBGL && !UNITY_EDITOR
+        IEnumerator LoadWebMap()
+        {
+            webMapStatus="Ferrariskaart laden via Digitaal Vlaanderen…";
+            var culture=System.Globalization.CultureInfo.InvariantCulture;
+            string bbox=string.Join(",",Array.ConvertAll(new[]{Area.originE-Area.size/2,Area.originN-Area.size/2,Area.originE+Area.size/2,Area.originN+Area.size/2},value=>value.ToString("R",culture)));
+            string url="https://geo.api.vlaanderen.be/histcart/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=ferraris&STYLES=&SRS=EPSG:31370&BBOX="+bbox+"&WIDTH=2048&HEIGHT=2048&FORMAT=image/png";
+            using(var request=UnityWebRequestTexture.GetTexture(url))
+            {
+                request.timeout=45;yield return request.SendWebRequest();
+                if(request.result!=UnityWebRequest.Result.Success){webMapStatus="De kaartdienst is even niet bereikbaar. Herlaad de pagina om opnieuw te proberen.";yield break;}
+                var texture=DownloadHandlerTexture.GetContent(request);texture.wrapMode=TextureWrapMode.Clamp;
+                mapMaterial.mainTexture=texture;webMapStatus=null;Debug.Log("TOENLAND_MAP_READY");
+            }
+        }
+#endif
         IEnumerator DetectXR()
         {
             // Android OpenXR loader may complete after Awake.
@@ -330,6 +358,7 @@ namespace Ferraris
             if(!Ready){GUI.Label(new Rect(28,64,Screen.width-50,80),Error??"Ferrariskaart laden…",body);return;}
             GeoPoint geo=Area.UnityToGeoCoordinate(InWorld?Player.position.x:Selected.x,InWorld?Player.position.z:Selected.z);
             GUI.Label(new Rect(28,61,Screen.width-50,25),$"{(InWorld?"HISTORISCH LANDSCHAP":"FERRARISKAART")}   •   {geo.lat:F6}, {geo.lon:F6}   •   {(InWorld?$"X {Player.position.x:F1}  Z {Player.position.z:F1}  terrein {Area.Height(Player.position.x,Player.position.z)+Area.heightBase:F1}m TAW":$"Zoom {MapZoom:F1}×")}   •   {fps:F0} FPS",body);
+            if(!InWorld&&webMapStatus!=null)GUI.Label(new Rect(28,Screen.height/2,Screen.width-56,60),webMapStatus,body);
             GUI.Box(new Rect(12,Screen.height-100,Screen.width-24,88),GUIContent.none);
             GUI.Label(new Rect(28,Screen.height-92,Screen.width-50,25),InWorld?"WASD lopen  ·  Muis kijken  ·  Shift sneller  ·  Tab menu  ·  Escape naar de kaart":"Sleep om te verschuiven  ·  Scrol om te zoomen  ·  Klik op een plek om 1775 binnen te stappen",body);
             if(InWorld)
