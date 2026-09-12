@@ -47,12 +47,15 @@ Set `UNITY_EDITOR` to override the installed editor executable. Close the editor
 bash scripts/unity.sh quest-configure
 bash scripts/unity.sh quest
 # Developer mode and USB debugging must be enabled on your headset:
-adb devices
-adb install -r builds/Winksele1775.apk
-adb shell monkey -p be.ferrarisview.winksele 1
+bash scripts/quest-device.sh devices
+bash scripts/quest-device.sh install
+bash scripts/quest-device.sh run
+bash scripts/quest-device.sh logs
 ```
 
 The build script selects Android ARM64, IL2CPP, Vulkan, OpenXR, Meta Quest support, Oculus Touch profile and single-pass instanced rendering. The runtime uses the Input System for head/controller poses and controls. Desktop remains available without an XR runtime.
+
+The device script finds ADB inside the Unity installation; set `ADB` to override it. With multiple devices, pass the Quest serial as the second argument. Installation does not proceed when the device is absent or unauthorized. See [headset acceptance steps](docs/quest-validation.md).
 
 - Map: right controller ray + trigger selects; left stick pans; right stick up/down zooms; B returns to map.
 - World: left stick moves relative to gaze; right stick snaps by 30 degrees; B returns to map.
