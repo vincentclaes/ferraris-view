@@ -39,11 +39,12 @@ bash scripts/smoke-desktop.sh
 
 Set `UNITY_EDITOR` to override the installed editor executable. Close the editor before running batch builds/tests on the same project.
 
-- Map: drag to pan, scroll or buttons to zoom, click to enter the world. Reset restores Winksele. Show vectors displays extracted roads/building footprints/vegetation.
+- Map: drag or arrow keys to pan; scroll, +/− or buttons to zoom; click or Enter at the map centre to enter the world. R resets Winksele; V toggles extracted roads/building footprints/vegetation.
 - World: WASD, mouse look, Shift to walk faster, Escape or Return to Ferraris to return. Click the world to recapture the mouse after focus loss.
 - A map click inside a building spawns at a nearby free point within 25m. The selected coordinate remains available separately.
 - Debug overlay: mode, latitude/longitude, Unity X/Z, terrain TAW elevation, FPS.
-- Discovery: **Tab** opens address search; **I** or **Onderzoek objecten** enables object selection. The menu opens the day story, sound controls and place names. **Meer weten** opens deeper explanations; closing a panel resumes exploration.
+- Menus: **Tab** releases the mouse and highlights the next button; **Shift+Tab** goes back; **Enter/Space** activates. Click the landscape to resume mouse look. **Escape** closes a panel; **M** returns to the map.
+- Discovery shortcuts: **H** address search, **J** day story, **L** sound, **N** place names, **I** object inspection. While typing an address, these letters stay in the address. Every panel action can also be clicked or reached with Tab, including sources, story progress and volume. In the browser, **F2** returns focus to the website full-screen button.
 
 ## Quest 3
 

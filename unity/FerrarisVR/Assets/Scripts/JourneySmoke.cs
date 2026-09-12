@@ -78,7 +78,12 @@ namespace Ferraris
             if(!Check(!app.InWorld && app.View.orthographic,"Return to map",output))yield break;
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"05-return.png"));yield return new WaitForSeconds(.5f);
             var home=app.GetComponent<HomeSearch>();var ui=app.GetComponent<VisitorUI>();
-            home.Toggle();home.SetQuery("Dalenstraat");yield return null;
+            home.Toggle();yield return null;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.I));
+            foreach(char letter in "Winksele")InputSystem.QueueTextEvent(keyboard,letter);
+            yield return null;yield return null;
+            if(!Check(home.Query=="Winksele"&&home.IsOpen&&!app.GetComponent<ObjectDiscovery>().Active,"Address typing does not trigger global shortcuts",output))yield break;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState());home.SetQuery("Dalenstraat");yield return null;
             if(!Check(ui.PanelOpen,"Address search panel opens",output))yield break;
             var addresses=HomeSearch.Search(app.GetComponent<AddressDisplay>().Book,"Dalenstraat");
             var address=Array.Find(addresses,a=>HomeSearch.Covered(a,app.Area.size));home.Choose(address);yield return null;

@@ -140,13 +140,21 @@ namespace Ferraris
             if(xr){UpdateXR();return;}
             var mouse=Mouse.current;var keyboard=Keyboard.current;
             var ui=GetComponent<VisitorUI>();
-            if(keyboard?.iKey.wasPressedThisFrame==true)GetComponent<ObjectDiscovery>().Toggle();
-            if(keyboard?.tabKey.wasPressedThisFrame==true)GetComponent<HomeSearch>().Toggle();
             if(keyboard!=null && keyboard.escapeKey.wasPressedThisFrame){if(ui?.PanelOpen==true)ui.ClosePanel?.Invoke();else ReturnToMap();return;}
-            if(ui?.PanelOpen==true)return;
+            if(ui?.HandleKeyboard(keyboard)==true)return;
+            // Text entry owns letter keys: typing Winksele must not open inspection.
+            if(GetComponent<HomeSearch>()?.IsOpen!=true&&keyboard!=null)
+            {
+                if(keyboard.hKey.wasPressedThisFrame){GetComponent<HomeSearch>().Toggle();return;}
+                if(keyboard.jKey.wasPressedThisFrame){GetComponent<PersonsDay>().Open();return;}
+                if(keyboard.lKey.wasPressedThisFrame){GetComponent<LandscapeSound>().Open();return;}
+                if(keyboard.nKey.wasPressedThisFrame){GetComponent<PlaceNames>().Open();return;}
+                if(keyboard.iKey.wasPressedThisFrame){ui?.ClearKeyboardFocus();GetComponent<ObjectDiscovery>().Toggle();return;}
+                if(keyboard.mKey.wasPressedThisFrame){ui?.ClosePanel?.Invoke();ReturnToMap();return;}
+            }
+            if(ui?.PanelOpen==true||ui?.HasKeyboardFocus==true)return;
             if(InWorld)
             {
-                if(GetComponent<ObjectDiscovery>()?.Active!=true && mouse!=null && mouse.leftButton.wasPressedThisFrame && Cursor.lockState!=CursorLockMode.Locked && mouse.position.ReadValue().y<Screen.height-110)Cursor.lockState=CursorLockMode.Locked;
                 if(mouse!=null && Cursor.lockState==CursorLockMode.Locked && Time.frameCount>ignoreLookUntilFrame)
                 {
                     Vector2 delta=mouse.delta.ReadValue();yaw+=delta.x*.12f;pitch=Mathf.Clamp(pitch-delta.y*.12f,-85,85);
@@ -158,6 +166,16 @@ namespace Ferraris
             }
             else if(mouse!=null)
             {
+                if(keyboard!=null)
+                {
+                    Vector2 pan=new((keyboard.rightArrowKey.isPressed?1:0)-(keyboard.leftArrowKey.isPressed?1:0),(keyboard.upArrowKey.isPressed?1:0)-(keyboard.downArrowKey.isPressed?1:0));
+                    if(pan!=Vector2.zero)PanMap(pan.normalized*Area.size*.3f*Time.deltaTime/MapZoom);
+                    if(keyboard.equalsKey.wasPressedThisFrame||keyboard.numpadPlusKey.wasPressedThisFrame)ZoomMap(1.4f);
+                    if(keyboard.minusKey.wasPressedThisFrame||keyboard.numpadMinusKey.wasPressedThisFrame)ZoomMap(1/1.4f);
+                    if(keyboard.rKey.wasPressedThisFrame){MapZoom=1;MapPan=Vector2.zero;ApplyMapView();}
+                    if(keyboard.vKey.wasPressedThisFrame){overlayShown=!overlayShown;overlay.SetActive(overlayShown);}
+                    if(keyboard.enterKey.wasPressedThisFrame||keyboard.numpadEnterKey.wasPressedThisFrame){SelectUV(MapPan.x/Area.size+.5f,MapPan.y/Area.size+.5f);return;}
+                }
                 Vector2 pos=mouse.position.ReadValue();
                 if(pos.y>110 && pos.y<Screen.height-120)
                 {
@@ -181,10 +199,16 @@ namespace Ferraris
         {
             if(TracePointer)Debug.Log($"POINTER down {p}");
             if(!Ready||xr)return;
-            if(GetComponent<VisitorUI>()?.ClickScreen(p)==true)return;
-            if(HandleToolbar(p))return;
+            var ui=GetComponent<VisitorUI>();
+            if(ui?.ClickScreen(p)==true||ui?.PanelOpen==true)return;
+            if(HandleToolbar(p)){ui?.ClearKeyboardFocus();return;}
             if(InWorld&&GetComponent<ObjectDiscovery>()?.Active==true){GetComponent<ObjectDiscovery>().SelectRay(View.ScreenPointToRay(p));return;}
-            if(InWorld||p.y<=110||p.y>=Screen.height-120)return;
+            if(InWorld)
+            {
+                GetComponent<VisitorUI>()?.ClearKeyboardFocus();Cursor.lockState=CursorLockMode.Locked;Cursor.visible=false;ignoreLookUntilFrame=Time.frameCount+1;return;
+            }
+            if(p.y<=110||p.y>=Screen.height-120)return;
+            GetComponent<VisitorUI>()?.ClearKeyboardFocus();
             pressed=true;dragged=false;pointerReleased=false;pendingPan=Vector2.zero;pressPosition=previousPointer=p;
         }
         void PointerMove(Vector2 p)
@@ -328,6 +352,7 @@ namespace Ferraris
         public void ReturnToMap()
         {
             if(!Ready)return;
+            GetComponent<VisitorUI>()?.ClearKeyboardFocus();
             InWorld=false;View.clearFlags=CameraClearFlags.SolidColor;character.enabled=false;World.gameObject.SetActive(false);mapRoot.SetActive(true);
             pressed=pointerReleased=false;pendingPan=Vector2.zero;
             Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
@@ -360,7 +385,7 @@ namespace Ferraris
             GUI.Label(new Rect(28,61,Screen.width-50,25),$"{(InWorld?"HISTORISCH LANDSCHAP":"FERRARISKAART")}   •   {geo.lat:F6}, {geo.lon:F6}   •   {(InWorld?$"X {Player.position.x:F1}  Z {Player.position.z:F1}  terrein {Area.Height(Player.position.x,Player.position.z)+Area.heightBase:F1}m TAW":$"Zoom {MapZoom:F1}×")}   •   {fps:F0} FPS",body);
             if(!InWorld&&webMapStatus!=null)GUI.Label(new Rect(28,Screen.height/2,Screen.width-56,60),webMapStatus,body);
             GUI.Box(new Rect(12,Screen.height-100,Screen.width-24,88),GUIContent.none);
-            GUI.Label(new Rect(28,Screen.height-92,Screen.width-50,25),InWorld?"WASD lopen  ·  Muis kijken  ·  Shift sneller  ·  Tab menu  ·  Escape naar de kaart":"Sleep om te verschuiven  ·  Scrol om te zoomen  ·  Klik op een plek om 1775 binnen te stappen",body);
+            GUI.Label(new Rect(28,Screen.height-92,Screen.width-50,25),InWorld?"WASD lopen · Muis kijken · Shift sneller · Tab: muis vrij / knoppen · H adres · J verhaal · L geluid · N namen · I onderzoek · M kaart":"Sleep / pijltjes: verschuiven · Scrol / + −: zoom · Klik / Enter: betreed plek · Tab: knoppen · H adres · J verhaal · L geluid · N namen",body);
             if(InWorld)
             {
                 GUI.Box(ToolbarRect(28,155),"Terug naar kaart",GUI.skin.button);
