@@ -1,0 +1,1073 @@
+{
+  "source": "https://topoferraris.ngi.be/",
+  "sourceBundle": "main-ANYVWMZN.js",
+  "entries": [
+    {
+      "id": "leg1777-1_38",
+      "label": "Heuvel",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_38.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_30",
+      "label": "Steile helling",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_30.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_27",
+      "label": "Rivier met stroomrichtingsaanduiding",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_27.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_31",
+      "label": "Kanaal",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_31.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_32",
+      "label": "Beek",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_32.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_26",
+      "label": "Ondergrondse rivier",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_26.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_39",
+      "label": "Stilstaand water",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_39.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_1",
+      "label": "Bron",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_1.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_56",
+      "label": "Brug in steen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_56.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_14",
+      "label": "Brug in hout",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_14.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_25",
+      "label": "Steiger / pier",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_25.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_12",
+      "label": "Doorwaadbare plaats",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_12.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_23",
+      "label": "Sluis",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_23.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_8",
+      "label": "Veer",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_8.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_10",
+      "label": "Stuw",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_10.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_19",
+      "label": "Dijk",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_19.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_21",
+      "label": "Golfbreker",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_21.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_6",
+      "label": "Steenweg",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_6.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_16",
+      "label": "Steenweg met bomen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_16.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_18",
+      "label": "Onverharde weg",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_18.png",
+      "types": [
+        "road"
+      ],
+      "status": "Categorie gebruikt; precieze plaats en subtype blijven kaartinterpretatie."
+    },
+    {
+      "id": "leg1777-1_3",
+      "label": "Onverharde weg met hagen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_3.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_40",
+      "label": "Onverharde weg met bomen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_40.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_2",
+      "label": "Holle weg",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_2.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_57",
+      "label": "Holle wegen met bomen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_57.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_15",
+      "label": "Voetweg",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_15.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_13",
+      "label": "Open akkerland",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_13.png",
+      "types": [
+        "soil",
+        "crop"
+      ],
+      "status": "Categorie gebruikt; precieze plaats en subtype blijven kaartinterpretatie."
+    },
+    {
+      "id": "leg1777-1_24",
+      "label": "Heggenlandschap",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_24.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_9",
+      "label": "Boomgaard",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_9.png",
+      "types": [
+        "orchard"
+      ],
+      "status": "Categorie gebruikt; precieze plaats en subtype blijven kaartinterpretatie."
+    },
+    {
+      "id": "leg1777-1_11",
+      "label": "Wijngaard",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_11.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_20",
+      "label": "Weiland",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_20.png",
+      "types": [
+        "grass"
+      ],
+      "status": "Categorie gebruikt; precieze plaats en subtype blijven kaartinterpretatie."
+    },
+    {
+      "id": "leg1777-1_22",
+      "label": "Polder",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_22.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_62",
+      "label": "Keuterperceel",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_62.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_5",
+      "label": "Moestuin",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_5.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_7",
+      "label": "Siertuin",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_7.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_17",
+      "label": "Park",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_17.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_4",
+      "label": "Loofbos",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_4.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_41",
+      "label": "Naaldbos",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_41.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_42",
+      "label": "Gemengd bos",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_42.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_58",
+      "label": "Hakhoutbos",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_58.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_49",
+      "label": "Droge heide",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_49.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_55",
+      "label": "Natte heide",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_55.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_48",
+      "label": "Meersen met afwateringsgrachten",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_48.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_54",
+      "label": "Moerassig weiland",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_54.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_46",
+      "label": "Moeras",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_46.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_52",
+      "label": "Onbegaanbaar moeras",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_52.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_53",
+      "label": "Veenmoeras",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_53.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_47",
+      "label": "Schorren",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_47.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_44",
+      "label": "Slikken",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_44.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_45",
+      "label": "Overstromingsgebied",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_45.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_50",
+      "label": "Heggen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_50.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_51",
+      "label": "Bomenrij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_51.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_43",
+      "label": "Vrijstaande boom",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_43.png",
+      "types": [
+        "tree"
+      ],
+      "status": "Alleen categorieverwijzing; individuele 3D-boomposities zijn illustratief."
+    },
+    {
+      "id": "leg1777-1_59",
+      "label": "Vrijstaande struik",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_59.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_60",
+      "label": "Agglomeratie",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_60.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_61",
+      "label": "Gebouwen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_61.png",
+      "types": [
+        "house",
+        "barn",
+        "farmhouse"
+      ],
+      "status": "Categorie gebruikt; precieze plaats en subtype blijven kaartinterpretatie."
+    },
+    {
+      "id": "leg1777-2_59",
+      "label": "Pachthoeve",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_59.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_28",
+      "label": "Kasteel",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_28.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_40",
+      "label": "Herberg",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_40.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_32",
+      "label": "Buitenverblijf",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_32.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_39",
+      "label": "Hospitaal",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_39.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_31",
+      "label": "Stadspoort",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_31.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_37",
+      "label": "Muur",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_37.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_38",
+      "label": "Kerk",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_38.png",
+      "types": [
+        "church"
+      ],
+      "status": "Categorie gebruikt; precieze plaats en subtype blijven kaartinterpretatie."
+    },
+    {
+      "id": "leg1777-2_35",
+      "label": "Kapel",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_35.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_36",
+      "label": "Klooster",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_36.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_29",
+      "label": "Abdij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_29.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_30",
+      "label": "Kluizenarij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_30.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_33",
+      "label": "Begraafplaats",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_33.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_34",
+      "label": "Begijnhof",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_34.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_41",
+      "label": "Vesting",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_41.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_1",
+      "label": "Verdedigingswerk",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_1.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_56",
+      "label": "(Voormalige) schans",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_56.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_14",
+      "label": "Wachtpost",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_14.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_26",
+      "label": "Commanderij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_26.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_24",
+      "label": "Windmolen in steen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_24.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_9",
+      "label": "Windmolen in hout",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_9.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_11",
+      "label": "Watermolen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_11.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_20",
+      "label": "Steenkoolmijn",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_20.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_22",
+      "label": "Steengroeve",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_22.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_5",
+      "label": "Kalkoven",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_5.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_7",
+      "label": "Smederij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_7.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_16",
+      "label": "IJzermijn",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_16.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_18",
+      "label": "Zaagmolen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_18.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_3",
+      "label": "Laagoven",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_3.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_42",
+      "label": "Steenbakkerij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_42.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_2",
+      "label": "Marmergroeve",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_2.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_57",
+      "label": "Papiermolen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_57.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_15",
+      "label": "Walserij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_15.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_27",
+      "label": "Volderij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_27.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_13",
+      "label": "Leisteengroeve",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_13.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_25",
+      "label": "Glasblazerij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_25.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_10",
+      "label": "Aluinfabriek",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_10.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_12",
+      "label": "Pannenbakkerij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_12.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_21",
+      "label": "Blekerij of wasserij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_21.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_23",
+      "label": "Gieterij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_23.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_6",
+      "label": "Stoommachine",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_6.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_8",
+      "label": "Kopermijn",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_8.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_17",
+      "label": "Krijtgroeve",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_17.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_19",
+      "label": "Grafietmijn",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_19.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_4",
+      "label": "Zandsteengroeve",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_4.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_43",
+      "label": "Zwavelfabriek",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_43.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_58",
+      "label": "Wip",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_58.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_50",
+      "label": "Galg",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_50.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_55",
+      "label": "Martelrad",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_55.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_49",
+      "label": "Galgenveld",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_49.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_54",
+      "label": "Toren",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_54.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_47",
+      "label": "Stenen kruis",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_47.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_48",
+      "label": "Houten kruis",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_48.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_52",
+      "label": "Kruisweg",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_52.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_53",
+      "label": "Grafheuvel",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_53.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_45",
+      "label": "Grenssteen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_45.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_46",
+      "label": "Eendenkooi",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_46.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_51",
+      "label": "Slagveld",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_51.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-2_44",
+      "label": "Schermutseling",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-2_44.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_26",
+      "label": "Gebied",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_26.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_29",
+      "label": "Stad",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_29.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_16",
+      "label": "Parochienummer",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_16.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_12",
+      "label": "Grens Brabant (donkergeel)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_12.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_14",
+      "label": "Grens Vlaanderen (kakigroen)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_14.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_11",
+      "label": "Grens Mechelen (lichtrood)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_11.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_15",
+      "label": "Grens Namen (felgeel)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_15.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_13",
+      "label": "Grens Luik (paars-grijs)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_13.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_27",
+      "label": "Dorp",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_27.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_28",
+      "label": "Gehucht",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_28.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_7",
+      "label": "Grens Holland (oranje)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_7.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_10",
+      "label": "Grens Frankrijk (blauw)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_10.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_5",
+      "label": "Grens Henegouwen (rood)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_5.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_6",
+      "label": "Privé-domein",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_6.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_8",
+      "label": "Keizerlijk domein",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_8.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_9",
+      "label": "Betwist gebied",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_9.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_17",
+      "label": "Abdij (Abb.)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_17.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_18",
+      "label": "Aan Zijne/Hare Majesteit (A S: M:)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_18.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_19",
+      "label": "Bos (Bs)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_19.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_20",
+      "label": "Kasteel (Chaau / Chau)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_20.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_21",
+      "label": "Kapel (Clle)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_21.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_22",
+      "label": "Pachthoeve (Cse)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_22.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_23",
+      "label": "Klooster (Couv’t)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_23.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_2",
+      "label": "Gehucht (Hau)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_2.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_4",
+      "label": "Molen (Min / Mlin)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_4.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_1",
+      "label": "Berg / heuvel (MGNE)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_1.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_24",
+      "label": "Rivier (Riv:)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_24.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_25",
+      "label": "Beek (Rui:)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_25.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-3_3",
+      "label": "Sint (S / Ste)",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-3_3.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_37",
+      "label": "Zachte helling",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_37.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_29",
+      "label": "Rotsen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_29.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_35",
+      "label": "Eiland",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_35.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_28",
+      "label": "Getij",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_28.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_36",
+      "label": "Zandstrand",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_36.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_33",
+      "label": "Landduinen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_33.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    },
+    {
+      "id": "leg1777-1_34",
+      "label": "Kustduinen",
+      "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_34.png",
+      "types": [],
+      "status": "Niet als afzonderlijk type gemodelleerd; aanwezigheid op de kaart niet vastgesteld."
+    }
+  ]
+}

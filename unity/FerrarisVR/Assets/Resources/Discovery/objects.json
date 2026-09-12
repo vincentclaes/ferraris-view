@@ -1,0 +1,567 @@
+{
+  "entries": [
+    {
+      "keys": [
+        "house",
+        "barn",
+        "farmhouse"
+      ],
+      "name": "Erfgebouw",
+      "summary": "Gebouwen boden plaats aan wonen, opslag en werk. De plaats volgt een overgetrokken kaartsymbool, maar de keuze voor huis, hoeve of schuur en de zichtbare bouwdetails zijn illustratief.",
+      "legend": "Gebouwen — leg1777-1_61; een specifieke hoevefunctie is niet bewezen.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "De kaart tekent bebouwing met gebouwvlakken. Het model voegt muren, dak, ramen, deuren, luiken, stoep en soms een schoorsteen toe; die onderdelen zijn niet tot in detail uit de kaart af te lezen."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Een woonhuis wordt gebruikt om te wonen; een schuur voor opslag en werk. Hoeve duidt op een landbouwbedrijf met zijn gebouwen. Welke functie dit gebouw precies had en hoe het plaatselijk heette, is niet vastgesteld. Voor bekende plaatsnamen kun je Ontdek plaatsnamen openen."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Een erf kon wonen, dieren verzorgen en oogst opslaan combineren. Niet ieder gebouw had dezelfde taak: een brede toegang is bijvoorbeeld handig om een kar of een lading schoven binnen te brengen. Dat is algemene gebruikslogica, geen vastgestelde functie van dit exemplaar."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Gebouwen staan vaak bij een bereikbare weg en de grond die men gebruikt. Daken voeren regen af; overstekken beschermen gevels. Steen, hout en baksteen hangen af van beschikbaarheid, vakkennis en middelen. De gekozen materialen en dakvorm zijn hier een reconstructiekeuze."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Een droge voorraad en een beschutte werkplek verbinden het erf met de oogst buiten. De verdeling van ruimte maakt zichtbaar dat landbouw meer is dan alleen een akker: gereedschap, dieren en voorraden hebben ook plaats nodig."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Denk aan een huishouden dat schoven naar een droge opslag brengt en later korrels uit de aren dorst. Dat vraagt ruimte om te dragen, neer te leggen en te werken. De scène vertelt geen bewezen levensverhaal van de bewoners van dit gebouw."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Gebouwen kunnen worden verbouwd, samengevoegd of vervangen terwijl een weg herkenbaar blijft. De huidige adressen helpen oriënteren, maar bewijzen niet dat een huidige woning hetzelfde gebouw is als op Ferraris."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Kaartinterpretatie: KBR/NGI, Ferraris blad 93, https://uurl.kbr.be/1028485. Legende: NGI Topoferrarisviewer, Gebouwen. Algemene gebruiksuitleg is historische context; functies, bewoners, materialen en afzonderlijke bouwdetails van dit exemplaar zijn niet gedocumenteerd."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "church"
+      ],
+      "name": "Maria-Hemelvaartkerk",
+      "summary": "De kerk is een herkenningspunt van Winksele en een plaats van religieus samenkomen. Haar locatie is historisch onderbouwd; het 3D-uiterlijk is een interpretatie en bevat onzekerheden door latere verbouwingen.",
+      "legend": "Kerk — leg1777-2_38.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Een kerk is een gebouw voor de eredienst. Op de kaart helpen het kerksymbool en de dorpskern de plaats herkennen. In de wereld vallen toren, schip en koor op; ze hebben niet dezelfde ouderdom."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Maria-Hemelvaart is de huidige kerknaam en verwijst naar een christelijk feest rond Maria. We gebruiken de gedocumenteerde huidige naam voor herkenning. Uit de naam alleen volgen geen bouwdatum of bewijs voor de precieze toestand in 1775."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "De kerk bood ruimte voor religieuze vieringen en rituelen. De gemeentelijke geschiedenis beschrijft Winksele ook als bedevaartsplaats. Een specifiek gesprek, feest of klokmoment tijdens jouw wandeling is niet historisch vastgelegd."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "De stenen kerk stond al eeuwen voor Ferraris in de dorpskern. De gemeentelijke bron beschrijft een romaanse kern en latere uitbreidingen. Een hoge toren is van ver herkenbaar; we kennen hier niet alle afwegingen van de oorspronkelijke bouwers."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "De kerk verbond religieuze gebruiken met een vaste plek in het dorp. Een kerkgebouw kan zo ook een oriëntatiepunt worden voor mensen die onderweg zijn. Niet iedere dorpsbewoner beleefde die plek op dezelfde manier."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Bezoekers kwamen via de toegangen naar de ruimte voor de viering. Een klok kon een hoorbaar signaal geven. De opgenomen klok in deze app illustreert dat principe; we kennen de toenmalige Winksele-klank en het precieze luidritme niet."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "De kerk werd meermaals verbouwd en gerestaureerd. De modelvariant verbergt de als sacristie van 1786 aangeduide toevoeging, maar is daarmee geen volledig geverifieerde reconstructie van 1775. Ook andere details kunnen van latere datum zijn."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Gedocumenteerd gebouw: Onroerend Erfgoed, object 41893, https://id.erfgoed.net/erfgoedobjecten/41893. Gemeentelijke context: Herent, Ontstaansgeschiedenis Winksele-Delle. Kaart: KBR/NGI blad 93. Interpretatie: schaalaanpassing en periodeselectie van het model; illustratie: licht, klokopname en dagelijkse activiteiten."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "road"
+      ],
+      "name": "Onverharde weg",
+      "summary": "Wegen verbinden erven, akkers en het dorp. De gevolgde lijn is overgetrokken van de kaart; breedte, wielsporen en wegdek in de wereld zijn vereenvoudigde interpretaties.",
+      "legend": "Onverharde weg — leg1777-1_18; subtypen niet afzonderlijk vastgesteld.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Een weg is een strook waarlangs mensen en goederen zich verplaatsen. Ferraris onderscheidt onder meer steenwegen, onverharde wegen, holle wegen en voetwegen. De app heeft die onderverdeling niet per getekende lijn bewezen en toont de lijnen als aardewegen."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Weg is hier de algemene benaming. Een huidige straatnaam kan later zijn ontstaan of een ruimer traject aanduiden. Voor Dalenstraat en andere geselecteerde lokale namen is er de aparte plaatsnaamfunctie."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Mensen gingen te voet of met dieren en voertuigen tussen woning, werkgrond en dorp. Een oogst vervoeren of een werktuig meenemen stelt andere eisen dan alleen wandelen. Niet elke weg was in alle seizoenen even bruikbaar."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Een route zoekt verbindingen tussen bestemmingen en moet rekening houden met hellingen, natte plekken en grenzen. Herhaald verkeer kan een zachte ondergrond uitslijten. De zichtbare sporen tonen dat principe, geen gemeten historische bandbreedte of bewezen verkeersdrukte."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Zonder bereikbare routes wordt ook vruchtbare grond moeilijker bruikbaar. Wegen maken uitwisseling mogelijk en bepalen welke erven en velden gemakkelijk met elkaar verbonden zijn."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Stel je een kar met een lading voor: de trekker heeft ruimte nodig en diepe modder maakt het werk zwaarder. De bezoeker loopt nu gemakkelijk over de virtuele weg; dat zegt niets over de werkelijke reistijd in een natte winter."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Verharding, nieuwe voertuigen en verbreding kunnen oude routes sterk veranderen. Sommige lijnen blijven herkenbaar, andere worden onderbroken. Vergelijk de kaartlijn met het huidige referentieadres zonder beide als exact dezelfde weg te behandelen."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "NGI-legende 1777: de wegcategorieën. Lokale lijn: handmatige Ferraris-overtrek, KBR/NGI blad 93. Algemene gebruikscontext is geen routeonderzoek per weg; 3D-breedte, wielsporen en materialen zijn illustratief."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "soil",
+        "crop"
+      ],
+      "name": "Akker",
+      "summary": "Een akker is grond die wordt bewerkt om gewassen te telen. De kaartinterpretatie ondersteunt hier akkerland, maar het getoonde gewas, de oogstfase en de bodemkleur zijn niet uit de kaart bewezen.",
+      "legend": "Open akkerland — leg1777-1_13.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Akkerland is ingericht voor teelt en herkenbaar aan de perceelstructuur en arcering in de kaartlegende. In de app kunnen kale grond en staande halmen dezelfde categorie voorstellen: het zijn verschillende illustratieve toestanden van landbouwgrond."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Akker is de gewone benaming voor bewerkt bouwland. Het woord zegt op zichzelf niet welke plant er stond. De oorspronkelijke lokale naam van dit perceel en de naam van de gebruiker kennen we hier niet."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Gewassen konden voedsel, voer of andere grondstoffen leveren. Zaaien, verzorgen en oogsten vragen verschillende werkzaamheden. Uit een algemene akkerkleur mogen we geen specifieke graansoort of jaarlijkse teeltvolgorde afleiden."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Bodem, vocht, helling en bereikbaarheid beïnvloeden wat gemakkelijk te bewerken is. Perceelgrenzen hangen ook samen met gebruik en eigendom. Dat zijn algemene factoren; de precieze bodemkeuze en eigendomsverhouding van dit perceel zijn niet onderzocht."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Landbouwgrond draagt bij aan de voedselvoorziening en vraagt veel terugkerend werk. Een tegenvallende oogst kon daarom verder doorwerken dan alleen op het veld zelf. De app berekent geen historische opbrengst voor dit perceel."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Bij graan kan iemand halmen met handgereedschap afsnijden en bijeenbrengen. Later moeten de korrels worden losgemaakt en gereinigd. CAG beschrijft hiervoor onder meer oogstgereedschap, dorsvlegels en zeven; welk gereedschap hier werd gebruikt weten we niet."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Machines kunnen taken overnemen die eerder veel handwerk vroegen. Ook perceelgrenzen en teelten kunnen veranderen. Een modern veld met hetzelfde adres in de buurt heeft daardoor niet noodzakelijk dezelfde grenzen of gewassen."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Kaartcategorie: NGI, Open akkerland; lokale geometrie: Ferraris-overtrek. Algemene werktuigencontext: CAG, Collecties Bulskampveld (2016), p. 23–24. Die museumcollectie bewijst geen gereedschap of gewas op deze plek in 1775. De halmen en kale bodem zijn illustraties."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "grass"
+      ],
+      "name": "Grasland en weide",
+      "summary": "Grasland kon vee voeden door begrazing of door gemaaid gras te gebruiken. De kaartcategorie wordt hier als weide geïnterpreteerd; dieren, grassoorten en maaibeheer zijn illustratief.",
+      "legend": "Weiland — leg1777-1_20; precieze gebruiksvorm niet vastgesteld.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Grasland draagt een vegetatie die voor dieren bruikbaar kan zijn. Weiland wordt vooral met begrazing verbonden, terwijl hooiland gras levert dat men maait en droogt. De app bewijst voor dit perceel geen exacte verdeling tussen beide."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Weide benoemt een plek waar dieren kunnen weiden. Grasland is ruimer en zegt vooral iets over de begroeiing. Een plaatselijke perceelnaam is hier niet bekend."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Dieren kunnen zelf grazen; gras kan ook worden gemaaid en als hooi bewaard. De keuze hangt samen met seizoen en gebruik. Het aanwezige schaap of rund toont een mogelijk gebruik, geen historische telling."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Vochtigheid, bereikbaarheid en de plaats van het erf beïnvloeden het gebruik. Grasland is niet automatisch moerassig en een groen kaartvlak is geen bewijs voor dagelijks ondergelopen grond. Dit perceel is niet lokaal op drainage of beheer onderzocht."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Voer verbindt grondgebruik met dieren op het erf. Een voorraad voor een periode met minder groei vraagt planning, ruimte en arbeid. Dat maakt een weide onderdeel van een groter landbouwbedrijf."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Denk aan gemaaid gras dat wordt gekeerd en verzameld wanneer het droog genoeg is. Handgereedschap zoals zeis, hark en hooivork past bij dat werk. De scène toont geen geverifieerd maaimoment."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Grasland kan akker, bebouwing of blijvende weide worden. Modern maaien en verzamelen kan sterk verschillen van handwerk, terwijl het doel van voer verzamelen herkenbaar blijft."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "NGI-legende: Weiland. Lokale plek: overgetrokken Ferrarisperceel. CAG beschrijft gereedschap voor maaien en hooien in zijn landbouwcollectie. Grassoorten, vee, aantallen, beheer en eigenaar zijn voor deze plaats onbekend."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "orchard"
+      ],
+      "name": "Boomgaard",
+      "summary": "Een boomgaard groepeert fruitbomen op een stuk grond. De plaats volgt de kaartinterpretatie; de soorten, leeftijden en precieze boomposities zijn niet bekend.",
+      "legend": "Boomgaard — leg1777-1_9.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Bij een boomgaard gaat het om bomen die voor fruit worden gehouden. Het herhaalde boompatroon helpt de categorie op de kaart herkennen. Een symbool is geen één-op-één inventaris van iedere echte boom."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "De benaming verbindt bomen met een omsloten of ingericht stuk grond. Zij benoemt een teeltvorm, geen specifieke fruitsoort. Een vroegere plaatselijke naam van deze boomgaard is niet vastgesteld."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Vruchten konden vers worden gegeten of verder verwerkt. Bomen vragen terugkerende zorg en oogsten gebeurt op het geschikte moment. De kaart vertelt ons niet wie het fruit mocht plukken of hoe het daarna werd gebruikt."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Een bereikbare plek is handig voor onderhoud en oogst; bodem, vocht en licht beïnvloeden groei. Regelmatige afstanden laten bomen ruimte. Het huidige raster van 3D-bomen is een beeldkeuze binnen de overgetrokken contour."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Fruit voegt een andere voedselbron toe aan die van akkers en dieren. Een boomgaard bouw je niet ieder jaar opnieuw op zoals een eenjarige teelt: bomen groeien door meerdere seizoenen heen."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Een verzorger kijkt naar takken en vruchten en verzamelt de oogst met geschikte hulpmiddelen. Plukken en gevallen fruit rapen zijn verschillende handelingen. Marie in het verhaal is een illustratief voorbeeld, geen aangetoonde gebruikster."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Boomgaarden kunnen worden gerooid of opnieuw aangeplant met andere vormen en afstanden. Een huidige tuin op deze plek hoeft daarom geen oude boomgaardbomen te bevatten."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "NGI-legende: Boomgaard; lokale contour: Ferraris-overtrek. Het 3D-raster, de bomen, vruchten en verzorgingshandelingen zijn illustratief. De kaart ondersteunt geen soort, leeftijd, eigenaar of exacte individuele boompositie."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "tree"
+      ],
+      "name": "Boom",
+      "summary": "Bomen leveren schaduw en kunnen hout of vruchten geven. Deze 3D-boom helpt het landschap verbeelden; zijn exacte plaats, soort en leeftijd zijn niet individueel uit Ferraris vastgesteld.",
+      "legend": "Vrijstaande boom — leg1777-1_43 als categorieverwijzing; plaatsing illustratief.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Een boom heeft een houtige stam en een kroon. Ferraris onderscheidt losse bomen, bomenrijen, boomgaarden en verschillende bossen. Dat betekent niet dat elk getekend boompje voor één getelde boom staat."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Boom is hier de algemene benaming. Het model stelt geen met zekerheid vastgestelde soort voor. Een lokale naam voor dit exemplaar of een naamkundige ouderdom is niet bekend."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Afhankelijk van soort en beheer kunnen bomen hout, vruchten, beschutting of schaduw leveren. Een rij kan ook een lijn in het landschap benadrukken. Niet al die functies gelden automatisch voor dit exemplaar."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Groei wordt beïnvloed door licht, bodem en vocht; mensen kunnen bomen aanplanten of laten staan. De app plaatst bomen om gekarteerde boomgaarden en het landschap te verbeelden. Hun exacte 3D-afstanden zijn geen historische meting."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Hout en levende bomen vervullen verschillende rollen. Een boom kan tegelijk een lang aanwezig oriëntatiepunt en een toekomstige grondstof zijn. De kaart toont niet hoe een individuele gebruiker die afweging maakte."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Een gebruiker kan takken verzamelen of een boom verzorgen, maar niet ieder zichtbaar stuk hout komt van de dichtstbijzijnde boom. Gereedschap, beheer en rechten moeten afzonderlijk worden onderzocht."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Bomen groeien, verdwijnen en worden vervangen. Een boom op een oude kaart is daarom geen bewijs dat een huidige boom hetzelfde exemplaar is."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "NGI-legende: Vrijstaande boom, Bomenrij en Boomgaard zijn verschillende categorieën. De boomposities in deze app zijn gegenereerd voor de reconstructie. Er is geen individueel bomenregister uit 1775 aan gekoppeld."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "sheep"
+      ],
+      "name": "Schaap",
+      "summary": "Dit schaap verbeeldt vee in het landbouwlandschap. Het dier en zijn plaatsing zijn illustratief en vormen geen historische veetelling.",
+      "legend": "Geen afzonderlijk dierenicoon gekoppeld; de weidecategorie bewijst geen soort of aantal.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Een schaap is een gehouden landbouwhuisdier. In deze ervaring is het een herkenbaar model bij grasland. Ras, lichaamsvorm en kleur zijn beeldkeuzes, geen gereconstrueerde kenmerken van een bekend dier."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "We gebruiken de gewone Nederlandse diernaam. Een lokale roepnaam of historische naam voor dit dier is niet bekend; een verdergaande woordherkomst wordt hier niet ingevuld."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Dieren konden verschillende producten en diensten leveren, bij dit type bijvoorbeeld wol en vlees. Leeftijd, geslacht en houderij maken daarbij verschil. We kennen de functie van een specifiek dier op deze plek niet."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "De modellen staan in een als grasland geïnterpreteerd perceel, zodat dier en omgeving bij elkaar passen. Dat is een plausibele beeldkeuze. Het is geen bewijs dat precies dit vee hier in 1775 graasde."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Dieren vragen voedsel, ruimte en verzorging en kunnen producten voor een huishouden leveren. Daardoor verbinden zij de weide met de stal, voorraad en het dagelijkse werk op een erf."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Een houder moest op de dieren letten en zorgen dat zij bruikbaar voer en water hadden. De grazende beweging toont één moment uit dat werk. De app laat niet alle zorg of seizoenen zien."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Fokkerij, voeding en huisvesting kunnen door de tijd veranderen. Een modern herkenbaar diermodel kan daarom niet zonder meer als een exact historisch ras worden gelezen."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Illustratieve reconstructie: de dieren zijn toegevoegd aan bestaande graslandvlakken. De gecontroleerde Ferrarislegende geeft hier geen afzonderlijke koppeling voor dit dier. De uitleg gaat over algemeen gebruik, niet over een gedocumenteerde kudde of eigenaar."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "cow"
+      ],
+      "name": "Rund",
+      "summary": "Dit rund verbeeldt vee in het landbouwlandschap. Het dier en zijn plaatsing zijn illustratief en vormen geen historische veetelling.",
+      "legend": "Geen afzonderlijk dierenicoon gekoppeld; de weidecategorie bewijst geen soort of aantal.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Een rund is een gehouden landbouwhuisdier. In deze ervaring is het een herkenbaar model bij grasland. Ras, lichaamsvorm en kleur zijn beeldkeuzes, geen gereconstrueerde kenmerken van een bekend dier."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "We gebruiken de gewone Nederlandse diernaam. Een lokale roepnaam of historische naam voor dit dier is niet bekend; een verdergaande woordherkomst wordt hier niet ingevuld."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Dieren konden verschillende producten en diensten leveren, bij dit type bijvoorbeeld melk, mest en soms trekkracht. Leeftijd, geslacht en houderij maken daarbij verschil. We kennen de functie van een specifiek dier op deze plek niet."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "De modellen staan in een als grasland geïnterpreteerd perceel, zodat dier en omgeving bij elkaar passen. Dat is een plausibele beeldkeuze. Het is geen bewijs dat precies dit vee hier in 1775 graasde."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Dieren vragen voedsel, ruimte en verzorging en kunnen producten voor een huishouden leveren. Daardoor verbinden zij de weide met de stal, voorraad en het dagelijkse werk op een erf."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Een houder moest op de dieren letten en zorgen dat zij bruikbaar voer en water hadden. De grazende beweging toont één moment uit dat werk. De app laat niet alle zorg of seizoenen zien."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Fokkerij, voeding en huisvesting kunnen door de tijd veranderen. Een modern herkenbaar diermodel kan daarom niet zonder meer als een exact historisch ras worden gelezen."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Illustratieve reconstructie: de dieren zijn toegevoegd aan bestaande graslandvlakken. De gecontroleerde Ferrarislegende geeft hier geen afzonderlijke koppeling voor dit dier. De uitleg gaat over algemeen gebruik, niet over een gedocumenteerde kudde of eigenaar."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "barrel"
+      ],
+      "name": "Houten ton",
+      "summary": "Een ton is een houten vat om iets te bewaren of te vervoeren. Dit exemplaar is een illustratief erfvoorwerp; inhoud, maker en historische aanwezigheid zijn onbekend.",
+      "legend": "Geen afzonderlijk legendesymbool gekoppeld.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Een ton wordt opgebouwd uit gebogen houten delen die samen een vat vormen. Het model geeft vooral vorm en schaal weer; het toont niet alle verbindingen of eigenschappen die voor een echte vloeistofdichte ton nodig zijn."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Ton is hier de algemene voorwerpnaam. De naam vertelt niet wat erin zit en verwijst hier ook niet naar een bewezen inhoudsmaat. Een lokale benaming is niet bekend."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Een vat kan bij opslag of vervoer worden gebruikt, afhankelijk van bouw en inhoud. Een lege ton bij een deur is geen bewijs voor bierbrouwen, handel of een herberg op die plaats."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Een voorwerp bij een toegankelijke deur is gemakkelijk te bereiken. De ronde vorm is kenmerkend voor dit soort vat. In deze app is de plek gekozen om een erf op menselijke schaal herkenbaar te maken."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Een kuiper maakte passend houtwerk en hield de delen met hoepels bijeen. Gebruikers moesten een vat vullen, sluiten en verplaatsen. De scène kiest geen bewezen beroep voor de bewoners van dit erf."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Andere verpakkingen kunnen dezelfde opslagtaak overnemen. Houten vaten blijven voor sommige toepassingen herkenbaar, maar hun aanwezigheid vandaag bewijst geen continu gebruik op dit erf."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Illustratie zonder afzonderlijke Ferrarislegende-koppeling. Vorm en gebruik worden in algemene historische woorden toegelicht; inhoud, ouderdom, maker en aanwezigheid van deze ton in 1775 zijn niet vastgesteld."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "woodpile"
+      ],
+      "name": "Gestapeld hout",
+      "summary": "Opgeslagen hout kan dienen als brandstof of als materiaal. De stapel is toegevoegd om erfwerk zichtbaar te maken en is geen afzonderlijk op de kaart aangetoond object.",
+      "legend": "Geen afzonderlijk legendesymbool gekoppeld.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Hier liggen stukken hout bijeen. Het model toont een kleine voorraad, geen compleet overzicht van een huishouden. Het soort hout en de herkomst zijn niet vastgesteld."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Houtstapel beschrijft eenvoudig wat je ziet: hout dat is opgestapeld. De naam zegt niets over eigenaar, gebruiksrecht of bestemming."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Hout kan worden bewerkt of als brandstof gebruikt. Welke stukken voor welke taak geschikt zijn hangt af van vorm, soort en toestand. De app kent geen bewezen bestemming aan deze stapel toe."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Een bereikbare voorraad bij het erf bespaart heen en weer dragen tijdens het werk. Beschutting en droogte kunnen nuttig zijn. De gekozen plaats is een illustratieve inrichting, geen aangetoonde historische opslagplek."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Een voorraad maakt materiaal beschikbaar wanneer het nodig is. Verzamelen, vervoeren en bewaren horen daarmee bij de dagelijkse arbeid achter een ogenschijnlijk eenvoudig voorwerp."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Iemand brengt bruikbare stukken bijeen en kiest later een passend stuk voor werk of vuur. Het houtgeluid in de ervaring maakt zulk handwerk voorstelbaar, zonder een specifieke werkplaats te bewijzen."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Illustratief erfdetail. Er is geen afzonderlijk legendesymbool gekoppeld en geen locatiebron die deze stapel vermeldt. De gebruiksuitleg is algemene context."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "fence"
+      ],
+      "name": "Houten erfafscheiding",
+      "summary": "Een afscheiding kan beweging sturen en een gebruiksruimte begrenzen. Dit houten hek is een illustratief erfdetail en mag niet worden gelezen als een bewezen historische perceelgrens.",
+      "legend": "Geen eenduidige koppeling; een houten hek is niet automatisch een Ferraris-heg of muur.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Palen en dwarsregels vormen hier een open houten afscheiding. Ferraris kent onder meer heggen en muren, maar die categorieën worden niet zomaar op dit model geplakt. Een levende haag is iets anders dan een houten hek."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Erfafscheiding beschrijft een grens of scheiding bij een erf. Hek benoemt de constructie. Een plaatselijke historische naam of een bewijs van eigendom volgt daar niet uit."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "Een afscheiding kan mensen of dieren geleiden en toegang helpen organiseren. De openingen en hoogte moeten passen bij het gebruik. Voor dit exemplaar kennen we geen bewezen dierhouderij of toegangsregel."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Palen geven steun en dwarsregels verbinden ze. De app plaatst het hek bij een als schuur weergegeven gebouw om een erf te suggereren. De exacte positie, constructie en eigendomsgrens zijn niet onderzocht."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Grenzen beïnvloeden hoe mensen zich bewegen en grond gebruiken. Niet elke zichtbare afscheiding is echter een juridische grens, en een kaartlijn bewijst niet wie erover mocht beslissen."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Een gebruiker kan langs een afscheiding dieren naar een toegang leiden. Een beschadigde verbinding vraagt onderhoud. Dat is een begrijpelijk gebruiksvoorbeeld, geen gedocumenteerde gebeurtenis bij dit hek."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Afscheidingen kunnen worden verplaatst of door andere materialen vervangen. Daardoor kan een oude grens verdwijnen terwijl het erf zelf herkenbaar blijft."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Illustratieve reconstructie. De volledige legende is nagekeken: heggen en muren zijn aparte categorieën, maar voor dit houten model is geen bewezen symboolkoppeling gemaakt. De tekst stelt geen historische eigendomsgrens vast."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "terrain"
+      ],
+      "name": "Terrein en ongeclassificeerde grond",
+      "summary": "De grond geeft de wandeling reliëf en samenhang. Buiten de nagekeken landgebruiksvlakken kennen we de historische functie niet; hoogte en verre achtergrond zijn geen exact terreinmodel van 1775.",
+      "legend": "Geen landgebruiksklasse bewezen; modern hoogtebestand en illustratieve achtergrond.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Het terrein is het oppervlak waarop de wereld staat. De lokale hoogtes komen uit een modern hoogtebestand. Buiten het speelgebied wordt de achtergrond visueel doorgetrokken zodat de rand minder abrupt lijkt. Losse grasplukjes op ongeclassificeerde grond zijn illustratieve begroeiing, geen bewijs voor een historische weide."
+        },
+        {
+          "title": "Waar komt de naam vandaan?",
+          "text": "Terrein is hier een algemene aanduiding. Ongeclassificeerd betekent dat de app geen onderbouwde lokale landgebruikscategorie heeft toegewezen; het is geen historische naam voor braakland of weide."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "Hoogteverschillen beïnvloeden water en verplaatsing. Het moderne reliëf helpt een ruimtelijke ervaring te maken, maar wegenbouw, afgravingen en andere veranderingen kunnen het terrein sinds de achttiende eeuw hebben gewijzigd."
+        },
+        {
+          "title": "Waarom was het belangrijk?",
+          "text": "Mensen werken en bewegen in een landschap dat niet vlak hoeft te zijn. Een helling of natte laagte kan een praktische beperking vormen. Deze algemene uitleg vervangt geen plaatselijk historisch terreinonderzoek."
+        },
+        {
+          "title": "Hoe werkte het en wie gebruikte het?",
+          "text": "Je loopt nu over een grondmesh die je voeten ondersteunt. Dat is een technische vertaling van moderne meetgegevens; de makkelijke begaanbaarheid van de app bewijst niets over de toenmalige bodemtoestand."
+        },
+        {
+          "title": "Wat veranderde er?",
+          "text": "Historische en moderne kaarten kunnen verschillende grenzen en hoogtesituaties tonen. Voor de ongeclassificeerde plek is geen specifieke verandering vastgesteld."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "DHMV II, Digitaal Vlaanderen: modern terreinbestand, opnameperiode 2013–2015. Ferraris-overtrek: alleen expliciet ingetekende landgebruiksvlakken. Buiten die vlakken blijft gebruik onbekend; buiten het speelgebied is het reliëf een illustratieve voortzetting."
+        }
+      ]
+    },
+    {
+      "keys": [
+        "sky"
+      ],
+      "name": "Lucht, licht en verre horizon",
+      "summary": "De lucht en het licht maken de reconstructie ruimtelijk leesbaar. Ze verbeelden een sfeer en zijn geen gereconstrueerde weerswaarneming uit 1775.",
+      "legend": "Geen afzonderlijk legendesymbool voor deze sfeerweergave.",
+      "sections": [
+        {
+          "title": "Wat is het?",
+          "text": "Een panoramische lucht en een gekozen lichtstand geven richting, schaduw en diepte. De wolken vormen een beeldachtergrond. Zij zijn niet uit de historische kaart afgeleid."
+        },
+        {
+          "title": "Waarvoor diende het?",
+          "text": "In het dagelijkse leven beïnvloeden daglicht en weer wanneer werk gemakkelijk uitvoerbaar is. Hier helpen licht en contrast vooral om de virtuele gebouwen en bomen te herkennen."
+        },
+        {
+          "title": "Waarom hier en waarom zo?",
+          "text": "De gekozen belichting laat vormen en materialen zien. Er is geen specifieke datum, kloktijd of weerstoestand historisch vastgesteld. De horizon buiten het terrein is een visuele aanvulling, geen volledig onderzocht omliggend landschap."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Illustratieve presentatie met een hedendaagse CC0-luchttextuur uit Poly Haven; zie de beeldbronvermelding van de applicatie. De Ferrarislegende levert geen koppeling voor deze wolken, lichtstand of weerssituatie."
+        }
+      ]
+    }
+  ]
+}

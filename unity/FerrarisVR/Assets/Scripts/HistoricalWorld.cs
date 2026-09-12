@@ -63,7 +63,7 @@ namespace Ferraris
     Vector3 P(float px,float pz)=>new Vector3(px,Area.Height(px,pz)-Mathf.Max(0,Mathf.Max(Mathf.Abs(px),Mathf.Abs(pz))-500)*.006f,pz);
     horizon.Quad(P(x,z),P(x,z+step),P(x+step,z+step),P(x+step,z),Color.white);
    }
-   horizon.Object("Distant countryside",transform,material);
+   var distant=horizon.Object("Distant countryside",transform,material);distant.AddComponent<MeshCollider>().sharedMesh=distant.GetComponent<MeshFilter>().sharedMesh;
   }
   void BuildRoads(WorldData data)
   {

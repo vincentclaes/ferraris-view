@@ -7,6 +7,8 @@ namespace Ferraris
  public class WorldVegetation:MonoBehaviour
  {
   public bool ShowTrees=true;
+  public Bounds CanopyBounds;
+  public IReadOnlyList<Matrix4x4> TreeTransforms=>trees;
   Mesh branches,leaves,farLeaves,grass,crop;
   Material bark,leafMaterial,grassMaterial,cropMaterial;
   readonly List<Matrix4x4> trees=new();
@@ -32,6 +34,7 @@ namespace Ferraris
     for(int plane=0;plane<3;plane++)distant.Card(end,new Vector2(1.45f,2.7f),Quaternion.Euler(plane*60,limb*51+plane*60,15),new Color(.7f,.85f,.56f),.42f);
    }
    branches=trunk.Mesh("Branching orchard tree");leaves=crown.Mesh("Wind swept broadleaf crown");farLeaves=distant.Mesh("Distant orchard crown");
+   CanopyBounds=leaves.bounds;CanopyBounds.Encapsulate(farLeaves.bounds);
    foreach(var t in data.trees)trees.Add(Matrix4x4.TRS(new Vector3(t.x,area.Height(t.x,t.z),t.z),Quaternion.Euler(0,t.x*13,0),new Vector3(t.scale,t.scale*R(random,.9f,1.2f),t.scale)));
    grassMaterial=new Material(leafMaterial);grassMaterial.SetTexture("_MainTex",HistoricalWorld.Texture("meadow_diff"));grassMaterial.SetTexture("_AlphaTex",HistoricalWorld.Texture("meadow_alpha"));grassMaterial.SetFloat("_Wind",.055f);cropMaterial=HistoricalWorld.Surface(null);
    var wheat=new WorldMesh();
@@ -41,9 +44,9 @@ namespace Ferraris
     Vector3 stem=new(x,0,z),tip=new(x+.04f,.72f+R(random,0,.25f),z);wheat.Beam(stem,tip,.013f,new Color(.6f,.56f,.23f),3,.006f);wheat.Ellipsoid(tip,new Vector3(.034f,.11f,.035f),Quaternion.identity,new Color(.76f,.65f,.33f),5,4);
    }
    var meadow=Resources.Load<GameObject>("Visuals/Meadow");
-   if(meadow==null)throw new InvalidOperationException("Meadow asset missing; run pipeline/fetch_visual_assets.py");
+   if(meadow==null)throw new InvalidOperationException("Grasmodel ontbreekt. Bereid de lokale beeldbestanden opnieuw voor.");
    var filters=meadow.GetComponentsInChildren<MeshFilter>();
-   var selected=Array.Find(filters,f=>f.name.EndsWith("_e"));if(selected==null)throw new InvalidOperationException("Scanned meadow variant missing");
+   var selected=Array.Find(filters,f=>f.name.EndsWith("_e"));if(selected==null)throw new InvalidOperationException("De benodigde grasvariant ontbreekt.");
    var placement=selected.transform.localToWorldMatrix;placement.SetColumn(3,new Vector4(0,0,0,1));
    var combine=new[]{new CombineInstance{mesh=selected.sharedMesh,transform=placement}};
    grass=new Mesh{name="Scanned meadow",indexFormat=IndexFormat.UInt32};grass.CombineMeshes(combine,true,true);var grassColors=new Color[grass.vertexCount];Array.Fill(grassColors,Color.white);grass.colors=grassColors;

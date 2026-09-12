@@ -23,12 +23,13 @@ namespace Ferraris
         {
             var app=FerrarisApp.Instance;if(app==null||wasXR==app.IsXR)return;
             wasXR=app.IsXR;
-            if(wasXR)
-            {
-                Root.GetComponent<CanvasScaler>().enabled=false;Canvas.renderMode=RenderMode.WorldSpace;
-                Root.SetParent(app.View.transform,false);Root.sizeDelta=new Vector2(1440,1000);
-                Root.localPosition=new Vector3(0,0,2);Root.localRotation=Quaternion.identity;Root.localScale=Vector3.one*.0015f;
-            }
+            if(wasXR)UseWorldSpace(app.View);
+        }
+        public void UseWorldSpace(Camera view)
+        {
+            Root.GetComponent<CanvasScaler>().enabled=false;Canvas.renderMode=RenderMode.WorldSpace;
+            Root.SetParent(view.transform,false);Root.sizeDelta=new Vector2(1440,1000);
+            Root.localPosition=new Vector3(0,0,2);Root.localRotation=Quaternion.identity;Root.localScale=Vector3.one*.0015f;
         }
         public void Button(Rect rect,string value,Action action,Transform parent=null,int size=23)
         {
