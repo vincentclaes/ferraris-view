@@ -83,7 +83,7 @@ namespace Ferraris
                 pointerPosition.performed+=c=>{if(c.control.device==pointerDevice)PointerMove(c.ReadValue<Vector2>());};
                 actions.Add(pointerPosition);pointerPosition.Enable();
                 rayLine=new GameObject("Controller map ray").AddComponent<LineRenderer>();rayLine.positionCount=2;rayLine.startWidth=rayLine.endWidth=.004f;rayLine.material=new Material(Shader.Find("Unlit/Color"));rayLine.material.color=new Color(1,.72f,.24f);
-                Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();gameObject.AddComponent<HomeSearch>();gameObject.AddComponent<PersonsDay>();gameObject.AddComponent<LandscapeSound>();StartCoroutine(DetectXR());
+                Ready=true;ReturnToMap();gameObject.AddComponent<AddressDisplay>();gameObject.AddComponent<HomeSearch>();gameObject.AddComponent<PersonsDay>();gameObject.AddComponent<LandscapeSound>();gameObject.AddComponent<PlaceNames>();StartCoroutine(DetectXR());
                 if(Array.Exists(Environment.GetCommandLineArgs(),s=>s=="-ferraris-smoke"))gameObject.AddComponent<JourneySmoke>();
             }
             catch(Exception e){Error=e.Message;Debug.LogException(e);}

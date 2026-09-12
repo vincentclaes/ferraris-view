@@ -110,9 +110,30 @@ namespace Ferraris
             if(!Check(sound.Sites.TrueForAll(s=>Mathf.Abs(s.source.volume-.4f)<.01f&&s.source.spatialBlend==1&&s.source.rolloffMode==AudioRolloffMode.Linear),"Volume and native positional falloff",output))yield break;
             var sheep=sound.Sites[1];sound.Close();app.EnterWorld(sheep.source.transform.position.x+6,sheep.source.transform.position.z);yield return new WaitForSeconds(.5f);
             sound.Open();ScreenCapture.CaptureScreenshot(Path.Combine(output,"11-sound.png"));yield return new WaitForSeconds(.7f);sound.Close();app.ReturnToMap();
+            var names=app.GetComponent<PlaceNames>();names.Open();yield return null;
+            for(int name=0;name<names.Content.entries.Length;name++)
+            {
+                names.Choose(name);yield return null;
+                if(!Check(!app.InWorld&&app.Selected.x==names.Content.entries[name].x,"Place name map link "+name,output))yield break;
+                if(!Check(TextFits(ui),"Place name readable text "+name,output))yield break;
+                ui.ClickScreen(new Vector2(170,197));yield return null;
+                if(!Check(TextFits(ui),"Place name readable source "+name,output))yield break;
+                if(name==0){ScreenCapture.CaptureScreenshot(Path.Combine(output,"12-place-name.png"));yield return new WaitForSeconds(.5f);}
+                ui.ClickScreen(new Vector2(410,197));yield return null;
+                if(!Check(app.InWorld&&!ui.PanelOpen,"Place name world link "+name,output))yield break;
+                names.Open();
+            }
+            names.Close();app.ReturnToMap();
             InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
             File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"Escape return\"],\"hardwareVRVerified\":false}");
             Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);
+        }
+        static bool TextFits(VisitorUI ui)
+        {
+            Canvas.ForceUpdateCanvases();bool ok=true;
+            foreach(var text in ui.Root.GetComponentsInChildren<UnityEngine.UI.Text>())
+                if(text.preferredHeight>text.rectTransform.rect.height+2){Debug.LogError($"FERRARIS_TEXT_CLIPPED {text.text} needs {text.preferredHeight} has {text.rectTransform.rect.height}");ok=false;}
+            return ok;
         }
         IEnumerator Record(string output)
         {
