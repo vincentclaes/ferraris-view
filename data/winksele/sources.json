@@ -1,0 +1,26 @@
+{
+  "ferraris": {
+    "url": "https://geo.api.vlaanderen.be/histcart/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=ferraris&STYLES=&SRS=EPSG%3A31370&BBOX=168852.76968973473%2C175936.7209948646%2C169852.76968973473%2C176936.7209948646&WIDTH=2048&HEIGHT=2048&FORMAT=image%2Fpng",
+    "provider": "Digitaal Vlaanderen / KBR",
+    "layer": "ferraris",
+    "license": "Copyright protected; metadata requires contacting owner for reuse. No open redistribution license asserted."
+  },
+  "elevation": {
+    "url": "https://geo.api.vlaanderen.be/DHMV/wcs?SERVICE=WCS&VERSION=1.0.0&REQUEST=GetCoverage&COVERAGE=DHMVII_DTM_1m&CRS=EPSG%3A31370&RESPONSE_CRS=EPSG%3A31370&BBOX=168850.81656473473%2C175934.7678698646%2C169854.72281473473%2C176938.6741198646&WIDTH=257&HEIGHT=257&FORMAT=GeoTIFF",
+    "provider": "Digitaal Vlaanderen",
+    "layer": "DHMVII_DTM_1m",
+    "license": "Open Data License Flanders",
+    "verticalDatum": "TAW metres; contemporary 2013\u20132015 terrain, not 1775 topography"
+  },
+  "crs": "EPSG:31370",
+  "bounds": [
+    168852.76968973473,
+    175936.7209948646,
+    169852.76968973473,
+    176936.7209948646
+  ],
+  "sha256": {
+    "ferraris.png": "b579888c2383120fb23261a252b97a78e7ba94a8516eb747ec449cfbb281b6c7",
+    "elevation.tif": "ca7e7ac5f71e501e848ecb48f8c2034c401a305a0fd184644a29593899035c9e"
+  }
+}
