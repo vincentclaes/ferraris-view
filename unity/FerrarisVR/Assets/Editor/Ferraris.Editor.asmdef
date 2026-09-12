@@ -1,0 +1,14 @@
+{
+  "name": "Ferraris.Editor",
+  "references": [
+    "Ferraris.Runtime",
+    "Unity.XR.Management",
+    "Unity.XR.Management.Editor",
+    "Unity.XR.OpenXR",
+    "Unity.XR.OpenXR.Editor",
+    "Unity.XR.OpenXR.Features.MetaQuestSupport"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

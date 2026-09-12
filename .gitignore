@@ -13,6 +13,8 @@ unity/**/Temp/
 unity/**/Logs/
 unity/**/obj/
 unity/**/UserSettings/
+unity/**/.utmp/
+unity/**/build/
 unity/**/Assets/Resources/Winksele/*
 builds/
 artifacts/
@@ -21,3 +23,4 @@ tests/**/bin/
 tests/**/obj/
 data/*/area.json
 data/*/world.json
+data/*/building_candidates.json

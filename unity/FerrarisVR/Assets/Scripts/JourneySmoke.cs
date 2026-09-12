@@ -1,0 +1,84 @@
+using System;
+using System.Collections;
+using System.IO;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+
+namespace Ferraris
+{
+    // Runs the real runtime in a built player, with screenshots and a nonzero
+    // exit on failure. No headless/renderless substitutes for visual evidence.
+    public class JourneySmoke : MonoBehaviour
+    {
+        IEnumerator Start()
+        {
+            string output=Path.GetFullPath(Path.Combine(Application.dataPath,"../../../../artifacts"));
+            string[] args=Environment.GetCommandLineArgs();
+            int i=Array.IndexOf(args,"-evidence-dir");if(i>=0&&i+1<args.Length)output=args[i+1];Directory.CreateDirectory(output);
+            var app=FerrarisApp.Instance;
+            yield return new WaitForSeconds(1);
+            if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"01-map.png"));yield return new WaitForSeconds(.4f);
+            // Feed real Input System events, including a whole drag within one
+            // frame. This regression failed when input was polled only per frame.
+            var mouse=InputSystem.AddDevice<Mouse>();var keyboard=InputSystem.AddDevice<Keyboard>();
+            app.TracePointer=true;
+            Vector2 button=new(200,41);
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=button}.WithButton(MouseButton.Left));
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=button});
+            yield return null;yield return null;
+            if(!Check(Mathf.Abs(app.MapZoom-1.4f)<.01f,"Input System toolbar click",output))yield break;
+            Vector2 centre=new(Screen.width/2f,Screen.height/2f);
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=centre}.WithButton(MouseButton.Left));
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=centre+new Vector2(60,30)}.WithButton(MouseButton.Left));
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=centre+new Vector2(60,30)});
+            yield return null;yield return null;
+            Debug.Log($"DRAG_RESULT inWorld={app.InWorld} pan={app.MapPan}");
+            if(!Check(!app.InWorld&&app.MapPan.magnitude>10,"Same-frame drag pans instead of selecting",output))yield break;
+            // Reset through the actual toolbar, then test wheel input.
+            button=new Vector2(330,41);
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=button}.WithButton(MouseButton.Left));InputSystem.QueueStateEvent(mouse,new MouseState{position=button});
+            yield return null;yield return null;
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=centre,scroll=new Vector2(0,120)});
+            yield return null;yield return null;
+            if(!Check(app.MapZoom>1.3f,"Input System wheel zoom",output))yield break;
+            app.ZoomMap(1/app.MapZoom);app.PanMap(-app.MapPan);
+            app.ZoomMap(2);app.PanMap(new Vector2(50,40));
+            if(!Check(app.MapZoom==2 && app.MapPan==new Vector2(50,40),"Map pan and zoom",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"02-map-zoom.png"));yield return new WaitForSeconds(.4f);
+            Vector3 selectedScreen=app.View.WorldToScreenPoint(new Vector3(50,-50,0));
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=selectedScreen}.WithButton(MouseButton.Left));
+            InputSystem.QueueStateEvent(mouse,new MouseState{position=selectedScreen});
+            yield return new WaitForSeconds(.4f);
+            if(!Check(app.InWorld&&app.Player!=null&&app.World.TerrainObject.activeInHierarchy,"World bootstrap",output))yield break;
+            if(!Check(Mathf.Abs(app.Player.position.x-50)<26&&Mathf.Abs(app.Player.position.z+50)<26,"Selected position -> spawn",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"03-world.png"));yield return new WaitForSeconds(.4f);
+            // Walk on a known open field, away from building collisions.
+            app.EnterWorld(-300,-100);Vector3 start=app.Player.position;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.W));
+            yield return new WaitForSeconds(2);
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
+            if(!Check(Vector3.Distance(start,app.Player.position)>3,"Grounded locomotion",output))yield break;
+            if(!Check(app.Player.position.y>=app.Area.Height(app.Player.position.x,app.Player.position.z)-.1f,"Terrain support",output))yield break;
+            // Top-down render uses the same world meshes, enabling map comparison.
+            app.enabled=false;RenderSettings.fog=false;
+            app.View.transform.position=new Vector3(0,800,0);app.View.transform.rotation=Quaternion.Euler(90,0,0);app.View.orthographic=true;app.View.orthographicSize=550;
+            yield return null;ScreenCapture.CaptureScreenshot(Path.Combine(output,"04-world-topdown.png"));yield return new WaitForSeconds(.4f);
+            app.enabled=true;RenderSettings.fog=true;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Escape));yield return null;yield return null;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
+            if(!Check(!app.InWorld && app.View.orthographic,"Return to map",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"05-return.png"));yield return new WaitForSeconds(.5f);
+            InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
+            File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"Escape return\"],\"hardwareVRVerified\":false}");
+            Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);
+        }
+        bool Check(bool ok,string check,string output)
+        {
+            Debug.Log($"FERRARIS_CHECK {check}: {ok}");
+            if(!ok){File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":false,\"failed\":\""+check+"\"}");Application.Quit(1);}
+            return ok;
+        }
+    }
+}

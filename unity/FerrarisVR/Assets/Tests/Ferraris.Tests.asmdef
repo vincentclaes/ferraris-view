@@ -1,0 +1,6 @@
+{
+ "name": "Ferraris.Tests",
+ "references": ["Ferraris.Runtime"],
+ "optionalUnityReferences": ["TestAssemblies"],
+ "includePlatforms": ["Editor"]
+}

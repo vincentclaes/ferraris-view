@@ -1,0 +1,5 @@
+{
+ "name": "Ferraris.Runtime",
+ "references": ["Unity.InputSystem", "Unity.XR.Management", "Unity.XR.OpenXR"],
+ "autoReferenced": true
+}
