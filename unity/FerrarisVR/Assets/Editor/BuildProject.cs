@@ -107,4 +107,14 @@ namespace Ferraris.Editor
             t.SetPlatformTextureSettings(new TextureImporterPlatformSettings{name="Android",overridden=true,maxTextureSize=2048,format=TextureImporterFormat.ASTC_6x6});
         }
     }
+    public class SoundImporter : AssetPostprocessor
+    {
+        void OnPreprocessAudio()
+        {
+            if(!assetPath.Contains("Discovery/Audio/"))return;
+            var importer=(AudioImporter)assetImporter;importer.forceToMono=true;
+            var settings=importer.defaultSampleSettings;settings.loadType=AudioClipLoadType.DecompressOnLoad;settings.compressionFormat=AudioCompressionFormat.Vorbis;settings.quality=.75f;importer.defaultSampleSettings=settings;
+        }
+    }
+
 }

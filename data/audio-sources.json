@@ -1,0 +1,26 @@
+[
+  {
+    "file": "sheep.ogg",
+    "url": "https://opengameart.org/sites/default/files/sheep_baa_0.ogg",
+    "author": "AntumDeluge / mikewest",
+    "source": "https://opengameart.org/content/sheep-baa",
+    "license": "CC0-1.0",
+    "sha256": "88618dd49eaadaeea8950a613e75588cccecb39b699e289004dd56d1f3aef9de"
+  },
+  {
+    "file": "wood.ogg",
+    "url": "https://opengameart.org/sites/default/files/saw_-_starninjas_0.ogg",
+    "author": "StarNinjas",
+    "source": "https://opengameart.org/content/saw-or-wood-impact",
+    "license": "CC0-1.0",
+    "sha256": "4ed1587394af8adde4fe6443ca6367a16b6dbb8e5e09d39c96df608de32c5d32"
+  },
+  {
+    "file": "bell.mp3",
+    "url": "https://cdn.freesound.org/previews/76/76405_1020096-hq.mp3",
+    "author": "dsp9000",
+    "source": "https://freesound.org/people/dsp9000/sounds/76405/",
+    "license": "CC0-1.0",
+    "sha256": "e4b98bdfc5ec1fb8bbcd6acf6473a2aba83a45d3462b58fc285938f35b9eb6a9"
+  }
+]

@@ -102,6 +102,14 @@ namespace Ferraris
             }
             if(!Check(day.Progress.Complete(day.Content.stops.Length),"Story reaches ending",output))yield break;
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"10-story-ending.png"));yield return new WaitForSeconds(.5f);day.Close();app.ReturnToMap();
+            var sound=app.GetComponent<LandscapeSound>();sound.Open();yield return null;
+            if(!Check(sound.Sites.Count==3,"Three contextual sound sources",output))yield break;
+            sound.SetVolume(.4f);sound.SetMuted(true);
+            if(!Check(sound.Sites.TrueForAll(s=>s.source.volume==0),"Mute reaches every ambient source",output))yield break;
+            sound.SetMuted(false);
+            if(!Check(sound.Sites.TrueForAll(s=>Mathf.Abs(s.source.volume-.4f)<.01f&&s.source.spatialBlend==1&&s.source.rolloffMode==AudioRolloffMode.Linear),"Volume and native positional falloff",output))yield break;
+            var sheep=sound.Sites[1];sound.Close();app.EnterWorld(sheep.source.transform.position.x+6,sheep.source.transform.position.z);yield return new WaitForSeconds(.5f);
+            sound.Open();ScreenCapture.CaptureScreenshot(Path.Combine(output,"11-sound.png"));yield return new WaitForSeconds(.7f);sound.Close();app.ReturnToMap();
             InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
             File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"Escape return\"],\"hardwareVRVerified\":false}");
             Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);
