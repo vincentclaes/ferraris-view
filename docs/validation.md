@@ -15,6 +15,8 @@ Latest update — 13 September 2026: the integrated navigation, Marie guide and 
 
 ## Unity and the built desktop player
 
+Map-edge update, 13 September 2026: the previous pan limit prevented dragging at 1× and centring boundary points. The new built-player regression first failed on the unzoomed drag, then passed 116 checks after allowing desktop pan to the area boundary. Actual mouse events reach all four corners at 1×, 2× and 8×; clicks select within 0.02m of the intended coordinate. Overzicht and R reset zoom and pan; arrow keys and Enter reach the northwest boundary; blank space outside the map does not enter the world. XR retains its texture-safe pan limits. The full desktop journey passes 356 checks, controller replay passes 19, and all 33 Unity EditMode tests pass. Evidence: `/tmp/ferraris-map-edges-red/`, `/tmp/ferraris-map-edges-green/`, `/tmp/ferraris-map-edges-xr/` and `artifacts/unity-tests.xml`. This update has not been tested on headset hardware.
+
 - Unity 6000.6.0f1 imports and compiles the project. Input System and XR package versions match the editor's bundled PackageManager manifest; earlier package versions used removed editor APIs.
 - Two Unity EditMode tests passed: map resources/coordinates and real terrain collider, roads, buildings and instanced vegetation.
 - macOS development player built successfully at `builds/Winksele1775.app`.
