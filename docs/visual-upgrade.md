@@ -7,7 +7,7 @@ The Quest left stick preserves analog magnitude and applies a gentle nonlinear r
 ## Visible changes
 
 - The detailed Maria-Hemelvaartkerk from the task “Maak 3D-model van Maria-Hemelvaart” replaces the church placeholder. Scanned stone, slate, doors, modeled window openings, tower details and three LODs are included. It is scaled to the traced Ferraris footprint. The separately modeled sacristy and its collider are hidden because the asset documentation dates that addition to 1786. Other present-day details remain interpreted rather than proven for 1775.
-- Rural buildings have scanned brick/plaster, stone foundations, projecting roof eaves, slate textures, ridge caps, timber framing, window mullions, shutters, door furniture, steps, chimneys and farmyard props.
+- Ordinary buildings now follow reviewed polygon contours with low masonry walls, small timber-framed openings and pitched roofs. The previous house/barn/farmhouse variants and their yard props are no longer assigned to map symbols. See [map-aligned building forms](period-buildings.md) for the current source boundary and validation.
 - Roads use scanned dry soil with distinct worn wheel tracks. Their placement continues to follow the reviewed Ferraris alignments.
 - The terrain uses scanned grass/soil detail and normal maps over the real DHMV elevations. A visual horizon extends beyond the playable kilometre; it does not extend the movement boundary or claim additional mapped historical detail.
 - A photographic HDR sky, warm directional light and short-range real-time shadows replace the flat backdrop.

@@ -137,6 +137,10 @@ namespace Ferraris.Editor
         [MenuItem("Ferraris/Build Quest APK")]
         public static void Quest()
         {
+            // Gradle packages every staged asset/library, including old sync copies.
+            // Recreate only generated Android staging; keep the compilation cache.
+            string staging=Path.GetFullPath("Library/Bee/Android/Prj");
+            if(Directory.Exists(staging))Directory.Delete(staging,true);
             ConfigureQuest();
             if(!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Android,BuildTarget.Android))throw new InvalidOperationException("Install Android Build Support, SDK/NDK and OpenJDK in Unity Hub");
             Build(Path.GetFullPath("../../builds/Winksele1775.apk"),BuildTarget.Android);

@@ -16,24 +16,22 @@ De [officiële NGI Topoferrarisviewer](https://topoferraris.ngi.be/) bevat 150 u
 
 | Render-/gegevenssoort | Informatie en koppeling | Selectie |
 | --- | --- | --- |
-| 19 huizen, 19 schuren, 18 hoeves | Gedeelde erfbebouwing; Gebouwen, `leg1777-1_61`. Specifieke functie illustratief. | Elke bouwpositie op kaart; iedere 3D-bouwenvelop. Dak, muren, schoorsteen, deur, luiken, ramen, beslag en stoep vallen onder het gebouw. |
+| 52 gewone gebouwen | Gebouwen, `leg1777-1_61`; functie onbekend. Geen verdeling in huizen, schuren en hoeves zonder bronbewijs. | Gecontroleerde kaartcontouren en 3D-meshcolliders voor muren/daken; binnenplaatsen blijven open. Deur- en raamdetails horen bij het gebouw. |
 | Kerk | Kerk, `leg1777-2_38`; lokale erfgoedbron, expliciete latere verbouwingen. | Kaartvoetafdruk en model-envelop inclusief toren. |
 | 13 wegen | Onverharde weg, `leg1777-1_18`; subtypen niet apart bewezen. | Segmentbreedtes op kaart en wereldgrond. |
 | 4 kale + 4 begroeide akkers | Open akkerland, `leg1777-1_13`; gedeelde uitleg, geen bewezen gewas. | Alle driehoeken van de percelen. Halmen horen bij de akker. |
 | 4 graslanden | Weiland, `leg1777-1_20`; geen bewezen vee- of maaibeheer. | Alle perceelvlakken en hun begroeiing. |
 | 8 boomgaarden | Boomgaard, `leg1777-1_9`. | Alle perceelvlakken op kaart en wereldgrond. |
-| 257 bomen | Vrijstaande boom als categorieverwijzing, `leg1777-1_43`; individuele plaatsing illustratief. | Elke stam en kroon in de wereld; kroon-envelop gebruikt de werkelijke nabije/verre meshes en plaatsingsmatrices. Op de kaart wordt de nagekeken boomgaardcategorie gebruikt, niet een fictief individueel boomregister. |
+| 259 bomen | Vrijstaande boom als categorieverwijzing, `leg1777-1_43`; individuele plaatsing illustratief. | Elke stam en kroon in de wereld; kroon-envelop gebruikt de werkelijke nabije/verre meshes en plaatsingsmatrices. Op de kaart wordt de nagekeken boomgaardcategorie gebruikt, niet een fictief individueel boomregister. |
 | Runderen en schapen | Eigen dieruitleg zonder verzonnen individueel legendesymbool. | Elke geplaatste 3D-dier-envelop. |
-| Tonnen en houtstapels | Eigen voorwerpuitleg, geen afzonderlijke legendekoppeling. | Elk exemplaar naast de gebouwde deuren. |
-| Houten hekken | Eigen uitleg, expliciet geen automatische gelijkstelling met een heg of muur. | Elk hek bij de schuren. |
 | Ongeclassificeerde grond, losse grasplukjes, reliëf, verre grond | Onbekend landgebruik, moderne DHMV II-hoogte en illustratieve verlenging. | Grondraycast, ook op de verre achtergrond. Geen kaartcategorie erbij verzonnen. |
 | Lucht, licht, wolken en horizon | Illustratieve sfeer, geen historische weerswaarneming. | Een wereldstraal die geen oppervlak raakt. |
 
-Samen zijn dit 17 render-/typekeys met 14 gedeelde inhoudssets. Water, bospercelen, hagen, industrie, molens, grenzen enzovoort staan in de volledige legenda-inventaris, maar zijn niet als eigen geverifieerde 3D-typen aanwezig. Decoratieve dieren en erfvoorwerpen bestaan uitsluitend in de wereld; er worden geen fictieve symbolen voor toegevoegd aan de historische kaart.
+Sinds de kaartcorrectie zijn dit 12 aanwezige typekeys met 11 gedeelde inhoudssets. De uitleg voor oude huis/schuur/hoevevarianten, tonnen, houtstapels en hekken blijft beschikbaar in de inhoudsbundel, maar deze varianten en erfvoorwerpen worden momenteel niet in de kaartgetrouwe scène geplaatst. Water, bospercelen, hagen, industrie, molens, grenzen enzovoort staan in de volledige legenda-inventaris, maar zijn niet als eigen geverifieerde 3D-typen aanwezig. Decoratieve dieren bestaan uitsluitend in de wereld; er worden geen fictieve symbolen voor toegevoegd aan de historische kaart.
 
 ## Selectie en kosten
 
-De wereld gebruikt semantische selectievakken en exacte terreinraycasts. Dat maakt instanced bomen en samengevoegde geveldetails selecteerbaar zonder honderden fysieke colliders of nieuwe draw calls. De vakken zijn een selectiemarge, geen precieze botanische of bouwkundige meting; open plekken binnen een kroon of hek kunnen eveneens het omvattende object selecteren. Per klik wordt het dichtstbijzijnde geraakte type gekozen. Kaartselectie gebruikt de oorspronkelijke bouwvoetafdrukken, wegbreedtes en perceeldriehoeken.
+Gewone gebouwen gebruiken hun echte muur-/dakmesh als collider. Terrein gebruikt eveneens exacte meshhits; kerk, bomen en dieren gebruiken semantische selectievakken. Dat maakt instanced bomen en samengevoegde geveldetails selecteerbaar zonder honderden fysieke colliders of nieuwe draw calls. De vakken zijn een selectiemarge, geen precieze botanische of bouwkundige meting; open plekken binnen een kroon kunnen eveneens het omvattende object selecteren. Per klik wordt het dichtstbijzijnde geraakte type gekozen. Kaartselectie gebruikt de oorspronkelijke bouwvoetafdrukken, wegbreedtes en perceeldriehoeken.
 
 ## Historische duiding
 
