@@ -2,7 +2,7 @@
 
 Brand: **Land van Weleer**, with **Wandel door het Vlaanderen van toen.**
 
-Website: **https://land-van-weleer.vercel.app**. The existing Vercel project (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`) was renamed to `land-van-weleer` on 13 September 2026. Production deployment `dpl_3gfJAFE9e4gh3MMfgbYVh2AzMbrr` is `READY`, with `land-van-weleer.vercel.app` attached to the project and verified on this deployment. It contains the brand, browser title, favicon, mobile guidance and Unity template from `d132f0e`, merged through PR #17 as `2085456`. The former public address remains an alias to the same release. Production publication uses `--prod`; default deployments use preview.
+Website: **https://land-van-weleer.vercel.app**. Latest production release: `dpl_5bJCdquEcKgg7A5io1jH6mEjHBAr`, READY on 13 September 2026. It contains the five [daily-life tableaux](tableaux.md) and embedded Dutch font from `81732f2` on pushed branch `codex/living-tableaux`. PR creation is pending after GitHub API failures; this release is not yet merged into the default branch. Vercel inspection confirms the current and former public addresses both point to this release. The project remains `land-van-weleer` (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`); production publication uses `--prod`.
 
 The preceding map-alignment release was `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv`, containing code commit `a275a9e` merged through PR #16 as `a630661`. Its locally tested WebGL hashes remain in `artifacts/building-review/web-release-hashes.json`.
 

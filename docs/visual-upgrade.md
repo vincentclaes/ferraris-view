@@ -14,6 +14,8 @@ The Quest left stick preserves analog magnitude and applies a gentle nonlinear r
 - Orchard trees have branching trunks, alpha-cutout photographed leaves, gentle wind and reduced distant crowns. Trees remain GPU-instanced; grass uses a scanned clump and spatially culled batches. Grain ears populate mapped crop patches.
 - Small groups of grazing sheep and cattle populate pasture polygons. Their placement and appearance are illustrative, not evidence of the exact livestock present in 1775.
 
+- Five [daily-life tableaux](tableaux.md) add nine animated, stylised residents and working props, selectable Dutch explanations and direct visits from the story panel. They remain illustrative, not photorealistic or verified local period characters.
+
 ## Sources and reproducibility
 
 Powered by [Poly Haven](https://polyhaven.com). The scanned materials, grass mesh, foliage images and sky are supplied under [CC0](https://polyhaven.com/license). `data/visual-sources.json` records source URLs, original asset names, sizes and MD5 checksums; `pipeline/fetch_visual_assets.py` verifies or restores the downloaded files. The material set includes Leafy Grass, Brown Mud Dry, Medieval Red Brick, Worn Plaster Wall, Wood Planks Grey, Grey Roof Tiles, Tree Bark 03, Tree Small 02 leaf textures, Grass Medium 02 and Kloppenheim 06 Pure Sky.
@@ -26,6 +28,6 @@ Unlike the Ferraris raster, these CC0 art assets may be versioned with the appli
 
 Three Unity tests pass, including analog speed and world construction with the church LOD and animals. Desktop imports/builds and the real built-player map-to-world journey pass. Rendered street, landmark, pasture and top-down views are captured in `artifacts/03-world.png`, `06-church.png`, `07-pasture.png` and `04-world-topdown.png`. Visual inspection caught and corrected inward-facing roof triangles, incorrect facade UVs and unsuitable whole-atlas leaf sampling. The final scanned grass instance uses 1,542 vertices instead of importing all five variants together (7,031 vertices).
 
-The current aligned-world Android APK was rebuilt on 13 September: 79,044,403 bytes, with verified signature, current offline JSON content and no stale numbered build copies. See [Quest package receipt](quest-validation.md) for the SHA-256 and checks. No device was attached, so installation and hardware validation remain pending.
+The current aligned-world Android APK was rebuilt on 13 September: 79,159,291 bytes, with verified signature, current offline JSON content and no stale numbered build copies. See [Quest package receipt](quest-validation.md) for the SHA-256 and checks. No device was attached, so installation and hardware validation remain pending.
 
 The earlier Quest 72–73 FPS sample belongs to the simpler scene. This pass needs its own on-device performance and visual check. The scene now contains richer geometry and surfaces, while the livestock and rural architecture remain procedural approximations; it should not be described as finished AAA or film-quality graphics.
