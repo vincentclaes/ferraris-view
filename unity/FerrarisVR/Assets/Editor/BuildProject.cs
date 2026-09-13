@@ -73,7 +73,7 @@ namespace Ferraris.Editor
             RenderTexture.active=target;var image=new Texture2D(1440,1000,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1440,1000),0,0);image.Apply();
             File.WriteAllBytes("../../web/cover.jpg",image.EncodeToJPG(90));RenderTexture.active=null;camera.targetTexture=null;
             UnityEngine.Object.DestroyImmediate(image);UnityEngine.Object.DestroyImmediate(target);
-            Debug.Log("TOENLAND_COVER_CAPTURED");
+            Debug.Log("LAND_VAN_WELEER_COVER_CAPTURED");
         }
         [MenuItem("Ferraris/Build website")]
         public static void Web()
@@ -82,7 +82,7 @@ namespace Ferraris.Editor
             PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Gzip;
             PlayerSettings.WebGL.decompressionFallback=false;
             PlayerSettings.WebGL.dataCaching=true;
-            PlayerSettings.WebGL.template="PROJECT:Toenland";
+            PlayerSettings.WebGL.template="PROJECT:LandVanWeleer";
             PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.WebGL,false);
             PlayerSettings.SetGraphicsAPIs(BuildTarget.WebGL,new[]{GraphicsDeviceType.OpenGLES3});
             foreach(string guid in AssetDatabase.FindAssets("t:Texture2D",new[]{"Assets/WinkseleChurch/Textures","Assets/Resources/Visuals/Textures"}))

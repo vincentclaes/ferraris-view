@@ -1,16 +1,18 @@
-# Toenland — browser edition
+# Land van Weleer — browser edition
 
-Working brand: **Toenland**, with **Wandel door het Vlaanderen van toen.** The name joins time and landscape in accessible Dutch. No custom domain has been purchased and no trademark clearance is claimed.
+Brand: **Land van Weleer**, with **Wandel door het Vlaanderen van toen.**
 
-Live: **https://toenland.vercel.app**. Production deployment `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv` was marked `READY` and aliased to this domain by Vercel on 13 September 2026. The deployed application includes reviewed building polygons, legend-based categories and visible map contours from code commit `a275a9e`, merged with its evidence documentation through PR #16 as `a630661`. This deployment explicitly used `--prod`; default deployments use preview. The locally tested WebGL file hashes are recorded in `artifacts/building-review/web-release-hashes.json`. The preceding browser-controls deployment was `dpl_AU1skPNrvAHgRxXJbjn9vbMxnDPY` (12 September).
+Website: **https://land-van-weleer.vercel.app**. The existing Vercel project (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`) was renamed to `land-van-weleer` on 13 September 2026. The next production deployment updates the brand, browser title, favicon, mobile guidance and Unity template. Production publication uses `--prod`; default deployments use preview.
+
+The preceding map-alignment release was `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv`, containing code commit `a275a9e` merged through PR #16 as `a630661`. Its locally tested WebGL hashes remain in `artifacts/building-review/web-release-hashes.json`.
 
 ## Build and hosting
 
-`bash scripts/unity.sh web` uses Unity 6000.6.0f1 WebGL Build Support, IL2CPP/WebAssembly, WebGL 2 and the custom `Assets/WebGLTemplates/Toenland` template. It is a release build of the existing runtime, not a rewritten approximation. Desktop mouse/keyboard controls and all discovery content are shared with the native app. WebXR is not added; immersive Quest remains the Android build.
+`bash scripts/unity.sh web` uses Unity 6000.6.0f1 WebGL Build Support, IL2CPP/WebAssembly, WebGL 2 and the custom `Assets/WebGLTemplates/LandVanWeleer` template. It is a release build of the existing runtime, not a rewritten approximation. Desktop mouse/keyboard controls and all discovery content are shared with the native app. WebXR is not added; immersive Quest remains the Android build.
 
 Church textures are capped at 2048 px and other landscape textures at 1024 px on WebGL (sky stays 2048). Native texture settings remain unchanged. This reduces the complete gzip deployment from approximately 117 to 68 MiB. The canvas renders at 1440×1000 with a preserved aspect ratio, including full-screen mode, so the existing controls fit reliably.
 
-`web/vercel.json` sets the required gzip encoding and MIME types for `.wasm.gz`, `.js.gz` and `.data.gz`. The local standard-library server uses equivalent headers. `bash scripts/deploy-web.sh` deploys `builds/web` as a preview to Vercel project `toenland`, scope `vincentclaes-projects`. It does not upload the repository, original models, APKs or local evidence. No Vercel build process or application backend is needed.
+`web/vercel.json` sets the required gzip encoding and MIME types for `.wasm.gz`, `.js.gz` and `.data.gz`. The local standard-library server uses equivalent headers. `bash scripts/deploy-web.sh` deploys `builds/web` as a preview to Vercel project `land-van-weleer`, scope `vincentclaes-projects`. It does not upload the repository, original models, APKs or local evidence. No Vercel build process or application backend is needed.
 
 The cover is rendered directly from the project with `Ferraris.Editor.BuildProject.WebCover`; it contains no map raster or gameplay overlays. `web/cover.jpg` is copied into the output during a web build.
 
