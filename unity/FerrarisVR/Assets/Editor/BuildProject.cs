@@ -154,8 +154,14 @@ namespace Ferraris.Editor
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName=path,target=target,options=target==BuildTarget.WebGL?BuildOptions.None:BuildOptions.Development});
             if(report.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Build failed: "+report.summary.result);
-            if(target==BuildTarget.WebGL)foreach(var pack in report.packedAssets)foreach(var asset in pack.contents)
-                if(asset.sourceAssetPath.EndsWith("/ferraris.png")||asset.sourceAssetPath.EndsWith("/WebMapExcluded.png"))throw new InvalidOperationException("Local map raster must not be included in the website");
+            bool roadMaskPacked=false;
+            foreach(var pack in report.packedAssets)foreach(var asset in pack.contents)
+            {
+                if(asset.sourceAssetPath.EndsWith("/Winksele/roads.png"))roadMaskPacked=true;
+                if(target==BuildTarget.WebGL&&(asset.sourceAssetPath.EndsWith("/ferraris.png")||asset.sourceAssetPath.EndsWith("/WebMapExcluded.png")))throw new InvalidOperationException("Local map raster must not be included in the website");
+            }
+            if(!roadMaskPacked)throw new InvalidOperationException("Generated road mask missing from built player");
+            Debug.Log("FERRARIS_ROAD_MASK_PACKED");
             Debug.Log("FERRARIS_BUILD_SUCCESS "+path);
         }
     }
@@ -165,7 +171,8 @@ namespace Ferraris.Editor
         {
             if(!assetPath.Contains("Resources/Winksele/"))return;
             var t=(TextureImporter)assetImporter;t.textureType=TextureImporterType.Default;t.mipmapEnabled=true;t.wrapMode=TextureWrapMode.Clamp;t.maxTextureSize=2048;t.textureCompression=TextureImporterCompression.Uncompressed;
-            t.SetPlatformTextureSettings(new TextureImporterPlatformSettings{name="Android",overridden=true,maxTextureSize=2048,format=TextureImporterFormat.ASTC_6x6});
+            bool road=assetPath.EndsWith("/roads.png");if(road)t.sRGBTexture=false;
+            t.SetPlatformTextureSettings(new TextureImporterPlatformSettings{name="Android",overridden=true,maxTextureSize=2048,format=road?TextureImporterFormat.ASTC_4x4:TextureImporterFormat.ASTC_6x6});
         }
     }
     public class SoundImporter : AssetPostprocessor

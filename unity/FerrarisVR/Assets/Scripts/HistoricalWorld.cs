@@ -9,7 +9,7 @@ namespace Ferraris
  {
   public AreaData Area{get;private set;}
   public GameObject TerrainObject{get;private set;}
-  public Transform RoadRoot,BuildingRoot;
+  public Transform BuildingRoot;
   public bool ShowTrees=true;
   public int TreeCount{get;private set;}
   public int AnimalCount{get;private set;}
@@ -30,7 +30,7 @@ namespace Ferraris
    Area=area;TreeCount=data.trees.Length;
    foreach(string name in new[]{"brick","plaster","roof","wood","soil","bark"})materials[name]=Surface(name);
    materials["stone"]=Surface("plaster",new Color(.55f,.53f,.46f));materials["glass"]=Surface(null,new Color(.055f,.085f,.075f));materials["wool"]=Surface(null);materials["iron"]=Surface(null,new Color(.12f,.13f,.12f));
-   ConfigureLight();BuildTerrain();BuildRoads(data);
+   ConfigureLight();BuildTerrain(data.roads.Length>0);
    var buildings=new GameObject("Detailed Ferraris buildings");buildings.transform.SetParent(transform,false);BuildingRoot=buildings.transform;
    foreach(var b in data.buildings)BuildBuilding(b,buildings.transform);
    foreach(var pair in parts)if(pair.Value.VertexCount>0)pair.Value.Object(pair.Key+" architectural details",buildings.transform,materials[pair.Key]);
@@ -46,9 +46,12 @@ namespace Ferraris
    QualitySettings.shadows=ShadowQuality.All;QualitySettings.shadowResolution=ShadowResolution.High;QualitySettings.shadowDistance=65;QualitySettings.shadowCascades=2;QualitySettings.pixelLightCount=1;
    foreach(var light in FindObjectsByType<Light>(FindObjectsSortMode.None))if(light.type==LightType.Directional){light.color=new Color(1,.92f,.78f);light.intensity=1.05f;light.shadows=LightShadows.Soft;light.shadowStrength=.68f;light.shadowBias=.035f;light.shadowNormalBias=.25f;light.transform.rotation=Quaternion.Euler(28,-55,0);RenderSettings.sun=light;break;}
   }
-  void BuildTerrain()
+  void BuildTerrain(bool hasRoads)
   {
    var material=new Material(Shader.Find("Ferraris/TerrainSurface"));material.SetTexture("_MainTex",Resources.Load<Texture2D>("Winksele/landcover"));material.SetTexture("_Grass",Texture("grass_diff"));material.SetTexture("_Soil",Texture("soil_diff"));material.SetTexture("_BumpMap",Texture("grass_normal"));material.SetTexture("_SoilNormal",Texture("soil_normal"));material.SetFloat("_AreaSize",Area.size);
+   var roadMask=hasRoads?Resources.Load<Texture2D>("Winksele/roads"):Texture2D.blackTexture;
+   if(roadMask==null)throw new InvalidOperationException("Missing road mask; run pipeline/export_world.py");
+   material.SetTexture("_RoadMask",roadMask);
    const int n=257;var vertices=new Vector3[n*n];var uv=new Vector2[n*n];var triangles=new int[(n-1)*(n-1)*6];int k=0;
    for(int z=0;z<n;z++)for(int x=0;x<n;x++)
    {
@@ -66,23 +69,6 @@ namespace Ferraris
     horizon.Quad(P(x,z),P(x,z+step),P(x+step,z+step),P(x+step,z),Color.white);
    }
    var distant=horizon.Object("Distant countryside",transform,material);distant.AddComponent<MeshCollider>().sharedMesh=distant.GetComponent<MeshFilter>().sharedMesh;
-  }
-  void BuildRoads(WorldData data)
-  {
-   var road=new WorldMesh();
-   foreach(var r in data.roads)for(int i=0;i<r.points.Length-1;i++)
-   {
-    var p=r.points[i];var next=r.points[i+1];Vector2 d=new Vector2(next.x-p.x,next.z-p.z).normalized;Vector2 side=new(d.y,-d.x);
-    // Short strips follow uneven terrain and form shallow worn wheel tracks.
-    float[] edges={-r.width*.5f,-r.width*.27f,-r.width*.13f,r.width*.13f,r.width*.27f,r.width*.5f};
-    for(int j=0;j<edges.Length-1;j++)
-    {
-     Vector3 P(MapPoint point,float offset){float x=point.x+side.x*offset,z=point.z+side.y*offset;return new Vector3(x,Area.Height(x,z)+.13f,z);}
-     Color c=j==1||j==3?new Color(.66f,.59f,.48f):j==2?new Color(.83f,.80f,.65f):new Color(.89f,.83f,.73f);
-     road.Quad(P(p,edges[j]),P(next,edges[j]),P(next,edges[j+1]),P(p,edges[j+1]),c);
-    }
-   }
-   RoadRoot=road.Object("Rutted earth roads",transform,materials["soil"]).transform;
   }
   public static (float length,float span,float height,float rise,Quaternion rotation) RuralForm(Building b)
   {

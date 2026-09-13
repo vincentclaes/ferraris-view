@@ -21,6 +21,7 @@ namespace Ferraris
             if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
             if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-building-study")>=0){yield return BuildingStudy(app,output);yield break;}
+            if(Array.IndexOf(args,"-road-study")>=0){yield return RoadStudy(app,output);yield break;}
             StartCoroutine(Record(output));
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"01-map.png"));yield return new WaitForSeconds(.4f);
             // Feed real Input System events, including a whole drag within one
@@ -232,6 +233,23 @@ namespace Ferraris
             string frames=Path.Combine(output,"journey-frames");Directory.CreateDirectory(frames);
             foreach(string old in Directory.GetFiles(frames,"frame-*.png"))File.Delete(old);
             for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
+        }
+        IEnumerator RoadStudy(FerrarisApp app,string output)
+        {
+            foreach(var stop in new[]{(road:3,index:7),(road:12,index:58),(road:0,index:80)})
+            {
+                var road=app.Data.roads[stop.road];var p=road.points[stop.index];var q=road.points[stop.index+1];
+                var centre=new Vector3(p.x,app.Area.Height(p.x,p.z),p.z);var along=new Vector3(q.x-p.x,0,q.z-p.z).normalized;
+                app.EnterWorld(p.x,p.z);app.enabled=false;app.GetComponent<VisitorUI>().Root.gameObject.SetActive(false);
+                foreach(bool overhead in new[]{false,true})
+                {
+                    app.View.transform.position=overhead?centre+Vector3.up*22:centre-along*6+Vector3.up*1.8f;
+                    app.View.transform.LookAt(overhead?centre:centre+along*12,overhead?Vector3.forward:Vector3.up);
+                    yield return new WaitForSeconds(.5f);yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(output,$"road-{stop.road}-{(overhead?"overhead":"walk")}.png"));yield return new WaitForSeconds(.4f);
+                }
+                app.enabled=true;
+            }
+            Application.Quit(0);
         }
         IEnumerator BuildingStudy(FerrarisApp app,string output)
         {
