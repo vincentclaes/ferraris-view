@@ -137,6 +137,13 @@ namespace Ferraris.Editor
         [MenuItem("Ferraris/Build Quest APK")]
         public static void Quest()
         {
+            // Stale sync copies in stripped assemblies break IL2CPP; Gradle also
+            // packages obsolete staged assets. Recreate generated Android output.
+            foreach(string relative in new[]{"Library/Bee/Android/Prj","Library/Bee/artifacts/Android"})
+            {
+                string generated=Path.GetFullPath(relative);
+                if(Directory.Exists(generated))Directory.Delete(generated,true);
+            }
             ConfigureQuest();
             if(!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Android,BuildTarget.Android))throw new InvalidOperationException("Install Android Build Support, SDK/NDK and OpenJDK in Unity Hub");
             Build(Path.GetFullPath("../../builds/Winksele1775.apk"),BuildTarget.Android);

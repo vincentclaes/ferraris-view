@@ -50,7 +50,7 @@ Set `UNITY_EDITOR` to override the installed editor executable. Close the editor
 
 ```bash
 bash scripts/unity.sh quest-configure
-bash scripts/unity.sh quest
+bash scripts/unity.sh quest  # also verifies packaged data and OpenXR libraries
 # Developer mode and USB debugging must be enabled on your headset:
 bash scripts/quest-device.sh devices
 bash scripts/quest-device.sh install
@@ -87,11 +87,11 @@ The browser fetches the historical map directly from the public Digitaal Vlaande
 
 ## Data and architecture
 
-`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover texture, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` is the reviewed manual interpretation used for this area.
+`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover texture, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` supplies roads and land parcels; `buildings-reviewed.json` supplies the reviewed building contours and legend categories.
 
 Unity `AreaData.cs` owns coordinate/height conversion; `FerrarisApp.cs` owns mode/input/navigation; `HistoricalWorld.cs` constructs the terrain, architecture and farm animals; `WorldVegetation.cs` batches trees and nearby ground cover. `BuildProject.cs` creates the scene and desktop/Quest build configuration. `JourneySmoke.cs` exercises the real built player and captures map/world/top-down screenshots.
 
-Discovery content is bundled in `Assets/Resources/Discovery`. Implementation, source distinctions and acceptance evidence for each issue are in [docs/issues](docs/issues); [object coverage](docs/issues/07-object-discovery.md) includes the complete 150-symbol legend inventory and all 17 rendered types.
+Discovery content is bundled in `Assets/Resources/Discovery`. Implementation, source distinctions and acceptance evidence for each issue are in [docs/issues](docs/issues); [object coverage](docs/issues/07-object-discovery.md) includes the complete 150-symbol legend inventory and the current rendered types.
 
 See [source, license and CRS documentation](docs/data-sources.md). Raw rasters, generated Unity resources, editor caches and builds are excluded from Git. Re-run both pipeline commands after cloning. The Ferraris service metadata does not grant an open redistribution license: review rights before sharing map-containing builds.
 
@@ -101,7 +101,7 @@ See [source, license and CRS documentation](docs/data-sources.md). Raw rasters, 
 .venv/bin/python pipeline/generate_area.py --name another-area --lat LAT --lon LON --size 1000
 ```
 
-Create a reviewed `data/another-area/tracing.json` in the same schema with matching origin/size, then run `pipeline/export_world.py --name another-area`. Export replaces the active Unity resource area. Downloading is area-parameterized; semantic tracing is currently manual and is not automatically transferable. WMS coverage is the Flemish part of Belgium; validate availability before choosing an area outside Flanders.
+Create reviewed `data/another-area/tracing.json` and `buildings-reviewed.json` files matching the new crop. The latter needs the raster SHA-256, preview size, unique building IDs, pixel contours, evidence and supported legend categories (`building` or `church`); copy the Winksele schema, not its coordinates or historical identifications. Then run `pipeline/export_world.py --name another-area`. Export replaces the active Unity resource area. Downloading is area-parameterized; semantic tracing is currently manual and is not automatically transferable. WMS coverage is the Flemish part of Belgium; validate availability before choosing an area outside Flanders.
 
 ## Limitations and next steps
 

@@ -7,7 +7,7 @@ The Quest left stick preserves analog magnitude and applies a gentle nonlinear r
 ## Visible changes
 
 - The detailed Maria-Hemelvaartkerk from the task “Maak 3D-model van Maria-Hemelvaart” replaces the church placeholder. Scanned stone, slate, doors, modeled window openings, tower details and three LODs are included. It is scaled to the traced Ferraris footprint. The separately modeled sacristy and its collider are hidden because the asset documentation dates that addition to 1786. Other present-day details remain interpreted rather than proven for 1775.
-- Rural buildings have scanned brick/plaster, stone foundations, projecting roof eaves, slate textures, ridge caps, timber framing, window mullions, shutters, door furniture, steps, chimneys and farmyard props.
+- Ordinary buildings now follow reviewed polygon contours with low masonry walls, small timber-framed openings and pitched roofs. The previous house/barn/farmhouse variants and their yard props are no longer assigned to map symbols. See [map-aligned building forms](period-buildings.md) for the current source boundary and validation.
 - Roads use scanned dry soil with distinct worn wheel tracks. Their placement continues to follow the reviewed Ferraris alignments.
 - The terrain uses scanned grass/soil detail and normal maps over the real DHMV elevations. A visual horizon extends beyond the playable kilometre; it does not extend the movement boundary or claim additional mapped historical detail.
 - A photographic HDR sky, warm directional light and short-range real-time shadows replace the flat backdrop.
@@ -26,6 +26,6 @@ Unlike the Ferraris raster, these CC0 art assets may be versioned with the appli
 
 Three Unity tests pass, including analog speed and world construction with the church LOD and animals. Desktop imports/builds and the real built-player map-to-world journey pass. Rendered street, landmark, pasture and top-down views are captured in `artifacts/03-world.png`, `06-church.png`, `07-pasture.png` and `04-world-topdown.png`. Visual inspection caught and corrected inward-facing roof triangles, incorrect facade UVs and unsuitable whole-atlas leaf sampling. The final scanned grass instance uses 1,542 vertices instead of importing all five variants together (7,031 vertices).
 
-The updated Android APK builds and its signature verifies (about 103 MB). SHA-256: `df94df7b5405d701010f985afa31a5c734a79c4f165def2917d75d69a2771b2f`. Installation of this graphics build is pending renewed headset USB authorization; the app already installed on the Quest is the earlier prototype.
+The current aligned-world Android APK was rebuilt on 13 September: 79,044,403 bytes, with verified signature, current offline JSON content and no stale numbered build copies. See [Quest package receipt](quest-validation.md) for the SHA-256 and checks. No device was attached, so installation and hardware validation remain pending.
 
 The earlier Quest 72–73 FPS sample belongs to the simpler scene. This pass needs its own on-device performance and visual check. The scene now contains richer geometry and surfaces, while the livestock and rural architecture remain procedural approximations; it should not be described as finished AAA or film-quality graphics.
