@@ -35,11 +35,12 @@ namespace Ferraris
                     foreach(var lod in world.GetComponentsInChildren<LODGroup>(true))foreach(var r in lod.GetLODs()[0].renderers)if(r!=null)bounds.Encapsulate(r.bounds);
                     Volumes.Add(new PickVolume{key="church",centre=bounds.center,size=bounds.size,rotation=Quaternion.identity});continue;
                 }
-                bool barn=b.kind=="barn";float h=barn?4:b.width>15?4.7f:3.3f,rise=barn?2.5f:3.2f;
-                Add(b.kind,new Vector3(0,(h+rise+1.5f)/2,0),new Vector3(b.width+1,h+rise+1.5f,b.depth+1.8f));
-                Add("barrel",new Vector3(b.width/2-.65f,.55f,-b.depth/2-1.2f),new Vector3(.8f,1,.8f),true);
-                Add("woodpile",new Vector3(-b.width/2+.8f,.4f,-b.depth/2-1.15f),new Vector3(1.7f,.7f,.45f),true);
-                if(barn)Add("fence",new Vector3(0,.7f,b.depth/2+2),new Vector3(b.width+ .12f,1.4f,.18f),true);
+                var form=HistoricalWorld.RuralForm(b);q=form.rotation;
+                float height=form.height+.35f+form.rise+1f;
+                Add(b.kind,new Vector3(0,height/2,0),new Vector3(form.length+.6f,height,form.span+.7f));
+                Add("barrel",new Vector3(form.length/2-.65f,.48f,-form.span/2-.9f),new Vector3(.65f,.8f,.65f),true);
+                Add("woodpile",new Vector3(-form.length/2+.8f,.38f,-form.span/2-.85f),new Vector3(1.4f,.6f,.4f),true);
+                if(b.kind=="barn")Add("fence",new Vector3(0,.7f,form.span/2+2),new Vector3(form.length+.12f,1.4f,.18f),true);
             }
             var vegetation=world.GetComponent<WorldVegetation>();
             foreach(var matrix in vegetation.TreeTransforms)
