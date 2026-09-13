@@ -2,7 +2,7 @@
 
 Brand: **Land van Weleer**, with **Wandel door het Vlaanderen van toen.**
 
-Website: **https://land-van-weleer.vercel.app**. Latest production release: `dpl_5bJCdquEcKgg7A5io1jH6mEjHBAr`, READY on 13 September 2026. It contains the five [daily-life tableaux](tableaux.md) and embedded Dutch font from `81732f2` on pushed branch `codex/living-tableaux`. PR creation is pending after GitHub API failures; this release is not yet merged into the default branch. Vercel inspection confirms the current and former public addresses both point to this release. The project remains `land-van-weleer` (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`); production publication uses `--prod`.
+Website: **https://land-van-weleer.vercel.app**. Latest production release: `dpl_7syKx1QrhsZ6T7kZAzXvsVoz5aHV`, READY on 13 September 2026. It contains the five [daily-life tableaux](tableaux.md), harvest transfers, hinged flail and readable source pages from runtime commit `e892c1e`. The pushed branch `codex/living-tableaux` is in [draft PR #20](https://github.com/vincentclaes/ferraris-view/pull/20), not merged. The project remains `land-van-weleer` (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`); production publication uses `--prod`. Locally tested build hashes: `artifacts/tableaux-web-hashes.json`.
 
 The preceding map-alignment release was `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv`, containing code commit `a275a9e` merged through PR #16 as `a630661`. Its locally tested WebGL hashes remain in `artifacts/building-review/web-release-hashes.json`.
 
