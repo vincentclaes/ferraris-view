@@ -4,7 +4,7 @@ A local Unity 6 / OpenXR prototype: navigate the real Ferraris map, click a loca
 
 The complete map-to-world journey runs on desktop and has been confirmed on a physical Quest 3. See `docs/validation.md` for the test/build evidence and measured limits.
 
-The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. These additions pass the desktop journey and Android build; their integrated physical-headset acceptance is still pending.
+The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. Marie's day now has a visible illustrative guide, bundled Flemish speech, questions, following, waiting and cancellation/resumption. See [story controls and validation](docs/issues/04-day.md). Integrated physical-headset acceptance is still pending.
 
 ## Requirements and setup
 

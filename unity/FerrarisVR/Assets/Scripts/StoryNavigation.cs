@@ -13,7 +13,7 @@ namespace Ferraris
         public bool Ready { get; private set; }
         public int AgentType { get; private set; }
 
-        public StoryNavigation(HistoricalWorld world,AreaData area,StoryStop[] stops)
+        public StoryNavigation(HistoricalWorld world,AreaData area,WorldData geometry,StoryStop[] stops)
         {
             var sources=new List<NavMeshBuildSource>();
             var terrain=world.TerrainObject;
@@ -24,6 +24,12 @@ namespace Ferraris
                 if(box.isTrigger)continue;
                 sources.Add(new NavMeshBuildSource{shape=NavMeshBuildSourceShape.Box,
                     transform=box.transform.localToWorldMatrix*Matrix4x4.Translate(box.center),size=box.size,area=1});
+            }
+            foreach(var collider in world.GetComponentsInChildren<MeshCollider>(true))
+            {
+                if(collider.isTrigger||collider.gameObject==terrain||collider.name=="Distant countryside")continue;
+                sources.Add(new NavMeshBuildSource{shape=NavMeshBuildSourceShape.Mesh,sourceObject=collider.sharedMesh,
+                    transform=collider.transform.localToWorldMatrix,area=1});
             }
             var bounds=new Bounds(new Vector3(stops[0].x,area.Height(stops[0].x,stops[0].z),stops[0].z),Vector3.zero);
             foreach(var stop in stops)bounds.Encapsulate(new Vector3(stop.x,area.Height(stop.x,stop.z),stop.z));
@@ -38,8 +44,23 @@ namespace Ferraris
             for(int i=0;i<stops.Length;i++)
             {
                 var stop=stops[i];var p=new Vector3(stop.x,area.Height(stop.x,stop.z),stop.z);
-                if(!NavMesh.SamplePosition(p,out var hit,25,filter)){Debug.LogWarning($"STORY_NAV no reachable point at stop {i}: {p}");return;}
-                Stops[i]=hit.position;
+                bool found=false;
+                for(int radius=0;radius<=25&&!found;radius++)for(int angle=0;angle<(radius==0?1:24);angle++)
+                {
+                    float a=angle*Mathf.PI/12;var candidate=p+new Vector3(Mathf.Cos(a),0,Mathf.Sin(a))*radius;
+                    candidate.y=area.Height(candidate.x,candidate.z);
+                    if(!NavMesh.SamplePosition(candidate,out var hit,1.5f,filter))continue;
+                    bool inside=false;
+                    foreach(var building in geometry.buildings)if(building.Contains(hit.position.x,hit.position.z)){inside=true;break;}
+                    if(inside)continue;
+                    if(i>0)
+                    {
+                        var path=new NavMeshPath();
+                        if(!NavMesh.CalculatePath(Stops[i-1],hit.position,filter,path)||path.status!=NavMeshPathStatus.PathComplete)continue;
+                    }
+                    Stops[i]=hit.position;found=true;break;
+                }
+                if(!found){Debug.LogWarning($"STORY_NAV no reachable exterior at stop {i}: {p}");return;}
             }
             // Do not offer a journey whose destinations are on disconnected islands.
             for(int i=1;i<Stops.Length;i++)

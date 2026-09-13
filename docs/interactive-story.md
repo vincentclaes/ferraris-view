@@ -1,6 +1,6 @@
 # Een dag met Marie — interaction and story design
 
-Continuation of [issue #4](https://github.com/vincentclaes/ferraris-view/issues/4). The original issue is closed; the existing implementation is a five-stop text walk with a golden beacon. This design replaces that abstraction with a person who invites the visitor, leads, notices their pace and accepts their departure.
+Continuation of [issue #4](https://github.com/vincentclaes/ferraris-view/issues/4), based on `codex/period-building-forms` through `8011ee9`. The original issue is closed; its first implementation was a five-stop text walk with a golden beacon. This continuation introduces a person who invites the visitor, leads, notices their pace and accepts their departure.
 
 All quoted dialogue and controls below are Dutch. Marie, the dialogue, weather, errands, crop and personal circumstances are fictional. The museum and map evidence remain in `Hoe weten we dit?`. See [character and skill research](character-research.md).
 
@@ -10,7 +10,7 @@ The visitor meets Marie near the farmyard. She wants to bring the day's produce 
 
 Marie notices the visitor, turns towards them and greets them once. The visitor approaches and chooses to speak. She introduces herself and asks for company. Choosing `Ik loop mee` begins the story; `Niet nu` leaves the visitor free. There is no automatic quest acceptance, camera grab, forced teleport or punishment for leaving.
 
-Each stop has a short spoken-style scene, an optional question and a clear invitation to continue. The visitor controls reading speed. In the final art/audio pass, use the exact same Dutch text for recorded speech and subtitles, with replay and independent voice volume. Essential dialogue never depends on audio or a network connection.
+Each stop has a short scene, an optional question and a clear invitation to continue. The visitor controls reading speed. Bundled Flemish computer speech uses the same Dutch lines as the visible text, with replay and independent voice muting. Essential dialogue never depends on audio or a network connection. Natural voice acting, phoneme lip synchronisation and a voice-volume slider remain production refinements.
 
 ## Story beats and dialogue
 
@@ -73,4 +73,4 @@ The first interaction slice can use an explicitly illustrative character. It is 
 - Desktop click/keyboard and Quest ray/trigger can perform the same actions. Subtitles work with audio muted and offline. Verify text fits and source distinctions remain accessible.
 - Profile a representative full scene on Quest; a desktop build is not headset performance evidence.
 
-Status: design and research prepared. Runtime, final character acquisition and physical-headset evidence must be reported separately.
+Status: design, character research and a playable illustrative interaction are implemented locally. Validation evidence is recorded in [the issue notes](issues/04-day.md). Final character acquisition and physical-headset evidence are separate from this prototype.

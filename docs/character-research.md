@@ -4,7 +4,7 @@ Research checked 13 September 2026. Target: the existing Unity 6000.6.0f1 projec
 
 ## Character recommendation
 
-Use one authored, rigged person with a fixed costume, facial expressions and recorded Dutch speech. Build natural behaviour through attention, turn-taking, gestures, walking and waiting. Keep the story deterministic and available offline. A conversational AI service does not supply a period character model, navigation or reliable historical evidence.
+Use one authored, rigged person with a fixed costume, facial expressions and recorded Dutch speech. Build natural behaviour through attention, turn-taking, gestures, walking and waiting. Keep the story deterministic and available offline. A conversational AI service does not supply a period character model, navigation or reliable historical evidence. The current slice has a generated illustrative Marie; it does not claim to be one of the high-fidelity assets below.
 
 | Candidate | Useful capability | Fit and constraint |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ CC supports [character optimisation and LOD generation](https://www.reallusion.c
 
 ## Face and costume continuity
 
-“Same clothes” is interpreted as both period coherence and a persistent identity. Every character has their own face and outfit; do not make all villagers identical.
+The user confirmed that “same clothes” means both period coherence and a persistent identity: clothing must suit the character and represent 1775 as closely as possible. Every character has their own face and outfit; do not make all villagers identical.
 
 Marie has one approved head/body, hair, costume, material palette and rig. Reuse that same asset during the greeting, route, pause, resumption and ending. Derive all LODs and platform variants from that master. Do not generate a different face or outfit for each line, image or scene. Record the approved asset version and compare front, side and back views across variants.
 
@@ -49,3 +49,7 @@ The design below uses causal scene connections, voluntary participation and expl
 [Yarn Spinner](https://docs.yarnspinner.dev/yarn-spinner-for-unity/creating-commands-functions) is a strong candidate when the project grows to several dialogue trees: Unity commands can pause a script until movement or another task finishes. [ink](https://www.inklestudios.com/ink/) is another established branching-narrative language with Unity integration. Neither tool provides a human model or a pathfinder.
 
 For this first guided story, extend the existing bundled `Discovery/day.json` and `PersonsDay` workflow. Adopting a narrative package now would add migration and integration work without resolving the missing physical guide.
+
+## Bundled prototype voice
+
+The playable slice uses Piper's Flemish `nl_BE-nathalie-medium` voice. Its [model card](https://huggingface.co/rhasspy/piper-voices/blob/1162a9173d0ce503555aed757976b7a9912eae4c/nl/nl_BE/nathalie/medium/MODEL_CARD) identifies the source dataset as CC0. `pipeline/generate_story_voice.py` uses Piper 1.8.0 as a local authoring tool; the game contains WAV clips, not the engine or model. The pinned model revision, SHA-256 and exact transcript of all 19 clips are in [story-voice.json](story-voice.json). The voice is explicitly labelled a computer voice. No user microphone or cloud conversation is involved.

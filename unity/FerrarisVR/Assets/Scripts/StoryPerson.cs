@@ -7,7 +7,7 @@ namespace Ferraris
     // Replace presentation with a reviewed rigged asset for production realism.
     public sealed class StoryPerson : MonoBehaviour
     {
-        Transform head,leftArm,rightArm,leftLeg,rightLeg,basket;
+        Transform head,mouth,leftArm,rightArm,leftLeg,rightLeg,basket;
         readonly List<Material> materials=new();
         Mesh skirtMesh,apronMesh;
         float stride;
@@ -35,7 +35,7 @@ namespace Ferraris
                 Part("Oog",head,new Vector3(side*.042f,.026f,.092f),new Vector3(.027f,.014f,.012f),dark);
                 Part("Wenkbrauw",head,new Vector3(side*.043f,.049f,.091f),new Vector3(.04f,.009f,.012f),hair);
             }
-            Part("Mond",head,new Vector3(0,-.068f,.089f),new Vector3(.058f,.009f,.015f),jacket);
+            mouth=Part("Mond",head,new Vector3(0,-.068f,.089f),new Vector3(.058f,.009f,.015f),jacket);
             leftArm=Limb("Linkerarm",new Vector3(-.23f,1.35f,0),jacket,skin,false);
             rightArm=Limb("Rechterarm",new Vector3(.23f,1.35f,0),jacket,skin,false);
             leftLeg=Limb("Linkerbeen",new Vector3(-.12f,.57f,0),linen,dark,true);
@@ -77,7 +77,7 @@ namespace Ferraris
                 float radius=Mathf.Lerp(topRadius,bottomRadius,t)*(1+.035f*Mathf.Sin(i*2.4f));
                 vertices.Add(new Vector3(Mathf.Sin(a)*radius,Mathf.Lerp(top,bottom,t),Mathf.Cos(a)*radius*.75f+offset));
                 if(row==rows||i==segments)continue;
-                int v=row*(segments+1)+i;indices.AddRange(new[]{v,v+1,v+segments+1,v+1,v+segments+2,v+segments+1});
+                int v=row*(segments+1)+i;indices.AddRange(new[]{v,v+segments+1,v+1,v+1,v+segments+1,v+segments+2});
             }
             var mesh=new Mesh{name=name};mesh.SetVertices(vertices);mesh.SetTriangles(indices,0);mesh.RecalculateNormals();mesh.RecalculateBounds();
             var go=new GameObject(name);go.transform.SetParent(transform,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=material;return mesh;
@@ -91,6 +91,11 @@ namespace Ferraris
             Vector3 direction=visitor-transform.position;direction.y=0;
             if(speed<.05f&&direction.sqrMagnitude>.05f)transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.LookRotation(direction),100*dt);
             head.localRotation=Quaternion.Euler(Mathf.Sin(Time.time*1.1f)*1.5f,0,0);
+        }
+        public void SetSpeaking(bool speaking)
+        {
+            // Simple speaking cue; a production face needs phoneme-based animation.
+            mouth.localScale=new Vector3(.058f,speaking?.012f+.025f*Mathf.Abs(Mathf.Sin(Time.time*13)):.009f,.015f);
         }
         void OnDestroy(){foreach(var material in materials)Destroy(material);if(skirtMesh!=null)Destroy(skirtMesh);if(apronMesh!=null)Destroy(apronMesh);}
     }

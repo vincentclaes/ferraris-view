@@ -23,12 +23,12 @@ namespace Ferraris
             State=Step>=count?GuideState.Completed:GuideState.Guiding;
             return true;
         }
-        public void Tick(float distance,bool arrived)
+        public void Tick(float distance,bool arrived,bool visitorAhead=false)
         {
             if(State is not (GuideState.Guiding or GuideState.Waiting))return;
             if(arrived){State=distance<=TalkDistance?GuideState.Speaking:GuideState.Waiting;return;}
-            if(State==GuideState.Guiding&&distance>WaitDistance)State=GuideState.Waiting;
-            else if(State==GuideState.Waiting&&distance<=CatchUpDistance)State=GuideState.Guiding;
+            if(State==GuideState.Guiding&&distance>WaitDistance&&!visitorAhead)State=GuideState.Waiting;
+            else if(State==GuideState.Waiting&&(distance<=CatchUpDistance||visitorAhead))State=GuideState.Guiding;
         }
         public void Pause()
         {

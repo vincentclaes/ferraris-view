@@ -356,6 +356,7 @@ namespace Ferraris
         public void ReturnToMap()
         {
             if(!Ready)return;
+            GetComponent<PersonsDay>()?.SuspendForMap();
             GetComponent<VisitorUI>()?.ClearKeyboardFocus();
             InWorld=false;View.clearFlags=CameraClearFlags.SolidColor;character.enabled=false;World.gameObject.SetActive(false);mapRoot.SetActive(true);
             pressed=pointerReleased=false;pendingPan=Vector2.zero;

@@ -20,6 +20,13 @@ namespace Ferraris.Tests
             guide.Tick(2,true);Assert.That(guide.State,Is.EqualTo(GuideState.Speaking));
             Assert.That(guide.Step,Is.EqualTo(1));
         }
+        [Test] public void WalkingAheadDoesNotRequireReturningToTheGuide()
+        {
+            var guide=new GuideProgress();guide.Begin(2);guide.Continue(2,5);
+            guide.Tick(12,false,true);Assert.That(guide.State,Is.EqualTo(GuideState.Guiding));
+            guide.Tick(12,true,true);Assert.That(guide.State,Is.EqualTo(GuideState.Waiting));
+            guide.Tick(2,true,true);Assert.That(guide.State,Is.EqualTo(GuideState.Speaking));
+        }
         [TestCase(GuideState.Speaking)] [TestCase(GuideState.Guiding)] [TestCase(GuideState.Waiting)]
         public void LeavingStopsLateEventsAndRestoresTheSamePhase(GuideState phase)
         {

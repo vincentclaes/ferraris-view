@@ -14,14 +14,15 @@ namespace Ferraris
         public GuideProgress Progress { get; }=new();
         public StoryPerson Person { get; private set; }
         public bool Ready=>navigation?.Ready==true;
+        public bool VoicePlaying=>voice!=null&&voice.isPlaying;
         public bool CanTalk=>Ready&&app.InWorld&&Distance<=GuideProgress.TalkDistance&&Visible;
         public float Distance=>Person!=null&&app.InWorld?Vector3.Distance(app.Player.position,Person.transform.position):float.PositiveInfinity;
         public Vector3 Destination=>navigation.Stops[Mathf.Min(Progress.Step,Content.stops.Length-1)];
         public bool Arrived=>agent!=null&&agent.isOnNavMesh&&!agent.pathPending&&agent.remainingDistance<=agent.stoppingDistance+.15f;
         VisitorUI ui;FerrarisApp app;StoryNavigation navigation;NavMeshAgent agent;
         GameObject panel,hud;UnityEngine.UI.Text direction;AudioSource voice;
-        bool evidence,answer,blocked,wasWorld,focused=true;int evidencePage;float lastDistance;GuideState lastState;
-        string callout;float calloutUntil;bool wasNear;
+        bool evidence,answer,blocked,wasWorld,focused=true,voicePaused,essentialVoice,voiceMuted;int evidencePage;float lastDistance;GuideState lastState;
+        string callout;float calloutUntil;bool wasNear,dismissed;
 
         bool Visible
         {
@@ -37,10 +38,10 @@ namespace Ferraris
             app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();
             Content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
             ui.Button(new Rect(335,125,242,45),"Dag van Marie",Open);
-            hud=ui.Box(new Rect(805,695,610,165));direction=ui.Text(new Rect(822,709,575,92),"",22,hud.transform);
-            ui.Button(new Rect(822,807,245,42),"Praat met Marie",Open,hud.transform,21);
-            ui.Button(new Rect(1080,807,312,42),"Verhaal verlaten",Pause,hud.transform,21);hud.SetActive(false);
-            navigation=new StoryNavigation(app.World,app.Area,Content.stops);
+            hud=ui.Box(new Rect(28,695,760,165));direction=ui.Text(new Rect(48,709,710,92),"",22,hud.transform);
+            ui.Button(new Rect(48,807,290,42),"Praat met Marie",Open,hud.transform,21);
+            ui.Button(new Rect(370,807,390,42),"Verhaal verlaten",Pause,hud.transform,21);hud.SetActive(false);
+            navigation=new StoryNavigation(app.World,app.Area,app.Data,Content.stops);
             if(!Ready)return;
             var go=new GameObject("Marie — illustratief personage");go.transform.SetParent(app.World.transform,false);go.transform.position=navigation.Stops[0];
             Person=go.AddComponent<StoryPerson>();Person.Build();
@@ -64,24 +65,31 @@ namespace Ferraris
             }
             if(!agent.isOnNavMesh){blocked=true;return;}
             float distance=Distance;bool near=distance<=8&&Visible;
+            if(distance>8)dismissed=false;
             if(near&&!wasNear&&Progress.State==GuideState.Available)Say("Dag! Heb je even tijd? Kom gerust dichterbij.","greeting");
             wasNear=near;
             bool suspended=!focused||ui.PanelOpen||ui.HasKeyboardFocus;
             var previous=Progress.State;
-            if(!suspended&&!blocked)Progress.Tick(distance,Arrived);
+            Vector3 heading=agent.steeringTarget-Person.transform.position,toVisitor=app.Player.position-Person.transform.position;
+            heading.y=toVisitor.y=0;
+            bool visitorAhead=Vector3.Dot(heading.normalized,toVisitor.normalized)>.65f;
+            if(!suspended&&!blocked)Progress.Tick(Visible?distance:Mathf.Max(distance,GuideProgress.WaitDistance+1),Arrived,visitorAhead);
             if(previous!=Progress.State)
             {
                 if(Progress.State==GuideState.Waiting)Say("Ik wacht hier. Kom maar als je zover bent.","wait");
                 if(Progress.State==GuideState.Guiding)Say("Daar ben je. Loop maar mee.","rejoin");
-                if(Progress.State==GuideState.Speaking){answer=false;Open();Say(Content.stops[Progress.Step].dialogue,$"stop-{Progress.Step}");}
+                if(Progress.State==GuideState.Speaking){answer=false;Open();}
             }
             agent.isStopped=!focused||ui.PanelOpen||ui.HasKeyboardFocus||blocked||Progress.State!=GuideState.Guiding;
             agent.updateRotation=!agent.isStopped;
             if(!suspended&&Progress.State==GuideState.Guiding&&!agent.pathPending&&agent.pathStatus!=NavMeshPathStatus.PathComplete)
             {blocked=true;agent.isStopped=true;StopVoice();}
-            if(voice.isPlaying&&(!focused||distance>GuideProgress.TalkDistance||!Visible))voice.Pause();
+            bool hear=focused&&Visible&&distance<=(essentialVoice?GuideProgress.TalkDistance:8);
+            if(voice.isPlaying&&!hear){voice.Pause();voicePaused=true;}
+            else if(voicePaused&&hear){voice.UnPause();voicePaused=false;}
             Person.Animate(agent.isStopped?0:agent.velocity.magnitude,app.Player.position,Progress.State==GuideState.Speaking&&!answer,Time.deltaTime);
-            hud.SetActive(!ui.PanelOpen&&(near||Progress.Running||Progress.State==GuideState.Paused));
+            Person.SetSpeaking(voice.isPlaying);
+            hud.SetActive(!ui.PanelOpen&&!dismissed&&(near||Progress.Running));
             string status=blocked?"Ik vind hier geen doorgang. Probeer later opnieuw.":Progress.State switch
             {
                 GuideState.Available=>"Marie staat bij het erf. Kom dichterbij om te praten.",
@@ -100,9 +108,22 @@ namespace Ferraris
             if(!CanTalk||!Physics.Raycast(ray,out var hit,5,~0,QueryTriggerInteraction.Collide)||hit.collider.GetComponentInParent<StoryPerson>()!=Person)return false;
             Open();return true;
         }
-        public void Open(){ui.ClosePanel?.Invoke();evidence=false;answer=false;Draw();}
+        public void Open()
+        {
+            ui.ClosePanel?.Invoke();dismissed=false;evidence=false;answer=false;Draw();
+            if(!CanTalk)return;
+            if(Progress.State==GuideState.Available)Say("Dag, ik ben Marie. Ik wil de oogst binnenhalen voor het weer omslaat. Loop je een stukje mee?","invitation");
+            else if(Progress.State==GuideState.Speaking)Say(Content.stops[Progress.Step].dialogue,$"stop-{Progress.Step}");
+        }
         public void Close(){ui.RemovePanel(panel);panel=null;ui.PanelOpen=false;ui.ClosePanel=null;ui.ClearKeyboardFocus();StopVoice();}
-        public void Pause(){Progress.Pause();if(agent!=null&&agent.isOnNavMesh)agent.isStopped=true;StopVoice();calloutUntil=0;Close();}
+        public void Pause(){Progress.Pause();Halt();StopVoice();calloutUntil=0;dismissed=true;hud?.SetActive(false);Close();}
+        void Halt(){if(agent!=null&&agent.isOnNavMesh){agent.isStopped=true;agent.ResetPath();agent.velocity=Vector3.zero;}}
+        public void SuspendForMap()
+        {
+            Progress.Pause();StopVoice();calloutUntil=0;
+            Halt();
+            if(panel!=null)Close();
+        }
         public void Resume()
         {
             if(!CanTalk)return;
@@ -138,16 +159,18 @@ namespace Ferraris
         {
             callout=text;calloutUntil=Time.time+8;
             if(voice==null)return;
-            voice.Stop();voice.clip=Resources.Load<AudioClip>("Discovery/Voice/Marie/"+clip);
-            if(voice.clip!=null&&CanTalk)voice.Play();
+            voice.Stop();voicePaused=false;essentialVoice=clip.StartsWith("stop-")||clip.StartsWith("answer-")||clip=="invitation";
+            voice.clip=Resources.Load<AudioClip>("Discovery/Voice/Marie/"+clip);
+            if(voice.clip!=null&&focused&&Visible&&Distance<=(essentialVoice?GuideProgress.TalkDistance:8))voice.Play();
         }
-        void StopVoice(){if(voice!=null)voice.Stop();}
+        void StopVoice(){voicePaused=false;if(voice!=null)voice.Stop();}
+        public void SetVoiceMuted(bool muted){voiceMuted=muted;if(voice!=null)voice.mute=muted;}
         void OnApplicationFocus(bool hasFocus){focused=hasFocus;if(!hasFocus){StopVoice();if(agent!=null&&agent.isOnNavMesh)agent.isStopped=true;}}
         void Draw()
         {
-            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
-            ui.Text(new Rect(48,197,620,40),Content.title,28,panel.transform);ui.Button(new Rect(690,197,76,40),"Sluiten",Close,panel.transform,19);
-            if(!Ready){ui.Text(new Rect(48,255,700,300),"Marie kan deze route niet lopen. Je kunt het landschap vrij verkennen en het verhaal later opnieuw proberen.",25,panel.transform);return;}
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,620,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.Text(new Rect(48,197,485,40),Content.title,28,panel.transform);ui.Button(new Rect(550,197,76,40),"Sluiten",Close,panel.transform,19);
+            if(!Ready){ui.Text(new Rect(48,255,575,300),"Marie kan deze route niet lopen. Je kunt het landschap vrij verkennen en het verhaal later opnieuw proberen.",25,panel.transform);return;}
             bool end=Progress.State==GuideState.Completed;
             var stop=Content.stops[Mathf.Min(Progress.Step,Content.stops.Length-1)];
             string text=evidence?string.Join("\n\n",Content.evidence.Split("\n\n").Skip(evidencePage*3).Take(3)):
@@ -157,13 +180,14 @@ namespace Ferraris
                 Progress.State==GuideState.Paused?"Marie: Daar ben je weer. Zullen we verdergaan waar we gebleven waren?\n\nJe kunt ook opnieuw beginnen.":
                 Progress.State==GuideState.Speaking?$"{Progress.Step+1}/{Content.stops.Length} — {stop.title}\n\nMarie: {(answer?stop.answer:stop.dialogue)}":
                 blocked?"Marie: Ik vind hier geen doorgang. Je kunt het verhaal verlaten en later hervatten.":"Marie: Loop maar mee. Ik wacht als je even achterblijft.";
-            ui.Text(new Rect(48,255,708,315),text,25,panel.transform);
-            ui.Button(new Rect(48,585,290,44),"Hoe weten we dit?",()=>{evidence=!evidence;Draw();},panel.transform);
-            if(evidence)ui.Button(new Rect(355,585,310,44),evidencePage==0?"Volgende bronnen":"Vorige bronnen",()=>{evidencePage=1-evidencePage;Draw();},panel.transform);
-            else if(CanTalk&&Progress.State==GuideState.Speaking)
+            ui.Text(new Rect(48,255,575,315),text,22,panel.transform);
+            ui.Button(new Rect(48,585,275,44),"Hoe weten we dit?",()=>{evidence=!evidence;Draw();},panel.transform);
+            if(evidence)ui.Button(new Rect(335,585,290,44),evidencePage==0?"Volgende bronnen":"Vorige bronnen",()=>{evidencePage=1-evidencePage;Draw();},panel.transform);
+            else ui.Button(new Rect(345,585,280,44),voiceMuted?"Stem: uit":"Stem: aan",()=>{SetVoiceMuted(!voiceMuted);Draw();},panel.transform,21);
+            if(!evidence&&CanTalk&&Progress.State==GuideState.Speaking)
             {
-                ui.Button(new Rect(48,640,400,44),answer?"Terug naar het verhaal":stop.question,()=>{answer=!answer;Draw();Say(answer?stop.answer:stop.dialogue,answer?$"answer-{Progress.Step}":$"stop-{Progress.Step}");},panel.transform,22);
-                ui.Button(new Rect(465,640,290,44),"Nog eens vertellen",()=>Say(answer?stop.answer:stop.dialogue,answer?$"answer-{Progress.Step}":$"stop-{Progress.Step}"),panel.transform,21);
+                ui.Button(new Rect(48,640,320,44),answer?"Terug naar het verhaal":stop.question,()=>{answer=!answer;Draw();Say(answer?stop.answer:stop.dialogue,answer?$"answer-{Progress.Step}":$"stop-{Progress.Step}");},panel.transform,22);
+                ui.Button(new Rect(385,640,240,44),"Nog eens vertellen",()=>Say(answer?stop.answer:stop.dialogue,answer?$"answer-{Progress.Step}":$"stop-{Progress.Step}"),panel.transform,21);
             }
             if(end)ui.Button(new Rect(48,710,290,48),"Opnieuw beginnen",ResetStory,panel.transform);
             else if(!app.InWorld)ui.Button(new Rect(48,710,240,48),"Zoek Marie",FindMarie,panel.transform);
@@ -173,9 +197,9 @@ namespace Ferraris
                 else if(Progress.State==GuideState.Speaking)ui.Button(new Rect(48,710,240,48),Progress.Step==Content.stops.Length-1?"Rond de dag af":"Ik loop mee",Advance,panel.transform);
                 else ui.Button(new Rect(48,710,240,48),"Loop verder",Close,panel.transform);
             }
-            if(Progress.State==GuideState.Paused)ui.Button(new Rect(300,710,240,48),"Opnieuw beginnen",ResetStory,panel.transform,21);
-            if(!end)ui.Button(new Rect(560,710,204,48),Progress.State==GuideState.Available?"Niet nu":"Verhaal verlaten",Pause,panel.transform,21);
-            ui.Text(new Rect(48,782,705,65),"Illustratief personage en kleding. Tekst blijft beschikbaar zonder geluid.\nSluiten: gesprek dicht. Verhaal verlaten: stop en bewaar je plek.",19,panel.transform);
+            if(Progress.State==GuideState.Paused)ui.Button(new Rect(48,640,290,44),"Opnieuw beginnen",ResetStory,panel.transform,21);
+            if(!end)ui.Button(new Rect(420,710,204,48),Progress.State==GuideState.Available?"Niet nu":"Verhaal verlaten",Pause,panel.transform,21);
+            ui.Text(new Rect(48,782,575,65),"Verzonnen personage • Computerstem\nSluiten: gesprek dicht. Verlaten: stop en bewaar je plek.",19,panel.transform);
         }
         void OnDestroy(){navigation?.Dispose();if(Person!=null)Destroy(Person.gameObject);}
     }
