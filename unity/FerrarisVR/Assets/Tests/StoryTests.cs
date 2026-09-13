@@ -34,6 +34,8 @@ namespace Ferraris.Tests
         }
         [Test] public void StoryCanPauseResumeAndReachAnEnding()
         {
+            var font=Resources.Load<Font>("Fonts/LiberationSans-Regular");Assert.That(font,Is.Not.Null);
+            foreach(char c in "éë—–•1775")Assert.That(font.HasCharacter(c),Is.True,"Offline Dutch glyph: "+c);
             var content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
             Assert.That(content.stops.Length,Is.GreaterThanOrEqualTo(4));Assert.That(content.introduction,Does.Contain("verzonnen"));
             var state=new StoryProgress();state.Resume();Assert.That(state.Advance(false,5),Is.False);
