@@ -58,9 +58,12 @@ bash scripts/smoke-desktop.sh
 bash scripts/smoke-desktop.sh -xr-input-study  # input replay; no hardware certification
 bash scripts/smoke-desktop.sh -field-study     # four grain fields, walking and close views
 bash scripts/smoke-desktop.sh -map-edge-study  # all four corners at 1x, 2x and 8x zoom
+bash scripts/smoke-desktop.sh -diagnostics-study # development-only live position/frame overlay
 ```
 
 Set `UNITY_EDITOR` to override the installed editor executable. Close the editor before running batch builds/tests on the same project.
+
+Development players include optional diagnostics: F3 on desktop or Y on the left Quest controller toggles live map/eye coordinates, the selected coordinate, local terrain height and TAW elevation. The panel refreshes once per second and writes `FERRARIS_DIAGNOSTICS` to the player log. `-ferraris-diagnostics` enables it at startup on desktop. Frames/s and mean milliseconds/frame measure application frame cadence, not compositor FPS or CPU/GPU execution time. Use Unity Profiler and device metrics for Quest performance acceptance. The release website excludes this component.
 
 - Map: drag or arrow keys to pan, including bringing any corner to the centre; scroll, +/− or buttons to zoom; click or Enter at the map centre to enter the world. R or Overzicht resets zoom and pan; V toggles extracted roads/building footprints/vegetation.
 - World: WASD, mouse look, Shift to walk faster, M to consult the map; choose Andere startplek to return to location selection. Click the world to recapture the mouse after focus loss.

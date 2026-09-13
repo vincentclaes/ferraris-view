@@ -23,6 +23,9 @@ namespace Ferraris
             if(Array.IndexOf(args,"-xr-input-study")>=0){yield return XRInputStudy.Run(app,output);yield break;}
             if(Array.IndexOf(args,"-field-study")>=0){yield return FieldStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-map-edge-study")>=0){yield return MapEdgeStudy(app,output);yield break;}
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            if(Array.IndexOf(args,"-diagnostics-study")>=0){yield return DiagnosticsStudy(app,output);yield break;}
+#endif
 #endif
             if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-building-study")>=0){yield return BuildingStudy(app,output);yield break;}
@@ -306,6 +309,29 @@ namespace Ferraris
             for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
         }
 #if UNITY_STANDALONE || UNITY_EDITOR
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        IEnumerator DiagnosticsStudy(FerrarisApp app,string output)
+        {
+            InputSystem.settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
+            foreach(var device in InputSystem.devices)if(device is Keyboard)InputSystem.DisableDevice(device);
+            var keyboard=InputSystem.AddDevice<Keyboard>();var ui=app.GetComponent<VisitorUI>();UnityEngine.UI.Text label=null;
+            foreach(var text in ui.Root.GetComponentsInChildren<UnityEngine.UI.Text>(true))if(text.name=="Ontwikkeldiagnostiek")label=text;
+            if(!Check(label!=null&&!label.gameObject.activeSelf,"Diagnostics hidden by default",output))yield break;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F3));yield return null;yield return null;InputSystem.QueueStateEvent(keyboard,new KeyboardState());
+            app.PanMap(new Vector2(120,-80));yield return new WaitForSeconds(1.2f);
+            if(!Check(label.gameObject.activeSelf&&label.text.Contains("Kaartmidden:")&&label.text.Contains("120.00 / -80.00")&&label.text.Contains("frames/s")&&TextFits(ui),"F3 shows live map coordinates and frame cadence without clipping",output))yield break;
+            yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"diagnostics-map.png"));
+            app.EnterWorld(-300,-100);yield return new WaitForSeconds(1.2f);
+            var geo=app.Area.UnityToGeoCoordinate(app.View.transform.position.x,app.View.transform.position.z);
+            if(!Check(label.text.Contains(FormattableString.Invariant($"{geo.lat:F6}, {geo.lon:F6}"))&&label.text.Contains("Gekozen:")&&label.text.Contains("TAW")&&TextFits(ui),"World diagnostics follow eye coordinate and distinguish local terrain from TAW",output))yield break;
+            var screen=RectTransformUtility.WorldToScreenPoint(null,label.rectTransform.TransformPoint(new Vector3(200,-60,0)));
+            if(!Check(!ui.BlocksScreen(screen),"Diagnostic text does not intercept map or world input",output))yield break;
+            yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"diagnostics-world.png"));
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F3));yield return null;yield return null;InputSystem.QueueStateEvent(keyboard,new KeyboardState());
+            if(!Check(!label.gameObject.activeSelf,"F3 hides diagnostics",output))yield break;
+            File.WriteAllText(Path.Combine(output,"diagnostics.json"),"{\"passed\":true,\"checks\":5,\"hardwareVerified\":false}");Debug.Log("FERRARIS_DIAGNOSTICS_PASS");Application.Quit(0);
+        }
+#endif
         IEnumerator MapEdgeStudy(FerrarisApp app,string output)
         {
             InputSystem.settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
