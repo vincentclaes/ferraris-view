@@ -1,6 +1,10 @@
 # Quest 3 acceptance
 
-Status: installed and launched on a physical Quest 3 on 12 September 2026. Vincent confirmed the full map → world → movement → B return flow. OpenXR and both controllers initialized. A short post-transition sample reported 72–73 FPS at a 72 Hz target; longer performance and resume/comfort checks below remain outstanding. See `validation.md` for measured evidence.
+Latest package: **13 September 2026**, `builds/Winksele1775.apk`, **79,044,403 bytes** (75.38 MiB). SHA-256: `b12fd8af06806cb5b99a9bdb862325a6d8dc2b568f3cb6f994a64f8dd1087c38`. Unity 6000.6.0f1 built Android ARM64 with OpenXR, Vulkan, minimum API 29 and target API 36. APK Signature Scheme v2 verifies. The manifest contains VR launch/headtracking declarations and Meta Quest supported-device metadata.
+
+`bash scripts/unity.sh quest` now rebuilds generated Android staging/compiled output and runs `scripts/verify-quest.py`. The first package contained 100 numbered stale copies (156,619,994 bytes). Cleaning only Gradle staging exposed duplicate `mscorlib` assemblies in the Android compilation cache; recreating both generated Android directories fixed the failure. The final package has no numbered copies or duplicate ZIP entries, contains the required ARM64 Unity/IL2CPP/OpenXR libraries, and embeds byte-identical world, terrain and five discovery JSON files. The world contains the 53 reviewed building symbols. Receipt: `artifacts/quest-package-validation.json`; build log: `artifacts/unity-quest.log`.
+
+Hardware status: ADB found no attached device on 13 September. This package has **not** been installed or tested on the headset. The earlier simple prototype was installed and launched on 12 September; Vincent confirmed map → world → movement → B return, and a short sample reported 72–73 FPS. Those results do not validate the current graphics, polygon colliders or discovery interfaces. Human tableaux remain unimplemented; the story currently provides text and waypoints.
 
 Connect an unlocked Quest 3 over USB with developer mode enabled and accept USB debugging inside the headset. Run the `quest-device.sh` commands in the README. Keep the headset's normal boundary active and begin seated or standing in a clear space.
 

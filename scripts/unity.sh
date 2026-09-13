@@ -19,4 +19,6 @@ case "${1:-desktop}" in
   open) exec "$UNITY_EDITOR" -projectPath "$ROOT/unity/FerrarisVR" ;;
   *) echo "Usage: $0 configure|desktop|web|quest-configure|quest|tests|open" >&2; exit 2 ;;
 esac
-exec "$UNITY_EDITOR" -batchmode -quit "${TARGET_ARGS[@]}" -projectPath "$ROOT/unity/FerrarisVR" -executeMethod "$method" -logFile "$ROOT/artifacts/unity-${1:-desktop}.log"
+"$UNITY_EDITOR" -batchmode -quit "${TARGET_ARGS[@]}" -projectPath "$ROOT/unity/FerrarisVR" -executeMethod "$method" -logFile "$ROOT/artifacts/unity-${1:-desktop}.log"
+
+if [[ "${1:-desktop}" == quest ]]; then python3 "$ROOT/scripts/verify-quest.py"; fi
