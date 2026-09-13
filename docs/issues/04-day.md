@@ -31,3 +31,5 @@ Het [verhaalontwerp](../interactive-story.md) bevat de scènes, spelregels en ac
 De desktopspeltest controleert benaderen zonder accepteren, selecteren via een straal, accepteren via de knop, hoorbare stem, vragen, echt lopen, wachten, direct annuleren, dezelfde Marie hervatten, kaartpauze, alle vijf scènes en het einde. De controllerinterface wordt in de desktopspeler als wereldcanvas getest. Beelden en logbestanden staan lokaal in `artifacts`; fysieke Quest-validatie en gebruikerstests op natuurlijkheid blijven apart te doen.
 
 Desktop-, WebGL- en Quest-builds zijn geslaagd. In de browser zijn laden, Marie opzoeken, accepteren, een vraag stellen en verlaten gecontroleerd. De testbrowser weigerde muisvergrendeling; de webtemplate vangt die specifieke fout nu af, toont Nederlandse herstelhulp en laat het verhaal doorlopen. Rondkijken met vergrendelde muis is in deze browsercontrole niet bevestigd.
+
+De vijf zichtbare [taferelen](../tableaux.md) met negen geanimeerde bewoners blijven aanwezig. Maries route gebruikt de locaties van deze scènes; bewoners en voorwerpen blijven selecteerbaar als illustratie.

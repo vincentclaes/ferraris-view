@@ -10,7 +10,7 @@ namespace Ferraris.Tests
         {
             var content=JsonUtility.FromJson<ObjectContent>(Resources.Load<TextAsset>("Discovery/objects").text);
             var legend=JsonUtility.FromJson<LegendContent>(Resources.Load<TextAsset>("Discovery/legend").text);
-            string[] keys={"building","house","barn","farmhouse","church","road","soil","crop","grass","orchard","tree","cow","sheep","barrel","woodpile","fence","terrain","sky"};
+            string[] keys={"building","house","barn","farmhouse","church","road","soil","crop","grass","orchard","tree","cow","sheep","barrel","woodpile","fence","terrain","sky","tableau"};
             Assert.That(legend.entries.Length,Is.EqualTo(150));Assert.That(legend.entries.Select(e=>e.id).Distinct().Count(),Is.EqualTo(150));
             foreach(string key in keys){var entry=content.For(key);Assert.That(entry,Is.Not.Null,key);Assert.That(entry.summary.Length,Is.GreaterThan(70));Assert.That(entry.sections.Length,Is.GreaterThanOrEqualTo(4));Assert.That(entry.sections.Last().title,Is.EqualTo("Hoe weten we dit?"));}
             Assert.That(content.For("barrel").legend,Does.Contain("Geen"));Assert.That(content.For("fence").legend,Does.Contain("niet automatisch"));Assert.That(content.For("terrain").legend,Does.Contain("Geen"));
@@ -23,6 +23,18 @@ namespace Ferraris.Tests
             try
             {
                 var world=go.AddComponent<HistoricalWorld>();world.Build(area,data);Physics.SyncTransforms();var picker=new ObjectPicker(area,data,world);
+                foreach(var site in world.Tableaux.Sites)
+                {
+                    var resident=site.GetComponentInChildren<TableauResident>();var centre=resident.transform.position+Vector3.up*.85f;
+                    Assert.That(picker.Ray(new Ray(centre+Vector3.back,Vector3.forward)).key,Is.EqualTo("tableau"),site.name);
+                    if(resident.Work!=null)
+                    {
+                        resident.Work.Sample(.34f);Physics.SyncTransforms();
+                        var head=resident.Torso.Find("Gezicht en hoofddeksel").GetComponent<BoxCollider>();
+                        var ray=new Ray(head.bounds.center+resident.transform.forward*.7f,-resident.transform.forward);
+                        Assert.That(picker.Ray(ray).key,Is.EqualTo("tableau"),"Bent resident remains selectable");
+                    }
+                }
                 foreach(string key in new[]{"church","tree","cow","sheep"})
                 {
                     bool found=false;

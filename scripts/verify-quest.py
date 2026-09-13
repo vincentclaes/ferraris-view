@@ -21,6 +21,8 @@ with zipfile.ZipFile(apk) as package:
     expected = {
         str(p.relative_to(ROOT)): p.read_bytes()
         for p in [ROOT/'data/winksele/world.json', ROOT/'data/winksele/area.json',
+                  ROOT/'unity/FerrarisVR/Assets/Resources/Fonts/LiberationSans-Regular.ttf',
+                  ROOT/'unity/FerrarisVR/Assets/Resources/Fonts/LICENSE_LIBERATION.txt',
                   *sorted((ROOT/'unity/FerrarisVR/Assets/Resources/Discovery').glob('*.json'))]
         if not re.search(r' \d+\.', p.name)
     }

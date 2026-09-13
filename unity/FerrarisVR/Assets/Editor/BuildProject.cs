@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Build;
@@ -56,6 +57,9 @@ namespace Ferraris.Editor
         [MenuItem("Ferraris/Build desktop")]
         public static void Desktop()
         {
+            // Synced numbered copies in generated player caches duplicate assemblies/assets.
+            foreach(string cache in new[]{"Library/Bee/artifacts/MacStandalonePlayerBuildProgram","Library/PlayerDataCache/OSXUniversal2"})
+                if(Directory.Exists(cache))Directory.Delete(cache,true);
             Configure();Build(Path.GetFullPath("../../builds/Winksele1775.app"),BuildTarget.StandaloneOSX);
         }
         [MenuItem("Ferraris/Capture website cover")]
@@ -78,6 +82,8 @@ namespace Ferraris.Editor
         [MenuItem("Ferraris/Build website")]
         public static void Web()
         {
+            foreach(string cache in new[]{"Library/Bee/artifacts/WebGL","Library/PlayerDataCache/WebGL"})
+                if(Directory.Exists(cache))Directory.Delete(cache,true);
             Configure();
             PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Gzip;
             PlayerSettings.WebGL.decompressionFallback=false;
@@ -139,7 +145,7 @@ namespace Ferraris.Editor
         {
             // Stale sync copies in stripped assemblies break IL2CPP; Gradle also
             // packages obsolete staged assets. Recreate generated Android output.
-            foreach(string relative in new[]{"Library/Bee/Android/Prj","Library/Bee/artifacts/Android"})
+            foreach(string relative in new[]{"Library/Bee/Android/Prj","Library/Bee/artifacts/Android","Library/PlayerDataCache/Android"})
             {
                 string generated=Path.GetFullPath(relative);
                 if(Directory.Exists(generated))Directory.Delete(generated,true);
@@ -154,8 +160,22 @@ namespace Ferraris.Editor
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName=path,target=target,options=target==BuildTarget.WebGL?BuildOptions.None:BuildOptions.Development});
             if(report.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Build failed: "+report.summary.result);
-            if(target==BuildTarget.WebGL)foreach(var pack in report.packedAssets)foreach(var asset in pack.contents)
-                if(asset.sourceAssetPath.EndsWith("/ferraris.png")||asset.sourceAssetPath.EndsWith("/WebMapExcluded.png"))throw new InvalidOperationException("Local map raster must not be included in the website");
+            var story=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
+            var missingVoice=new HashSet<string>();
+            foreach(string clip in new[]{"greeting","invitation","wait","rejoin"})missingVoice.Add("Assets/Resources/Discovery/Voice/Marie/"+clip+".wav");
+            for(int i=0;i<story.stops.Length;i++)foreach(string kind in new[]{"stop","answer","follow"})missingVoice.Add($"Assets/Resources/Discovery/Voice/Marie/{kind}-{i}.wav");
+            int voiceCount=missingVoice.Count;
+            bool roadMaskPacked=false;
+            foreach(var pack in report.packedAssets)foreach(var asset in pack.contents)
+            {
+                missingVoice.Remove(asset.sourceAssetPath);
+                if(asset.sourceAssetPath.EndsWith("/Winksele/roads.png"))roadMaskPacked=true;
+                if(target==BuildTarget.WebGL&&(asset.sourceAssetPath.EndsWith("/ferraris.png")||asset.sourceAssetPath.EndsWith("/WebMapExcluded.png")))throw new InvalidOperationException("Local map raster must not be included in the website");
+            }
+            if(!roadMaskPacked)throw new InvalidOperationException("Generated road mask missing from built player");
+            if(missingVoice.Count>0)throw new InvalidOperationException("Story voice missing from built player: "+string.Join(", ",missingVoice));
+            Debug.Log("FERRARIS_ROAD_MASK_PACKED");
+            Debug.Log("FERRARIS_STORY_VOICE_PACKED "+voiceCount);
             Debug.Log("FERRARIS_BUILD_SUCCESS "+path);
         }
     }
@@ -165,7 +185,8 @@ namespace Ferraris.Editor
         {
             if(!assetPath.Contains("Resources/Winksele/"))return;
             var t=(TextureImporter)assetImporter;t.textureType=TextureImporterType.Default;t.mipmapEnabled=true;t.wrapMode=TextureWrapMode.Clamp;t.maxTextureSize=2048;t.textureCompression=TextureImporterCompression.Uncompressed;
-            t.SetPlatformTextureSettings(new TextureImporterPlatformSettings{name="Android",overridden=true,maxTextureSize=2048,format=TextureImporterFormat.ASTC_6x6});
+            bool road=assetPath.EndsWith("/roads.png");if(road)t.sRGBTexture=false;
+            t.SetPlatformTextureSettings(new TextureImporterPlatformSettings{name="Android",overridden=true,maxTextureSize=2048,format=road?TextureImporterFormat.ASTC_4x4:TextureImporterFormat.ASTC_6x6});
         }
     }
     public class SoundImporter : AssetPostprocessor

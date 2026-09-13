@@ -8,7 +8,7 @@ The Dutch discovery features added in issues #2–#7 include current nearby addr
 
 ## Website — Land van Weleer
 
-The web-first navigation described below is implemented and tested locally on `codex/web-first-ux`, based on `codex/period-building-forms`. It has not been deployed to the live site.
+The navigation and interactive Marie story are published together with the mapped buildings, roads and tableaux. See [the current release and validation](docs/web.md).
 
 **[Land van Weleer — Wandel door het Vlaanderen van toen](https://land-van-weleer.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. The landscape fills the browser window. One start button leads into the experience; Kaart, Ontdek and Hulp are the main controls. Stories, search and sound settings live under Ontdek. M enlarges the live map without leaving the world or changing position and heading. Escape releases the mouse or closes a panel. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
 
@@ -55,6 +55,7 @@ bash scripts/unity.sh tests
 bash scripts/unity.sh desktop
 open builds/Winksele1775.app
 bash scripts/smoke-desktop.sh
+bash scripts/smoke-desktop.sh -xr-input-study  # input replay; no hardware certification
 ```
 
 Set `UNITY_EDITOR` to override the installed editor executable. Close the editor before running batch builds/tests on the same project.
@@ -70,7 +71,7 @@ Set `UNITY_EDITOR` to override the installed editor executable. Close the editor
 
 ```bash
 bash scripts/unity.sh quest-configure
-bash scripts/unity.sh quest  # also verifies packaged data and OpenXR libraries
+bash scripts/unity.sh quest  # verifies packaged data, story speech and OpenXR libraries
 # Developer mode and USB debugging must be enabled on your headset:
 bash scripts/quest-device.sh devices
 bash scripts/quest-device.sh install
@@ -89,7 +90,7 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 
 ## Data and architecture
 
-`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover texture, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` supplies roads and land parcels; `buildings-reviewed.json` supplies the reviewed building contours and legend categories.
+`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover and road textures, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` supplies roads and land parcels; `buildings-reviewed.json` supplies the reviewed building contours and legend categories.
 
 Unity `AreaData.cs` owns coordinate/height conversion; `FerrarisApp.cs` owns mode/input/navigation; `HistoricalWorld.cs` constructs the terrain, architecture and farm animals; `WorldVegetation.cs` batches trees and nearby ground cover. `BuildProject.cs` creates the scene and desktop/Quest build configuration. `JourneySmoke.cs` exercises the real built player and captures map/world/top-down screenshots.
 

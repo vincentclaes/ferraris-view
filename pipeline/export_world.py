@@ -21,6 +21,36 @@ from shapely.geometry.polygon import orient
 from generate_area import ROOT
 
 
+def road_mask(roads, size, resolution=2048):
+    """North-up pixel centres: red road coverage, green illustrative wheel wear.
+
+    Exact point-to-segment distances preserve vector width through bends and
+    crossings. Only each segment's bounding window is evaluated.
+    """
+    coverage=np.zeros((resolution,resolution),dtype=np.float32)
+    wear=np.zeros_like(coverage); pixel=size/resolution; feather=.35
+    for road in roads:
+        radius=road['width']/2
+        for p,q in zip(road['points'],road['points'][1:]):
+            a=np.array([p['x'],p['z']]); b=np.array([q['x'],q['z']]); d=b-a
+            if np.dot(d,d)<1e-10: continue
+            lo=np.minimum(a,b)-radius-feather; hi=np.maximum(a,b)+radius+feather
+            x0=max(0,int(np.floor((lo[0]+size/2)/pixel))); x1=min(resolution,int(np.ceil((hi[0]+size/2)/pixel)))
+            y0=max(0,int(np.floor((size/2-hi[1])/pixel))); y1=min(resolution,int(np.ceil((size/2-lo[1])/pixel)))
+            if x0>=x1 or y0>=y1: continue
+            x=(np.arange(x0,x1)+.5)*pixel-size/2
+            z=size/2-(np.arange(y0,y1)+.5)*pixel
+            dx=x[None,:]-a[0]; dz=z[:,None]-a[1]
+            t=np.clip((dx*d[0]+dz*d[1])/np.dot(d,d),0,1)
+            distance=np.hypot(dx-t*d[0],dz-t*d[1])
+            blend=np.clip((radius+feather-distance)/(2*feather),0,1)
+            blend=blend*blend*(3-2*blend)
+            tracks=np.exp(-((distance-road['width']*.2)/(road['width']*.075))**4)*blend
+            np.maximum(coverage[y0:y1,x0:x1],blend,out=coverage[y0:y1,x0:x1])
+            np.maximum(wear[y0:y1,x0:x1],tracks,out=wear[y0:y1,x0:x1])
+    return np.round(np.stack((coverage,wear,np.zeros_like(coverage)),axis=-1)*255).astype(np.uint8)
+
+
 def export(name='winksele'):
     out = ROOT/'data'/name
     area = json.loads((out/'area.json').read_text())
@@ -118,9 +148,10 @@ def export(name='winksele'):
     pixels=np.asarray(land).astype(np.int16)
     noise=np.random.default_rng(1775).integers(-5,6,(1024,1024,1))
     Image.fromarray(np.clip(pixels+noise,0,255).astype('uint8')).save(out/'landcover.png')
+    Image.fromarray(road_mask(world['roads'],size)).save(out/'roads.png')
     dest=ROOT/'unity/FerrarisVR/Assets/Resources/Winksele'
     dest.mkdir(parents=True,exist_ok=True)
-    for filename in ['area.json','world.json','ferraris.png','landcover.png']: shutil.copy(out/filename,dest/filename)
+    for filename in ['area.json','world.json','ferraris.png','landcover.png','roads.png']: shutil.copy(out/filename,dest/filename)
     print(f'Exported {len(world["roads"])} roads, {len(world["buildings"])} buildings, {len(world["patches"])} land parcels, {len(world["trees"])} instanced trees; {len(candidates)} unreviewed CV candidates')
 
 

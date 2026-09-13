@@ -14,6 +14,7 @@ namespace Ferraris
         FerrarisApp app;VisitorUI ui;GameObject panel,hint;LineRenderer ring;LegendContent legend;int inventoryPage;
         public static string TypeLabel(string key)=>key switch
         {
+            "building"=>"gebouw — functie onbekend", "tableau"=>"illustratief tafereel",
             "house"=>"huis", "barn"=>"schuur", "farmhouse"=>"hoeve", "church"=>"kerk", "road"=>"weg", "soil"=>"kale akker", "crop"=>"akker met gewas", "grass"=>"grasland", "orchard"=>"boomgaard", "tree"=>"boom", "cow"=>"rund", "sheep"=>"schaap", "barrel"=>"ton", "woodpile"=>"houtstapel", "fence"=>"hek", "terrain"=>"terrein", "sky"=>"lucht", _=>"onbekend"
         };
         void Start()

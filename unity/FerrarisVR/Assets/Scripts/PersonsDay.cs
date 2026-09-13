@@ -36,7 +36,7 @@ namespace Ferraris
         void Start()
         {
             app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();
-            Content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
+            Content=app.World.Tableaux.Content;
             hud=ui.Box(new Rect(28,695,760,165));direction=ui.Text(new Rect(48,709,710,92),"",22,hud.transform);
             ui.Button(new Rect(48,807,290,42),"Praat met Marie",Open,hud.transform,21);
             ui.Button(new Rect(370,807,390,42),"Verhaal verlaten",Pause,hud.transform,21);hud.SetActive(false);
@@ -179,7 +179,7 @@ namespace Ferraris
                 Progress.State==GuideState.Paused?"Marie: Daar ben je weer. Zullen we verdergaan waar we gebleven waren?\n\nJe kunt ook opnieuw beginnen.":
                 Progress.State==GuideState.Speaking?$"{Progress.Step+1}/{Content.stops.Length} — {stop.title}\n\nMarie: {(answer?stop.answer:stop.dialogue)}":
                 blocked?"Marie: Ik vind hier geen doorgang. Je kunt het verhaal verlaten en later hervatten.":"Marie: Loop maar mee. Ik wacht als je even achterblijft.";
-            ui.Text(new Rect(48,255,575,315),text,22,panel.transform);
+            ui.Text(new Rect(48,255,575,325),text,22,panel.transform);
             ui.Button(new Rect(48,585,275,44),"Hoe weten we dit?",()=>{evidence=!evidence;Draw();},panel.transform);
             if(evidence)ui.Button(new Rect(335,585,290,44),evidencePage==0?"Volgende bronnen":"Vorige bronnen",()=>{evidencePage=1-evidencePage;Draw();},panel.transform);
             else ui.Button(new Rect(345,585,280,44),voiceMuted?"Stem: uit":"Stem: aan",()=>{SetVoiceMuted(!voiceMuted);Draw();},panel.transform,21);

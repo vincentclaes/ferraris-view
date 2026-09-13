@@ -23,7 +23,7 @@ namespace Ferraris
             Root=new GameObject("Bezoekersinformatie",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler)).GetComponent<RectTransform>();
             Canvas=Root.GetComponent<Canvas>();Canvas.renderMode=RenderMode.ScreenSpaceOverlay;Canvas.sortingOrder=20;
             var scaler=Root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1440,1000);scaler.screenMatchMode=CanvasScaler.ScreenMatchMode.Expand;
-            font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            font=Resources.Load<Font>("Fonts/LiberationSans-Regular");
         }
         void LateUpdate()
         {

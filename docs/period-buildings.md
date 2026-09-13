@@ -14,9 +14,17 @@ The export preserves polygons in GeoJSON, Unity data and the numbered `data/wink
 
 The church model is centred and oriented on the reviewed symbol, with its visible plan envelope fitted to the symbol bounds. Its detailed footprint and elevation remain illustrative because the source is pictographic. The later sacristy is hidden. This does not establish the entire model as an exact 1775 reconstruction.
 
+## Facade detail update — 13 September 2026
+
+The contour renderer now cuts door/window apertures in the visible masonry and adds recessed dark backs, brick reveals, timber frames and shutters, sills, plank grooves and iron door fittings. Low footings, timber roof edges and ridge caps add relief. Roof UVs use each building's own ridge axis and slope length, keeping tile courses continuous across triangulated and rotated roof planes. Wall UVs retain horizontal metric brick courses around openings. Existing shared material batches and textures are reused.
+
+Collision stays on the reviewed external contour: this is an exterior experience, so the new visual recesses do not open accessible interiors. The rendering detail does not establish house/barn use or change the mapped building category. The three recorded building studies include a partly occluded overview of the concave building; its close view and the existing courtyard ray/collision tests cover that case. Run the built player with `-ferraris-smoke -building-study -evidence-dir /tmp/building-study` to capture the same six views.
+
+Validation: 19 Unity EditMode tests pass, including a rotated aperture/ridge regression; 340 built-player journey checks pass. Native facade/roof screenshots for `winksele-legacy-00`, `03` and `43` were inspected in `/tmp/ferraris-building-detail/`. The final WebGL journey also passed without application errors and the signed Quest package passed its content/signature checks. Publication and package receipts are recorded in [web](web.md) and [Quest](quest-validation.md). The implementation is in [draft PR #21](https://github.com/vincentclaes/ferraris-view/pull/21), based on PR #20.
+
 ## Architectural interpretation
 
-The [1762 building at Dalenstraat 2](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41898) and [1661 building at Dalenstraat 4](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41897) provide local pre-1775 masonry analogues. They do not identify the use, facade or material of every map symbol. Ordinary buildings use low masonry walls, small timber-framed openings and pitched roofs; height, roof shape, openings and warm-tinted roof textures are reconstruction choices. Unique photorealistic period buildings and inhabited tableaux remain further work.
+The [1762 building at Dalenstraat 2](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41898) and [1661 building at Dalenstraat 4](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41897) provide local pre-1775 masonry analogues. They do not identify the use, facade or material of every map symbol. Ordinary buildings use low masonry walls, small timber-framed openings and pitched roofs; height, roof shape, openings and warm-tinted roof textures are reconstruction choices. Five illustrative [inhabited tableaux](tableaux.md) now accompany the story walk. Unique photorealistic period buildings and characters remain further work.
 
 ## Verification
 

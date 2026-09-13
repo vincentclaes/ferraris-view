@@ -16,10 +16,16 @@ namespace Ferraris
             string output=Path.GetFullPath(Path.Combine(Application.dataPath,"../../../../artifacts"));
             string[] args=Environment.GetCommandLineArgs();
             int i=Array.IndexOf(args,"-evidence-dir");if(i>=0&&i+1<args.Length)output=args[i+1];Directory.CreateDirectory(output);
-            StartCoroutine(Record(output));
             var app=FerrarisApp.Instance;
             yield return new WaitForSeconds(1);
             if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
+#if UNITY_STANDALONE || UNITY_EDITOR
+            if(Array.IndexOf(args,"-xr-input-study")>=0){yield return XRInputStudy.Run(app,output);yield break;}
+#endif
+            if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
+            if(Array.IndexOf(args,"-building-study")>=0){yield return BuildingStudy(app,output);yield break;}
+            if(Array.IndexOf(args,"-road-study")>=0){yield return RoadStudy(app,output);yield break;}
+            StartCoroutine(Record(output));
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"01-map.png"));yield return new WaitForSeconds(.4f);
             // Feed real Input System events, including a whole drag within one
             // frame. This regression failed when input was polled only per frame.
@@ -116,6 +122,16 @@ namespace Ferraris
             var church=Array.Find(app.Data.buildings,b=>b.kind=="church");app.Locate(church.x,church.z);app.EnterWorld(church.x,church.z);
             if(!Check(app.Selected.x==church.x&&app.Selected.z==church.z&&Vector2.Distance(new Vector2(app.Player.position.x,app.Player.position.z),new Vector2(church.x,church.z))>.5f,"Safe spawn preserves original building coordinate",output))yield break;
             app.ReturnToMap();
+            // Keep the existing tableaux visible alongside the newly merged guide.
+            for(int stop=0;stop<app.World.Tableaux.Sites.Count;stop++)
+            {
+                var site=app.World.Tableaux.Sites[stop];app.EnterWorld(site.position.x,site.position.z-5.5f);
+                var resident=site.GetComponentInChildren<TableauResident>();var before=resident.Torso.localRotation;
+                yield return new WaitForSeconds(.7f);
+                if(!Check(Quaternion.Angle(before,resident.Torso.localRotation)>.01f,"Live tableau after story merge "+stop,output))yield break;
+                yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"tableau-"+stop+".png"));
+            }
+            app.ReturnToMap();
             var day=app.GetComponent<PersonsDay>();
             if(!Check(day.Ready,"Guide has five connected walkable stops",output))yield break;
             var marie=day.Person;var nav=marie.GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -152,11 +168,22 @@ namespace Ferraris
                     var p=marie.transform.position;app.EnterWorld(p.x,p.z-1.8f);
                     yield return null;
                 }
+                if(day.Progress.State!=GuideState.Speaking)
+                {
+                    Physics.Linecast(app.View.transform.position,marie.transform.position+Vector3.up*1.45f,out var obstruction,~0,QueryTriggerInteraction.Ignore);
+                    Debug.Log($"STORY_ROUTE_TIMEOUT stop={stop} state={day.Progress.State} person={marie.transform.position} visitor={app.Player.position} distance={day.Distance} canTalk={day.CanTalk} remaining={nav.remainingDistance} stopped={nav.isStopped} path={nav.pathStatus} obstruction={obstruction.collider?.name}");
+                    yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"story-route-timeout.png"));
+                }
                 if(!Check(day.Progress.State==GuideState.Speaking&&day.Progress.Step==stop,"Guide follows a complete route to scene "+stop,output))yield break;
                 if(!Check(TextFits(ui),"Guide dialogue fits scene "+stop,output))yield break;
                 ui.ClickScreen(new Vector2(160,267));yield return null;
             }
             if(!Check(day.Progress.State==GuideState.Completed,"Story reaches ending",output))yield break;
+            ui.ClickScreen(new Vector2(180,393));yield return null;
+            if(!Check(TextFits(ui),"Merged story sources page 1 fits",output))yield break;
+            ui.ClickScreen(new Vector2(470,393));yield return null;
+            if(!Check(TextFits(ui),"Merged story sources page 2 fits",output))yield break;
+            ui.ClickScreen(new Vector2(180,393));yield return null;
             yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"10-story-ending.png"));day.Close();app.ReturnToMap();
             var sound=app.GetComponent<LandscapeSound>();sound.Open();yield return null;
             if(!Check(sound.Sites.Count==3,"Three contextual sound sources",output))yield break;
@@ -275,6 +302,64 @@ namespace Ferraris
             string frames=Path.Combine(output,"journey-frames");Directory.CreateDirectory(frames);
             foreach(string old in Directory.GetFiles(frames,"frame-*.png"))File.Delete(old);
             for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
+        }
+        IEnumerator RoadStudy(FerrarisApp app,string output)
+        {
+            foreach(var stop in new[]{(road:3,index:7),(road:12,index:58),(road:0,index:80)})
+            {
+                var road=app.Data.roads[stop.road];var p=road.points[stop.index];var q=road.points[stop.index+1];
+                var centre=new Vector3(p.x,app.Area.Height(p.x,p.z),p.z);var along=new Vector3(q.x-p.x,0,q.z-p.z).normalized;
+                app.EnterWorld(p.x,p.z);app.enabled=false;app.GetComponent<VisitorUI>().Root.gameObject.SetActive(false);
+                foreach(bool overhead in new[]{false,true})
+                {
+                    app.View.transform.position=overhead?centre+Vector3.up*22:centre-along*6+Vector3.up*1.8f;
+                    app.View.transform.LookAt(overhead?centre:centre+along*12,overhead?Vector3.forward:Vector3.up);
+                    yield return new WaitForSeconds(.5f);yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(output,$"road-{stop.road}-{(overhead?"overhead":"walk")}.png"));yield return new WaitForSeconds(.4f);
+                }
+                app.enabled=true;
+            }
+            Application.Quit(0);
+        }
+        IEnumerator BuildingStudy(FerrarisApp app,string output)
+        {
+            foreach(string id in new[]{"winksele-legacy-00","winksele-legacy-03","winksele-legacy-43"})
+            {
+                var b=Array.Find(app.Data.buildings,b=>b.id==id);int edge=0;float longest=0;
+                for(int i=0;i<b.footprint.Length;i++)
+                {
+                    var p=b.footprint[i];var q=b.footprint[(i+1)%b.footprint.Length];float length=Vector2.Distance(new Vector2(p.x,p.z),new Vector2(q.x,q.z));
+                    if(length>longest){edge=i;longest=length;}
+                }
+                var a=b.footprint[edge];var c=b.footprint[(edge+1)%b.footprint.Length];
+                var along=new Vector3(c.x-a.x,0,c.z-a.z).normalized;var outward=Vector3.Cross(Vector3.up,along);
+                var centre=new Vector3((a.x+c.x)/2,app.Area.Height(b.x,b.z),(a.z+c.z)/2);
+                app.EnterWorld(centre.x+outward.x*5,centre.z+outward.z*5);app.enabled=false;app.GetComponent<VisitorUI>().Root.gameObject.SetActive(false);
+                foreach(bool close in new[]{false,true})
+                {
+                    app.View.transform.position=centre+outward*(close?4:longest*.85f)+along*(close?2:longest*.45f)+Vector3.up*(close?1.8f:7);
+                    app.View.transform.LookAt(centre+Vector3.up*(close?1.7f:2.7f));
+                    yield return new WaitForSeconds(.5f);yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(output,id+(close?"-detail":"-exterior")+".png"));yield return new WaitForSeconds(.4f);
+                }
+                app.enabled=true;
+            }
+            Application.Quit(0);
+        }
+        IEnumerator WorkStudy(FerrarisApp app,string output)
+        {
+            // Close views of a complete running cycle; no manual pose injection.
+            foreach(int stop in new[]{1,2,4})
+            {
+                var site=app.World.Tableaux.Sites[stop];app.EnterWorld(site.position.x,site.position.z-5.5f);
+                app.enabled=false;app.GetComponent<VisitorUI>().Root.gameObject.SetActive(false);
+                app.View.transform.position=site.position+new Vector3(2.7f,2,-3.2f);app.View.transform.LookAt(site.position+Vector3.up*.8f);
+                for(int frame=0;frame<36;frame++)
+                {
+                    yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(output,$"work-{stop}-{frame:D3}.png"));
+                    yield return new WaitForSeconds(.26f);
+                }
+                app.enabled=true;
+            }
+            Application.Quit(0);
         }
         bool Check(bool ok,string check,string output)
         {

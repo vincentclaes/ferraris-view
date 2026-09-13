@@ -31,6 +31,14 @@ namespace Ferraris
             Quad(centre+rotation*new Vector3(-size.x/2,-size.y/2,0),centre+rotation*new Vector3(-size.x/2,size.y/2,0),centre+rotation*new Vector3(size.x/2,size.y/2,0),centre+rotation*new Vector3(size.x/2,-size.y/2,0),color);
             uv[n]=new Vector2(0,0);uv[n+1]=new Vector2(0,1);uv[n+2]=new Vector2(atlasMaxU,1);uv[n+3]=new Vector2(atlasMaxU,0);
         }
+        public void Quad(Vector3 a,Vector3 b,Vector3 c,Vector3 d,Color color,Vector2 ua,Vector2 ub,Vector2 uc,Vector2 ud)
+        {
+            Quad(a,b,c,d,color);int n=uv.Count-4;uv[n]=ua;uv[n+1]=ub;uv[n+2]=uc;uv[n+3]=ud;
+        }
+        public void Triangle(Vector3 a,Vector3 b,Vector3 c,Color color,Vector2 ua,Vector2 ub,Vector2 uc)
+        {
+            Triangle(a,b,c,color);int n=uv.Count-3;uv[n]=ua;uv[n+1]=ub;uv[n+2]=uc;
+        }
         public void Triangle(Vector3 a,Vector3 b,Vector3 c,Color color)
         {
             int n=vertices.Count;vertices.AddRange(new[]{a,b,c});colors.AddRange(new[]{color,color,color});
