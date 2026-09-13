@@ -373,7 +373,7 @@ namespace Ferraris
         }
         void Line(MapPoint[] points,Color color,bool loop)
         {
-            var line=new GameObject("Extracted feature").AddComponent<LineRenderer>();line.transform.SetParent(overlay.transform,false);line.useWorldSpace=false;line.loop=loop;line.positionCount=points.Length;line.startWidth=line.endWidth=.0015f;line.material=new Material(Shader.Find("Unlit/Color"));line.material.color=color;
+            var line=new GameObject("Extracted feature").AddComponent<LineRenderer>();line.transform.SetParent(overlay.transform,false);line.useWorldSpace=false;line.loop=loop;line.positionCount=points.Length;line.startWidth=line.endWidth=xr?.0036f:Area.size*.0015f;line.material=new Material(Shader.Find("Unlit/Color"));line.material.color=color;
             for(int i=0;i<points.Length;i++)line.SetPosition(i,new Vector3(points[i].x/Area.size,points[i].z/Area.size,-.005f));
         }
         void OnGUI()

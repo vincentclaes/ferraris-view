@@ -23,6 +23,9 @@ namespace Ferraris
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"01-map.png"));yield return new WaitForSeconds(.4f);
             // Feed real Input System events, including a whole drag within one
             // frame. This regression failed when input was polled only per frame.
+            // Keep OS mouse movement/focus changes from replacing the injected devices.
+            InputSystem.settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
+            foreach(var device in InputSystem.devices)if(device is Mouse or Keyboard)InputSystem.DisableDevice(device);
             var mouse=InputSystem.AddDevice<Mouse>();var keyboard=InputSystem.AddDevice<Keyboard>();
             app.TracePointer=true;
             Vector2 button=new(200,41);
