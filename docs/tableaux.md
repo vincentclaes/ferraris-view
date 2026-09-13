@@ -1,0 +1,11 @@
+# Daily-life tableaux
+
+Five illustrative scenes accompany `Volg een dag`: carrying baskets on a yard, gathering/binding grain, collecting orchard fruit, meeting near the church, and threshing on a yard. Nine anonymous residents remain visible during free exploration. They are not five simultaneous copies of Marie or documented inhabitants. `Bekijk tafereel` places the visitor beside the current story stop without advancing or resetting progress. The shared visitor buttons support mouse, keyboard and controller input.
+
+`LivingTableaux` builds articulated figures, clothing, open woven baskets, sheaves, fruit, a bench and a simplified flail using the existing mesh/material system. Animation runs within 80 metres. Figures are procedural illustrations, not finished photorealistic characters or a verified recreation of Winksele clothing and labour in 1775.
+
+The runtime searches within 28 metres of each narrative reference for a work area and visitor approach clear of reviewed building polygons, roads and trunks. Crop/orchard stops retain their mapped land-use category. The resolved coordinates are shared by the scene, story beacon, distance indicator and map link. Buildings never move to accommodate a scene. Ground cover leaves a three-metre working space; mapped tree positions remain unchanged. People and props can be selected as `Dagelijks leven — illustratief tafereel`; they do not introduce new Ferraris map symbols or establish building functions.
+
+Sources: [Ferraris, KBR/NGI sheet 93](https://uurl.kbr.be/1028485), the existing story references, and a broad costume comparison in the [Rijksmuseum's Brabantse boerin, KOG-ZG-1-22-67](https://id.rijksmuseum.nl/200863111). The print is dated 1750–1850 and depicts Noord-Brabant; it does not prove local Winksele clothing in 1775. Only the reference metadata informed the illustration; no museum image was imported. Offline story and object panels disclose these limitations.
+
+Validation in progress: 17 Unity EditMode tests pass, including clear scene/approach locations and animated, collidable residents. The built-player journey visits all five scenes through the actual button, retains story progress, and captures `artifacts/tableau-0.png` through `tableau-4.png`. Rendered inspection, browser publication and current Quest validation will be recorded after execution.

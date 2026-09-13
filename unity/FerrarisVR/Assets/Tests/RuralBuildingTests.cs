@@ -17,7 +17,8 @@ namespace Ferraris.Tests
             var go=new GameObject("Rural form regression");
             try
             {
-                var world=go.AddComponent<HistoricalWorld>();world.Build(area,data);
+                // This isolated building fixture has no geographical story parcels.
+                var world=go.AddComponent<HistoricalWorld>();world.Build(area,data,includeTableaux:false);
                 var collider=world.BuildingRoot.GetComponentInChildren<BoxCollider>();
                 var inverse=Quaternion.Inverse(Quaternion.Euler(0,yaw,0));
                 foreach(float x in new[]{-.5f,.5f})foreach(float z in new[]{-.5f,.5f})

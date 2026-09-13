@@ -103,7 +103,10 @@ namespace Ferraris
             day.Open();day.Resume();
             for(int stop=0;stop<day.Content.stops.Length;stop++)
             {
-                var target=day.Content.stops[stop];app.EnterWorld(target.x,target.z);day.Open();yield return new WaitForSeconds(.4f);
+                day.Open();ui.ClickScreen(new Vector2(500,1000-668));yield return new WaitForSeconds(.4f);
+                if(!Check(app.InWorld&&!ui.PanelOpen&&day.Progress.Step==stop&&day.Distance<7,"Visit tableau without advancing story "+stop,output))yield break;
+                ScreenCapture.CaptureScreenshot(Path.Combine(output,"tableau-"+stop+".png"));yield return new WaitForSeconds(.5f);
+                day.Open();yield return new WaitForSeconds(.4f);
                 if(stop==0){ScreenCapture.CaptureScreenshot(Path.Combine(output,"09-story.png"));yield return new WaitForSeconds(.5f);}
                 ui.ClickScreen(new Vector2(420,1000-733));yield return null;
                 if(!Check(day.Progress.Step==stop+1,"Story stop "+(stop+1),output))yield break;

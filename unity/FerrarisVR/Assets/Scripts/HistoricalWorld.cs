@@ -13,6 +13,7 @@ namespace Ferraris
   public bool ShowTrees=true;
   public int TreeCount{get;private set;}
   public int AnimalCount{get;private set;}
+  public LivingTableaux Tableaux{get;private set;}
   readonly Dictionary<string,WorldMesh> parts=new();
   readonly Dictionary<string,Material> materials=new();
   public Material Sky{get;private set;}
@@ -24,7 +25,7 @@ namespace Ferraris
    if(texture!=null){m.SetTexture("_MainTex",Texture(texture+"_diff"));m.SetTexture("_BumpMap",Texture(texture+"_normal"));m.SetTexture("_RoughnessTex",Texture(texture+"_rough"));}return m;
   }
   WorldMesh Part(string key){if(!parts.TryGetValue(key,out var m)){m=new WorldMesh();parts[key]=m;}return m;}
-  public void Build(AreaData area,WorldData data)
+  public void Build(AreaData area,WorldData data,bool includeTableaux=true)
   {
    Area=area;TreeCount=data.trees.Length;
    foreach(string name in new[]{"brick","plaster","roof","wood","soil","bark"})materials[name]=Surface(name);
@@ -33,6 +34,7 @@ namespace Ferraris
    var buildings=new GameObject("Detailed Ferraris buildings");buildings.transform.SetParent(transform,false);BuildingRoot=buildings.transform;
    foreach(var b in data.buildings)BuildBuilding(b,buildings.transform);
    foreach(var pair in parts)if(pair.Value.VertexCount>0)pair.Value.Object(pair.Key+" architectural details",buildings.transform,materials[pair.Key]);
+   if(includeTableaux){Tableaux=gameObject.AddComponent<LivingTableaux>();Tableaux.Build(area,data);}
    vegetation=gameObject.AddComponent<WorldVegetation>();vegetation.Build(area,data);
    BuildAnimals(data);
   }

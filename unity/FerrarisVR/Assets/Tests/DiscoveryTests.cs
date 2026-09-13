@@ -10,7 +10,7 @@ namespace Ferraris.Tests
         {
             var content=JsonUtility.FromJson<ObjectContent>(Resources.Load<TextAsset>("Discovery/objects").text);
             var legend=JsonUtility.FromJson<LegendContent>(Resources.Load<TextAsset>("Discovery/legend").text);
-            string[] keys={"building","house","barn","farmhouse","church","road","soil","crop","grass","orchard","tree","cow","sheep","barrel","woodpile","fence","terrain","sky"};
+            string[] keys={"building","house","barn","farmhouse","church","road","soil","crop","grass","orchard","tree","cow","sheep","barrel","woodpile","fence","terrain","sky","tableau"};
             Assert.That(legend.entries.Length,Is.EqualTo(150));Assert.That(legend.entries.Select(e=>e.id).Distinct().Count(),Is.EqualTo(150));
             foreach(string key in keys){var entry=content.For(key);Assert.That(entry,Is.Not.Null,key);Assert.That(entry.summary.Length,Is.GreaterThan(70));Assert.That(entry.sections.Length,Is.GreaterThanOrEqualTo(4));Assert.That(entry.sections.Last().title,Is.EqualTo("Hoe weten we dit?"));}
             Assert.That(content.For("barrel").legend,Does.Contain("Geen"));Assert.That(content.For("fence").legend,Does.Contain("niet automatisch"));Assert.That(content.For("terrain").legend,Does.Contain("Geen"));

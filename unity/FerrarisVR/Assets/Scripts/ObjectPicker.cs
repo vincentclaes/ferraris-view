@@ -74,7 +74,9 @@ namespace Ferraris
             {
                 string name=hit.collider.gameObject.name;
                 if(hit.distance>=nearest)continue;
-                if(name.StartsWith("Mapped building: ",StringComparison.Ordinal))
+                if(hit.collider.GetComponentInParent<TableauSite>()!=null)
+                {nearest=hit.distance;selected=Result("tableau",hit.point,2);}
+                else if(name.StartsWith("Mapped building: ",StringComparison.Ordinal))
                 {nearest=hit.distance;selected=Result("building",hit.point,8);}
                 else if(name is "DHMV terrain" or "Distant countryside")
                 {nearest=hit.distance;selected=Map(hit.point.x,hit.point.z);selected.point=hit.point;}

@@ -23,7 +23,7 @@ namespace Ferraris
         public float Distance=>app.InWorld&&!Progress.Complete(Content.stops.Length)?Vector2.Distance(new Vector2(app.Player.position.x,app.Player.position.z),new Vector2(Content.stops[Progress.Step].x,Content.stops[Progress.Step].z)):float.PositiveInfinity;
         void Start()
         {
-            app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();Content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
+            app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();Content=app.World.Tableaux.Content;
             ui.Button(new Rect(335,125,242,45),"Volg een dag",Open);
             hud=ui.Box(new Rect(835,765,580,95));direction=ui.Text(new Rect(852,775,545,76),"",22,hud.transform);hud.SetActive(false);
             beacon=GameObject.CreatePrimitive(PrimitiveType.Sphere);Destroy(beacon.GetComponent<SphereCollider>());beacon.name="Verhaalrichtpunt";beacon.transform.localScale=Vector3.one*1.3f;beacon.GetComponent<Renderer>().material=new Material(Shader.Find("Unlit/Color")){color=new Color(1,.68f,.16f)};beacon.SetActive(false);
@@ -43,6 +43,12 @@ namespace Ferraris
         public void Pause(){Progress.Pause();Close();}
         public void Resume(){Progress.Resume();if(!app.InWorld&&!Progress.Complete(Content.stops.Length)){var s=Content.stops[Progress.Step];app.Locate(s.x,s.z);app.EnterWorld(s.x,s.z);}Draw();}
         public void Advance(){if(Progress.Advance(Distance<=22,Content.stops.Length))Draw();}
+        public void VisitTableau()
+        {
+            if(Progress.Complete(Content.stops.Length))return;
+            var p=app.World.Tableaux.Sites[Progress.Step].position;
+            Close();app.EnterWorld(p.x,p.z-5.5f);
+        }
         void Draw()
         {
             ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
@@ -52,6 +58,7 @@ namespace Ferraris
             ui.Text(new Rect(48,255,708,380),text,25,panel.transform);
             ui.Button(new Rect(48,645,290,46),"Hoe weten we dit?",()=>{evidence=!evidence;Draw();},panel.transform);
             if(evidence)ui.Button(new Rect(360,645,290,46),evidencePage==0?"Volgende bronnen":"Vorige bronnen",()=>{evidencePage=1-evidencePage;Draw();},panel.transform);
+            else if(!end)ui.Button(new Rect(360,645,290,46),"Bekijk tafereel",VisitTableau,panel.transform);
             if(end){ui.Button(new Rect(48,710,290,48),"Opnieuw beginnen",()=>{Progress.Reset();Draw();},panel.transform);return;}
             var stop=Content.stops[Progress.Step];
             if(!Progress.Running)ui.Button(new Rect(48,710,230,48),Progress.Step==0?"Start de dag":"Hervat de dag",Resume,panel.transform);

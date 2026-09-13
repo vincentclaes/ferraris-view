@@ -563,6 +563,32 @@
           "text": "Illustratieve presentatie met een hedendaagse CC0-luchttextuur uit Poly Haven; zie de beeldbronvermelding van de applicatie. De Ferrarislegende levert geen koppeling voor deze wolken, lichtstand of weerssituatie."
         }
       ]
+    },
+    {
+      "keys": [
+        "tableau"
+      ],
+      "name": "Dagelijks leven — illustratief tafereel",
+      "summary": "Bewoners dragen manden, verzamelen de oogst en ontmoeten elkaar. Deze kleine scènes geven de verzonnen dagwandeling een zichtbaar gezicht. Personen, kleding, gereedschap en handelingen zijn illustraties; de kaart toont deze bewoners niet.",
+      "legend": "Geen eigen Ferrarissymbool: een illustratieve toevoeging bij de dagwandeling.",
+      "sections": [
+        {
+          "title": "Wat zie je?",
+          "text": "Vijf werkplekken sluiten aan op de haltes van Een dag met Marie: een erf, een akker, een boomgaard, de kerk en opnieuw een erf. Open Volg een dag en kies Bekijk tafereel om de huidige halte van dichtbij te zien."
+        },
+        {
+          "title": "Wie zijn deze mensen?",
+          "text": "Het zijn verzonnen bewoners, geen portretten van gekende Winkselenaars. De scènes staan tegelijk in het landschap om vrij te kunnen verkennen; zij beelden geen gelijktijdige gebeurtenissen uit het leven van één persoon af."
+        },
+        {
+          "title": "Waarom staan ze hier?",
+          "text": "De akker en boomgaard volgen de kaartinterpretatie. Op de erven zoeken we vrije ruimte naast de gecontroleerde gebouwen. Dat voegt geen bewezen woonhuis-, hoeve- of schuurfunctie aan die gebouwen toe."
+        },
+        {
+          "title": "Hoe weten we dit?",
+          "text": "Kaart: KBR/NGI, Ferraris blad 93, https://uurl.kbr.be/1028485. Brede kledingvergelijking: Rijksmuseum, Brabantse boerin, KOG-ZG-1-22-67, https://id.rijksmuseum.nl/200863111 (1750–1850, Noord-Brabant). Dit bewijst geen exacte Winkseelse kleding in 1775. Figuren, werktuigen, plaatsing en bewegingen zijn illustratief; zie ook de bronnen bij Volg een dag."
+        }
+      ]
     }
   ]
 }
