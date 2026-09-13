@@ -5,6 +5,16 @@ namespace Ferraris.Tests
 {
     public class AreaTests
     {
+        [Test] public void GroundCoverUsesEachPlantDistanceAcrossChunkBoundaries()
+        {
+            var source=new[]{Matrix4x4.Translate(new Vector3(-33,0,1)),Matrix4x4.Translate(new Vector3(-63,0,1)),Matrix4x4.Translate(new Vector3(-33,100,1)),Matrix4x4.Translate(new Vector3(-50,0,0)),Matrix4x4.Translate(new Vector3(49,0,0))};
+            var result=new Matrix4x4[source.Length];
+            int count=WorldVegetation.FilterPlants(source,Vector3.zero,50,result);
+            Assert.That(count,Is.EqualTo(3),"Near plants remain visible even when a 32 m chunk centre is outside the radius; distant plants are excluded");
+            Assert.That(result[0],Is.EqualTo(source[0]));Assert.That(result[1],Is.EqualTo(source[2]),"Terrain elevation does not alter horizontal range");Assert.That(result[2],Is.EqualTo(source[4]));
+            count=WorldVegetation.FilterPlants(source,new Vector3(-33,50,1),20,result);
+            Assert.That(count,Is.EqualTo(3));Assert.That(result[2],Is.EqualTo(source[3]),"Moving the viewer refreshes the reused buffer");
+        }
         [Test] public void VegetationClearanceFollowsRoadSegmentsAndRoundedEnds()
         {
             var data=new WorldData{roads=new[]{new Road{width=5,points=new[]{new MapPoint(0,0),new MapPoint(20,0),new MapPoint(20,20)}}}};

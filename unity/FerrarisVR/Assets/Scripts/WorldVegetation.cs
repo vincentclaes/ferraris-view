@@ -14,6 +14,8 @@ namespace Ferraris
   readonly List<Matrix4x4> trees=new();
   readonly List<Matrix4x4[]> nearBatches=new(),farBatches=new();
   readonly List<PlantChunk> chunks=new();
+  readonly Matrix4x4[] plantBatch=new Matrix4x4[1023];
+  const float CropRange=65,GrassRange=50;
   float nextCull;
   struct PlantChunk {public Vector3 centre;public Matrix4x4[] matrices;public bool crop;}
   static float R(System.Random r,float a,float b)=>a+(float)r.NextDouble()*(b-a);
@@ -38,6 +40,7 @@ namespace Ferraris
    foreach(var t in data.trees)trees.Add(Matrix4x4.TRS(new Vector3(t.x,area.Height(t.x,t.z),t.z),Quaternion.Euler(0,t.x*13,0),new Vector3(t.scale,t.scale*R(random,.9f,1.2f),t.scale)));
    grassMaterial=new Material(leafMaterial);grassMaterial.SetTexture("_MainTex",HistoricalWorld.Texture("meadow_diff"));grassMaterial.SetTexture("_AlphaTex",HistoricalWorld.Texture("meadow_alpha"));grassMaterial.SetFloat("_Wind",.055f);
    cropMaterial=new Material(Shader.Find("Ferraris/Foliage")){enableInstancing=true};cropMaterial.SetFloat("_Wind",.045f);cropMaterial.SetFloat("_HeightWind",1);cropMaterial.SetFloat("_EarDetail",1);
+   cropMaterial.SetVector("_FadeRange",new Vector4(CropRange*.65f,CropRange,0,0));grassMaterial.SetVector("_FadeRange",new Vector4(GrassRange*.65f,GrassRange,0,0));
    var wheat=new WorldMesh();
    for(int i=0;i<16;i++)
    {
@@ -110,6 +113,13 @@ namespace Ferraris
   {
    result.Clear();for(int i=0;i<source.Count;i+=128)result.Add(source.GetRange(i,Mathf.Min(128,source.Count-i)).ToArray());
   }
+  public static int FilterPlants(Matrix4x4[] source,Vector3 eye,float range,Matrix4x4[] result)
+  {
+   if(result.Length<source.Length)throw new ArgumentException("Plant buffer is smaller than its spatial chunk.");
+   int count=0;float squaredRange=range*range;
+   foreach(var matrix in source){float x=matrix.m03-eye.x,z=matrix.m23-eye.z;if(x*x+z*z<squaredRange)result[count++]=matrix;}
+   return count;
+  }
   void Update()
   {
    Camera cam=Camera.main;if(cam==null)return;Vector3 eye=cam.transform.position;
@@ -122,8 +132,17 @@ namespace Ferraris
     foreach(var batch in nearBatches){Draw(branches,bark,batch,ShadowCastingMode.On);Draw(leaves,leafMaterial,batch,ShadowCastingMode.On);}
     foreach(var batch in farBatches){Draw(branches,bark,batch,ShadowCastingMode.Off);Draw(farLeaves,leafMaterial,batch,ShadowCastingMode.Off);}
    }
-   foreach(var chunk in chunks){Vector3 p=chunk.centre;p.y=eye.y;float range=chunk.crop?65:50;if((p-eye).sqrMagnitude<range*range)Draw(chunk.crop?crop:grass,chunk.crop?cropMaterial:grassMaterial,chunk.matrices,ShadowCastingMode.Off);}
+   // Use one centre-eye position in both eyes, so the fade has no stereo mismatch.
+   cropMaterial.SetVector("_PlantEye",eye);grassMaterial.SetVector("_PlantEye",eye);
+   foreach(var chunk in chunks)
+   {
+    float range=chunk.crop?CropRange:GrassRange;
+    float x=Mathf.Max(0,Mathf.Abs(chunk.centre.x-eye.x)-16),z=Mathf.Max(0,Mathf.Abs(chunk.centre.z-eye.z)-16);
+    if(x*x+z*z>=range*range)continue;
+    int count=FilterPlants(chunk.matrices,eye,range,plantBatch);
+    if(count>0)Draw(chunk.crop?crop:grass,chunk.crop?cropMaterial:grassMaterial,plantBatch,ShadowCastingMode.Off,count);
+   }
   }
-  static void Draw(Mesh mesh,Material material,Matrix4x4[] matrices,ShadowCastingMode shadows)=>Graphics.DrawMeshInstanced(mesh,0,material,matrices,matrices.Length,null,shadows,true,0,null,LightProbeUsage.Off);
+  static void Draw(Mesh mesh,Material material,Matrix4x4[] matrices,ShadowCastingMode shadows,int count=-1)=>Graphics.DrawMeshInstanced(mesh,0,material,matrices,count<0?matrices.Length:count,null,shadows,true,0,null,LightProbeUsage.Off);
  }
 }
