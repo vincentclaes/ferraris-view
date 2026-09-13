@@ -115,7 +115,7 @@ namespace Ferraris
                 request.timeout=45;yield return request.SendWebRequest();
                 if(request.result!=UnityWebRequest.Result.Success){webMapStatus="De kaartdienst is even niet bereikbaar. Herlaad de pagina om opnieuw te proberen.";yield break;}
                 var texture=DownloadHandlerTexture.GetContent(request);texture.wrapMode=TextureWrapMode.Clamp;
-                mapMaterial.mainTexture=texture;webMapStatus=null;Debug.Log("TOENLAND_MAP_READY");
+                mapMaterial.mainTexture=texture;webMapStatus=null;Debug.Log("LAND_VAN_WELEER_MAP_READY");
             }
         }
 #endif

@@ -67,9 +67,9 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 - Discovery: use the right ray and trigger on the world-space menu; left **X** opens address search. **B** closes an open panel before returning to the map. Object inspection enables the ray in the landscape.
 - Quest target: 72 FPS. The original simple scene measured 72–73 FPS in a short Quest 3 session. The new graphics pass adds physically based surfaces, a detailed church with LODs, short-range shadows, instanced foliage and distance-limited ground cover; it requires a new hardware performance check. See [graphics upgrade and asset sources](docs/visual-upgrade.md).
 
-## Website — Toenland
+## Website — Land van Weleer
 
-**[Toenland — Wandel door het Vlaanderen van toen](https://toenland.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. It has a start screen, loading progress, full-screen control, instructions and sources. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
+**[Land van Weleer — Wandel door het Vlaanderen van toen](https://land-van-weleer.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. It has a start screen, loading progress, full-screen control, instructions and sources. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
 
 ```bash
 # Unity Hub: add WebGL Build Support for the installed editor.
@@ -79,7 +79,7 @@ python3 scripts/serve-web.py
 bash scripts/deploy-web.sh
 ```
 
-Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets the `toenland` project in `vincentclaes-projects`; production deployment requires explicitly passing `--prod`. Unity compiles locally; Vercel serves only the generated `builds/web` directory. See [web build and validation](docs/web.md).
+Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets the `land-van-weleer` project in `vincentclaes-projects`; production deployment requires explicitly passing `--prod`. Unity compiles locally; Vercel serves only the generated `builds/web` directory. See [web build and validation](docs/web.md).
 
 Vercel automatically assigned the first default deployment to production on 12 September 2026. Subsequent default deployments are previews; the live site uses the domain above.
 
