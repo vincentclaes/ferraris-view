@@ -11,17 +11,18 @@ namespace Ferraris
         public Canvas Canvas { get; private set; }
         public RectTransform Root { get; private set; }
         Font font;bool wasXR;
-        public bool PanelOpen; public Action ClosePanel;
+        public bool PanelOpen; public Action ClosePanel; public Transform PanelRoot;
         readonly List<(GameObject go,Rect rect,Action action)> buttons=new();
+        readonly List<(GameObject go,Rect rect)> surfaces=new();
         GameObject focused;string focusName;Rect focusRect;bool keyboardMode;
         public bool HasKeyboardFocus=>keyboardMode&&focused!=null&&InScope(focused);
         public string FocusedLabel=>HasKeyboardFocus?focused.name:null;
-        bool InScope(GameObject go)=>go.activeInHierarchy&&(!PanelOpen||go.transform.parent!=Root);
+        bool InScope(GameObject go)=>go.activeInHierarchy&&(!PanelOpen||(PanelRoot!=null?go.transform.IsChildOf(PanelRoot):go.transform.parent!=Root));
         void Awake()
         {
             Root=new GameObject("Bezoekersinformatie",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler)).GetComponent<RectTransform>();
             Canvas=Root.GetComponent<Canvas>();Canvas.renderMode=RenderMode.ScreenSpaceOverlay;Canvas.sortingOrder=20;
-            var scaler=Root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1440,1000);scaler.matchWidthOrHeight=.5f;
+            var scaler=Root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1440,1000);scaler.screenMatchMode=CanvasScaler.ScreenMatchMode.Expand;
             font=Resources.Load<Font>("Fonts/LiberationSans-Regular");
         }
         void LateUpdate()
@@ -94,16 +95,21 @@ namespace Ferraris
             end=ray.GetPoint(distance);Vector3 p=Root.InverseTransformPoint(end);var point=new Vector2(p.x+720,500-p.y);
             return pressed?Click(point):Hit(point);
         }
-        bool Hit(Vector2 point)=>buttons.Exists(b=>b.go!=null&&b.go.activeInHierarchy&&b.rect.Contains(point))||(PanelOpen&&new Rect(28,180,760,680).Contains(point));
+        public bool BlocksScreen(Vector2 point)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(Root,point,null,out var p);
+            return Hit(new Vector2(p.x+Root.rect.width/2,Root.rect.height/2-p.y));
+        }
+        bool Hit(Vector2 point)=>surfaces.Exists(b=>b.go!=null&&b.go.activeInHierarchy&&b.rect.Contains(point));
         bool Click(Vector2 point)
         {
-            buttons.RemoveAll(b=>b.go==null);
-            for(int i=buttons.Count-1;i>=0;i--)if(buttons[i].go.activeInHierarchy&&buttons[i].rect.Contains(point)){var action=buttons[i].action;ClearKeyboardFocus();action();return true;}
+            buttons.RemoveAll(b=>b.go==null);surfaces.RemoveAll(b=>b.go==null);
+            for(int i=buttons.Count-1;i>=0;i--)if(InScope(buttons[i].go)&&buttons[i].rect.Contains(point)){var action=buttons[i].action;ClearKeyboardFocus();action();return true;}
             return Hit(point);
         }
         public GameObject Box(Rect rect)
         {
-            var r=Rect("Informatiepaneel",rect,Root);var image=r.gameObject.AddComponent<Image>();image.color=new Color(.045f,.075f,.065f,.94f);return r.gameObject;
+            var r=Rect("Informatiepaneel",rect,Root);var image=r.gameObject.AddComponent<Image>();image.color=new Color(.045f,.075f,.065f,.94f);surfaces.Add((r.gameObject,rect));return r.gameObject;
         }
         public Text Text(Rect rect,string value,int size=23,Transform parent=null)
         {

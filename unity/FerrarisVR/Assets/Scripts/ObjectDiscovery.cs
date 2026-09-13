@@ -21,7 +21,6 @@ namespace Ferraris
         {
             app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();
             Content=JsonUtility.FromJson<ObjectContent>(Resources.Load<TextAsset>("Discovery/objects").text);legend=JsonUtility.FromJson<LegendContent>(Resources.Load<TextAsset>("Discovery/legend").text);Picker=new ObjectPicker(app.Area,app.Data,app.World);
-            ui.Button(new Rect(835,275,580,45),"Onderzoek objecten • I",Toggle);
             hint=ui.Box(new Rect(835,330,580,92));ui.Text(new Rect(852,340,545,76),app.IsXR?"Onderzoeken: rechter richtstraal + trekker.\nWijs een object of stuk grond aan en kies.":"Onderzoeken: wijs een object of stuk grond aan en klik.\nTab: knoppen • Enter: bevestig • I: verder wandelen.",21,hint.transform);hint.SetActive(false);
             ring=new GameObject("Geselecteerd element").AddComponent<LineRenderer>();ring.loop=true;ring.positionCount=48;ring.material=new Material(Shader.Find("Unlit/Color")){color=new Color(1,.75f,.19f)};ring.enabled=false;
         }
@@ -42,7 +41,7 @@ namespace Ferraris
         }
         void LateUpdate()
         {
-            if(ring==null)return;ring.enabled=Active&&Selection!=null&&Selection.key!="sky";
+            if(ring==null)return;hint.SetActive(Active&&!ui.PanelOpen);ring.enabled=Active&&Selection!=null&&Selection.key!="sky";
             if(!ring.enabled)return;
             Vector3 centre=Selection.volume?.centre??Selection.point;float radius=Selection.radius;
             ring.useWorldSpace=app.InWorld;ring.startWidth=ring.endWidth=app.InWorld?.08f:.0018f;
@@ -55,7 +54,7 @@ namespace Ferraris
         }
         void Draw()
         {
-            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=()=>Close(true);Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelRoot=panel.transform;ui.PanelOpen=true;ui.ClosePanel=()=>Close(true);Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             var history=Content.For(Selection.key);
             ui.Text(new Rect(48,197,610,43),history?.name??"Onbekend element",28,panel.transform);ui.Button(new Rect(690,197,76,40),"Sluiten",()=>Close(true),panel.transform,19);
             if(history==null){ui.Text(new Rect(48,275,700,200),"Voor dit element is nog geen gecontroleerde uitleg beschikbaar. We voegen geen historische betekenis toe zonder onderbouwing.",25,panel.transform);return;}
