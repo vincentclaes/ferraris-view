@@ -117,6 +117,11 @@ namespace Ferraris
                 if(!Check(day.Progress.Step==stop+1,"Story stop "+(stop+1),output))yield break;
             }
             if(!Check(day.Progress.Complete(day.Content.stops.Length),"Story reaches ending",output))yield break;
+            ui.ClickScreen(new Vector2(180,1000-668));yield return null;
+            if(!Check(TextFits(ui),"Readable story sources page 1",output))yield break;
+            ui.ClickScreen(new Vector2(500,1000-668));yield return null;
+            if(!Check(TextFits(ui),"Readable story sources page 2",output))yield break;
+            ui.ClickScreen(new Vector2(180,1000-668));yield return null;
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"10-story-ending.png"));yield return new WaitForSeconds(.5f);day.Close();app.ReturnToMap();
             var sound=app.GetComponent<LandscapeSound>();sound.Open();yield return null;
             if(!Check(sound.Sites.Count==3,"Three contextual sound sources",output))yield break;
