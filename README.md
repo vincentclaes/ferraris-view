@@ -1,10 +1,30 @@
-# Ferraris VR — Winksele, circa 1775
+# Land van Weleer — Winksele, circa 1775
 
-A local Unity 6 / OpenXR prototype: navigate the real Ferraris map, click a location, explore corresponding historical roads, rural buildings, fields and trees on real Flemish terrain, then return to the map.
+A web-first historical walk through Winksele around 1775. Open the website on a computer, choose a place on the Ferraris map and walk through the landscape. A small north-up map follows your location and viewing direction. Native desktop and Quest editions share the same world.
 
-The complete map-to-world journey runs on desktop and has been confirmed on a physical Quest 3. See `docs/validation.md` for the test/build evidence and measured limits.
+The original map-to-world journey runs on desktop and was confirmed on a physical Quest 3. The current web-first navigation has no new headset validation. See `docs/validation.md` for the test/build evidence and measured limits.
 
 The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. These additions pass the desktop journey and Android build; their integrated physical-headset acceptance is still pending.
+
+## Website — Land van Weleer
+
+The web-first navigation described below is implemented and tested locally on `codex/web-first-ux`, based on `codex/period-building-forms`. It has not been deployed to the live site.
+
+**[Land van Weleer — Wandel door het Vlaanderen van toen](https://land-van-weleer.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. The landscape fills the browser window. One start button leads into the experience; Kaart, Ontdek and Hulp are the main controls. Stories, search and sound settings live under Ontdek. M enlarges the live map without leaving the world or changing position and heading. Escape releases the mouse or closes a panel. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
+
+```bash
+# Unity Hub: add WebGL Build Support for the installed editor.
+bash scripts/unity.sh web
+python3 scripts/serve-web.py
+# Open http://localhost:8765 to test; then deploy a preview:
+bash scripts/deploy-web.sh
+```
+
+Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets the `land-van-weleer` project in `vincentclaes-projects`; production deployment requires explicitly passing `--prod`. Unity compiles locally; Vercel serves only the generated `builds/web` directory. See [web build and validation](docs/web.md).
+
+Vercel automatically assigned the first default deployment to production on 12 September 2026. Subsequent default deployments are previews; the live site uses the domain above.
+
+The browser fetches the historical map directly from the public Digitaal Vlaanderen WMS with KBR attribution. The local raster is excluded from the hosted build and restored after building; an internet connection is needed for the map. Native builds keep their bundled offline map. The generated website is about 68 MiB; the first visit downloads the 3D assets after pressing **Begin je wandeling**.
 
 ## Requirements and setup
 
@@ -40,11 +60,11 @@ bash scripts/smoke-desktop.sh
 Set `UNITY_EDITOR` to override the installed editor executable. Close the editor before running batch builds/tests on the same project.
 
 - Map: drag or arrow keys to pan; scroll, +/− or buttons to zoom; click or Enter at the map centre to enter the world. R resets Winksele; V toggles extracted roads/building footprints/vegetation.
-- World: WASD, mouse look, Shift to walk faster, Escape or Return to Ferraris to return. Click the world to recapture the mouse after focus loss.
+- World: WASD, mouse look, Shift to walk faster, M to consult the map; choose Andere startplek to return to location selection. Click the world to recapture the mouse after focus loss.
 - A map click inside a building spawns at a nearby free point within 25m. The selected coordinate remains available separately.
-- Debug overlay: mode, latitude/longitude, Unity X/Z, terrain TAW elevation, FPS.
-- Menus: **Tab** releases the mouse and highlights the next button; **Shift+Tab** goes back; **Enter/Space** activates. Click the landscape to resume mouse look. **Escape** closes a panel; **M** returns to the map.
-- Discovery shortcuts: **H** address search, **J** day story, **L** sound, **N** place names, **I** object inspection. While typing an address, these letters stay in the address. Every panel action can also be clicked or reached with Tab, including sources, story progress and volume. In the browser, **F2** returns focus to the website full-screen button.
+- The compact map shows your live position and viewing direction. Technical coordinates and FPS are hidden from the visitor interface.
+- Menus: **Tab** releases the mouse and highlights the next button; **Shift+Tab** goes back; **Enter/Space** activates. Click the landscape to resume mouse look. **Escape** closes a panel; **M** opens or closes the location map while preserving the walk.
+- Discovery shortcuts: **H** address search, **J** day story, **L** sound, **N** place names, **I** object inspection. While typing an address, these letters stay in the address. Every panel action can also be clicked or reached with Tab, including sources, story progress and volume. In the browser, **F2** returns focus to the website help button.
 
 ## Quest 3
 
@@ -66,24 +86,6 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 - World: left stick moves relative to gaze. A light push moves slowly; speed increases progressively to **6 m/s at full tilt**. Right stick snaps by 30 degrees; B returns to map.
 - Discovery: use the right ray and trigger on the world-space menu; left **X** opens address search. **B** closes an open panel before returning to the map. Object inspection enables the ray in the landscape.
 - Quest target: 72 FPS. The original simple scene measured 72–73 FPS in a short Quest 3 session. The new graphics pass adds physically based surfaces, a detailed church with LODs, short-range shadows, instanced foliage and distance-limited ground cover; it requires a new hardware performance check. See [graphics upgrade and asset sources](docs/visual-upgrade.md).
-
-## Website — Land van Weleer
-
-**[Land van Weleer — Wandel door het Vlaanderen van toen](https://land-van-weleer.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. It has a start screen, loading progress, full-screen control, instructions and sources. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
-
-```bash
-# Unity Hub: add WebGL Build Support for the installed editor.
-bash scripts/unity.sh web
-python3 scripts/serve-web.py
-# Open http://localhost:8765 to test; then deploy a preview:
-bash scripts/deploy-web.sh
-```
-
-Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets the `land-van-weleer` project in `vincentclaes-projects`; production deployment requires explicitly passing `--prod`. Unity compiles locally; Vercel serves only the generated `builds/web` directory. See [web build and validation](docs/web.md).
-
-Vercel automatically assigned the first default deployment to production on 12 September 2026. Subsequent default deployments are previews; the live site uses the domain above.
-
-The browser fetches the historical map directly from the public Digitaal Vlaanderen WMS with KBR attribution. The local raster is excluded from the hosted build and restored after building; an internet connection is needed for the map. Native builds keep their bundled offline map. The generated website is about 68 MiB; the first visit downloads the 3D assets after pressing **Stap binnen in 1775**.
 
 ## Data and architecture
 

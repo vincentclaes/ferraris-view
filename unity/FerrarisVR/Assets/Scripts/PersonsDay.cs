@@ -24,18 +24,17 @@ namespace Ferraris
         void Start()
         {
             app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();Content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
-            ui.Button(new Rect(335,125,242,45),"Volg een dag",Open);
             hud=ui.Box(new Rect(835,765,580,95));direction=ui.Text(new Rect(852,775,545,76),"",22,hud.transform);hud.SetActive(false);
             beacon=GameObject.CreatePrimitive(PrimitiveType.Sphere);Destroy(beacon.GetComponent<SphereCollider>());beacon.name="Verhaalrichtpunt";beacon.transform.localScale=Vector3.one*1.3f;beacon.GetComponent<Renderer>().material=new Material(Shader.Find("Unlit/Color")){color=new Color(1,.68f,.16f)};beacon.SetActive(false);
         }
         void Update()
         {
             bool active=Progress.Running&&!Progress.Complete(Content.stops.Length)&&app.InWorld;
-            beacon.SetActive(active);hud.SetActive(active);
+            beacon.SetActive(active);hud.SetActive(active&&!ui.PanelOpen);
             if(!active)return;
             var stop=Content.stops[Progress.Step];beacon.transform.position=new Vector3(stop.x,app.Area.Height(stop.x,stop.z)+3,stop.z);
             int metres=Mathf.RoundToInt(Distance);
-            direction.text=$"Dag van Marie • {Progress.Step+1}/{Content.stops.Length}: {stop.title}\n{metres} m naar het gouden richtpunt • Volg een dag: lees verder";
+            direction.text=$"Dag van Marie • {Progress.Step+1}/{Content.stops.Length}: {stop.title}\n{metres} m naar het gouden richtpunt • Ontdek: volg de dag";
             if(panel!=null&&metres!=lastMetres&&(metres<=22||lastMetres<=22))Draw();lastMetres=metres;
         }
         public void Open(){ui.ClosePanel?.Invoke();evidence=false;Draw();}
@@ -45,7 +44,7 @@ namespace Ferraris
         public void Advance(){if(Progress.Advance(Distance<=22,Content.stops.Length))Draw();}
         void Draw()
         {
-            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelRoot=panel.transform;ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,197,610,40),Content.title,28,panel.transform);ui.Button(new Rect(690,197,76,40),"Sluiten",Close,panel.transform,19);
             bool end=Progress.Complete(Content.stops.Length);
             string text=evidence?string.Join("\n\n",Content.evidence.Split("\n\n").Skip(evidencePage*3).Take(3)):end?"De dag is rond\nMarie legt haar mand neer. Van erf naar akker, boomgaard en dorp: voedsel, werk en ontmoetingen verbinden het landschap.\n\nDit was een verzonnen dag, geen gevonden levensverhaal. Welke taak zou jou het meeste tijd kosten? Je kunt nu vrij verder wandelen.":$"{Content.introduction}\n\nStop {Progress.Step+1}/{Content.stops.Length} — {Content.stops[Progress.Step].title}\n{Content.stops[Progress.Step].text}";
