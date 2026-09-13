@@ -396,9 +396,7 @@
       "label": "Gebouwen",
       "source": "https://topoferraris.ngi.be/assets/legend/images_1777/leg1777-1_61.png",
       "types": [
-        "house",
-        "barn",
-        "farmhouse"
+        "building"
       ],
       "status": "Categorie gebruikt; precieze plaats en subtype blijven kaartinterpretatie."
     },

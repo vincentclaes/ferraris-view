@@ -52,3 +52,32 @@ def test_features_and_bounds():
     for b in w['buildings']:
         assert abs(b['x'])<500 and abs(b['z'])<500
     for p in w['patches']: assert len(p['points'])%3==0
+
+
+def test_reviewed_building_contours_and_categories():
+    from shapely.geometry import Polygon
+    from shapely.ops import unary_union
+    out=ROOT/'data/winksele'
+    reviewed=json.loads((out/'buildings-reviewed.json').read_text())
+    world=json.loads((out/'world.json').read_text())['buildings']
+    geo=gpd.read_file(out/'winksele_buildings.geojson').to_crs(31370)
+    area=json.loads((out/'area.json').read_text()); scale=area['size']/reviewed['imageSize']
+    assert len(world)==len(reviewed['buildings'])==53
+    assert {b['kind'] for b in world}=={'building','church'}
+    assert sum(b['kind']=='church' for b in world)==1
+    assert all('winksele-legacy-'+str(i).zfill(2) not in {b['id'] for b in world} for i in reviewed['rejectedLegacy'])
+    for source,b in zip(reviewed['buildings'],world):
+        assert b['id']==source['id'] and b['kind']==source['kind'] and b['legend']==source['legend']
+        expected=Polygon([(x*scale-area['size']/2,area['size']/2-y*scale) for x,y in source['footprint']])
+        actual=Polygon([(p['x'],p['z']) for p in b['footprint']])
+        assert expected.hausdorff_distance(actual)<.001
+        assert expected.symmetric_difference(actual).area<.01
+        triangles=[Polygon([(p['x'],p['z']) for p in b['roof'][i:i+3]]) for i in range(0,len(b['roof']),3)]
+        assert unary_union(triangles).symmetric_difference(actual).area<.01, b['id']
+        vector=geo[geo.feature_id==b['id']].geometry.iloc[0]
+        from shapely import affinity
+        assert affinity.translate(vector,-area['originE'],-area['originN']).hausdorff_distance(expected)<.002
+        assert all(np.isfinite(b[key]) for key in ['x','z','width','depth','yaw'])
+    courtyard=next(b for b in world if b['id']=='winksele-legacy-43')
+    outline=Polygon([(p['x'],p['z']) for p in courtyard['footprint']])
+    assert outline.convex_hull.area-outline.area>20

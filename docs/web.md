@@ -2,7 +2,7 @@
 
 Working brand: **Toenland**, with **Wandel door het Vlaanderen van toen.** The name joins time and landscape in accessible Dutch. No custom domain has been purchased and no trademark clearance is claimed.
 
-Live: **https://toenland.vercel.app**. Production deployment `dpl_AU1skPNrvAHgRxXJbjn9vbMxnDPY` was marked `READY` and aliased to this domain by Vercel on 12 September 2026. The deployed application includes the mouse/keyboard controls in commit `a393a29`, merged through PR #15 as `324b475`. This deployment explicitly used `--prod`; default deployments use preview.
+Live: **https://toenland.vercel.app**. Production deployment `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv` was marked `READY` and aliased to this domain by Vercel on 13 September 2026. The deployed application includes reviewed building polygons, legend-based categories and visible map contours from code commit `a275a9e`, merged with its evidence documentation through PR #16 as `a630661`. This deployment explicitly used `--prod`; default deployments use preview. The locally tested WebGL file hashes are recorded in `artifacts/building-review/web-release-hashes.json`. The preceding browser-controls deployment was `dpl_AU1skPNrvAHgRxXJbjn9vbMxnDPY` (12 September).
 
 ## Build and hosting
 
@@ -25,6 +25,12 @@ H opens address search, J the day story, L sound, N place names, I inspection an
 The [official historical-cartography service](https://www.vlaanderen.be/datavindplaats/catalogus/raadpleegdienst-voor-historische-cartografie) permits public access. The web runtime requests the current area's 2048×2048 Ferraris crop from that service using EPSG:31370 and invariant-culture bounds. CORS access and the actual image response were verified on 12 September 2026. Attribution and direct KBR/service links appear in the website and the experience.
 
 The native cached raster is temporarily moved outside Resources while building, restored in `finally`, and checked against the packed-asset report. The website therefore does not redistribute that raster from Vercel. Unlike the native edition, initial map loading needs internet. A failed map request gives a Dutch reload instruction. Bundled object explanations, addresses, stories and sounds remain local after the initial application download.
+
+## Building review — 13 September 2026
+
+The website build now contains 53 reviewed building polygons and source-supported categories, including the corrected church anchor. Ordinary building selection and collision preserve concave courtyards. V / **Toon lijnen** displays readable yellow building outlines for comparison with the raster. [Review and validation](period-buildings.md) records the scope and uncertainty.
+
+The full Chrome mouse/keyboard journey passed on this update. A final build check confirmed visible outlines and the Dutch unknown-function explanation, with no JavaScript application errors. GIS tests: 5; standalone coordinate checks: 1,089; Unity EditMode: 16; desktop journey: 321. Earlier validation below remains historical context.
 
 ## Validation — 12 September 2026
 

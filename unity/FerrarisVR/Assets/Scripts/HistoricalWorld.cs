@@ -82,59 +82,161 @@ namespace Ferraris
    }
    RoadRoot=road.Object("Rutted earth roads",transform,materials["soil"]).transform;
   }
+  public static (float length,float span,float height,float rise,Quaternion rotation) RuralForm(Building b)
+  {
+   float length=Mathf.Max(b.width,b.depth),span=Mathf.Min(b.width,b.depth);
+   bool barn=b.kind=="barn";float h=barn?3.3f:b.kind=="farmhouse"?4.1f:2.7f;
+   return (length,span,h,span*.5f*Mathf.Tan((barn?47:43)*Mathf.Deg2Rad),Quaternion.Euler(0,b.yaw+(b.depth>b.width?90:0),0));
+  }
+  void BuildMappedBuilding(Building b,Transform parent)
+  {
+   // The plan follows the reviewed symbol; elevations and openings are illustrative.
+   float ground=Area.Height(b.x,b.z)-.3f,top=ground+3.05f;
+   var inverse=Quaternion.Euler(0,-b.yaw,0);var collision=new WorldMesh();
+   Vector3 Bottom(MapPoint p)=>new(p.x,Mathf.Min(ground,Area.Height(p.x,p.z)-.3f),p.z);
+   Vector3 Roof(MapPoint p)
+   {
+    float across=(inverse*new Vector3(p.x-b.x,0,p.z-b.z)).z;
+    return new Vector3(p.x,top+Mathf.Max(0,b.depth/2-Mathf.Abs(across))*.93f,p.z);
+   }
+   float longest=0;int doorEdge=0;
+   for(int i=0;i<b.footprint.Length;i++)
+   {
+    var a=b.footprint[i];var c=b.footprint[(i+1)%b.footprint.Length];
+    var lowA=Bottom(a);var lowC=Bottom(c);var highA=Roof(a);var highC=Roof(c);
+    Part("brick").Quad(lowA,highA,highC,lowC,Color.white);
+    collision.Quad(lowA,highA,highC,lowC,Color.white);
+    float length=Vector3.Distance(new Vector3(a.x,0,a.z),new Vector3(c.x,0,c.z));
+    if(length>longest){longest=length;doorEdge=i;}
+    // Openings sit on each actual wall, including re-entrant courtyard walls.
+    var along=new Vector3(c.x-a.x,0,c.z-a.z).normalized;var outward=Vector3.Cross(Vector3.up,along);
+    var rotation=Quaternion.LookRotation(-outward);
+    int windows=Mathf.FloorToInt(length/4);
+    for(int j=0;j<windows;j++)
+    {
+     var centre=Vector3.Lerp(lowA,lowC,(j+.5f)/windows);centre.y=top-1.15f;centre+=outward*.025f;
+     Part("wood").Box(centre,new Vector3(.9f,1.25f,.09f),rotation,new Color(.5f,.4f,.3f));
+     Part("glass").Box(centre+outward*.055f,new Vector3(.65f,1.02f,.025f),rotation,Color.white);
+     Part("wood").Box(centre+outward*.075f,new Vector3(.06f,1.02f,.025f),rotation,Color.white);
+    }
+   }
+   for(int i=0;i<b.roof.Length;i+=3)
+   {
+    var a=Roof(b.roof[i]);var c=Roof(b.roof[i+1]);var d=Roof(b.roof[i+2]);
+    if(Vector3.Cross(c-a,d-a).y<0)(c,d)=(d,c);
+    Part("roof").Triangle(a,c,d,new Color(.87f,.52f,.32f));collision.Triangle(a,c,d,Color.white);
+   }
+   var start=b.footprint[doorEdge];var end=b.footprint[(doorEdge+1)%b.footprint.Length];
+   var direction=new Vector3(end.x-start.x,0,end.z-start.z).normalized;var normal=Vector3.Cross(Vector3.up,direction);
+   var door=new Vector3((start.x+end.x)/2,top-2.05f,(start.z+end.z)/2)+normal*.1f;
+   Part("wood").Box(door,new Vector3(Mathf.Min(1.1f,longest*.5f),2,.15f),Quaternion.LookRotation(-normal),new Color(.48f,.35f,.22f));
+   var go=new GameObject("Mapped building: "+b.id);go.transform.SetParent(parent,false);
+   go.AddComponent<MeshCollider>().sharedMesh=collision.Mesh(b.id+" footprint collision");
+  }
   void BuildBuilding(Building b,Transform parent)
   {
+   if(b.kind=="building"){BuildMappedBuilding(b,parent);return;}
    float y=Area.Height(b.x,b.z);Vector3 origin=new(b.x,y-.18f,b.z);Quaternion q=Quaternion.Euler(0,b.yaw,0);
    if(b.kind=="church")
    {
     var prefab=Resources.Load<GameObject>("Visuals/Church");
     if(prefab!=null)
     {
-     var church=Instantiate(prefab,parent);church.name="Maria-Hemelvaartkerk — interpreted period exterior";church.transform.SetPositionAndRotation(origin,q);church.transform.localScale=Vector3.one*(b.width/43.72f);
+     var church=Instantiate(prefab,parent);church.name="Maria-Hemelvaartkerk — interpreted period exterior";
      foreach(var t in church.GetComponentsInChildren<Transform>(true))if(t.name.IndexOf("Sacristy",StringComparison.OrdinalIgnoreCase)>=0)t.gameObject.SetActive(false);
+     // Fit the visible plan envelope to the reviewed nave symbol; the icon does
+     // not supply a measured floor plan or the historic tower height.
+     Bounds bounds=default;bool first=true;
+     foreach(var renderer in church.GetComponentsInChildren<MeshRenderer>())
+     {
+      if(first){bounds=renderer.bounds;first=false;}else bounds.Encapsulate(renderer.bounds);
+     }
+     float sx=b.width/bounds.size.x,sz=b.depth/bounds.size.z;
+     church.transform.localScale=new Vector3(sx,sx,sz);
+     church.transform.SetPositionAndRotation(origin+q*new Vector3(-bounds.center.x*sx,-bounds.min.y*sx,-bounds.center.z*sz),q);
      return;
     }
    }
-   bool barn=b.kind=="barn";float h=barn?4.0f:b.width>15?4.7f:3.3f,rise=barn?2.5f:3.2f;string wall=b.kind=="farmhouse"?"plaster":"brick";
+   // Ferraris supplies the footprint, not a measured facade. Regional analogues:
+   // Winksele Dalenstraat 2 (1762), erfgoedobject 41898; see docs/period-buildings.md.
+   // Keep the traced rectangle unchanged while putting the ridge along its long axis.
+   var form=RuralForm(b);float length=form.length,span=form.span,h=form.height,rise=form.rise;q=form.rotation;
+   bool barn=b.kind=="barn",farm=b.kind=="farmhouse";
+   float top=h+.35f,w=length/2,d=span/2;
+   string wall=farm?"brick":barn?"brick":"plaster";
+   Color clay=new(.87f,.52f,.32f),oak=new(.51f,.43f,.32f);
    Vector3 P(float x,float py,float z)=>origin+q*new Vector3(x,py,z);
    void Box(string m,float x,float py,float z,float sx,float sy,float sz,Color? color=null)=>Part(m).Box(P(x,py,z),new Vector3(sx,sy,sz),q,color??Color.white);
-   Box("stone",0,.35f,0,b.width+.22f,.7f,b.depth+.22f);
-   Box(wall,0,h/2+.35f,0,b.width,h,b.depth);
-   // Full gables, projecting eaves, ridge capping and visible oak fascia.
-   float top=h+.35f,w=b.width/2,d=b.depth/2;
-   Part(wall).Triangle(P(-w,top,-d),P(0,top+rise,-d),P(w,top,-d),Color.white);
-   Part(wall).Triangle(P(w,top,d),P(0,top+rise,d),P(-w,top,d),Color.white);
-   Part("roof").Quad(P(-w-.4f,top,-d-.4f),P(-w-.4f,top,d+.4f),P(0,top+rise,d+.4f),P(0,top+rise,-d-.4f),Color.white);
-   Part("roof").Quad(P(0,top+rise,-d-.4f),P(0,top+rise,d+.4f),P(w+.4f,top,d+.4f),P(w+.4f,top,-d-.4f),Color.white);
-   Box("roof",0,top+rise+.035f,0,.2f,.13f,b.depth+.9f);
-   foreach(float side in new[]{-1f,1f}){Box("wood",side*(w+.3f),top-.08f,0,.13f,.24f,b.depth+.85f);Part("wood").Beam(P(-w-.4f,top,side*(d+.42f)),P(0,top+rise,side*(d+.42f)),.065f,Color.white,4);Part("wood").Beam(P(0,top+rise,side*(d+.42f)),P(w+.4f,top,side*(d+.42f)),.065f,Color.white,4);}
-   float doorW=barn?2.7f:1.2f,doorH=barn?3.0f:2.1f;
-   Box("wood",0,doorH/2+.35f,-d-.05f,doorW,doorH,.18f,new Color(.62f,.57f,.47f));Box("stone",0,.18f,-d-.45f,doorW+.5f,.35f,.8f);
-   Box("wood",0,doorH+.45f,-d-.17f,doorW+.4f,.2f,.2f);Box("iron",doorW*.29f,1.25f,-d-.17f,.08f,.18f,.05f);
-   for(int side=-1;side<=1;side+=2)
+   Box("stone",0,.2f,0,length+.12f,.4f,span+.12f);
+   Box(wall,0,h/2+.35f,0,length,h,span);
+   // Side gables; ridge and eaves run along the long street/yard facade.
+   Part(wall).Triangle(P(-w,top,-d),P(-w,top,d),P(-w,top+rise,0),Color.white);
+   Part(wall).Triangle(P(w,top,d),P(w,top,-d),P(w,top+rise,0),Color.white);
+   Part("roof").Quad(P(-w-.2f,top,-d-.32f),P(-w-.2f,top+rise,0),P(w+.2f,top+rise,0),P(w+.2f,top,-d-.32f),clay);
+   Part("roof").Quad(P(w+.2f,top,d+.32f),P(w+.2f,top+rise,0),P(-w-.2f,top+rise,0),P(-w-.2f,top,d+.32f),clay);
+   Box("roof",0,top+rise+.035f,0,length+.5f,.15f,.24f,clay);
+   foreach(float side in new[]{-1f,1f})
    {
-    int count=Mathf.Clamp(Mathf.FloorToInt(b.width/3),2,6);
-    for(int i=0;i<count;i++)
+    Box("wood",0,top-.04f,side*(d+.22f),length+.45f,.17f,.13f,oak);
+    Part("wood").Beam(P(side*(w+.22f),top,-d-.32f),P(side*(w+.22f),top+rise,0),.06f,oak,4);
+    Part("wood").Beam(P(side*(w+.22f),top+rise,0),P(side*(w+.22f),top,d+.32f),.06f,oak,4);
+    if(farm)
     {
-     float x=-w+(i+1)*b.width/(count+1);if(side==-1&&Mathf.Abs(x)<doorW/2+1)continue;
-     if(barn&&i%2==0)continue;
-     float z=side*(d+.065f),wy=2.05f;Box("glass",x,wy,z,.83f,1.05f,.08f);
-     foreach(float edge in new[]{-.5f,.5f}){Box("wood",x+edge*.95f,wy,z+side*.035f,.075f,1.2f,.1f);Box("wood",x,wy+edge*1.16f,z+side*.035f,1,.08f,.1f);}
-     Box("wood",x,wy,z+side*.055f,.045f,1.07f,.1f);Box("wood",x,wy,z+side*.055f,.85f,.045f,.1f);Box("stone",x,wy-.64f,z+side*.08f,1.16f,.14f,.28f);
-     foreach(float shutter in new[]{-.73f,.73f})Box("wood",x+shutter,wy,z,.36f,1.15f,.12f,new Color(.43f,.49f,.38f));
+     // Restrained masonry shoulders and iron ties; no invented date inscription.
+     foreach(float edge in new[]{-1f,1f})Box("stone",side*w,top,edge*(d-.08f),.32f,.27f,.48f);
+     Box("iron",side*(w+.035f),top+.7f,0,.07f,.7f,.07f);
+     Box("iron",side*(w+.035f),top+.7f,0,.07f,.07f,.45f);
     }
    }
-   if(!barn){Box("brick",w*.46f,top+rise*.75f,d*.25f,.85f,2.4f,.8f);Box("stone",w*.46f,top+rise*.75f+1.18f,d*.25f,1.02f,.18f,.97f);Box("iron",w*.46f,top+rise*.75f+1.28f,d*.25f,.55f,.04f,.5f);}
-   var col=new GameObject(b.kind+" collision");col.transform.SetParent(parent,false);col.transform.SetPositionAndRotation(P(0,h/2,0),q);col.AddComponent<BoxCollider>().size=new Vector3(b.width,h,b.depth);
-   // Small farmyard furnishings add readable scale near the doors.
-   Part("wood").Beam(P(w-.65f,.1f,-d-1.2f),P(w-.65f,1,-d-1.2f),.38f,new Color(.7f,.66f,.54f),12);
-   for(int i=0;i<3;i++)Box("wood",-w+.8f,.18f+i*.2f,-d-1.15f,1.7f,.17f,.4f);
+   float doorW=barn?2.8f:1.05f,doorH=barn?2.9f:1.95f,doorX=barn?0:-length*.1f;
+   Box("wood",doorX,doorH/2+.35f,-d-.05f,doorW,doorH,.18f,oak);
+   Box("stone",doorX,.18f,-d-.3f,doorW+.28f,.22f,.5f);
+   string frame=farm?"stone":"wood";
+   Box(frame,doorX,doorH+.42f,-d-.17f,doorW+.3f,.18f,.2f);
+   foreach(float side in new[]{-1f,1f})Box(frame,doorX+side*(doorW/2+.09f),doorH/2+.35f,-d-.15f,.14f,doorH+.08f,.16f);
+   Box("iron",doorX+doorW*.29f,1.15f,-d-.17f,.06f,.15f,.05f);
    if(barn)
    {
-    for(int i=0;i<6;i++){float x=-w+i*b.width/5;Box("wood",x,.7f,d+2.0f,.12f,1.4f,.12f);}
-    Box("wood",0,.55f,d+2,b.width,.12f,.12f);Box("wood",0,1.1f,d+2,b.width,.12f,.12f);
+    Box("wood",0,doorH/2+.35f,-d-.16f,.09f,doorH,.12f,oak);
+    foreach(float side in new[]{-1f,1f})
+    {
+     Part("wood").Beam(P(side*.1f,.55f,-d-.19f),P(side*(doorW/2-.12f),doorH+.12f,-d-.19f),.055f,oak,4);
+     // Ventilation slits instead of domestic glazed windows and shutters.
+     Box("glass",side*length*.34f,2.45f,-d-.04f,.18f,.7f,.06f);
+    }
+   }
+   else for(int side=-1;side<=1;side+=2)
+   {
+    int count=Mathf.Clamp(Mathf.FloorToInt(length/3),3,7);
+    for(int i=0;i<count;i++)
+    {
+     float x=-w+(i+1)*length/(count+1);if(side==-1&&Mathf.Abs(x-doorX)<doorW/2+.85f)continue;
+     float z=side*(d+.065f),wy=1.8f;Box("glass",x,wy,z,.76f,.96f,.08f);
+     foreach(float edge in new[]{-.5f,.5f}){Box(frame,x+edge*.9f,wy,z+side*.035f,.09f,1.15f,.1f);Box(frame,x,wy+edge*1.08f,z+side*.035f,.99f,.09f,.1f);}
+     Box("wood",x,wy,z+side*.055f,.045f,.98f,.1f);Box("wood",x,wy,z+side*.055f,.78f,.045f,.1f);
+     Box("stone",x,wy-.62f,z+side*.08f,1.1f,.13f,.25f);
+     foreach(float shutter in new[]{-.69f,.69f})Box("wood",x+shutter,wy,z,.35f,1.03f,.1f,oak);
+     if(farm){Box("glass",x,3.68f,z,.62f,.39f,.07f);Box("wood",x,3.68f,z+side*.05f,.04f,.39f,.08f);}
+    }
+   }
+   if(!barn)
+   {
+    // Chimney begins in the roof and clears the ridge, even on a wide footprint.
+    float chimneyX=w*.52f,chimneyBase=top+rise-.65f;
+    Box("brick",chimneyX,chimneyBase+.75f,0,.72f,1.5f,.68f);
+    Box("brick",chimneyX,chimneyBase+1.5f,0,.9f,.15f,.85f);
+    Box("iron",chimneyX,chimneyBase+1.58f,0,.44f,.025f,.4f);
+   }
+   var col=new GameObject(b.kind+" collision");col.transform.SetParent(parent,false);col.transform.SetPositionAndRotation(P(0,h/2+.35f,0),q);col.AddComponent<BoxCollider>().size=new Vector3(length,h,span);
+   Part("wood").Beam(P(w-.65f,.1f,-d-.9f),P(w-.65f,.85f,-d-.9f),.3f,oak,10);
+   for(int i=0;i<3;i++)Box("wood",-w+.8f,.18f+i*.2f,-d-.85f,1.4f,.17f,.35f,oak);
+   if(barn)
+   {
+    for(int i=0;i<6;i++){float x=-w+i*length/5;Box("wood",x,.7f,d+2,.12f,1.4f,.12f,oak);}
+    Box("wood",0,.55f,d+2,length,.12f,.12f,oak);Box("wood",0,1.1f,d+2,length,.12f,.12f,oak);
    }
   }
+
   void BuildAnimals(WorldData data)
   {
    var root=new GameObject("Grazing sheep and cattle");root.transform.SetParent(transform,false);var random=new System.Random(1775);

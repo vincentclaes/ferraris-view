@@ -2,12 +2,13 @@
   "entries": [
     {
       "keys": [
+        "building",
         "house",
         "barn",
         "farmhouse"
       ],
-      "name": "Erfgebouw",
-      "summary": "Gebouwen boden plaats aan wonen, opslag en werk. De plaats volgt een overgetrokken kaartsymbool, maar de keuze voor huis, hoeve of schuur en de zichtbare bouwdetails zijn illustratief.",
+      "name": "Gebouw — functie onbekend",
+      "summary": "De contour volgt het gecontroleerde rode gebouwsymbool op de Ferrariskaart. De legende noemt dit een gewoon gebouw; zij bewijst hier geen woonhuis, schuur of hoeve. Dak, hoogte, materialen en gevelopeningen zijn een illustratieve reconstructie.",
       "legend": "Gebouwen — leg1777-1_61; een specifieke hoevefunctie is niet bewezen.",
       "sections": [
         {
