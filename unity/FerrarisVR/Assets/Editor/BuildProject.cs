@@ -56,6 +56,9 @@ namespace Ferraris.Editor
         [MenuItem("Ferraris/Build desktop")]
         public static void Desktop()
         {
+            // Synced numbered copies in generated player caches duplicate assemblies/assets.
+            foreach(string cache in new[]{"Library/Bee/artifacts/MacStandalonePlayerBuildProgram","Library/PlayerDataCache/OSXUniversal2"})
+                if(Directory.Exists(cache))Directory.Delete(cache,true);
             Configure();Build(Path.GetFullPath("../../builds/Winksele1775.app"),BuildTarget.StandaloneOSX);
         }
         [MenuItem("Ferraris/Capture website cover")]
@@ -78,6 +81,8 @@ namespace Ferraris.Editor
         [MenuItem("Ferraris/Build website")]
         public static void Web()
         {
+            foreach(string cache in new[]{"Library/Bee/artifacts/WebGL","Library/PlayerDataCache/WebGL"})
+                if(Directory.Exists(cache))Directory.Delete(cache,true);
             Configure();
             PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Gzip;
             PlayerSettings.WebGL.decompressionFallback=false;
