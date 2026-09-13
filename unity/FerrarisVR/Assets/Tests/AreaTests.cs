@@ -5,6 +5,19 @@ namespace Ferraris.Tests
 {
     public class AreaTests
     {
+        [Test] public void VegetationClearanceFollowsRoadSegmentsAndRoundedEnds()
+        {
+            var data=new WorldData{roads=new[]{new Road{width=5,points=new[]{new MapPoint(0,0),new MapPoint(20,0),new MapPoint(20,20)}}}};
+            Assert.That(WorldVegetation.NearRoad(data,10,3.9f,4),Is.True,"Between sparse vertices");
+            Assert.That(WorldVegetation.NearRoad(data,10,4.1f,4),Is.False);
+            Assert.That(WorldVegetation.NearRoad(data,-3,-3,4),Is.False,"Rounded, not square, endpoint clearance");
+            Assert.That(WorldVegetation.NearRoad(data,17,10,4),Is.True,"Second segment");
+            Assert.That(WorldVegetation.NearRoad(data,10,2,1),Is.True,"At least the road width remains clear");
+            data.roads[0].points=new[]{new MapPoint(0,0),new MapPoint(20,20)};
+            Assert.That(WorldVegetation.NearRoad(data,10,10,4),Is.True,"Diagonal segment");
+            data.roads[0].points=new[]{new MapPoint(0,0),new MapPoint(0,0)};
+            Assert.That(WorldVegetation.NearRoad(data,1,1,4),Is.True,"Repeated vertex stays finite");
+        }
         [Test] public void JoystickPressureProgressivelyIncreasesSpeedWithoutDiagonalBoost()
         {
             Assert.That(FerrarisApp.LocomotionInput(Vector2.zero),Is.EqualTo(Vector2.zero));

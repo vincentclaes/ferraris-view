@@ -21,6 +21,7 @@ namespace Ferraris
             if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
 #if UNITY_STANDALONE || UNITY_EDITOR
             if(Array.IndexOf(args,"-xr-input-study")>=0){yield return XRInputStudy.Run(app,output);yield break;}
+            if(Array.IndexOf(args,"-field-study")>=0){yield return FieldStudy(app,output);yield break;}
 #endif
             if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-building-study")>=0){yield return BuildingStudy(app,output);yield break;}
@@ -303,6 +304,29 @@ namespace Ferraris
             foreach(string old in Directory.GetFiles(frames,"frame-*.png"))File.Delete(old);
             for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
         }
+#if UNITY_STANDALONE || UNITY_EDITOR
+        IEnumerator FieldStudy(FerrarisApp app,string output)
+        {
+            for(int index=0;index<app.Data.patches.Length;index++)
+            {
+                var patch=app.Data.patches[index];if(patch.kind!="crop")continue;
+                var p=(new Vector2(patch.points[0].x,patch.points[0].z)+new Vector2(patch.points[1].x,patch.points[1].z)+new Vector2(patch.points[2].x,patch.points[2].z))/3;
+                app.EnterWorld(p.x,p.y);app.enabled=false;app.GetComponent<VisitorUI>().Root.gameObject.SetActive(false);
+                var centre=new Vector3(p.x,app.Area.Height(p.x,p.y),p.y);
+                foreach(bool detail in new[]{false,true})
+                {
+                    app.View.transform.position=centre+new Vector3(0,detail?1.1f:1.7f,-2);
+                    app.View.transform.LookAt(centre+new Vector3(0,detail?.65f:1,detail?0:12));
+                    for(int frame=0;frame<2;frame++)
+                    {
+                        yield return new WaitForSeconds(.9f);yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,$"field-{index}-{(detail?"detail":"walk")}-{frame}.png"));
+                    }
+                }
+                app.enabled=true;
+            }
+            Application.Quit(0);
+        }
+#endif
         IEnumerator RoadStudy(FerrarisApp app,string output)
         {
             foreach(var stop in new[]{(road:3,index:7),(road:12,index:58),(road:0,index:80)})
