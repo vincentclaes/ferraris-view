@@ -4,15 +4,33 @@ namespace Ferraris.Tests
 {
     public class StoryTests
     {
-        [Test] public void StoryCanPauseResumeAndReachAnEnding()
+        [Test] public void GuideRouteConnectsAllStopsOutsideSolidBuildings()
+        {
+            var area=JsonUtility.FromJson<AreaData>(Resources.Load<TextAsset>("Winksele/area").text);
+            var data=JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("Winksele/world").text);
+            var content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
+            var go=new GameObject("Story route verification");
+            try
+            {
+                var world=go.AddComponent<HistoricalWorld>();world.Build(area,data);
+                using var route=new StoryNavigation(world,area,data,content.stops);
+                Assert.That(route.Ready,Is.True,"Every guide destination needs a complete path");
+                foreach(var point in route.Stops)
+                    foreach(var building in data.buildings)
+                        Assert.That(building.Contains(point.x,point.z),Is.False,"Guide stop inside a building");
+            }
+            finally{Object.DestroyImmediate(go);}
+        }
+        [Test] public void EveryStopHasDutchDialogueAQuestionAndHistoricalContext()
         {
             var content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
             Assert.That(content.stops.Length,Is.GreaterThanOrEqualTo(4));Assert.That(content.introduction,Does.Contain("verzonnen"));
-            var state=new StoryProgress();state.Resume();Assert.That(state.Advance(false,5),Is.False);
-            Assert.That(state.Advance(true,5),Is.True);state.Pause();Assert.That(state.Advance(true,5),Is.False);Assert.That(state.Step,Is.EqualTo(1));
-            state.Resume();for(int i=1;i<content.stops.Length;i++)Assert.That(state.Advance(true,content.stops.Length),Is.True);
-            Assert.That(state.Complete(content.stops.Length),Is.True);Assert.That(state.Advance(true,content.stops.Length),Is.False);
-            foreach(var stop in content.stops){Assert.That(Mathf.Abs(stop.x),Is.LessThan(500));Assert.That(Mathf.Abs(stop.z),Is.LessThan(500));Assert.That(stop.text.Length,Is.GreaterThan(80));}
+            foreach(var stop in content.stops){Assert.That(Mathf.Abs(stop.x),Is.LessThan(500));Assert.That(Mathf.Abs(stop.z),Is.LessThan(500));Assert.That(stop.text.Length,Is.GreaterThan(80));Assert.That(stop.dialogue,Is.Not.Empty);Assert.That(stop.question,Is.Not.Empty);Assert.That(stop.answer,Is.Not.Empty);Assert.That(stop.follow,Is.Not.Empty);}
+            for(int i=0;i<content.stops.Length;i++)foreach(string kind in new[]{"stop","answer","follow"})
+            {
+                var clip=Resources.Load<AudioClip>($"Discovery/Voice/Marie/{kind}-{i}");
+                Assert.That(clip,Is.Not.Null,"Bundled Dutch voice");Assert.That(clip.length,Is.GreaterThan(.5f));
+            }
         }
     }
 }

@@ -1,0 +1,105 @@
+{
+  "engine": "piper-tts 1.8.0 (authoring only)",
+  "voice": "nl_BE-nathalie-medium",
+  "model_url": "https://huggingface.co/rhasspy/piper-voices/resolve/1162a9173d0ce503555aed757976b7a9912eae4c/nl/nl_BE/nathalie/medium/nl_BE-nathalie-medium.onnx",
+  "model_sha256": "49cf48023861f9fd42e13a8632f068fee67d1ce244a6ee38f29595afbf0a6be4",
+  "model_card": "https://huggingface.co/rhasspy/piper-voices/resolve/1162a9173d0ce503555aed757976b7a9912eae4c/nl/nl_BE/nathalie/medium/MODEL_CARD",
+  "dataset_license": "CC0",
+  "clips": {
+    "greeting": {
+      "text": "Dag! Heb je even tijd? Kom gerust dichterbij.",
+      "seconds": 2.682,
+      "sha256": "1059df8280527b437fad00b3e1b3bc092d07b2cab9f88537ce0fc67aae45c37f"
+    },
+    "invitation": {
+      "text": "Dag, ik ben Marie. Ik wil de oogst binnenhalen voor het weer omslaat. Loop je een stukje mee?",
+      "seconds": 4.923,
+      "sha256": "e8fd17323f9eecdf4ebdbc3be58983337217cbe28ad1595d2050cc32017a3cd5"
+    },
+    "wait": {
+      "text": "Ik wacht hier. Kom maar als je zover bent.",
+      "seconds": 2.368,
+      "sha256": "2869e3722a31eba23d46df543b0194280c86c6f72424bcee9c37ffad12363c69"
+    },
+    "rejoin": {
+      "text": "Daar ben je. Loop maar mee.",
+      "seconds": 1.869,
+      "sha256": "5ba0063e615de6e81dd5f5313d02f0830b6eacb5a15863b572640e91b14f03d3"
+    },
+    "stop-0": {
+      "text": "Eerst naar het graan. Ik neem mijn mand mee. Kom, ik wijs je de weg.",
+      "seconds": 3.727,
+      "sha256": "af2a59e89f24334cc83a5fc3289545c26082cc7a7871fd99603b23680aacecc4"
+    },
+    "answer-0": {
+      "text": "Graan verzamelen en fruit meenemen. In dit verhaal wil ik alles binnenhalen voor het weer omslaat.",
+      "seconds": 5.19,
+      "sha256": "4423452c15bb4e63f75706230e89fe0154725e00c8b08d6e9b92610d80eed98f"
+    },
+    "follow-0": {
+      "text": "Eerst naar het graan. Loop maar mee.",
+      "seconds": 1.997,
+      "sha256": "c1629c108d223250905427d29d668374535141a2a77fa08988d2a952e7ac90a6"
+    },
+    "stop-1": {
+      "text": "Zie je die halmen? Die brengen we samen binnen. Alleen zou ik hier nog lang bezig zijn.",
+      "seconds": 4.319,
+      "sha256": "b20014eb524559282b6adf1f6ca103ddab1b43aaffc8435090d09ae5dd45a3b2"
+    },
+    "answer-1": {
+      "text": "Snijden, verzamelen en dragen: het werk houdt niet op bij het afsnijden.",
+      "seconds": 4.214,
+      "sha256": "ac0b4203a6ab2bce1e625f8cfa454a2e3b9c360b59e54f8879dca0fbbe5a35a3"
+    },
+    "follow-1": {
+      "text": "Er ligt ook fruit in de boomgaard. Dat nemen we mee voor we naar huis gaan.",
+      "seconds": 3.843,
+      "sha256": "faabcd314c2814c47c1cf5caef3db27b8cce2007c0ff2479b23a8c6026cbd6a6"
+    },
+    "stop-2": {
+      "text": "De gevallen vruchten leg ik apart. Wat beschadigd is, wil ik eerst gebruiken.",
+      "seconds": 4.493,
+      "sha256": "9be8063612f4c83f5e9b9e20ea543a7555c9aed001d433c94e489da79eef3014"
+    },
+    "answer-2": {
+      "text": "We kiezen zorgvuldig. In dit verhaal neem ik het gave fruit mee en houd ik het beschadigde apart.",
+      "seconds": 5.306,
+      "sha256": "b8e7b3103f551aad3f5ccd50b648a81c2325d98737553e53716e7cdc22117598"
+    },
+    "follow-2": {
+      "text": "Bij de kerk zou ik mijn buur treffen. Ik wil weten wie straks kan helpen.",
+      "seconds": 3.82,
+      "sha256": "1de6ffd375f7a0975a5c0286829339e6710341267c6071d403cfc94901fd1b8b"
+    },
+    "stop-3": {
+      "text": "Mijn buur is er nog niet. Dan loop ik alvast terug. Met hulp gaat het dragen straks sneller.",
+      "seconds": 4.946,
+      "sha256": "d260ccfc2f728e6ec3de69619932b1bcd99be5d9781c1df2875db7b0c586b133"
+    },
+    "answer-3": {
+      "text": "In mijn verzonnen dag kom ik bekenden tegen bij het werk en onderweg.",
+      "seconds": 3.39,
+      "sha256": "1e1a7903b706994f2aa6447293531bb2222313d35c2cc11761361101f5bef4e2"
+    },
+    "follow-3": {
+      "text": "Kom, we brengen de mand naar de schuur.",
+      "seconds": 2.206,
+      "sha256": "05c8f721614a1e5af00e1ce898c0df4ebfd8b95427331c9767618d3a729b4d62"
+    },
+    "stop-4": {
+      "text": "Zo, de mand is binnen bereik. Bedankt voor je gezelschap. Nu zie je hoeveel plekken bij één werkdag horen.",
+      "seconds": 5.863,
+      "sha256": "bcc5d5f8e10bceb3c0698187917fe2ae0fb5374943838a02bfb1ceca1329efcb"
+    },
+    "answer-4": {
+      "text": "Voor vandaag leggen we de mand neer. Het graan moet later nog verder verwerkt worden.",
+      "seconds": 4.191,
+      "sha256": "55f67e5666217a6aeba5a7180f251b74f117ae81e073cc60ed5be7f3f353b26a"
+    },
+    "follow-4": {
+      "text": "Bedankt voor je gezelschap. Je kunt nu vrij verder wandelen.",
+      "seconds": 3.17,
+      "sha256": "4ff0ddc40c50192f73884a0045a96815b4cbed8750e43c92f68847c46c00c5aa"
+    }
+  }
+}

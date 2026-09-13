@@ -4,7 +4,7 @@ A web-first historical walk through Winksele around 1775. Open the website on a 
 
 The original map-to-world journey runs on desktop and was confirmed on a physical Quest 3. The current web-first navigation has no new headset validation. See `docs/validation.md` for the test/build evidence and measured limits.
 
-The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. These additions pass the desktop journey and Android build; their integrated physical-headset acceptance is still pending.
+The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. Marie's day now has a visible illustrative guide, bundled Flemish speech, questions, following, waiting and cancellation/resumption. See [story controls and validation](docs/issues/04-day.md). Integrated physical-headset acceptance is still pending.
 
 ## Website — Land van Weleer
 

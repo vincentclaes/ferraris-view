@@ -116,18 +116,48 @@ namespace Ferraris
             var church=Array.Find(app.Data.buildings,b=>b.kind=="church");app.Locate(church.x,church.z);app.EnterWorld(church.x,church.z);
             if(!Check(app.Selected.x==church.x&&app.Selected.z==church.z&&Vector2.Distance(new Vector2(app.Player.position.x,app.Player.position.z),new Vector2(church.x,church.z))>.5f,"Safe spawn preserves original building coordinate",output))yield break;
             app.ReturnToMap();
-            var day=app.GetComponent<PersonsDay>();day.Open();day.Resume();yield return new WaitForSeconds(.3f);
-            day.Pause();if(!Check(!ui.PanelOpen&&!day.Progress.Running,"Story pauses for free exploration",output))yield break;
-            day.Open();day.Resume();
-            for(int stop=0;stop<day.Content.stops.Length;stop++)
+            var day=app.GetComponent<PersonsDay>();
+            if(!Check(day.Ready,"Guide has five connected walkable stops",output))yield break;
+            var marie=day.Person;var nav=marie.GetComponent<UnityEngine.AI.NavMeshAgent>();
+            var first=marie.transform.position;app.EnterWorld(first.x,first.z-2);yield return null;
+            app.View.transform.LookAt(first+Vector3.up*1.5f);
+            if(!Check(day.CanTalk&&day.Progress.State==GuideState.Available,"Approach does not accept the invitation",output))yield break;
+            if(!Check(day.SelectRay(new Ray(app.View.transform.position,(first+Vector3.up*1.45f-app.View.transform.position).normalized)),"Click/controller ray selects Marie",output))yield break;
+            ui.ClickScreen(new Vector2(160,267));yield return null;
+            if(!Check(day.Progress.State==GuideState.Speaking,"Visitor accepts Marie's invitation",output))yield break;
+            if(!Check(day.VoicePlaying,"Bundled Flemish story voice plays",output))yield break;
+            ui.ClickScreen(new Vector2(230,338));yield return null;
+            if(!Check(marie.GetComponent<AudioSource>().clip.name=="answer-0","Optional question plays its own answer",output))yield break;
+            day.Open();yield return new WaitForSeconds(.4f);yield return new WaitForEndOfFrame();
+            CaptureStill(Path.Combine(output,"09-story.png"));
+            day.Advance();yield return new WaitForSeconds(1);
+            if(!Check(Vector3.Distance(first,marie.transform.position)>.2f,"Marie physically leads the visitor",output))yield break;
+            app.EnterWorld(-300,-100);yield return new WaitForSeconds(.3f);
+            if(!Check(day.Progress.State==GuideState.Waiting&&nav.isStopped,"Marie waits when the visitor falls behind",output))yield break;
+            var waiting=marie.transform.position;day.Pause();yield return new WaitForSeconds(.3f);
+            Debug.Log($"STORY_CANCEL panel={ui.PanelOpen} running={day.Progress.Running} displacement={Vector3.Distance(waiting,marie.transform.position)}");
+            if(!Check(!ui.PanelOpen&&!day.Progress.Running&&!day.VoicePlaying&&Vector3.Distance(waiting,marie.transform.position)<.01f,"Leaving stops movement and voice immediately",output))yield break;
+            app.EnterWorld(waiting.x,waiting.z-2);yield return null;day.Open();day.Resume();yield return null;
+            if(!Check(day.Person==marie&&day.Progress.Step==1,"Resume preserves person, outfit and checkpoint",output))yield break;
+            app.ReturnToMap();yield return null;
+            if(!Check(!day.Progress.Running&&!day.VoicePlaying,"Returning to the map pauses the story",output))yield break;
+            var resume=marie.transform.position;app.EnterWorld(resume.x,resume.z-2);yield return null;day.Open();day.Resume();yield return null;
+            // Accelerate travel only in the smoke run; the shipped guide walks at 1.5 m/s.
+            nav.speed=60;nav.acceleration=100;
+            for(int stop=1;stop<day.Content.stops.Length;stop++)
             {
-                var target=day.Content.stops[stop];app.EnterWorld(target.x,target.z);day.Open();yield return new WaitForSeconds(.4f);
-                if(stop==0){ScreenCapture.CaptureScreenshot(Path.Combine(output,"09-story.png"));yield return new WaitForSeconds(.5f);}
-                ui.ClickScreen(new Vector2(420,1000-733));yield return null;
-                if(!Check(day.Progress.Step==stop+1,"Story stop "+(stop+1),output))yield break;
+                float deadline=Time.time+30;
+                while(day.Progress.State!=GuideState.Speaking&&Time.time<deadline)
+                {
+                    var p=marie.transform.position;app.EnterWorld(p.x,p.z-1.8f);
+                    yield return null;
+                }
+                if(!Check(day.Progress.State==GuideState.Speaking&&day.Progress.Step==stop,"Guide follows a complete route to scene "+stop,output))yield break;
+                if(!Check(TextFits(ui),"Guide dialogue fits scene "+stop,output))yield break;
+                ui.ClickScreen(new Vector2(160,267));yield return null;
             }
-            if(!Check(day.Progress.Complete(day.Content.stops.Length),"Story reaches ending",output))yield break;
-            ScreenCapture.CaptureScreenshot(Path.Combine(output,"10-story-ending.png"));yield return new WaitForSeconds(.5f);day.Close();app.ReturnToMap();
+            if(!Check(day.Progress.State==GuideState.Completed,"Story reaches ending",output))yield break;
+            yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"10-story-ending.png"));day.Close();app.ReturnToMap();
             var sound=app.GetComponent<LandscapeSound>();sound.Open();yield return null;
             if(!Check(sound.Sites.Count==3,"Three contextual sound sources",output))yield break;
             sound.SetVolume(.4f);sound.SetMuted(true);
@@ -220,8 +250,12 @@ namespace Ferraris
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"14-world-space-ui.png"));yield return new WaitForSeconds(.7f);
             if(!Check(RayClick(145,817)&&discovery.Page==0,"World-space ray returns to summary",output))yield break;yield return null;
             if(!Check(RayClick(720,217)&&!ui.PanelOpen&&!discovery.Active,"World-space ray closes inspection",output))yield break;
+            day.ResetStory();var meeting=day.Person.transform.position;app.EnterWorld(meeting.x,meeting.z-2);yield return null;day.Open();yield return null;
+            if(!Check(RayClick(160,733)&&day.Progress.State==GuideState.Speaking,"World-space ray accepts Marie's invitation",output))yield break;
+            if(!Check(TextFits(ui),"World-space story text fits",output))yield break;
+            if(!Check(RayClick(510,733)&&day.Progress.State==GuideState.Paused&&!day.VoicePlaying&&!ui.PanelOpen,"World-space ray cancels story and speech",output))yield break;
             InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
-            File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"map preserves location and heading\",\"Escape releases mouse\"],\"hardwareVRVerified\":false}");
+            File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map and discovery regression, map preserves position and heading, Escape releases mouse\",\"guide approach and ray selection\",\"Dutch speech and question\",\"physical leading and waiting\",\"cancel movement and speech\",\"resume checkpoint\",\"map pause\",\"five connected scenes and ending\",\"world-space story accept and cancel\"],\"hardwareVRVerified\":false}");
             Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);
         }
         static bool TextFits(VisitorUI ui)
@@ -230,6 +264,11 @@ namespace Ferraris
             foreach(var text in ui.Root.GetComponentsInChildren<UnityEngine.UI.Text>())
                 if(text.preferredHeight>text.rectTransform.rect.height+2){Debug.LogError($"FERRARIS_TEXT_CLIPPED {text.text} needs {text.preferredHeight} has {text.rectTransform.rect.height}");ok=false;}
             return ok;
+        }
+        static void CaptureStill(string path)
+        {
+            var frame=ScreenCapture.CaptureScreenshotAsTexture();
+            File.WriteAllBytes(path,frame.EncodeToPNG());Destroy(frame);
         }
         IEnumerator Record(string output)
         {

@@ -210,6 +210,7 @@ namespace Ferraris
             if(!Ready||xr)return;
             var ui=GetComponent<VisitorUI>();
             if(ui?.ClickScreen(p)==true||ui?.PanelOpen==true)return;
+            if(InWorld&&GetComponent<PersonsDay>()?.SelectRay(View.ScreenPointToRay(p))==true)return;
             if(InWorld&&GetComponent<ObjectDiscovery>()?.Active==true){GetComponent<ObjectDiscovery>().SelectRay(View.ScreenPointToRay(p));return;}
             if(InWorld)
             {
@@ -242,6 +243,8 @@ namespace Ferraris
             Vector3 uiDirection=Player.rotation*rightRotation.ReadValue<Quaternion>()*Vector3.forward;
             bool uiHit=ui!=null&&ui.ClickRay(new Ray(uiOrigin,uiDirection),down&&!triggerHeld,out _);
             var discovery=GetComponent<ObjectDiscovery>();
+            var story=GetComponent<PersonsDay>();
+            if(!uiHit&&InWorld&&down&&!triggerHeld&&story?.SelectRay(new Ray(uiOrigin,uiDirection))==true){triggerHeld=down;return;}
             if(!uiHit&&InWorld&&discovery?.Active==true&&down&&!triggerHeld)discovery.SelectRay(new Ray(uiOrigin,uiDirection));
             if(uiHit||ui?.PanelOpen==true){rayLine.enabled=true;rayLine.SetPosition(0,uiOrigin);rayLine.SetPosition(1,uiOrigin+uiDirection*2);triggerHeld=down;return;}
             Vector2 right=rightStick.ReadValue<Vector2>(),left=leftStick.ReadValue<Vector2>();
@@ -265,7 +268,7 @@ namespace Ferraris
                 }
                 rayLine.SetPosition(0,origin);rayLine.SetPosition(1,end);
             }
-            rayLine.enabled=!InWorld||discovery?.Active==true;if(InWorld){rayLine.SetPosition(0,uiOrigin);rayLine.SetPosition(1,uiOrigin+uiDirection*12);}triggerHeld=down;
+            rayLine.enabled=!InWorld||discovery?.Active==true||story?.CanTalk==true;if(InWorld){rayLine.SetPosition(0,uiOrigin);rayLine.SetPosition(1,uiOrigin+uiDirection*12);}triggerHeld=down;
         }
         public void ZoomMap(float factor){MapZoom=Mathf.Clamp(MapZoom*factor,1,8);ApplyMapView();}
         public void PanMap(Vector2 delta){MapPan+=delta;float limit=Area.size*.5f*(1-1/MapZoom);MapPan=new Vector2(Mathf.Clamp(MapPan.x,-limit,limit),Mathf.Clamp(MapPan.y,-limit,limit));ApplyMapView();}
@@ -349,6 +352,7 @@ namespace Ferraris
         public void ReturnToMap()
         {
             if(!Ready)return;
+            GetComponent<PersonsDay>()?.SuspendForMap();
             GetComponent<VisitorUI>()?.ClearKeyboardFocus();
             InWorld=false;View.backgroundColor=new Color(.956f,.941f,.898f);View.clearFlags=CameraClearFlags.SolidColor;character.enabled=false;World.gameObject.SetActive(false);mapRoot.SetActive(true);
             pressed=pointerReleased=false;pendingPan=Vector2.zero;
