@@ -1,6 +1,6 @@
 # Validation log — 12 September 2026
 
-Latest update — 13 September 2026: the integrated navigation, Marie guide and map-aligned world build for Quest with verified packaged data, 19 speech clips and signature. The current merged-mainline APK is 80,474,320 bytes (built from `a00c1f3`). The current desktop journey passes 356 checks and all 33 Unity tests pass; the map-edge update passed 116 dedicated checks and 19 XR input replay checks. ADB finds no attached headset. See [current Quest receipt](quest-validation.md). The hardware results below describe the earlier simple scene, not the new package.
+Latest update — 13 September 2026: the integrated navigation, Marie guide and map-aligned world build for Quest with verified packaged data, 19 speech clips and signature. The current development-diagnostics APK is 80,479,944 bytes (built from `544097f`, draft PR #26). The current desktop journey passes 356 checks and all 33 Unity tests pass; the map-edge update passed 116 dedicated checks; the latest diagnostics update passes five diagnostic checks and 21 XR input replay checks. ADB finds no attached headset. See [current Quest receipt](quest-validation.md). The hardware results below describe the earlier simple scene, not the new package.
 
 ## Verified independently of Unity
 
