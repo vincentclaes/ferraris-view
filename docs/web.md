@@ -8,7 +8,7 @@ Live: **https://toenland.vercel.app**. Production deployment `dpl_BoUev3QQ3DXAm1
 
 `bash scripts/unity.sh web` uses Unity 6000.6.0f1 WebGL Build Support, IL2CPP/WebAssembly, WebGL 2 and the custom `Assets/WebGLTemplates/Toenland` template. It is a release build of the existing runtime, not a rewritten approximation. Desktop mouse/keyboard controls and all discovery content are shared with the native app. WebXR is not added; immersive Quest remains the Android build.
 
-Church textures are capped at 2048 px and other landscape textures at 1024 px on WebGL (sky stays 2048). Native texture settings remain unchanged. This reduces the complete gzip deployment from approximately 117 to 68 MiB. The canvas renders at 1440×1000 with a preserved aspect ratio, including full-screen mode, so the existing controls fit reliably.
+Church textures are capped at 2048 px and other landscape textures at 1024 px on WebGL (sky stays 2048). Native texture settings remain unchanged. This reduces the complete gzip deployment from approximately 117 to 68 MiB. The canvas follows the browser window, including full-screen mode, at one rendering pixel per CSS pixel. The native UI scales to fit a 1440×1000 reference area without clipping its panels.
 
 `web/vercel.json` sets the required gzip encoding and MIME types for `.wasm.gz`, `.js.gz` and `.data.gz`. The local standard-library server uses equivalent headers. `bash scripts/deploy-web.sh` deploys `builds/web` as a preview to Vercel project `toenland`, scope `vincentclaes-projects`. It does not upload the repository, original models, APKs or local evidence. No Vercel build process or application backend is needed.
 
@@ -16,9 +16,11 @@ The cover is rendered directly from the project with `Ferraris.Editor.BuildProje
 
 ## Mouse and keyboard
 
+The small north-up map shows the current player position and camera heading. M or a click enlarges it. The world pauses movement while the map is open; closing it preserves position and heading. Andere startplek explicitly returns to location selection. Escape closes a panel or releases the mouse, without discarding the walk.
+
 All visitor-panel buttons accept mouse clicks and Tab/Shift+Tab navigation, with a gold focus outline and Enter/Space activation. Arrow keys also move between focused buttons. Tab releases pointer lock; clicking the landscape resumes mouse look. Panels block background movement and pointer recapture. Escape closes the current panel.
 
-H opens address search, J the day story, L sound, N place names, I inspection and M the map. Address entry owns letter keys and spaces, so typing cannot trigger another feature. Click the address row to resume typing after navigating buttons. Map arrows pan, +/− zoom, R resets, V toggles vectors and Enter enters the centre point. WASD walks, Shift speeds up and the mouse looks around. F2 leaves the canvas for the website full-screen control; normal browser Tab then reaches help and sources.
+Kaart, Ontdek and Hulp are the main controls. Ontdek groups address search, the day story, place names, object inspection and sound settings. M toggles the location map; F1 opens help. H, J, L, N and I remain optional shortcuts. Address entry owns letter keys and spaces, so typing cannot trigger another feature. Click the address row to resume typing after navigating buttons. Map arrows pan, +/− zoom, R resets, V toggles vectors and Enter enters the centre point. WASD walks, Shift speeds up and the mouse looks around. F2 leaves the canvas for the website help control; normal browser Tab reaches full screen.
 
 ## Map consultation
 
@@ -32,7 +34,7 @@ The website build now contains 53 reviewed building polygons and source-supporte
 
 The full Chrome mouse/keyboard journey passed on this update. A final build check confirmed visible outlines and the Dutch unknown-function explanation, with no JavaScript application errors. GIS tests: 5; standalone coordinate checks: 1,089; Unity EditMode: 16; desktop journey: 321. Earlier validation below remains historical context.
 
-## Validation — 12 September 2026
+## Previous-release validation — 12 September 2026
 
 - Unity WebGL release build succeeded; packed-asset check excludes the cached Ferraris raster. Unity EditMode suite passes all 13 tests, including modal focus order and repeated activation after a panel redraw.
 - Chrome at 1440×1100: branded start screen → user-initiated loading → live Ferraris map → map click → rendered church/landscape → WASD movement → I/object selection → Dutch church summary → Escape close → Escape return to map. Screenshots confirm actual rendered states; the visible position changed by approximately 2.6 m during a one-second W press. No application errors in the successful flow.

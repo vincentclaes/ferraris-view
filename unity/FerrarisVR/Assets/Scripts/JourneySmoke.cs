@@ -28,7 +28,7 @@ namespace Ferraris
             foreach(var device in InputSystem.devices)if(device is Mouse or Keyboard)InputSystem.DisableDevice(device);
             var mouse=InputSystem.AddDevice<Mouse>();var keyboard=InputSystem.AddDevice<Keyboard>();
             app.TracePointer=true;
-            Vector2 button=new(200,41);
+            Vector2 button=new(130,56);
             InputSystem.QueueStateEvent(mouse,new MouseState{position=button}.WithButton(MouseButton.Left));
             InputSystem.QueueStateEvent(mouse,new MouseState{position=button});
             yield return null;yield return null;
@@ -41,7 +41,7 @@ namespace Ferraris
             Debug.Log($"DRAG_RESULT inWorld={app.InWorld} pan={app.MapPan}");
             if(!Check(!app.InWorld&&app.MapPan.magnitude>10,"Same-frame drag pans instead of selecting",output))yield break;
             // Reset through the actual toolbar, then test wheel input.
-            button=new Vector2(330,41);
+            button=new Vector2(210,56);
             InputSystem.QueueStateEvent(mouse,new MouseState{position=button}.WithButton(MouseButton.Left));InputSystem.QueueStateEvent(mouse,new MouseState{position=button});
             yield return null;yield return null;
             InputSystem.QueueStateEvent(mouse,new MouseState{position=centre,scroll=new Vector2(0,120)});
@@ -65,6 +65,24 @@ namespace Ferraris
             InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
             if(!Check(Vector3.Distance(start,app.Player.position)>3,"Grounded locomotion",output))yield break;
             if(!Check(app.Player.position.y>=app.Area.Height(app.Player.position.x,app.Player.position.z)-.1f,"Terrain support",output))yield break;
+            // The map must preserve location and heading and stop background movement.
+            var navigation=app.GetComponent<ExplorationUI>();
+            Vector3 mapPosition=app.Player.position;Quaternion mapRotation=app.View.transform.rotation;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.M));yield return null;yield return null;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.W));yield return new WaitForSeconds(.4f);
+            if(!Check(navigation.MapOpen&&app.InWorld&&app.Player.position==mapPosition&&app.View.transform.rotation==mapRotation,"Map preserves position and heading while movement is held",output))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"15-location-map.png"));yield return new WaitForSeconds(.3f);
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.M));yield return null;yield return null;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
+            if(!Check(!navigation.MapOpen&&app.InWorld&&app.Player.position==mapPosition,"M resumes the same walk",output))yield break;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Escape));yield return null;yield return null;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
+            if(!Check(app.InWorld&&Cursor.lockState==CursorLockMode.None,"Escape releases the mouse without leaving the world",output))yield break;
+            navigation.ShowDiscover();yield return null;
+            if(!Check(TextFits(app.GetComponent<VisitorUI>()),"Discovery menu text fits",output))yield break;
+            navigation.ShowHelp();yield return null;
+            if(!Check(TextFits(app.GetComponent<VisitorUI>()),"Dutch help text fits",output))yield break;
+            navigation.Close();
             // Inspect the landmark and grazing animals in the actual player.
             app.enabled=false;
             app.View.transform.position=new Vector3(42,app.Area.Height(42,-22)+14,-22);app.View.transform.LookAt(new Vector3(2,15,26));
@@ -76,16 +94,16 @@ namespace Ferraris
             app.View.transform.position=new Vector3(0,800,0);app.View.transform.rotation=Quaternion.Euler(90,0,0);app.View.orthographic=true;app.View.orthographicSize=550;
             yield return null;ScreenCapture.CaptureScreenshot(Path.Combine(output,"04-world-topdown.png"));yield return new WaitForSeconds(.4f);
             app.enabled=true;RenderSettings.fog=true;
-            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Escape));yield return null;yield return null;
-            InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
-            if(!Check(!app.InWorld && app.View.orthographic,"Return to map",output))yield break;
+            navigation.ToggleMap();yield return null;
+            app.GetComponent<VisitorUI>().ClickScreen(new Vector2(470,178));yield return null;yield return null;
+            if(!Check(!app.InWorld && app.View.orthographic,"Choose another start from the location map",output))yield break;
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"05-return.png"));yield return new WaitForSeconds(.5f);
             var home=app.GetComponent<HomeSearch>();var ui=app.GetComponent<VisitorUI>();
             home.Toggle();yield return null;
             InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.I));
-            foreach(char letter in "Winksele")InputSystem.QueueTextEvent(keyboard,letter);
+            foreach(char letter in "Winksele 4")InputSystem.QueueTextEvent(keyboard,letter);
             yield return null;yield return null;
-            if(!Check(home.Query=="Winksele"&&home.IsOpen&&!app.GetComponent<ObjectDiscovery>().Active,"Address typing does not trigger global shortcuts",output))yield break;
+            if(!Check(home.Query=="Winksele 4"&&home.IsOpen&&!app.GetComponent<ObjectDiscovery>().Active,"Address typing does not trigger global shortcuts",output))yield break;
             InputSystem.QueueStateEvent(keyboard,new KeyboardState());home.SetQuery("Dalenstraat");yield return null;
             if(!Check(ui.PanelOpen,"Address search panel opens",output))yield break;
             var addresses=HomeSearch.Search(app.GetComponent<AddressDisplay>().Book,"Dalenstraat");
@@ -203,7 +221,7 @@ namespace Ferraris
             if(!Check(RayClick(145,817)&&discovery.Page==0,"World-space ray returns to summary",output))yield break;yield return null;
             if(!Check(RayClick(720,217)&&!ui.PanelOpen&&!discovery.Active,"World-space ray closes inspection",output))yield break;
             InputSystem.RemoveDevice(mouse);InputSystem.RemoveDevice(keyboard);
-            File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"Escape return\"],\"hardwareVRVerified\":false}");
+            File.WriteAllText(Path.Combine(output,"journey.json"),"{\"passed\":true,\"checks\":[\"map load\",\"toolbar click\",\"same-frame drag\",\"wheel zoom\",\"mouse raycast selection\",\"world spawn\",\"W key grounded movement\",\"map preserves location and heading\",\"Escape releases mouse\"],\"hardwareVRVerified\":false}");
             Debug.Log("FERRARIS_JOURNEY_PASS");Application.Quit(0);
         }
         static bool TextFits(VisitorUI ui)

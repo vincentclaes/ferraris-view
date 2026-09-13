@@ -39,7 +39,6 @@ namespace Ferraris
         void Start()
         {
             app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();book=GetComponent<AddressDisplay>().Book;
-            ui.Button(new Rect(28,125,290,45),"Waar stond mijn huis?",Toggle);
             keyboard=Keyboard.current;if(keyboard!=null)keyboard.onTextInput+=Typed;
         }
         void OnDestroy(){if(keyboard!=null)keyboard.onTextInput-=Typed;}
@@ -60,7 +59,7 @@ namespace Ferraris
         }
         void Draw()
         {
-            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,app.IsXR?680:500));ui.PanelRoot=panel.transform;ui.PanelOpen=true;ui.ClosePanel=Close;
             Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,195,675,35),"Wat stond waar mijn huis nu staat?",27,panel.transform);
             ui.Button(new Rect(690,195,76,40),"Sluiten",Close,panel.transform,19);
@@ -68,7 +67,7 @@ namespace Ferraris
             if(Selected==null)
             {
                 var matches=Search(book,Query);
-                ui.Text(new Rect(48,282,710,62),Query.Length<2?"Typ een straat en huisnummer, of gebruik de toetsen. Offline zoeken in Winksele en de directe omgeving.":matches.Length==0?"Geen lokaal adres gevonden. Het adres is onbekend in deze momentopname of ligt buiten de beschikbare omgeving.":$"{matches.Length} resultaten. Kies je adres; typ verder om te verfijnen.",21,panel.transform);
+                ui.Text(new Rect(48,282,710,62),Query.Length<2?"Typ een straat en huisnummer. Zoek in Winksele en de directe omgeving.":matches.Length==0?"Geen lokaal adres gevonden. Het adres is onbekend in deze momentopname of ligt buiten de beschikbare omgeving.":$"{matches.Length} resultaten. Kies je adres; typ verder om te verfijnen.",21,panel.transform);
                 for(int i=0;i<Mathf.Min(matches.Length,5);i++){var a=matches[i];ui.Button(new Rect(48,353+i*46,718,42),a.Label,()=>Choose(a),panel.transform,21);}
             }
             else
@@ -81,12 +80,15 @@ namespace Ferraris
                 if(covered)ui.Button(new Rect(300,525,260,44),"Ga naar deze plek",()=>{app.EnterWorld(Selected.x,Selected.z);Close();},panel.transform);
                 ui.Button(new Rect(580,525,180,44),"Verder zoeken",()=>{Selected=null;Draw();},panel.transform,21);
             }
+            if(app.IsXR)
+            {
             string[] rows={"QWERTYUIOP","ASDFGHJKL","ZXCVBNM","1234567890"};
             for(int y=0;y<rows.Length;y++)for(int x=0;x<rows[y].Length;x++){string c=rows[y][x].ToString();ui.Button(new Rect(48+x*54,590+y*48,49,43),c,()=>SetQuery(Query+c),panel.transform);}
             ui.Button(new Rect(603,590,158,43),"Wis letter",()=>SetQuery(Query.Length>0?Query[..^1]:""),panel.transform,20);
             ui.Button(new Rect(603,638,158,43),"Spatie",()=>SetQuery(Query+" "),panel.transform,20);
             ui.Button(new Rect(603,686,158,43),"Wis alles",()=>SetQuery(""),panel.transform,20);
-            ui.Text(new Rect(48,793,700,55),app.IsXR?"Linker X: menu • Rechter richtstraal + trekker: kies\nOffline adresgegevens: Digitaal Vlaanderen":"Typ je adres • Tab: kies knop • Enter: bevestig • Escape: sluiten\nKlik op het adresveld om verder te typen. Bron: Digitaal Vlaanderen",19,panel.transform);
+            }
+            ui.Text(new Rect(48,app.IsXR?793:605,700,55),app.IsXR?"Linker X: menu • Rechter richtstraal + trekker: kies\nOffline adresgegevens: Digitaal Vlaanderen":"Typ je adres • Tab: kies knop • Enter: bevestig • Escape: sluiten\nKlik op het adresveld om verder te typen. Bron: Digitaal Vlaanderen",19,panel.transform);
         }
     }
 }
