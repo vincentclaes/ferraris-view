@@ -4,6 +4,16 @@ Latest update — 13 September 2026: the integrated navigation, Marie guide and 
 
 ## Verified independently of Unity
 
+Acceptance checkpoint, 13 September 2026 (`2be26c7` runtime):
+
+- M1–M4: native build, real Ferraris raster, pan/zoom and coordinate selection are covered by the rendered journey and map-edge regression. The latter exercises all four corners at 1×, 2× and 8×. Numerical coordinate conversion passes 1,089 C# round trips and six GIS tests; this is not historical survey accuracy.
+- M5–M7: real DHMV elevation, selected-location spawn and terrain-supported movement are covered by the current 356-check desktop journey and 25-check controller replay.
+- M8–M10: current export contains 13 roads, 53 reviewed building symbols, 20 land parcels and 259 trees. The map overlay and current built-player top-down capture were compared again. Buildings, church details, animals and crop choices remain illustrative; exact 1775 appearance and the later photorealistic ambition are not proven.
+- Reproducibility: both pipeline stages ran in an isolated scratch directory using only the three cached source responses and reviewed tracing inputs. All five exported Unity resource files match byte-for-byte, and all four parsed GeoJSON outputs match. Receipt: `artifacts/gis-reproduction.json`. Live data and Unity resources were not overwritten.
+- M11: controller bindings, proportional movement, ray selection, turning and return/recentring pass rendered input replay. This does not verify a real OpenXR compositor, stereo tracking, suspend/resume or comfort.
+- M12: the current ARM64/OpenXR APK and signature are verified, with current offline data, road mask and all 19 voice clips. Current hardware acceptance and sustained 72 FPS remain unverified. ADB lists no device and the macOS USB device tree contains no Quest; no Unity build or player is still running.
+- Delivery: the map-edge/vegetation stack is merged and previewed. Diagnostics and VR-map-return changes remain in draft PRs #26 and #27. Production replacement still awaits explicit approval after automatic review rejected it. The objective is not marked complete; the next required acceptance step is installing this exact APK on a connected Quest.
+
 - Official Ferraris WMS layer exists and advertises EPSG:31370. KBR/NGI lookup identifies Winksele on sheet 93, Cortenberghe.
 - Real 2048×2048 Ferraris crop downloaded and visually inspected.
 - Real DHMV II GeoTIFF downloaded; CRS, bounds, nodata absence and pixel-centre/terrain-vertex alignment checked.
