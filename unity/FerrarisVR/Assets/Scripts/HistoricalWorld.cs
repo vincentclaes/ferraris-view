@@ -105,33 +105,100 @@ namespace Ferraris
    for(int i=0;i<b.footprint.Length;i++)
    {
     var a=b.footprint[i];var c=b.footprint[(i+1)%b.footprint.Length];
-    var lowA=Bottom(a);var lowC=Bottom(c);var highA=Roof(a);var highC=Roof(c);
-    Part("brick").Quad(lowA,highA,highC,lowC,Color.white);
-    collision.Quad(lowA,highA,highC,lowC,Color.white);
-    float length=Vector3.Distance(new Vector3(a.x,0,a.z),new Vector3(c.x,0,c.z));
+    float length=Vector2.Distance(new Vector2(a.x,a.z),new Vector2(c.x,c.z));
     if(length>longest){longest=length;doorEdge=i;}
-    // Openings sit on each actual wall, including re-entrant courtyard walls.
-    var along=new Vector3(c.x-a.x,0,c.z-a.z).normalized;var outward=Vector3.Cross(Vector3.up,along);
-    var rotation=Quaternion.LookRotation(-outward);
-    int windows=Mathf.FloorToInt(length/4);
-    for(int j=0;j<windows;j++)
+   }
+   Color oak=new(.56f,.47f,.35f),clay=new(.91f,.66f,.45f);
+   for(int i=0;i<b.footprint.Length;i++)
+   {
+    var a=b.footprint[i];var c=b.footprint[(i+1)%b.footprint.Length];
+    var lowA=Bottom(a);var lowC=Bottom(c);var highA=Roof(a);var highC=Roof(c);
+    collision.Quad(lowA,highA,highC,lowC,Color.white);
+    var along=new Vector3(c.x-a.x,0,c.z-a.z);float length=along.magnitude;
+    if(length<.001f)continue; // Rounded ridge intersections can coincide with a contour vertex.
+    along/=length;
+    var outward=Vector3.Cross(Vector3.up,along);var rotation=Quaternion.LookRotation(-outward);
+    Vector3 P(float x,float y,float depth=0)=>new Vector3(a.x,y,a.z)+along*x+outward*depth;
+    float Base(float x)=>Mathf.Lerp(lowA.y,lowC.y,x/length);
+    float Cap(float x)=>Mathf.Lerp(highA.y,highC.y,x/length);
+    void Wall(float x0,float x1,float y0,float y1,float y2,float y3)
     {
-     var centre=Vector3.Lerp(lowA,lowC,(j+.5f)/windows);centre.y=top-1.15f;centre+=outward*.025f;
-     Part("wood").Box(centre,new Vector3(.9f,1.25f,.09f),rotation,new Color(.5f,.4f,.3f));
-     Part("glass").Box(centre+outward*.055f,new Vector3(.65f,1.02f,.025f),rotation,Color.white);
-     Part("wood").Box(centre+outward*.075f,new Vector3(.06f,1.02f,.025f),rotation,Color.white);
+     if(x1-x0<.001f)return;
+     // Shared wall coordinates keep horizontal brick courses across apertures/gables.
+     Part("brick").Quad(P(x0,y0),P(x0,y1),P(x1,y2),P(x1,y3),Color.white,
+      new Vector2(x0,y0-ground),new Vector2(x0,y1-ground),new Vector2(x1,y2-ground),new Vector2(x1,y3-ground));
     }
+    void Box(string material,float x,float y,float depth,Vector3 size,Color color)=>Part(material).Box(P(x,y,depth),size,rotation,color);
+    var openings=new List<(float x,float width,float bottom,float height,bool door)>();
+    float doorWidth=Mathf.Min(1.1f,longest*.5f);
+    if(i==doorEdge)openings.Add((length/2,doorWidth,ground+.3f,2f,true));
+    int count=Mathf.FloorToInt(length/4);
+    for(int j=0;j<count;j++)
+    {
+     float x=(j+.5f)*length/count;
+     if(i==doorEdge&&Mathf.Abs(x-length/2)<doorWidth/2+1.1f)continue;
+     openings.Add((x,.8f,top-1.72f,1.1f,false));
+    }
+    openings.Sort((a,c)=>a.x.CompareTo(c.x));float cursor=0;
+    foreach(var o in openings)
+    {
+     float left=o.x-o.width/2,right=o.x+o.width/2,upper=o.bottom+o.height;
+     Wall(cursor,left,Base(cursor),Cap(cursor),Cap(left),Base(left));
+     Wall(left,right,Base(left),o.bottom,o.bottom,Base(right));
+     Wall(left,right,upper,Cap(left),Cap(right),upper);
+     // Real aperture with a dark recessed back and masonry reveals, not a panel on brick.
+     float recess=o.door?.12f:.18f;
+     Part("brick").Quad(P(left,o.bottom),P(left,upper),P(left,upper,-recess),P(left,o.bottom,-recess),Color.white);
+     Part("brick").Quad(P(right,o.bottom,-recess),P(right,upper,-recess),P(right,upper),P(right,o.bottom),Color.white);
+     Part("brick").Quad(P(left,upper),P(right,upper),P(right,upper,-recess),P(left,upper,-recess),Color.white);
+     Box(o.door?"wood":"glass",o.x,o.bottom+o.height/2,-recess,new Vector3(o.width,o.height,.035f),o.door?oak:Color.white);
+     foreach(float edge in new[]{left,right})Box("wood",edge,o.bottom+o.height/2,-.045f,new Vector3(.075f,o.height+.09f,.09f),oak);
+     Box("wood",o.x,upper+.055f,-.025f,new Vector3(o.width+.22f,.14f,.15f),oak);
+     Box("stone",o.x,o.bottom-.055f,.04f,new Vector3(o.width+.2f,.11f,.28f),Color.white);
+     if(o.door)
+     {
+      for(int board=1;board<6;board++)Box("wood",left+o.width*board/6,o.bottom+o.height/2,-recess+.022f,new Vector3(.014f,o.height,.012f),oak*.65f);
+      foreach(float y in new[]{o.bottom+.45f,upper-.4f})Box("iron",left+.2f,y,-recess+.03f,new Vector3(.36f,.04f,.025f),Color.white);
+      Box("iron",right-.16f,o.bottom+1,-recess+.05f,new Vector3(.06f,.14f,.065f),Color.white);
+     }
+     else
+     {
+      Box("wood",o.x,o.bottom+o.height/2,-.12f,new Vector3(.045f,o.height,.065f),oak);
+      Box("wood",o.x,o.bottom+o.height*.58f,-.12f,new Vector3(o.width,.04f,.065f),oak);
+      foreach(float side in new[]{-1f,1f})
+      {
+       float x=o.x+side*(o.width/2+.25f);
+       Box("wood",x,o.bottom+o.height/2,.07f,new Vector3(.37f,o.height,.065f),oak);
+       foreach(float y in new[]{o.bottom+.2f,upper-.2f})Box("iron",x,y,.11f,new Vector3(.32f,.035f,.02f),Color.white);
+      }
+     }
+     cursor=right;
+    }
+    Wall(cursor,length,Base(cursor),Cap(cursor),Cap(length),Base(length));
+    // A low masonry footing and thin timber roof edge clarify the building's silhouette.
+    Part("stone").Quad(P(0,Base(0),.015f),P(0,ground+.27f,.015f),P(length,ground+.27f,.015f),P(length,Base(length),.015f),new Color(.82f,.79f,.72f));
+    Part("wood").Beam(highA+Vector3.down*.04f,highC+Vector3.down*.04f,.055f,oak,4);
+   }
+   var ridges=new HashSet<string>();
+   Vector2 RoofUV(Vector3 p)
+   {
+    var local=inverse*(p-new Vector3(b.x,0,b.z));
+    return new Vector2(local.x,local.z*Mathf.Sqrt(1+.93f*.93f));
    }
    for(int i=0;i<b.roof.Length;i+=3)
    {
     var a=Roof(b.roof[i]);var c=Roof(b.roof[i+1]);var d=Roof(b.roof[i+2]);
     if(Vector3.Cross(c-a,d-a).y<0)(c,d)=(d,c);
-    Part("roof").Triangle(a,c,d,new Color(.87f,.52f,.32f));collision.Triangle(a,c,d,Color.white);
+    Part("roof").Triangle(a,c,d,clay,RoofUV(a),RoofUV(c),RoofUV(d));collision.Triangle(a,c,d,Color.white);
+    var points=new[]{a,c,d};
+    for(int edge=0;edge<3;edge++)
+    {
+     var p=points[edge];var q=points[(edge+1)%3];var u=RoofUV(p);var v=RoofUV(q);
+     if(Mathf.Abs(u.y)>.002f||Mathf.Abs(v.y)>.002f)continue;
+     string key=Mathf.RoundToInt(Mathf.Min(u.x,v.x)*1000)+":"+Mathf.RoundToInt(Mathf.Max(u.x,v.x)*1000);
+     if(ridges.Add(key))Part("roof").Beam(p+Vector3.up*.035f,q+Vector3.up*.035f,.09f,clay,8);
+    }
    }
-   var start=b.footprint[doorEdge];var end=b.footprint[(doorEdge+1)%b.footprint.Length];
-   var direction=new Vector3(end.x-start.x,0,end.z-start.z).normalized;var normal=Vector3.Cross(Vector3.up,direction);
-   var door=new Vector3((start.x+end.x)/2,top-2.05f,(start.z+end.z)/2)+normal*.1f;
-   Part("wood").Box(door,new Vector3(Mathf.Min(1.1f,longest*.5f),2,.15f),Quaternion.LookRotation(-normal),new Color(.48f,.35f,.22f));
    var go=new GameObject("Mapped building: "+b.id);go.transform.SetParent(parent,false);
    go.AddComponent<MeshCollider>().sharedMesh=collision.Mesh(b.id+" footprint collision");
   }
