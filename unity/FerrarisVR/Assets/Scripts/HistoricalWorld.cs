@@ -61,12 +61,18 @@ namespace Ferraris
    var mesh=new Mesh{name="DHMV terrain",indexFormat=IndexFormat.UInt32,vertices=vertices,uv=uv,triangles=triangles};mesh.RecalculateNormals();mesh.RecalculateTangents();
    TerrainObject=new GameObject("DHMV terrain");TerrainObject.transform.SetParent(transform,false);TerrainObject.AddComponent<MeshFilter>().sharedMesh=mesh;TerrainObject.AddComponent<MeshRenderer>().sharedMaterial=material;TerrainObject.AddComponent<MeshCollider>().sharedMesh=mesh;
    // Extend the view beyond the playable crop, without extending navigation.
-   var horizon=new WorldMesh();float step=100;
-   for(float z=-2000;z<2000;z+=step)for(float x=-2000;x<2000;x+=step)
+   var horizon=new WorldMesh();float[] rings={.5f,.6f,.9f,1.4f,2f};
+   // Match all 257 edge samples before expanding the illustrative horizon.
+   // A coarse independent grid left visible gaps beside the playable terrain.
+   for(int ring=0;ring<rings.Length-1;ring++)for(int side=0;side<4;side++)for(int i=0;i<n-1;i++)
    {
-    if(x>=-500&&x<500&&z>=-500&&z<500)continue;
-    Vector3 P(float px,float pz)=>new Vector3(px,Area.Height(px,pz)-Mathf.Max(0,Mathf.Max(Mathf.Abs(px),Mathf.Abs(pz))-500)*.006f,pz);
-    horizon.Quad(P(x,z),P(x,z+step),P(x+step,z+step),P(x+step,z),Color.white);
+    Vector3 P(int index,float radius)
+    {
+     float t=(float)index/(n-1)*2-1;Vector2 edge=side==0?new Vector2(t,-1):side==1?new Vector2(1,t):side==2?new Vector2(-t,1):new Vector2(-1,-t);
+     float x=edge.x*radius*Area.size,z=edge.y*radius*Area.size;
+     return new Vector3(x,Area.Height(x,z)-(radius-.5f)*Area.size*.006f,z);
+    }
+    horizon.Quad(P(i,rings[ring]),P(i+1,rings[ring]),P(i+1,rings[ring+1]),P(i,rings[ring+1]),Color.white);
    }
    var distant=horizon.Object("Distant countryside",transform,material);distant.AddComponent<MeshCollider>().sharedMesh=distant.GetComponent<MeshFilter>().sharedMesh;
   }

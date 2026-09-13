@@ -25,7 +25,22 @@ namespace Ferraris.Tests
             var a=JsonUtility.FromJson<AreaData>(Resources.Load<TextAsset>("Winksele/area").text);
             var d=JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("Winksele/world").text);
             var go=new GameObject("Smoke world");
-            try{var world=go.AddComponent<HistoricalWorld>();world.Build(a,d);Assert.That(world.TerrainObject.GetComponent<MeshCollider>(),Is.Not.Null);Assert.That(world.TerrainObject.GetComponent<MeshRenderer>().sharedMaterial.GetTexture("_RoadMask"),Is.SameAs(Resources.Load<Texture2D>("Winksele/roads")));Assert.That(world.BuildingRoot,Is.Not.Null);Assert.That(world.TreeCount,Is.GreaterThan(100));Assert.That(world.AnimalCount,Is.GreaterThan(0));Assert.That(world.BuildingRoot.GetComponentInChildren<LODGroup>(),Is.Not.Null);}
+            try
+            {
+                var world=go.AddComponent<HistoricalWorld>();world.Build(a,d);
+                var terrain=world.TerrainObject.GetComponent<MeshCollider>();Assert.That(terrain,Is.Not.Null);
+                Assert.That(world.TerrainObject.GetComponent<MeshRenderer>().sharedMaterial.GetTexture("_RoadMask"),Is.SameAs(Resources.Load<Texture2D>("Winksele/roads")));
+                Assert.That(world.BuildingRoot,Is.Not.Null);Assert.That(world.TreeCount,Is.GreaterThan(100));Assert.That(world.AnimalCount,Is.GreaterThan(0));Assert.That(world.BuildingRoot.GetComponentInChildren<LODGroup>(),Is.Not.Null);
+                var horizon=go.transform.Find("Distant countryside").GetComponent<MeshCollider>();Physics.SyncTransforms();
+                for(int side=0;side<4;side++)for(int i=1;i<256;i++)
+                {
+                    float t=(i/256f*2-1)*a.size/2;var outward=side==0?Vector3.back:side==1?Vector3.right:side==2?Vector3.forward:Vector3.left;
+                    var edge=outward*a.size/2+(side%2==0?Vector3.right:Vector3.forward)*t;
+                    Assert.That(terrain.Raycast(new Ray(edge-outward*.02f+Vector3.up*200,Vector3.down),out var inner,300),Is.True);
+                    Assert.That(horizon.Raycast(new Ray(edge+outward*.02f+Vector3.up*200,Vector3.down),out var outer,300),Is.True);
+                    Assert.That(Mathf.Abs(inner.point.y-outer.point.y),Is.LessThan(.04f),"Horizon meets sampled terrain at "+side+" / "+i);
+                }
+            }
             finally{Object.DestroyImmediate(go);}
         }
     }
