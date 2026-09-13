@@ -4,7 +4,7 @@ from pathlib import Path
 from urllib.request import urlopen
 ROOT=Path(__file__).resolve().parents[1]
 BASE='https://topoferraris.ngi.be/'
-MAPPED={'leg1777-1_18':['road'],'leg1777-1_13':['soil','crop'],'leg1777-1_9':['orchard'],'leg1777-1_20':['grass'],'leg1777-1_43':['tree'],'leg1777-1_61':['house','barn','farmhouse'],'leg1777-2_38':['church']}
+MAPPED={'leg1777-1_18':['road'],'leg1777-1_13':['soil','crop'],'leg1777-1_9':['orchard'],'leg1777-1_20':['grass'],'leg1777-1_43':['tree'],'leg1777-1_61':['building'],'leg1777-2_38':['church']}
 EXTRA={'Pente douce':'Zachte helling','Rochers':'Rotsen','Isle':'Eiland','Marée':'Getij','Plage de sable':'Zandstrand','Dunes intérieures':'Landduinen','Dunes côtières':'Kustduinen'}
 def decode(s):return re.sub(r'\\u([a-fA-F0-9]{4})|\\x([a-fA-F0-9]{2})',lambda m:chr(int(m[1] or m[2],16)),s)
 def main():

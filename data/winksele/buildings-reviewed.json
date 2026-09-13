@@ -1,0 +1,2077 @@
+{
+  "source": "https://backoffice.biblio.ugent.be/download/2116980/6770945",
+  "legendPages": [
+    14,
+    16
+  ],
+  "raster": "Ferraris crop via Digitaal Vlaanderen WMS, KBR sheet 93",
+  "rasterSha256": "b579888c2383120fb23261a252b97a78e7ba94a8516eb747ec449cfbb281b6c7",
+  "imageSize": 1024,
+  "reviewDate": "2026-09-13",
+  "method": "Human-reviewed colour-contour proposals with manual boundary corrections. Polygons follow readable painted symbols; brush edges and pictographic perspective remain interpretative.",
+  "rejectedLegacy": {
+    "2": "parish number",
+    "5": "parish number",
+    "7": "parish number",
+    "8": "parish number",
+    "10": "vegetation or parcel boundary",
+    "20": "vegetation or parcel boundary",
+    "23": "parish number",
+    "45": "vegetation or parcel boundary",
+    "49": "vegetation or parcel boundary",
+    "51": "vegetation or parcel boundary"
+  },
+  "mergedLegacy": {
+    "21,22": "one connected building symbol; retained with concave outline"
+  },
+  "buildings": [
+    {
+      "id": "winksele-legacy-00",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          180.0,
+          86.5
+        ],
+        [
+          185.0,
+          90.5
+        ],
+        [
+          185.5,
+          93.0
+        ],
+        [
+          177.5,
+          105.0
+        ],
+        [
+          173.5,
+          105.5
+        ],
+        [
+          167.0,
+          102.5
+        ],
+        [
+          176.0,
+          87.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-01",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          190.5,
+          96.5
+        ],
+        [
+          199.0,
+          101.0
+        ],
+        [
+          194.5,
+          109.0
+        ],
+        [
+          185.5,
+          105.5
+        ],
+        [
+          186.0,
+          98.5
+        ],
+        [
+          187.5,
+          97.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-03",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          495.0,
+          184.0
+        ],
+        [
+          497.5,
+          184.0
+        ],
+        [
+          502.5,
+          191.5
+        ],
+        [
+          495.0,
+          200.0
+        ],
+        [
+          489.0,
+          203.5
+        ],
+        [
+          487.0,
+          203.5
+        ],
+        [
+          481.0,
+          199.5
+        ],
+        [
+          482.0,
+          196.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-04",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          511.0,
+          147.0
+        ],
+        [
+          520.0,
+          139.0
+        ],
+        [
+          534.0,
+          151.0
+        ],
+        [
+          525.0,
+          162.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-06",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          548.0,
+          108.0
+        ],
+        [
+          556.0,
+          104.0
+        ],
+        [
+          562.0,
+          114.0
+        ],
+        [
+          555.0,
+          121.0
+        ],
+        [
+          547.0,
+          115.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-09",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          835.0,
+          31.0
+        ],
+        [
+          838.0,
+          31.5
+        ],
+        [
+          839.0,
+          32.5
+        ],
+        [
+          840.5,
+          44.0
+        ],
+        [
+          836.0,
+          46.5
+        ],
+        [
+          830.0,
+          48.5
+        ],
+        [
+          823.0,
+          49.0
+        ],
+        [
+          820.5,
+          40.5
+        ],
+        [
+          820.0,
+          37.5
+        ],
+        [
+          823.0,
+          35.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-11",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          842.5,
+          108.5
+        ],
+        [
+          844.5,
+          109.0
+        ],
+        [
+          846.0,
+          110.5
+        ],
+        [
+          845.5,
+          119.0
+        ],
+        [
+          844.0,
+          120.5
+        ],
+        [
+          838.5,
+          121.0
+        ],
+        [
+          837.0,
+          118.0
+        ],
+        [
+          837.0,
+          111.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-12",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          853.0,
+          151.5
+        ],
+        [
+          855.0,
+          153.5
+        ],
+        [
+          856.0,
+          158.5
+        ],
+        [
+          854.0,
+          162.0
+        ],
+        [
+          840.5,
+          169.0
+        ],
+        [
+          837.0,
+          168.5
+        ],
+        [
+          834.5,
+          162.0
+        ],
+        [
+          836.0,
+          159.0
+        ],
+        [
+          849.0,
+          152.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-13",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          863.0,
+          195.0
+        ],
+        [
+          865.0,
+          200.0
+        ],
+        [
+          864.5,
+          204.5
+        ],
+        [
+          860.0,
+          208.0
+        ],
+        [
+          852.0,
+          211.5
+        ],
+        [
+          849.0,
+          207.5
+        ],
+        [
+          847.5,
+          202.5
+        ],
+        [
+          855.0,
+          197.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-14",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          812.0,
+          244.0
+        ],
+        [
+          824.0,
+          238.0
+        ],
+        [
+          829.0,
+          247.0
+        ],
+        [
+          818.0,
+          253.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-15",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          816.5,
+          287.5
+        ],
+        [
+          819.5,
+          288.5
+        ],
+        [
+          827.0,
+          302.5
+        ],
+        [
+          825.5,
+          306.0
+        ],
+        [
+          820.0,
+          308.5
+        ],
+        [
+          815.5,
+          304.5
+        ],
+        [
+          811.5,
+          298.0
+        ],
+        [
+          810.0,
+          295.0
+        ],
+        [
+          812.0,
+          291.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-16",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          808.5,
+          315.5
+        ],
+        [
+          816.5,
+          328.5
+        ],
+        [
+          807.0,
+          335.0
+        ],
+        [
+          803.5,
+          332.5
+        ],
+        [
+          797.5,
+          323.0
+        ],
+        [
+          804.0,
+          316.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-17",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          827.5,
+          315.5
+        ],
+        [
+          830.5,
+          318.5
+        ],
+        [
+          832.0,
+          322.0
+        ],
+        [
+          823.0,
+          328.0
+        ],
+        [
+          819.0,
+          323.5
+        ],
+        [
+          819.5,
+          320.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-18",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          603.0,
+          321.0
+        ],
+        [
+          609.0,
+          326.0
+        ],
+        [
+          609.5,
+          330.0
+        ],
+        [
+          598.5,
+          342.0
+        ],
+        [
+          593.0,
+          344.0
+        ],
+        [
+          586.5,
+          338.0
+        ],
+        [
+          586.0,
+          336.0
+        ],
+        [
+          591.0,
+          329.5
+        ],
+        [
+          594.0,
+          326.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-19",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          642.0,
+          382.0
+        ],
+        [
+          645.0,
+          384.0
+        ],
+        [
+          648.5,
+          391.0
+        ],
+        [
+          652.0,
+          400.0
+        ],
+        [
+          651.0,
+          402.5
+        ],
+        [
+          643.0,
+          408.0
+        ],
+        [
+          638.0,
+          404.0
+        ],
+        [
+          632.0,
+          396.0
+        ],
+        [
+          629.5,
+          390.5
+        ],
+        [
+          630.5,
+          388.5
+        ],
+        [
+          638.0,
+          383.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-21",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          526.0,
+          348.0
+        ],
+        [
+          555.0,
+          328.0
+        ],
+        [
+          561.0,
+          337.0
+        ],
+        [
+          549.0,
+          346.0
+        ],
+        [
+          560.0,
+          355.0
+        ],
+        [
+          551.0,
+          363.0
+        ],
+        [
+          541.0,
+          352.0
+        ],
+        [
+          532.0,
+          358.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-24",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          496.0,
+          400.0
+        ],
+        [
+          518.0,
+          385.0
+        ],
+        [
+          525.0,
+          397.0
+        ],
+        [
+          507.0,
+          411.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-25",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          488.0,
+          417.5
+        ],
+        [
+          493.0,
+          421.0
+        ],
+        [
+          496.5,
+          427.5
+        ],
+        [
+          488.5,
+          437.5
+        ],
+        [
+          486.0,
+          440.0
+        ],
+        [
+          482.5,
+          440.5
+        ],
+        [
+          476.5,
+          437.0
+        ],
+        [
+          475.5,
+          434.0
+        ],
+        [
+          485.5,
+          418.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-26",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          470.5,
+          456.5
+        ],
+        [
+          473.0,
+          457.0
+        ],
+        [
+          477.5,
+          463.0
+        ],
+        [
+          467.5,
+          476.5
+        ],
+        [
+          465.5,
+          478.0
+        ],
+        [
+          462.0,
+          478.0
+        ],
+        [
+          457.0,
+          475.0
+        ],
+        [
+          455.5,
+          473.5
+        ],
+        [
+          455.5,
+          471.0
+        ],
+        [
+          460.0,
+          463.0
+        ],
+        [
+          465.0,
+          458.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-27",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          472.0,
+          520.0
+        ],
+        [
+          474.0,
+          520.0
+        ],
+        [
+          476.0,
+          522.5
+        ],
+        [
+          476.5,
+          530.0
+        ],
+        [
+          468.5,
+          532.5
+        ],
+        [
+          466.0,
+          532.5
+        ],
+        [
+          464.5,
+          524.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-28",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          421.5,
+          511.5
+        ],
+        [
+          434.5,
+          514.0
+        ],
+        [
+          437.0,
+          515.5
+        ],
+        [
+          437.0,
+          520.5
+        ],
+        [
+          434.0,
+          525.5
+        ],
+        [
+          423.0,
+          525.5
+        ],
+        [
+          420.5,
+          524.0
+        ],
+        [
+          419.0,
+          519.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-30",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          566.0,
+          393.5
+        ],
+        [
+          569.5,
+          401.5
+        ],
+        [
+          562.5,
+          406.5
+        ],
+        [
+          559.5,
+          406.5
+        ],
+        [
+          555.0,
+          401.5
+        ],
+        [
+          555.5,
+          396.5
+        ],
+        [
+          559.0,
+          394.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-31",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          563.0,
+          417.0
+        ],
+        [
+          566.5,
+          421.5
+        ],
+        [
+          568.0,
+          427.5
+        ],
+        [
+          560.5,
+          432.5
+        ],
+        [
+          558.5,
+          432.0
+        ],
+        [
+          556.0,
+          429.0
+        ],
+        [
+          552.5,
+          420.5
+        ],
+        [
+          555.5,
+          418.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-32",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          560.5,
+          447.5
+        ],
+        [
+          563.5,
+          459.0
+        ],
+        [
+          559.5,
+          462.5
+        ],
+        [
+          553.0,
+          463.5
+        ],
+        [
+          549.5,
+          456.0
+        ],
+        [
+          549.0,
+          452.0
+        ],
+        [
+          552.5,
+          449.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-33",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          576.0,
+          496.0
+        ],
+        [
+          579.5,
+          498.0
+        ],
+        [
+          580.5,
+          508.5
+        ],
+        [
+          578.0,
+          510.5
+        ],
+        [
+          572.5,
+          511.5
+        ],
+        [
+          564.0,
+          511.0
+        ],
+        [
+          561.0,
+          508.5
+        ],
+        [
+          561.0,
+          500.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-34",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          579.0,
+          519.0
+        ],
+        [
+          580.5,
+          520.0
+        ],
+        [
+          580.5,
+          537.0
+        ],
+        [
+          576.5,
+          540.0
+        ],
+        [
+          568.0,
+          542.5
+        ],
+        [
+          566.5,
+          541.0
+        ],
+        [
+          566.0,
+          525.5
+        ],
+        [
+          566.5,
+          521.0
+        ],
+        [
+          568.0,
+          519.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-35",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          537.5,
+          538.0
+        ],
+        [
+          544.0,
+          538.5
+        ],
+        [
+          545.5,
+          540.0
+        ],
+        [
+          547.0,
+          547.5
+        ],
+        [
+          545.5,
+          549.5
+        ],
+        [
+          526.0,
+          552.5
+        ],
+        [
+          524.0,
+          540.5
+        ],
+        [
+          525.0,
+          539.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-36",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          516.0,
+          539.0
+        ],
+        [
+          518.5,
+          540.0
+        ],
+        [
+          519.0,
+          547.5
+        ],
+        [
+          518.0,
+          548.5
+        ],
+        [
+          510.0,
+          548.0
+        ],
+        [
+          508.5,
+          546.5
+        ],
+        [
+          509.0,
+          542.0
+        ],
+        [
+          511.0,
+          539.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-37",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          477.5,
+          540.5
+        ],
+        [
+          481.0,
+          545.0
+        ],
+        [
+          482.0,
+          548.5
+        ],
+        [
+          481.0,
+          550.5
+        ],
+        [
+          477.0,
+          552.0
+        ],
+        [
+          466.5,
+          551.5
+        ],
+        [
+          465.0,
+          549.5
+        ],
+        [
+          464.5,
+          545.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-38",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          450.5,
+          565.0
+        ],
+        [
+          451.5,
+          566.0
+        ],
+        [
+          452.0,
+          572.0
+        ],
+        [
+          450.0,
+          575.0
+        ],
+        [
+          442.0,
+          575.0
+        ],
+        [
+          437.5,
+          573.5
+        ],
+        [
+          437.5,
+          567.0
+        ],
+        [
+          438.5,
+          566.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-39",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          456.0,
+          581.0
+        ],
+        [
+          459.0,
+          582.5
+        ],
+        [
+          461.0,
+          590.0
+        ],
+        [
+          456.5,
+          593.0
+        ],
+        [
+          438.0,
+          594.0
+        ],
+        [
+          437.0,
+          593.0
+        ],
+        [
+          437.0,
+          583.0
+        ],
+        [
+          439.0,
+          581.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-40",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          494.0,
+          565.0
+        ],
+        [
+          507.5,
+          565.0
+        ],
+        [
+          509.0,
+          566.0
+        ],
+        [
+          510.5,
+          578.0
+        ],
+        [
+          509.5,
+          579.0
+        ],
+        [
+          487.5,
+          581.5
+        ],
+        [
+          478.5,
+          581.5
+        ],
+        [
+          477.5,
+          580.5
+        ],
+        [
+          478.0,
+          567.0
+        ],
+        [
+          479.5,
+          566.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-41",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          503.0,
+          609.0
+        ],
+        [
+          504.5,
+          610.5
+        ],
+        [
+          504.5,
+          618.0
+        ],
+        [
+          503.0,
+          620.0
+        ],
+        [
+          492.5,
+          621.5
+        ],
+        [
+          486.0,
+          620.5
+        ],
+        [
+          485.0,
+          617.0
+        ],
+        [
+          487.0,
+          609.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-42",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          493.0,
+          636.0
+        ],
+        [
+          497.5,
+          636.0
+        ],
+        [
+          499.5,
+          638.5
+        ],
+        [
+          500.0,
+          643.5
+        ],
+        [
+          499.0,
+          644.5
+        ],
+        [
+          488.5,
+          648.5
+        ],
+        [
+          480.0,
+          649.5
+        ],
+        [
+          478.0,
+          648.0
+        ],
+        [
+          479.0,
+          638.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-43",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          520.0,
+          569.0
+        ],
+        [
+          549.0,
+          569.0
+        ],
+        [
+          550.0,
+          588.0
+        ],
+        [
+          537.0,
+          588.0
+        ],
+        [
+          537.0,
+          581.0
+        ],
+        [
+          520.0,
+          581.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-44",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          537.0,
+          601.0
+        ],
+        [
+          543.5,
+          601.0
+        ],
+        [
+          545.0,
+          602.5
+        ],
+        [
+          547.5,
+          609.5
+        ],
+        [
+          547.0,
+          613.5
+        ],
+        [
+          539.0,
+          617.0
+        ],
+        [
+          528.0,
+          618.5
+        ],
+        [
+          525.5,
+          617.0
+        ],
+        [
+          522.5,
+          605.5
+        ],
+        [
+          526.5,
+          602.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-46",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          592.5,
+          568.0
+        ],
+        [
+          596.5,
+          576.0
+        ],
+        [
+          595.5,
+          581.0
+        ],
+        [
+          594.0,
+          582.5
+        ],
+        [
+          579.0,
+          584.0
+        ],
+        [
+          577.0,
+          582.5
+        ],
+        [
+          575.0,
+          577.0
+        ],
+        [
+          575.0,
+          571.0
+        ],
+        [
+          581.0,
+          569.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-47",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          604.0,
+          569.5
+        ],
+        [
+          616.5,
+          571.0
+        ],
+        [
+          619.5,
+          573.0
+        ],
+        [
+          621.0,
+          577.0
+        ],
+        [
+          618.0,
+          582.0
+        ],
+        [
+          615.5,
+          583.5
+        ],
+        [
+          604.5,
+          584.0
+        ],
+        [
+          598.5,
+          582.5
+        ],
+        [
+          599.0,
+          572.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-48",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          637.5,
+          575.0
+        ],
+        [
+          641.5,
+          575.5
+        ],
+        [
+          650.5,
+          577.5
+        ],
+        [
+          650.5,
+          593.0
+        ],
+        [
+          647.0,
+          598.5
+        ],
+        [
+          637.0,
+          596.5
+        ],
+        [
+          635.5,
+          595.0
+        ],
+        [
+          635.5,
+          577.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-50",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          601.5,
+          614.0
+        ],
+        [
+          605.5,
+          615.0
+        ],
+        [
+          606.5,
+          625.0
+        ],
+        [
+          602.0,
+          627.5
+        ],
+        [
+          592.5,
+          628.5
+        ],
+        [
+          588.5,
+          627.0
+        ],
+        [
+          587.0,
+          619.0
+        ],
+        [
+          588.0,
+          616.5
+        ],
+        [
+          595.5,
+          615.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-52",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          421.0,
+          716.5
+        ],
+        [
+          426.5,
+          720.5
+        ],
+        [
+          427.5,
+          723.5
+        ],
+        [
+          422.0,
+          732.5
+        ],
+        [
+          420.5,
+          734.5
+        ],
+        [
+          413.5,
+          734.5
+        ],
+        [
+          413.0,
+          733.0
+        ],
+        [
+          418.5,
+          717.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-53",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          457.5,
+          703.0
+        ],
+        [
+          472.5,
+          703.5
+        ],
+        [
+          473.5,
+          704.5
+        ],
+        [
+          473.5,
+          711.0
+        ],
+        [
+          472.0,
+          713.0
+        ],
+        [
+          461.0,
+          714.0
+        ],
+        [
+          458.0,
+          710.5
+        ],
+        [
+          456.5,
+          704.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-54",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          466.0,
+          825.5
+        ],
+        [
+          470.0,
+          826.5
+        ],
+        [
+          472.0,
+          830.0
+        ],
+        [
+          476.0,
+          839.5
+        ],
+        [
+          473.0,
+          845.0
+        ],
+        [
+          466.0,
+          846.0
+        ],
+        [
+          462.5,
+          844.0
+        ],
+        [
+          462.0,
+          837.5
+        ],
+        [
+          461.5,
+          829.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-55",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          397.0,
+          832.5
+        ],
+        [
+          400.5,
+          833.5
+        ],
+        [
+          402.0,
+          835.5
+        ],
+        [
+          401.0,
+          847.0
+        ],
+        [
+          398.0,
+          849.5
+        ],
+        [
+          389.0,
+          850.0
+        ],
+        [
+          387.0,
+          846.5
+        ],
+        [
+          386.5,
+          838.5
+        ],
+        [
+          387.0,
+          834.5
+        ],
+        [
+          389.0,
+          833.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-legacy-56",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          463.0,
+          924.0
+        ],
+        [
+          465.5,
+          925.5
+        ],
+        [
+          472.0,
+          934.0
+        ],
+        [
+          471.5,
+          938.5
+        ],
+        [
+          469.5,
+          940.0
+        ],
+        [
+          464.5,
+          941.5
+        ],
+        [
+          458.5,
+          942.5
+        ],
+        [
+          455.0,
+          938.0
+        ],
+        [
+          453.5,
+          930.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-new-northeast",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          833.5,
+          266.0
+        ],
+        [
+          835.5,
+          266.0
+        ],
+        [
+          838.0,
+          269.0
+        ],
+        [
+          840.0,
+          277.0
+        ],
+        [
+          832.5,
+          281.5
+        ],
+        [
+          827.0,
+          273.5
+        ],
+        [
+          827.0,
+          271.5
+        ],
+        [
+          829.5,
+          267.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-new-centre-west",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          531.0,
+          413.0
+        ],
+        [
+          550.0,
+          400.0
+        ],
+        [
+          557.0,
+          410.0
+        ],
+        [
+          542.0,
+          423.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-new-centre-east",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          563.0,
+          467.0
+        ],
+        [
+          566.5,
+          477.0
+        ],
+        [
+          563.5,
+          482.0
+        ],
+        [
+          553.0,
+          482.5
+        ],
+        [
+          552.0,
+          481.5
+        ],
+        [
+          550.0,
+          473.0
+        ],
+        [
+          550.0,
+          468.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-new-church-west",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          469.0,
+          505.0
+        ],
+        [
+          478.0,
+          504.0
+        ],
+        [
+          481.0,
+          512.0
+        ],
+        [
+          476.0,
+          519.0
+        ],
+        [
+          469.0,
+          518.0
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-new-southwest",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          416.5,
+          739.0
+        ],
+        [
+          417.0,
+          744.0
+        ],
+        [
+          411.5,
+          751.0
+        ],
+        [
+          406.5,
+          751.5
+        ],
+        [
+          404.5,
+          748.0
+        ],
+        [
+          407.5,
+          741.5
+        ],
+        [
+          410.0,
+          740.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-new-southwest-edge",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          300.0,
+          843.0
+        ],
+        [
+          306.5,
+          848.0
+        ],
+        [
+          306.5,
+          853.0
+        ],
+        [
+          301.5,
+          858.5
+        ],
+        [
+          295.0,
+          862.5
+        ],
+        [
+          288.5,
+          857.5
+        ],
+        [
+          288.0,
+          853.5
+        ],
+        [
+          297.5,
+          843.5
+        ]
+      ],
+      "evidence": "Red building symbol; no specific function established from the symbol."
+    },
+    {
+      "id": "winksele-church",
+      "kind": "church",
+      "legend": "church-with-graveyard",
+      "footprint": [
+        [
+          490,
+          490
+        ],
+        [
+          519,
+          477
+        ],
+        [
+          525,
+          485
+        ],
+        [
+          495,
+          498
+        ]
+      ],
+      "evidence": "Church pictogram inside enclosed graveyard; black tower/cross is a perspective symbol, not an additional building footprint. Outline follows the nave symbol."
+    },
+    {
+      "id": "winksele-centre-small",
+      "kind": "building",
+      "legend": "ordinary-buildings",
+      "footprint": [
+        [
+          557,
+          342
+        ],
+        [
+          565,
+          341
+        ],
+        [
+          566,
+          347
+        ],
+        [
+          561,
+          350
+        ],
+        [
+          556,
+          346
+        ]
+      ],
+      "evidence": "Small detached red building symbol next to the T-shaped building; function unknown."
+    }
+  ]
+}

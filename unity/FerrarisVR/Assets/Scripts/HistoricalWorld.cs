@@ -88,16 +88,72 @@ namespace Ferraris
    bool barn=b.kind=="barn";float h=barn?3.3f:b.kind=="farmhouse"?4.1f:2.7f;
    return (length,span,h,span*.5f*Mathf.Tan((barn?47:43)*Mathf.Deg2Rad),Quaternion.Euler(0,b.yaw+(b.depth>b.width?90:0),0));
   }
+  void BuildMappedBuilding(Building b,Transform parent)
+  {
+   // The plan follows the reviewed symbol; elevations and openings are illustrative.
+   float ground=Area.Height(b.x,b.z)-.3f,top=ground+3.05f;
+   var inverse=Quaternion.Euler(0,-b.yaw,0);var collision=new WorldMesh();
+   Vector3 Bottom(MapPoint p)=>new(p.x,Mathf.Min(ground,Area.Height(p.x,p.z)-.3f),p.z);
+   Vector3 Roof(MapPoint p)
+   {
+    float across=(inverse*new Vector3(p.x-b.x,0,p.z-b.z)).z;
+    return new Vector3(p.x,top+Mathf.Max(0,b.depth/2-Mathf.Abs(across))*.93f,p.z);
+   }
+   float longest=0;int doorEdge=0;
+   for(int i=0;i<b.footprint.Length;i++)
+   {
+    var a=b.footprint[i];var c=b.footprint[(i+1)%b.footprint.Length];
+    var lowA=Bottom(a);var lowC=Bottom(c);var highA=Roof(a);var highC=Roof(c);
+    Part("brick").Quad(lowA,highA,highC,lowC,Color.white);
+    collision.Quad(lowA,highA,highC,lowC,Color.white);
+    float length=Vector3.Distance(new Vector3(a.x,0,a.z),new Vector3(c.x,0,c.z));
+    if(length>longest){longest=length;doorEdge=i;}
+    // Openings sit on each actual wall, including re-entrant courtyard walls.
+    var along=new Vector3(c.x-a.x,0,c.z-a.z).normalized;var outward=Vector3.Cross(Vector3.up,along);
+    var rotation=Quaternion.LookRotation(-outward);
+    int windows=Mathf.FloorToInt(length/4);
+    for(int j=0;j<windows;j++)
+    {
+     var centre=Vector3.Lerp(lowA,lowC,(j+.5f)/windows);centre.y=top-1.15f;centre+=outward*.025f;
+     Part("wood").Box(centre,new Vector3(.9f,1.25f,.09f),rotation,new Color(.5f,.4f,.3f));
+     Part("glass").Box(centre+outward*.055f,new Vector3(.65f,1.02f,.025f),rotation,Color.white);
+     Part("wood").Box(centre+outward*.075f,new Vector3(.06f,1.02f,.025f),rotation,Color.white);
+    }
+   }
+   for(int i=0;i<b.roof.Length;i+=3)
+   {
+    var a=Roof(b.roof[i]);var c=Roof(b.roof[i+1]);var d=Roof(b.roof[i+2]);
+    if(Vector3.Cross(c-a,d-a).y<0)(c,d)=(d,c);
+    Part("roof").Triangle(a,c,d,new Color(.87f,.52f,.32f));collision.Triangle(a,c,d,Color.white);
+   }
+   var start=b.footprint[doorEdge];var end=b.footprint[(doorEdge+1)%b.footprint.Length];
+   var direction=new Vector3(end.x-start.x,0,end.z-start.z).normalized;var normal=Vector3.Cross(Vector3.up,direction);
+   var door=new Vector3((start.x+end.x)/2,top-2.05f,(start.z+end.z)/2)+normal*.1f;
+   Part("wood").Box(door,new Vector3(Mathf.Min(1.1f,longest*.5f),2,.15f),Quaternion.LookRotation(-normal),new Color(.48f,.35f,.22f));
+   var go=new GameObject("Mapped building: "+b.id);go.transform.SetParent(parent,false);
+   go.AddComponent<MeshCollider>().sharedMesh=collision.Mesh(b.id+" footprint collision");
+  }
   void BuildBuilding(Building b,Transform parent)
   {
+   if(b.kind=="building"){BuildMappedBuilding(b,parent);return;}
    float y=Area.Height(b.x,b.z);Vector3 origin=new(b.x,y-.18f,b.z);Quaternion q=Quaternion.Euler(0,b.yaw,0);
    if(b.kind=="church")
    {
     var prefab=Resources.Load<GameObject>("Visuals/Church");
     if(prefab!=null)
     {
-     var church=Instantiate(prefab,parent);church.name="Maria-Hemelvaartkerk — interpreted period exterior";church.transform.SetPositionAndRotation(origin,q);church.transform.localScale=Vector3.one*(b.width/43.72f);
+     var church=Instantiate(prefab,parent);church.name="Maria-Hemelvaartkerk — interpreted period exterior";
      foreach(var t in church.GetComponentsInChildren<Transform>(true))if(t.name.IndexOf("Sacristy",StringComparison.OrdinalIgnoreCase)>=0)t.gameObject.SetActive(false);
+     // Fit the visible plan envelope to the reviewed nave symbol; the icon does
+     // not supply a measured floor plan or the historic tower height.
+     Bounds bounds=default;bool first=true;
+     foreach(var renderer in church.GetComponentsInChildren<MeshRenderer>())
+     {
+      if(first){bounds=renderer.bounds;first=false;}else bounds.Encapsulate(renderer.bounds);
+     }
+     float sx=b.width/bounds.size.x,sz=b.depth/bounds.size.z;
+     church.transform.localScale=new Vector3(sx,sx,sz);
+     church.transform.SetPositionAndRotation(origin+q*new Vector3(-bounds.center.x*sx,-bounds.min.y*sx,-bounds.center.z*sz),q);
      return;
     }
    }

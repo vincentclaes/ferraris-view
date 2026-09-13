@@ -6,6 +6,7 @@ The Winksele MVP uses manually corrected symbols, not unreviewed CV detections.
 import argparse
 import json
 import math
+import hashlib
 from pathlib import Path
 import shutil
 
@@ -15,7 +16,8 @@ import numpy as np
 from PIL import Image, ImageDraw
 from shapely.geometry import LineString, Polygon, Point
 from shapely import affinity
-from shapely.ops import triangulate
+from shapely.ops import triangulate, split
+from shapely.geometry.polygon import orient
 from generate_area import ROOT
 
 
@@ -39,15 +41,37 @@ def export(name='winksele'):
         samples=[line.interpolate(d).coords[0] for d in np.linspace(0,line.length,max(2,math.ceil(line.length/4)+1))]
         world['roads'].append(dict(points=points(samples),width=5))
     footprints=[]
-    for i,b in enumerate(trace['buildings']):
-        px,py,w,h,angle,*archetype=b
-        # Rotation in image space is clockwise because image Y points south.
-        rect=affinity.rotate(Polygon([(-w/2,-h/2),(w/2,-h/2),(w/2,h/2),(-w/2,h/2)]),-angle)
-        x,z=local([px,py]); rect=affinity.translate(affinity.scale(rect,xfact=scale,yfact=scale,origin=(0,0)),x,z)
-        kind=archetype[0] if archetype else ['house','barn','farmhouse'][i%3]
-        record('buildings',rect,archetype=kind)
-        footprints.append(rect.buffer(3))
-        world['buildings'].append(dict(x=x,z=z,width=w*scale,depth=h*scale,yaw=angle,kind=kind))
+    review=json.loads((out/'buildings-reviewed.json').read_text())
+    assert review['imageSize']==trace['imageSize']
+    assert hashlib.sha256((out/'ferraris.png').read_bytes()).hexdigest()==review['rasterSha256'], 'Review belongs to another raster'
+    assert len({b['id'] for b in review['buildings']})==len(review['buildings'])
+    for b in review['buildings']:
+        assert b['kind'] in ('building','church') and b['evidence']
+        poly=orient(Polygon([local(p) for p in b['footprint']]),sign=1)
+        assert poly.is_valid and poly.area>0
+        rect=Polygon(cv2.boxPoints(cv2.minAreaRect(np.array(poly.exterior.coords[:-1],dtype=np.float32))))
+        corners=list(rect.exterior.coords)
+        edges=[(np.array(corners[i+1])-corners[i]) for i in range(4)]
+        axis=max(edges,key=np.linalg.norm); width=float(np.linalg.norm(axis)); axis/=width
+        if axis[0]<0: axis=-axis
+        depth=float(rect.area/width); x,z=rect.centroid.coords[0]
+        yaw=math.degrees(math.atan2(-axis[1],axis[0]))
+        normal=np.array([-axis[1],axis[0]])
+        ridge=LineString([np.array([x,z])-axis*size,np.array([x,z])+axis*size])
+        roof=[]
+        for half in split(poly,ridge).geoms:
+            triangles=[t for t in triangulate(half) if half.covers(t)]
+            assert abs(sum(t.area for t in triangles)-half.area)<1e-5, 'Incomplete roof triangulation'
+            for t in triangles: roof.extend(list(t.exterior.coords)[:3])
+        # Add ridge intersections to walls too, so gables meet the pitched roof.
+        outline=[]; ring=list(poly.exterior.coords)
+        for a,c in zip(ring,ring[1:]):
+            outline.append(a)
+            da=np.dot(np.array(a)-[x,z],normal); dc=np.dot(np.array(c)-[x,z],normal)
+            if da*dc < -1e-8: outline.append(tuple(np.array(a)+(np.array(c)-a)*da/(da-dc)))
+        record('buildings',poly,archetype=b['kind'],feature_id=b['id'],legend=b['legend'],evidence=b['evidence'])
+        footprints.append(poly.buffer(3))
+        world['buildings'].append(dict(id=b['id'],kind=b['kind'],legend=b['legend'],x=x,z=z,width=width,depth=depth,yaw=yaw,footprint=points(outline),roof=points(roof)))
     for kind in ['fields','vegetation']:
         for i,coords in enumerate(trace[kind]):
             poly=Polygon([local(p) for p in coords])
@@ -79,9 +103,10 @@ def export(name='winksele'):
     Image.fromarray(mask).save(out/'red-mask.png')
     preview=Image.open(out/'ferraris.png').convert('RGB').resize((1024,1024)); draw=ImageDraw.Draw(preview)
     for road in trace['roads']: draw.line([tuple(p) for p in road],fill='#00c8ff',width=3)
-    for b in world['buildings']:
-        x=(b['x']/size+.5)*1024;y=(.5-b['z']/size)*1024
-        draw.ellipse((x-5,y-5,x+5,y+5),outline='#ffed00',width=2)
+    for i,b in enumerate(review['buildings']):
+        contour=[tuple(p) for p in b['footprint']]
+        draw.line(contour+[contour[0]],fill='#ffed00',width=1)
+        draw.text(contour[0],str(i+1),fill='#00ffff',stroke_width=1,stroke_fill='black')
     for poly in trace['vegetation']: draw.line([tuple(p) for p in poly+[poly[0]]],fill='#09ef77',width=2)
     preview.save(out/'alignment.png')
     # Landcover is a single mobile-friendly texture, georeferenced exactly like

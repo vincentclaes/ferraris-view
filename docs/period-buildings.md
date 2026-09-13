@@ -1,17 +1,25 @@
-# Rural building forms and map evidence
+# Building contours and historical evidence
 
-## Regional reference
+## Map review
 
-The [1762 boerenburgerhuis at Dalenstraat 2, Winksele](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41898) provides a local pre-1775 analogue: brick and sandstone, one-and-a-half storeys, rectangular openings and shouldered side gables. Its recorded later plinth/window alterations are not treated as original evidence. The [1661 house at Dalenstraat 4](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41897) provides a second local masonry reference. These are analogues, not identifications of every Ferraris footprint.
+The [user-supplied Ferraris legend study](https://backoffice.biblio.ugent.be/download/2116980/6770945), PDF pages 8–9, 14 and 16, distinguishes ordinary buildings from religious and other dedicated symbols. A plain red building symbol does not establish house, barn or farmhouse use. Parish numbers are annotations, not buildings.
 
-The rural renderer now preserves the traced rectangle when aligning its roof ridge with the long side. Low plastered buildings, taller masonry forms and agricultural doors have different proportions. The existing roof scan is tinted warm brown; it is an illustrative surface, not a verified eighteenth-century tile reconstruction. The church asset is unchanged. Further fidelity work remains necessary.
+`data/winksele/buildings-reviewed.json` is the authoritative review: 52 ordinary building symbols and one church. Ten legacy detections on numbers/vegetation were rejected, two rectangles were merged into one connected T-shaped symbol, and seven missing symbols were added. Each record has a stable ID, contour, legend category and evidence note. The file records rejected IDs, source raster hash and review method. `tracing.json` still supplies roads and parcels; its old building rectangles are no longer exported.
 
-## Legend constraint
+The saved contours were checked against the raster, including higher-resolution WMS crops of the central T-shaped symbol and church. Painted brush edges, small symbols and perspective leave interpretation uncertainty: these are reviewed map outlines, not surveyed 1775 cadastral plans. The church outline follows its nave symbol, not the cemetery enclosure.
 
-The user-supplied [De Coene et al., Ferraris, the legend (2012)](https://backoffice.biblio.ugent.be/download/2116980/6770945), PDF pages 8–9 and legend page 14, distinguishes ordinary buildings from churches, chapels and other dedicated symbols. Additional written labels can specify a function. A plain building symbol alone does not justify assigning house, barn or farmhouse. Parish numbers are administrative annotations, not buildings.
+## Runtime
 
-The previous export cycles ordinary buildings through three functions. That is not evidence and is being replaced. The 57 legacy rectangles are approximate selections, not exact contours; they still require a complete raster review. Passing geometry tests proves that rendering preserves the supplied geometry, not that the supplied geometry is faithful to the map.
+The export preserves polygons in GeoJSON, Unity data and the numbered `data/winksele/alignment.png` overlay. Ordinary building walls, roof triangles, collision, map selection, land-use lookup and spawn exclusion use those contours. Concave courtyards stay open. Minimum bounding rectangles determine only the illustrative roof axis; they do not replace wall contours. No ordinary building is assigned a house/barn/farmhouse function by its list index.
+
+The church model is centred and oriented on the reviewed symbol, with its visible plan envelope fitted to the symbol bounds. Its detailed footprint and elevation remain illustrative because the source is pictographic. The later sacristy is hidden. This does not establish the entire model as an exact 1775 reconstruction.
+
+## Architectural interpretation
+
+The [1762 building at Dalenstraat 2](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41898) and [1661 building at Dalenstraat 4](https://inventaris.onroerenderfgoed.be/erfgoedobjecten/41897) provide local pre-1775 masonry analogues. They do not identify the use, facade or material of every map symbol. Ordinary buildings use low masonry walls, small timber-framed openings and pitched roofs; height, roof shape, openings and warm-tinted roof textures are reconstruction choices. Unique photorealistic period buildings and inhabited tableaux remain further work.
 
 ## Verification
 
-Three new Unity geometry cases cover both long-axis orientations, rotated footprint/collider preservation, upward-facing roof slopes, and a pick envelope that includes the roof. Together with the existing suite: 16 tests passed on 13 September 2026. Four Python GIS tests and 1,089 C# coordinate round trips also pass. Desktop/browser visual validation of the new forms is pending the map review. This work has not been deployed.
+GIS tests compare every reviewed polygon with runtime footprints, roof coverage and projected GeoJSON, reject the false legacy IDs, and check allowed categories. Unity tests select all ordinary building roofs, check the L-shaped courtyard is neither selectable as a building nor blocked by a collider, and retain rural roof-axis regressions. The desktop journey checks spawn safety and selection for all 52 ordinary buildings in addition to the visitor features.
+
+Current build and deployment evidence is recorded in the delivery receipt after validation.

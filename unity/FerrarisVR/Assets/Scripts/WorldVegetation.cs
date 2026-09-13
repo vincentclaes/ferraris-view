@@ -66,7 +66,7 @@ namespace Ferraris
     {
      float px=x+R(random,-.7f,.7f),pz=z+R(random,-.7f,.7f);if(!Contains(patch,px,pz)||NearRoad(data,px,pz,4))continue;
      if(patch.kind=="commons"){bool mapped=false;foreach(var original in data.patches)if(Contains(original,px,pz)){mapped=true;break;}if(mapped)continue;}
-     bool building=false;foreach(var b in data.buildings)if(Mathf.Abs(px-b.x)<b.width*.6f+2&&Mathf.Abs(pz-b.z)<b.depth*.6f+2){building=true;break;}if(building)continue;
+     bool building=false;foreach(var b in data.buildings)if(b.Contains(px,pz)){building=true;break;}if(building)continue;
      var key=new Vector2Int(Mathf.FloorToInt(px/32),Mathf.FloorToInt(pz/32));if(!grid.TryGetValue(key,out var list)){list=new List<Matrix4x4>();grid[key]=list;}
      list.Add(Matrix4x4.TRS(new Vector3(px,area.Height(px,pz),pz),Quaternion.Euler(0,R(random,0,360),0),Vector3.one*R(random,.8f,1.3f)));
     }

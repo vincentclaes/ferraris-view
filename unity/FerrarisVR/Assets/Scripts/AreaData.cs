@@ -57,7 +57,27 @@ namespace Ferraris
         static double Mix(double a,double b,double c,double d,double u,double v) => (a*(1-u)+b*u)*(1-v)+(c*(1-u)+d*u)*v;
     }
     [Serializable] public class Road { public MapPoint[] points; public float width; }
-    [Serializable] public class Building { public float x,z,width,depth,yaw; public string kind; }
+    [Serializable] public class Building
+    {
+        public float x,z,width,depth,yaw; public string id,kind,legend;
+        public MapPoint[] footprint,roof;
+        public bool Contains(float px,float pz)
+        {
+            if(footprint==null||footprint.Length<3)
+            {
+                double angle=yaw*Math.PI/180,dx=px-x,dz=pz-z;
+                double lx=Math.Cos(angle)*dx-Math.Sin(angle)*dz,lz=Math.Sin(angle)*dx+Math.Cos(angle)*dz;
+                return Math.Abs(lx)<=width/2&&Math.Abs(lz)<=depth/2;
+            }
+            bool inside=false;
+            for(int i=0,j=footprint.Length-1;i<footprint.Length;j=i++)
+            {
+                var a=footprint[i];var b=footprint[j];
+                if((a.z>pz)!=(b.z>pz)&&px<(b.x-a.x)*(pz-a.z)/(b.z-a.z)+a.x)inside=!inside;
+            }
+            return inside;
+        }
+    }
     [Serializable] public class Patch { public MapPoint[] points; public string kind; }
     [Serializable] public class Tree { public float x,z,scale; }
     [Serializable] public class WorldData { public Road[] roads; public Building[] buildings; public Patch[] patches; public Tree[] trees; }

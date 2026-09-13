@@ -131,7 +131,7 @@ namespace Ferraris
             names.Close();app.ReturnToMap();
             var discovery=app.GetComponent<ObjectDiscovery>();
             // Each rendered volume type is selected using the same ray picker as the controller.
-            foreach(string kind in new[]{"house","barn","farmhouse","church","tree","cow","sheep","barrel","woodpile","fence"})
+            foreach(string kind in new[]{"church","tree","cow","sheep"})
             {
                 app.EnterWorld(0,-70);discovery.Toggle();PickedObject picked=null;
                 foreach(var volume in discovery.Picker.Volumes)
@@ -143,6 +143,16 @@ namespace Ferraris
                 if(!Check(picked!=null&&discovery.Selection.key==kind,"World object selection "+kind,output))yield break;
                 discovery.Close(true);
             }
+            foreach(var building in app.Data.buildings)
+            {
+                if(building.kind!="building")continue;
+                var p=building.roof;float x=(p[0].x+p[1].x+p[2].x)/3,z=(p[0].z+p[1].z+p[2].z)/3;
+                app.EnterWorld(x,z);
+                if(!Check(!building.Contains(app.Player.position.x,app.Player.position.z),"Spawn outside reviewed building "+building.id,output))yield break;
+                discovery.SelectRay(new Ray(new Vector3(x,app.Area.Height(x,z)+70,z),Vector3.down));
+                if(!Check(discovery.Selection.key=="building","Reviewed building selection "+building.id,output))yield break;
+            }
+            discovery.Close(true);
             // Land-cover selection follows actual map click dispatch, including unknown terrain.
             foreach(string kind in new[]{"road","soil","crop","grass","orchard","terrain"})
             {
