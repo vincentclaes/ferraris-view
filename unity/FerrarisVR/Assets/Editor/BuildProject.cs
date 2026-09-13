@@ -145,7 +145,7 @@ namespace Ferraris.Editor
         {
             // Stale sync copies in stripped assemblies break IL2CPP; Gradle also
             // packages obsolete staged assets. Recreate generated Android output.
-            foreach(string relative in new[]{"Library/Bee/Android/Prj","Library/Bee/artifacts/Android"})
+            foreach(string relative in new[]{"Library/Bee/Android/Prj","Library/Bee/artifacts/Android","Library/PlayerDataCache/Android"})
             {
                 string generated=Path.GetFullPath(relative);
                 if(Directory.Exists(generated))Directory.Delete(generated,true);

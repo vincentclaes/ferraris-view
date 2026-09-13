@@ -19,6 +19,9 @@ namespace Ferraris
             var app=FerrarisApp.Instance;
             yield return new WaitForSeconds(1);
             if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
+#if UNITY_STANDALONE || UNITY_EDITOR
+            if(Array.IndexOf(args,"-xr-input-study")>=0){yield return XRInputStudy.Run(app,output);yield break;}
+#endif
             if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-building-study")>=0){yield return BuildingStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-road-study")>=0){yield return RoadStudy(app,output);yield break;}
@@ -164,6 +167,12 @@ namespace Ferraris
                 {
                     var p=marie.transform.position;app.EnterWorld(p.x,p.z-1.8f);
                     yield return null;
+                }
+                if(day.Progress.State!=GuideState.Speaking)
+                {
+                    Physics.Linecast(app.View.transform.position,marie.transform.position+Vector3.up*1.45f,out var obstruction,~0,QueryTriggerInteraction.Ignore);
+                    Debug.Log($"STORY_ROUTE_TIMEOUT stop={stop} state={day.Progress.State} person={marie.transform.position} visitor={app.Player.position} distance={day.Distance} canTalk={day.CanTalk} remaining={nav.remainingDistance} stopped={nav.isStopped} path={nav.pathStatus} obstruction={obstruction.collider?.name}");
+                    yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"story-route-timeout.png"));
                 }
                 if(!Check(day.Progress.State==GuideState.Speaking&&day.Progress.Step==stop,"Guide follows a complete route to scene "+stop,output))yield break;
                 if(!Check(TextFits(ui),"Guide dialogue fits scene "+stop,output))yield break;

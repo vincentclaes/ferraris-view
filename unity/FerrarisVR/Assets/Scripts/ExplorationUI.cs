@@ -11,7 +11,7 @@ namespace Ferraris
         Text instruction,bearing,address,mapStatus;
         RawImage miniImage,largeImage;
         RectTransform miniHeading,largeHeading;
-        Vector2 lastSize; bool lastWorld;
+        Vector2 lastSize; bool lastWorld,lastXR;
         public bool MapOpen { get; private set; }
 
         void Start()
@@ -22,12 +22,12 @@ namespace Ferraris
         void DrawNavigation()
         {
             ui.RemovePanel(toolbar);ui.RemovePanel(mini);ui.RemovePanel(zoomControls);
-            lastSize=ui.Root.rect.size;lastWorld=app.InWorld;
+            lastSize=ui.Root.rect.size;lastWorld=app.InWorld;lastXR=app.IsXR;
             toolbar=ui.Box(new Rect(24,24,650,214));
             ui.Text(new Rect(42,35,610,34),"Winksele · circa 1775",26,toolbar.transform);
-            if(app.InWorld)ui.Button(new Rect(40,88,186,46),"Kaart · M",ToggleMap,toolbar.transform);
+            if(app.InWorld)ui.Button(new Rect(40,88,186,46),app.IsXR?"Kaart":"Kaart · M",ToggleMap,toolbar.transform);
             ui.Button(new Rect(app.InWorld?240:40,88,180,46),"Ontdek",ShowDiscover,toolbar.transform);
-            ui.Button(new Rect(app.InWorld?434:234,88,164,46),"Hulp · F1",ShowHelp,toolbar.transform);
+            ui.Button(new Rect(app.InWorld?434:234,88,164,46),app.IsXR?"Hulp":"Hulp · F1",ShowHelp,toolbar.transform);
             instruction=ui.Text(new Rect(40,159,610,72),"",23);
             instruction.transform.SetParent(toolbar.transform,true);
             if(!app.InWorld)
@@ -40,20 +40,22 @@ namespace Ferraris
             }
             float x=ui.Root.rect.width-292;
             mini=ui.Box(new Rect(x,24,268,314));
-            ui.Button(new Rect(x+8,32,252,298),"Vergroot kaart · M",ToggleMap,mini.transform,21);
-            ui.Text(new Rect(x+20,292,235,32),"Vergroot kaart · M",21,mini.transform);
+            ui.Button(new Rect(x+8,32,252,298),app.IsXR?"Vergroot kaart":"Vergroot kaart · M",ToggleMap,mini.transform,21);
+            ui.Text(new Rect(x+20,292,235,32),app.IsXR?"Vergroot kaart":"Vergroot kaart · M",21,mini.transform);
             miniImage=MapImage(new Rect(x+12,36,244,244),mini.transform,out miniHeading);
             ui.Text(new Rect(x+18,42,34,34),"N",23,mini.transform).color=new Color(.08f,.15f,.12f);
         }
         void LateUpdate()
         {
             if(ui==null||!app.Ready)return;
-            if(lastWorld!=app.InWorld||lastSize!=ui.Root.rect.size)DrawNavigation();
+            if(lastWorld!=app.InWorld||lastXR!=app.IsXR||lastSize!=ui.Root.rect.size)DrawNavigation();
             // Only the active panel participates in focus and click navigation.
             toolbar.SetActive(!ui.PanelOpen);
             if(zoomControls!=null)zoomControls.SetActive(!ui.PanelOpen);
             if(mini!=null)mini.SetActive(app.InWorld&&!ui.PanelOpen);
-            instruction.text=app.InWorld
+            instruction.text=app.IsXR
+                ? app.InWorld?"Linker joystick: wandelen · Rechter: draaien.\nB: kaart · Richt en druk de trekker voor knoppen.":"Richt op een plek en druk de rechter trekker.\nLinker joystick: verschuiven · Rechter: zoom."
+                : app.InWorld
                 ? Cursor.lockState==CursorLockMode.Locked?"WASD: wandelen   ·   Muis: kijken   ·   M: kaart":"Klik in het landschap om verder te wandelen.\nEscape maakt de muis vrij; je blijft op je plek."
                 : app.MapStatus??"Klik een plek op de kaart om daar te wandelen.\nSleep om te verschuiven. Scrol om te zoomen.";
             UpdateMap(miniImage,miniHeading);
@@ -120,7 +122,7 @@ namespace Ferraris
             bearing=ui.Text(new Rect(550,263,210,100),"",24,panel.transform);
             address=ui.Text(new Rect(550,384,210,268),"",20,panel.transform);
             mapStatus=ui.Text(new Rect(48,749,705,42),"",19,panel.transform);
-            ui.Button(new Rect(48,800,284,44),"Verder wandelen · M",Close,panel.transform,22);
+            ui.Button(new Rect(48,800,284,44),app.IsXR?"Verder wandelen":"Verder wandelen · M",Close,panel.transform,22);
             ui.Button(new Rect(352,800,250,44),"Andere startplek",()=>{Close();app.ReturnToMap();},panel.transform,22);
         }
         public void ShowDiscover()
