@@ -2,7 +2,7 @@
 
 Brand: **Land van Weleer**, with **Wandel door het Vlaanderen van toen.**
 
-Website: **https://land-van-weleer.vercel.app**. The existing Vercel project (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`) was renamed to `land-van-weleer` on 13 September 2026. The next production deployment updates the brand, browser title, favicon, mobile guidance and Unity template. Production publication uses `--prod`; default deployments use preview.
+Website: **https://land-van-weleer.vercel.app**. The existing Vercel project (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`) was renamed to `land-van-weleer` on 13 September 2026. Production deployment `dpl_3gfJAFE9e4gh3MMfgbYVh2AzMbrr` is `READY`, with `land-van-weleer.vercel.app` attached to the project and verified on this deployment. It contains the brand, browser title, favicon, mobile guidance and Unity template from `d132f0e`, merged through PR #17 as `2085456`. The former public address remains an alias to the same release. Production publication uses `--prod`; default deployments use preview.
 
 The preceding map-alignment release was `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv`, containing code commit `a275a9e` merged through PR #16 as `a630661`. Its locally tested WebGL hashes remain in `artifacts/building-review/web-release-hashes.json`.
 
@@ -12,7 +12,7 @@ The preceding map-alignment release was `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv`, cont
 
 Church textures are capped at 2048 px and other landscape textures at 1024 px on WebGL (sky stays 2048). Native texture settings remain unchanged. This reduces the complete gzip deployment from approximately 117 to 68 MiB. The canvas renders at 1440×1000 with a preserved aspect ratio, including full-screen mode, so the existing controls fit reliably.
 
-`web/vercel.json` sets the required gzip encoding and MIME types for `.wasm.gz`, `.js.gz` and `.data.gz`. The local standard-library server uses equivalent headers. `bash scripts/deploy-web.sh` deploys `builds/web` as a preview to Vercel project `land-van-weleer`, scope `vincentclaes-projects`. It does not upload the repository, original models, APKs or local evidence. No Vercel build process or application backend is needed.
+`web/vercel.json` sets the required gzip encoding and MIME types for `.wasm.gz`, `.js.gz` and `.data.gz`. The local standard-library server uses equivalent headers. `bash scripts/deploy-web.sh` deploys `builds/web` as a preview to Vercel project `land-van-weleer`, scope `vincentclaes-projects`. It does not upload the repository, original models, APKs or local evidence. A generated `.vercelignore` excludes numbered sync copies of old pages and bundles; the final rename deployment contained eight input files. No Vercel build process or application backend is needed.
 
 The cover is rendered directly from the project with `Ferraris.Editor.BuildProject.WebCover`; it contains no map raster or gameplay overlays. `web/cover.jpg` is copied into the output during a web build.
 
@@ -27,6 +27,10 @@ H opens address search, J the day story, L sound, N place names, I inspection an
 The [official historical-cartography service](https://www.vlaanderen.be/datavindplaats/catalogus/raadpleegdienst-voor-historische-cartografie) permits public access. The web runtime requests the current area's 2048×2048 Ferraris crop from that service using EPSG:31370 and invariant-culture bounds. CORS access and the actual image response were verified on 12 September 2026. Attribution and direct KBR/service links appear in the website and the experience.
 
 The native cached raster is temporarily moved outside Resources while building, restored in `finally`, and checked against the packed-asset report. The website therefore does not redistribute that raster from Vercel. Unlike the native edition, initial map loading needs internet. A failed map request gives a Dutch reload instruction. Bundled object explanations, addresses, stories and sounds remain local after the initial application download.
+
+## Name change validation — 13 September 2026
+
+The renamed Unity WebGL release built successfully. Chrome/Playwright at 1440×1100 and a 390×844 touch viewport verified the exact browser title, header/footer, mobile guidance and absence of the former brand in the generated page. Help navigation, map startup and world entry/return passed without JavaScript errors. Desktop and mobile screenshots were inspected; no horizontal overflow. The Browser plugin was unavailable, so the installed Playwright/Chrome runtime was used. Temporary evidence: `/tmp/land-van-weleer-desktop.png`, `/tmp/land-van-weleer-mobile.png`, `/tmp/land-van-weleer-map.png`.
 
 ## Building review — 13 September 2026
 
