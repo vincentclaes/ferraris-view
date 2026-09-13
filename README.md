@@ -87,7 +87,7 @@ The browser fetches the historical map directly from the public Digitaal Vlaande
 
 ## Data and architecture
 
-`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover texture, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` supplies roads and land parcels; `buildings-reviewed.json` supplies the reviewed building contours and legend categories.
+`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover and road textures, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` supplies roads and land parcels; `buildings-reviewed.json` supplies the reviewed building contours and legend categories.
 
 Unity `AreaData.cs` owns coordinate/height conversion; `FerrarisApp.cs` owns mode/input/navigation; `HistoricalWorld.cs` constructs the terrain, architecture and farm animals; `WorldVegetation.cs` batches trees and nearby ground cover. `BuildProject.cs` creates the scene and desktop/Quest build configuration. `JourneySmoke.cs` exercises the real built player and captures map/world/top-down screenshots.
 

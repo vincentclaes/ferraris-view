@@ -1,6 +1,6 @@
 # Validation log — 12 September 2026
 
-Latest update — 13 September 2026: the current map-aligned world builds for Quest with verified packaged data and signature; generated Android caches are recreated to prevent old asset/library copies. The APK is 79,192,963 bytes and includes five human tableaux and the embedded Dutch font. The current desktop journey passes 340 checks; 19 Unity tests pass. ADB currently finds no attached headset. See [current Quest receipt](quest-validation.md). The historical hardware frame-rate results below describe the earlier simple scene, not the new package.
+Latest update — 13 September 2026: the current map-aligned world builds for Quest with verified packaged data and signature; generated Android caches are recreated to prevent old asset/library copies. The APK is 79,456,309 bytes and includes five human tableaux and the embedded Dutch font. The current desktop journey passes 340 checks; 19 Unity tests pass. ADB currently finds no attached headset. See [current Quest receipt](quest-validation.md). The historical hardware frame-rate results below describe the earlier simple scene, not the new package.
 
 ## Verified independently of Unity
 
