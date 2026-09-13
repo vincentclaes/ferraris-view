@@ -15,7 +15,15 @@ Preview: https://land-van-weleer-glih0tc7z-vincentclaes-projects.vercel.app, dep
 
 Chrome/Playwright at `http://localhost:8765` verified map → western grain field → W movement/mouse look → current-location map without application errors. Inspected screenshots show the field, new grain and western map marker. Page identity, nonblank rendering, no error overlay and layouts at 1440×1000, 1024×768 and 390×844 passed. Evidence: `/tmp/land-van-weleer-range-qa.json` and `/tmp/land-van-weleer-range-*.png`. Browser plugin not available; existing Playwright and the repository's gzip-aware `scripts/serve-web.py` were used. The native source passes 33 Unity tests, 356 journey checks and three rendered ground-cover fade checks. The signed Quest package is recorded separately. No deployed URL was fetched.
 
-Open check: the overview toolbar overlaps part of the northwestern map. The first field-selection probe hit that toolbar; the final probe selected an unobscured western field. Selection close to the northwestern boundary needs a dedicated pan/zoom/edge test; the successful field journey does not establish access to every map edge.
+The northwestern toolbar overlap exposed an edge-selection issue, resolved by the map navigation update below.
+
+## Merged map navigation preview — 13 September 2026
+
+[PR #24](https://github.com/vincentclaes/ferraris-view/pull/24) and [PR #25](https://github.com/vincentclaes/ferraris-view/pull/25) are merged into the repository's default branch, `codex/winksele-vr`, at `aac2e05`. There is no branch named `main`. The WebGL build uses source `4dd7d24`, whose tree matches that merge commit.
+
+Preview: https://land-van-weleer-ddz1tw263-vincentclaes-projects.vercel.app, deployment `dpl_7KArD47Rvd9PgqxU58aLmqRPWHMA`, READY. Production remains the release recorded above; automatic approval review rejected replacing production without explicit production confirmation. Exact tested file hashes: `artifacts/map-edges-web-hashes.json`.
+
+Desktop map panning now brings every corner to the centre, including at 1× zoom. R and Overzicht reset both zoom and pan. Chrome/Playwright verified entry at all four corners, blank-space rejection, arrow-key navigation and Enter, plus northwest entry at 1024×768, with no application errors. Screenshots of map corners and the world position marker were inspected. Evidence: `/tmp/land-van-weleer-map-edges-qa.json` and `/tmp/land-van-weleer-edges-*.png`. Native regression passes 116 map-edge checks, 356 journey checks, 19 controller replay checks and 33 Unity tests. Browser checks ran locally on the exact uploaded files; no deployed URL was fetched. The Quest APK receipt remains from the preceding field-vegetation build.
 
 ## Build and hosting
 
