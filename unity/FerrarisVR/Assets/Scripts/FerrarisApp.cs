@@ -100,6 +100,9 @@ namespace Ferraris
                 WebGLInput.captureAllKeyboardInput=false;
                 StartCoroutine(LoadWebMap());
 #endif
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                gameObject.AddComponent<DevelopmentDiagnostics>();
+#endif
                 if(Array.Exists(Environment.GetCommandLineArgs(),s=>s=="-ferraris-smoke"))gameObject.AddComponent<JourneySmoke>();
             }
             catch(Exception e){Error="De ervaring kon niet worden geladen. Controleer de lokale gebieds- en beeldbestanden.";Debug.LogException(e);}

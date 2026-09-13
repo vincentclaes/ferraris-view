@@ -97,6 +97,15 @@ namespace Ferraris
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"xr-world.png"));yield return Frames(2);
             Set(right,"secondaryButton",1f);yield return Frames(2);
             if(!Check(!app.InWorld,"B returns after movement and snap turning"))yield break;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            UnityEngine.UI.Text diagnostic=null;
+            foreach(var text in ui.Root.GetComponentsInChildren<UnityEngine.UI.Text>(true))if(text.name=="Ontwikkeldiagnostiek")diagnostic=text;
+            Set(left,"secondaryButton",1f);yield return Frames(2);Set(left,"secondaryButton",0f);yield return new WaitForSeconds(1.2f);
+            if(!Check(diagnostic!=null&&diagnostic.gameObject.activeSelf&&diagnostic.text.Contains("Y: sluiten")&&ControllerText(ui),"Y enables readable world-space diagnostics"))yield break;
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"xr-diagnostics.png"));yield return Frames(2);
+            Set(left,"secondaryButton",1f);yield return Frames(2);Set(left,"secondaryButton",0f);yield return Frames(2);
+            if(!Check(!diagnostic.gameObject.activeSelf&&!app.InWorld,"Y hides diagnostics without changing map mode"))yield break;
+#endif
             foreach(var device in new[]{head,left,right})InputSystem.RemoveDevice(device);
             File.WriteAllText(Path.Combine(output,"xr-input.json"),"{\"passed\":true,\"hardwareVerified\":false,\"checks\":"+checks.Count+"}");
             Debug.Log("FERRARIS_XR_INPUT_PASS");Application.Quit(0);

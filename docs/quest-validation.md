@@ -10,6 +10,8 @@ Hardware status: ADB found no attached device on 13 September. This package has 
 
 Connect an unlocked Quest 3 over USB with developer mode enabled and accept USB debugging inside the headset. Run the `quest-device.sh` commands in the README. Keep the headset's normal boundary active and begin seated or standing in a clear space.
 
+Development diagnostics: Y on the left controller toggles coordinates, selected map point, terrain height and application frame cadence; F3 provides the same view on desktop. While enabled, the player emits one `FERRARIS_DIAGNOSTICS` line per second through Unity logging. Focus/pause changes restart the sample window. The readout measures delivered application frames per wall-clock second, not compositor refresh, reprojection, CPU work or GPU execution. Use it to correlate location with profiler/device captures, not to certify the 72 FPS target by itself. It is disabled by default and excluded from non-development players.
+
 1. Launch from the installed app or the device script. The Ferraris map should appear ahead. Turn your head and confirm stable, correct stereo tracking in both eyes.
 2. Use the left stick to pan after zooming with the right stick. Aim the right controller ray at a recognizable road junction and press its trigger.
 3. Confirm the world opens at that junction, with terrain, dirt roads, buildings and orchard trees visible. Check the ground height feels plausible and the camera follows head movement.
