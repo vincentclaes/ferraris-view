@@ -53,3 +53,5 @@ Plant jitter now spans the full placement cell. Vegetation and livestock clearan
 Run `bash scripts/smoke-desktop.sh -field-study` after a desktop build to capture walking-height and close views in all four crop patches, twice per viewpoint to inspect wind. This study is excluded from Android and WebGL. The inspected final views are in `/tmp/ferraris-fields-final/`; the mesh contains 1,088 vertices and 928 triangles. The close-up check led to slimmer ears with seed rows. The art remains stylised, and Quest frame time is still unmeasured.
 
 All 32 Unity EditMode tests pass (3.22 seconds), along with 6 GIS tests and 1,089 coordinate checks. A cheap segment-bounds rejection reduced the suite from 14.07 seconds with unfiltered distance calculations; this is a desktop test timing, not a Quest performance measurement.
+
+The full desktop journey passes all 356 checks. The signed ARM64 Quest package built from `ac7c2fc` passes offline-content, road-mask and all-19-voice gates; see the [current receipt](quest-validation.md). APK metadata confirms both desktop-only studies are excluded. No headset is connected.

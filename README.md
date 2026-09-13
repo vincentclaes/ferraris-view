@@ -56,6 +56,7 @@ bash scripts/unity.sh desktop
 open builds/Winksele1775.app
 bash scripts/smoke-desktop.sh
 bash scripts/smoke-desktop.sh -xr-input-study  # input replay; no hardware certification
+bash scripts/smoke-desktop.sh -field-study     # four grain fields, walking and close views
 ```
 
 Set `UNITY_EDITOR` to override the installed editor executable. Close the editor before running batch builds/tests on the same project.
