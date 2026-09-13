@@ -136,7 +136,7 @@ namespace Ferraris
         }
         public void ShowHelp()
         {
-            BeginPanel("Zo wandel je door Toenland");
+            BeginPanel("Zo wandel je door Land van Weleer");
             ui.Text(new Rect(48,270,700,480),app.IsXR
                 ?"Bewegen: linker stick.\nDraaien: rechter stick.\nKiezen: rechter richtstraal en trekker.\n\nGebruik Kaart om je locatie en kijkrichting te bekijken.\nMet Sluiten blijf je op dezelfde plek.\n\nOnder Ontdek vind je adressen, verhalen, plaatsnamen en geluiden."
                 :"Wandel met W A S D of de pijltjestoetsen.\nKijk rond met de muis. Shift laat je sneller gaan.\n\nM opent en sluit je kaart. De pijl toont waar je bent en waar je naar kijkt. Je wandeling blijft op dezelfde plek.\n\nEscape maakt de muis vrij of sluit een paneel.\nKlik in het landschap om weer rond te kijken.\n\nTab kiest een knop. Shift + Tab gaat terug.\nEnter of spatie bevestigt. F2 gaat naar de website.\n\nOnder Ontdek vind je adressen, verhalen en geluiden.",25,panel.transform);

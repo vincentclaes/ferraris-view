@@ -19,5 +19,5 @@ class Handler(SimpleHTTPRequestHandler):
 if __name__ == '__main__':
     root = Path(__file__).resolve().parent.parent / 'builds/web'
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
-    print(f'Toenland: http://localhost:{port}', flush=True)
+    print(f'Land van Weleer: http://localhost:{port}', flush=True)
     ThreadingHTTPServer(('127.0.0.1', port), partial(Handler, directory=str(root))).serve_forever()

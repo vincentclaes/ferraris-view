@@ -1,6 +1,6 @@
 # Validation log — 12 September 2026
 
-Latest update: pressure-sensitive locomotion and the detailed surroundings pass build successfully for desktop and Quest. Three Unity tests and the built desktop journey pass. The Quest currently reports `unauthorized`, so the updated graphics APK has not yet been installed or measured. See [graphics validation](visual-upgrade.md); the hardware frame-rate measurements below describe the earlier simple scene.
+Latest update — 13 September 2026: the current map-aligned world builds for Quest with verified packaged data and signature; generated Android caches are recreated to prevent old asset/library copies. The APK is 79,044,403 bytes. ADB currently finds no attached headset. See [current Quest receipt](quest-validation.md). The historical hardware frame-rate results below describe the earlier simple scene, not the new package.
 
 ## Verified independently of Unity
 

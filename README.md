@@ -1,4 +1,4 @@
-# Toenland — Winksele, circa 1775
+# Land van Weleer — Winksele, circa 1775
 
 A web-first historical walk through Winksele around 1775. Open the website on a computer, choose a place on the Ferraris map and walk through the landscape. A small north-up map follows your location and viewing direction. Native desktop and Quest editions share the same world.
 
@@ -6,11 +6,11 @@ The original map-to-world journey runs on desktop and was confirmed on a physica
 
 The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. These additions pass the desktop journey and Android build; their integrated physical-headset acceptance is still pending.
 
-## Website — Toenland
+## Website — Land van Weleer
 
 The web-first navigation described below is implemented and tested locally on `codex/web-first-ux`, based on `codex/period-building-forms`. It has not been deployed to the live site.
 
-**[Toenland — Wandel door het Vlaanderen van toen](https://toenland.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. The landscape fills the browser window. One start button leads into the experience; Kaart, Ontdek and Hulp are the main controls. Stories, search and sound settings live under Ontdek. M enlarges the live map without leaving the world or changing position and heading. Escape releases the mouse or closes a panel. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
+**[Land van Weleer — Wandel door het Vlaanderen van toen](https://land-van-weleer.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. The landscape fills the browser window. One start button leads into the experience; Kaart, Ontdek and Hulp are the main controls. Stories, search and sound settings live under Ontdek. M enlarges the live map without leaving the world or changing position and heading. Escape releases the mouse or closes a panel. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
 
 ```bash
 # Unity Hub: add WebGL Build Support for the installed editor.
@@ -20,7 +20,7 @@ python3 scripts/serve-web.py
 bash scripts/deploy-web.sh
 ```
 
-Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets the `toenland` project in `vincentclaes-projects`; production deployment requires explicitly passing `--prod`. Unity compiles locally; Vercel serves only the generated `builds/web` directory. See [web build and validation](docs/web.md).
+Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets the `land-van-weleer` project in `vincentclaes-projects`; production deployment requires explicitly passing `--prod`. Unity compiles locally; Vercel serves only the generated `builds/web` directory. See [web build and validation](docs/web.md).
 
 Vercel automatically assigned the first default deployment to production on 12 September 2026. Subsequent default deployments are previews; the live site uses the domain above.
 
@@ -70,7 +70,7 @@ Set `UNITY_EDITOR` to override the installed editor executable. Close the editor
 
 ```bash
 bash scripts/unity.sh quest-configure
-bash scripts/unity.sh quest
+bash scripts/unity.sh quest  # also verifies packaged data and OpenXR libraries
 # Developer mode and USB debugging must be enabled on your headset:
 bash scripts/quest-device.sh devices
 bash scripts/quest-device.sh install
@@ -89,11 +89,11 @@ The device script finds ADB inside the Unity installation; set `ADB` to override
 
 ## Data and architecture
 
-`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover texture, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` is the reviewed manual interpretation used for this area.
+`pipeline/generate_area.py` downloads/crops official Ferraris WMS and DHMV WCS data. `pipeline/export_world.py` creates GeoJSON, metric Unity data, landcover texture, red-symbol candidates and alignment overlay. `data/winksele/tracing.json` supplies roads and land parcels; `buildings-reviewed.json` supplies the reviewed building contours and legend categories.
 
 Unity `AreaData.cs` owns coordinate/height conversion; `FerrarisApp.cs` owns mode/input/navigation; `HistoricalWorld.cs` constructs the terrain, architecture and farm animals; `WorldVegetation.cs` batches trees and nearby ground cover. `BuildProject.cs` creates the scene and desktop/Quest build configuration. `JourneySmoke.cs` exercises the real built player and captures map/world/top-down screenshots.
 
-Discovery content is bundled in `Assets/Resources/Discovery`. Implementation, source distinctions and acceptance evidence for each issue are in [docs/issues](docs/issues); [object coverage](docs/issues/07-object-discovery.md) includes the complete 150-symbol legend inventory and all 17 rendered types.
+Discovery content is bundled in `Assets/Resources/Discovery`. Implementation, source distinctions and acceptance evidence for each issue are in [docs/issues](docs/issues); [object coverage](docs/issues/07-object-discovery.md) includes the complete 150-symbol legend inventory and the current rendered types.
 
 See [source, license and CRS documentation](docs/data-sources.md). Raw rasters, generated Unity resources, editor caches and builds are excluded from Git. Re-run both pipeline commands after cloning. The Ferraris service metadata does not grant an open redistribution license: review rights before sharing map-containing builds.
 
@@ -103,7 +103,7 @@ See [source, license and CRS documentation](docs/data-sources.md). Raw rasters, 
 .venv/bin/python pipeline/generate_area.py --name another-area --lat LAT --lon LON --size 1000
 ```
 
-Create a reviewed `data/another-area/tracing.json` in the same schema with matching origin/size, then run `pipeline/export_world.py --name another-area`. Export replaces the active Unity resource area. Downloading is area-parameterized; semantic tracing is currently manual and is not automatically transferable. WMS coverage is the Flemish part of Belgium; validate availability before choosing an area outside Flanders.
+Create reviewed `data/another-area/tracing.json` and `buildings-reviewed.json` files matching the new crop. The latter needs the raster SHA-256, preview size, unique building IDs, pixel contours, evidence and supported legend categories (`building` or `church`); copy the Winksele schema, not its coordinates or historical identifications. Then run `pipeline/export_world.py --name another-area`. Export replaces the active Unity resource area. Downloading is area-parameterized; semantic tracing is currently manual and is not automatically transferable. WMS coverage is the Flemish part of Belgium; validate availability before choosing an area outside Flanders.
 
 ## Limitations and next steps
 
