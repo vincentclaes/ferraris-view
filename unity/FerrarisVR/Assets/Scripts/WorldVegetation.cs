@@ -14,6 +14,8 @@ namespace Ferraris
   readonly List<Matrix4x4> trees=new();
   readonly List<Matrix4x4[]> nearBatches=new(),farBatches=new();
   readonly List<PlantChunk> chunks=new();
+  readonly Matrix4x4[] plantBatch=new Matrix4x4[1023];
+  const float CropRange=65,GrassRange=50;
   float nextCull;
   struct PlantChunk {public Vector3 centre;public Matrix4x4[] matrices;public bool crop;}
   static float R(System.Random r,float a,float b)=>a+(float)r.NextDouble()*(b-a);
@@ -36,12 +38,25 @@ namespace Ferraris
    branches=trunk.Mesh("Branching orchard tree");leaves=crown.Mesh("Wind swept broadleaf crown");farLeaves=distant.Mesh("Distant orchard crown");
    CanopyBounds=leaves.bounds;CanopyBounds.Encapsulate(farLeaves.bounds);
    foreach(var t in data.trees)trees.Add(Matrix4x4.TRS(new Vector3(t.x,area.Height(t.x,t.z),t.z),Quaternion.Euler(0,t.x*13,0),new Vector3(t.scale,t.scale*R(random,.9f,1.2f),t.scale)));
-   grassMaterial=new Material(leafMaterial);grassMaterial.SetTexture("_MainTex",HistoricalWorld.Texture("meadow_diff"));grassMaterial.SetTexture("_AlphaTex",HistoricalWorld.Texture("meadow_alpha"));grassMaterial.SetFloat("_Wind",.055f);cropMaterial=HistoricalWorld.Surface(null);
+   grassMaterial=new Material(leafMaterial);grassMaterial.SetTexture("_MainTex",HistoricalWorld.Texture("meadow_diff"));grassMaterial.SetTexture("_AlphaTex",HistoricalWorld.Texture("meadow_alpha"));grassMaterial.SetFloat("_Wind",.055f);
+   cropMaterial=new Material(Shader.Find("Ferraris/Foliage")){enableInstancing=true};cropMaterial.SetFloat("_Wind",.045f);cropMaterial.SetFloat("_HeightWind",1);cropMaterial.SetFloat("_EarDetail",1);
+   cropMaterial.SetVector("_FadeRange",new Vector4(CropRange*.65f,CropRange,0,0));grassMaterial.SetVector("_FadeRange",new Vector4(GrassRange*.65f,GrassRange,0,0));
    var wheat=new WorldMesh();
    for(int i=0;i<16;i++)
    {
-    float x=R(random,-.6f,.6f),z=R(random,-.6f,.6f);
-    Vector3 stem=new(x,0,z),tip=new(x+.04f,.72f+R(random,0,.25f),z);wheat.Beam(stem,tip,.013f,new Color(.6f,.56f,.23f),3,.006f);wheat.Ellipsoid(tip,new Vector3(.034f,.11f,.035f),Quaternion.identity,new Color(.76f,.65f,.33f),5,4);
+    Vector3 root=new(R(random,-.75f,.75f),0,R(random,-.75f,.75f));float height=R(random,.85f,1.3f);
+    Vector3 lean=new(R(random,-.14f,.14f),0,R(random,-.14f,.14f)),joint=root+Vector3.up*height*.55f+lean*.2f,tip=root+Vector3.up*height+lean;
+    Color straw=Color.Lerp(new Color(.39f,.43f,.15f,0),new Color(.67f,.57f,.26f,0),R(random,0,1));
+    wheat.Beam(root,joint,.008f,straw,3,.005f);wheat.Beam(joint,tip,.005f,straw,3,.0025f);
+    Quaternion tilt=Quaternion.FromToRotation(Vector3.up,tip-joint);
+    Color ear=Color.Lerp(straw,new Color(.84f,.71f,.39f),.65f);ear.a=1;
+    wheat.Ellipsoid(tip+tilt*Vector3.up*.065f,new Vector3(.013f,R(random,.08f,.10f),.014f),tilt,ear,5,4);
+    for(int leaf=0;leaf<2;leaf++)
+    {
+     float angle=R(random,0,Mathf.PI*2);Vector3 outward=new(Mathf.Cos(angle),0,Mathf.Sin(angle)),side=Vector3.Cross(Vector3.up,outward)*.016f;
+     Vector3 start=Vector3.Lerp(root,joint,.55f+leaf*.4f),bend=start+outward*.14f+Vector3.up*.13f,end=start+outward*R(random,.25f,.36f)+Vector3.up*.04f;
+     wheat.Quad(start-side*.25f,bend-side,bend+side,start+side*.25f,straw);wheat.Triangle(bend-side,end,bend+side,straw);
+    }
    }
    var meadow=Resources.Load<GameObject>("Visuals/Meadow");
    if(meadow==null)throw new InvalidOperationException("Grasmodel ontbreekt. Bereid de lokale beeldbestanden opnieuw voor.");
@@ -52,6 +67,8 @@ namespace Ferraris
    grass=new Mesh{name="Scanned meadow",indexFormat=IndexFormat.UInt32};grass.CombineMeshes(combine,true,true);var grassColors=new Color[grass.vertexCount];Array.Fill(grassColors,Color.white);grass.colors=grassColors;
    Debug.Log($"FERRARIS_MEADOW vertices={grass.vertexCount} bounds={grass.bounds.size}");
    crop=wheat.Mesh("Ripening grain ears");
+   var cropBounds=crop.bounds;cropBounds.Expand(.25f);crop.bounds=cropBounds;
+   Debug.Log($"FERRARIS_GRAIN vertices={crop.vertexCount} triangles={crop.triangles.Length/3}");
    // Small spatial chunks avoid drawing distant ground cover on mobile GPUs.
    var planted=new List<Patch>(data.patches);
    var tableaux=GetComponent<LivingTableaux>();
@@ -65,7 +82,7 @@ namespace Ferraris
     float spacing=isCrop?2.4f:2.6f;
     for(float z=minZ;z<maxZ;z+=spacing)for(float x=minX;x<maxX;x+=spacing)
     {
-     float px=x+R(random,-.7f,.7f),pz=z+R(random,-.7f,.7f);if(!Contains(patch,px,pz)||NearRoad(data,px,pz,4))continue;
+     float px=x+R(random,-spacing/2,spacing/2),pz=z+R(random,-spacing/2,spacing/2);if(!Contains(patch,px,pz)||NearRoad(data,px,pz,4))continue;
      if(patch.kind=="commons"){bool mapped=false;foreach(var original in data.patches)if(Contains(original,px,pz)){mapped=true;break;}if(mapped)continue;}
      bool building=false;foreach(var b in data.buildings)if(b.Contains(px,pz)){building=true;break;}if(building)continue;
      // Leave a small working space around the illustrative activities.
@@ -83,11 +100,25 @@ namespace Ferraris
   }
   public static bool NearRoad(WorldData d,float x,float z,float distance)
   {
-   foreach(var r in d.roads)foreach(var p in r.points)if(Mathf.Abs(p.x-x)<distance&&Mathf.Abs(p.z-z)<distance)return true;return false;
+   var point=new Vector2(x,z);
+   foreach(var r in d.roads)for(int i=0;i<r.points.Length;i++)
+   {
+    var a=r.points[Mathf.Max(0,i-1)];var b=r.points[i];float clearance=Mathf.Max(distance,r.width/2);
+    if(x<Mathf.Min(a.x,b.x)-clearance||x>Mathf.Max(a.x,b.x)+clearance||z<Mathf.Min(a.z,b.z)-clearance||z>Mathf.Max(a.z,b.z)+clearance)continue;
+    if(HomeSearch.SegmentDistance(point,a,b)<clearance)return true;
+   }
+   return false;
   }
   static void Batch(List<Matrix4x4> source,List<Matrix4x4[]> result)
   {
    result.Clear();for(int i=0;i<source.Count;i+=128)result.Add(source.GetRange(i,Mathf.Min(128,source.Count-i)).ToArray());
+  }
+  public static int FilterPlants(Matrix4x4[] source,Vector3 eye,float range,Matrix4x4[] result)
+  {
+   if(result.Length<source.Length)throw new ArgumentException("Plant buffer is smaller than its spatial chunk.");
+   int count=0;float squaredRange=range*range;
+   foreach(var matrix in source){float x=matrix.m03-eye.x,z=matrix.m23-eye.z;if(x*x+z*z<squaredRange)result[count++]=matrix;}
+   return count;
   }
   void Update()
   {
@@ -101,8 +132,17 @@ namespace Ferraris
     foreach(var batch in nearBatches){Draw(branches,bark,batch,ShadowCastingMode.On);Draw(leaves,leafMaterial,batch,ShadowCastingMode.On);}
     foreach(var batch in farBatches){Draw(branches,bark,batch,ShadowCastingMode.Off);Draw(farLeaves,leafMaterial,batch,ShadowCastingMode.Off);}
    }
-   foreach(var chunk in chunks){Vector3 p=chunk.centre;p.y=eye.y;float range=chunk.crop?65:50;if((p-eye).sqrMagnitude<range*range)Draw(chunk.crop?crop:grass,chunk.crop?cropMaterial:grassMaterial,chunk.matrices,ShadowCastingMode.Off);}
+   // Use one centre-eye position in both eyes, so the fade has no stereo mismatch.
+   cropMaterial.SetVector("_PlantEye",eye);grassMaterial.SetVector("_PlantEye",eye);
+   foreach(var chunk in chunks)
+   {
+    float range=chunk.crop?CropRange:GrassRange;
+    float x=Mathf.Max(0,Mathf.Abs(chunk.centre.x-eye.x)-16),z=Mathf.Max(0,Mathf.Abs(chunk.centre.z-eye.z)-16);
+    if(x*x+z*z>=range*range)continue;
+    int count=FilterPlants(chunk.matrices,eye,range,plantBatch);
+    if(count>0)Draw(chunk.crop?crop:grass,chunk.crop?cropMaterial:grassMaterial,plantBatch,ShadowCastingMode.Off,count);
+   }
   }
-  static void Draw(Mesh mesh,Material material,Matrix4x4[] matrices,ShadowCastingMode shadows)=>Graphics.DrawMeshInstanced(mesh,0,material,matrices,matrices.Length,null,shadows,true,0,null,LightProbeUsage.Off);
+  static void Draw(Mesh mesh,Material material,Matrix4x4[] matrices,ShadowCastingMode shadows,int count=-1)=>Graphics.DrawMeshInstanced(mesh,0,material,matrices,count<0?matrices.Length:count,null,shadows,true,0,null,LightProbeUsage.Off);
  }
 }

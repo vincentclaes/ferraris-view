@@ -21,6 +21,7 @@ namespace Ferraris
             if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
 #if UNITY_STANDALONE || UNITY_EDITOR
             if(Array.IndexOf(args,"-xr-input-study")>=0){yield return XRInputStudy.Run(app,output);yield break;}
+            if(Array.IndexOf(args,"-field-study")>=0){yield return FieldStudy(app,output);yield break;}
 #endif
             if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-building-study")>=0){yield return BuildingStudy(app,output);yield break;}
@@ -303,6 +304,55 @@ namespace Ferraris
             foreach(string old in Directory.GetFiles(frames,"frame-*.png"))File.Delete(old);
             for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
         }
+#if UNITY_STANDALONE || UNITY_EDITOR
+        IEnumerator FieldStudy(FerrarisApp app,string output)
+        {
+            if(!GroundFadeStudy(app,output))yield break;
+            for(int index=0;index<app.Data.patches.Length;index++)
+            {
+                var patch=app.Data.patches[index];if(patch.kind!="crop")continue;
+                var p=(new Vector2(patch.points[0].x,patch.points[0].z)+new Vector2(patch.points[1].x,patch.points[1].z)+new Vector2(patch.points[2].x,patch.points[2].z))/3;
+                app.EnterWorld(p.x,p.y);app.enabled=false;app.GetComponent<VisitorUI>().Root.gameObject.SetActive(false);
+                var centre=new Vector3(p.x,app.Area.Height(p.x,p.y),p.y);
+                foreach(bool detail in new[]{false,true})
+                {
+                    app.View.transform.position=centre+new Vector3(0,detail?1.1f:1.7f,-2);
+                    app.View.transform.LookAt(centre+new Vector3(0,detail?.65f:1,detail?0:12));
+                    for(int frame=0;frame<2;frame++)
+                    {
+                        yield return new WaitForSeconds(.9f);yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,$"field-{index}-{(detail?"detail":"walk")}-{frame}.png"));
+                    }
+                }
+                app.enabled=true;
+            }
+            Application.Quit(0);
+        }
+        bool GroundFadeStudy(FerrarisApp app,string output)
+        {
+            var original=(Material)typeof(WorldVegetation).GetField("cropMaterial",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).GetValue(app.World.GetComponent<WorldVegetation>());
+            var material=new Material(original);material.SetFloat("_Wind",0);
+            var range=material.GetVector("_FadeRange");
+            var builder=new WorldMesh();builder.Quad(new Vector3(-.5f,0,0),new Vector3(-.5f,1,0),new Vector3(.5f,1,0),new Vector3(.5f,0,0),Color.white);
+            var fixture=builder.Object("Ground cover fade probe",null,material);fixture.layer=31;var mesh=fixture.GetComponent<MeshFilter>().sharedMesh;
+            var camera=new GameObject("Ground cover probe camera").AddComponent<Camera>();camera.enabled=false;camera.cullingMask=1<<31;camera.orthographic=true;camera.orthographicSize=1;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;camera.transform.position=new Vector3(0,.5f,-3);
+            var target=new RenderTexture(128,128,24);var pixels=new Texture2D(128,128,TextureFormat.RGB24,false);var previous=RenderTexture.active;
+            try
+            {
+                camera.targetTexture=target;var counts=new int[3];var roots=new[]{128,128,128};
+                for(int step=0;step<3;step++)
+                {
+                    material.SetVector("_PlantEye",new Vector4(0,0,step==0?0:step==1?(range.x+range.y)/2:range.y+.1f,0));camera.Render();RenderTexture.active=target;
+                    pixels.ReadPixels(new Rect(0,0,128,128),0,0);pixels.Apply();File.WriteAllBytes(Path.Combine(output,$"ground-fade-{step}.png"),pixels.EncodeToPNG());
+                    var data=pixels.GetPixels32();for(int i=0;i<data.Length;i++)if(data[i].r+data[i].g+data[i].b>60){counts[step]++;roots[step]=Mathf.Min(roots[step],i/128);}
+                }
+                Debug.Log($"FERRARIS_GROUND_FADE pixels={counts[0]},{counts[1]},{counts[2]} roots={roots[0]},{roots[1]}");
+                return Check(counts[0]>2000&&counts[1]>counts[0]*.2f&&counts[1]<counts[0]*.3f,"Ground cover smoothly scales between fade distances",output)
+                    &&Check(counts[2]==0,"Ground cover is invisible before CPU range removal",output)
+                    &&Check(Mathf.Abs(roots[0]-roots[1])<=1,"Ground cover fade preserves the ground anchor",output);
+            }
+            finally{RenderTexture.active=previous;camera.targetTexture=null;Destroy(camera.gameObject);Destroy(fixture);Destroy(mesh);Destroy(material);Destroy(pixels);Destroy(target);}
+        }
+#endif
         IEnumerator RoadStudy(FerrarisApp app,string output)
         {
             foreach(var stop in new[]{(road:3,index:7),(road:12,index:58),(road:0,index:80)})
