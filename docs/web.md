@@ -2,7 +2,7 @@
 
 Working brand: **Toenland**, with **Wandel door het Vlaanderen van toen.** The name joins time and landscape in accessible Dutch. No custom domain has been purchased and no trademark clearance is claimed.
 
-Live: **https://toenland.vercel.app**. Production deployment `dpl_AU1skPNrvAHgRxXJbjn9vbMxnDPY` was marked `READY` and aliased to this domain by Vercel on 12 September 2026. The deployed application includes the mouse/keyboard controls in commit `a393a29`, merged through PR #15 as `324b475`. This deployment explicitly used `--prod`; default deployments use preview.
+Live: **https://toenland.vercel.app**. Production deployment `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv` was marked `READY` and aliased to this domain by Vercel on 13 September 2026. The deployed application includes reviewed building polygons, legend-based categories and visible map contours from code commit `a275a9e`, merged with its evidence documentation through PR #16 as `a630661`. This deployment explicitly used `--prod`; default deployments use preview. The locally tested WebGL file hashes are recorded in `artifacts/building-review/web-release-hashes.json`. The preceding browser-controls deployment was `dpl_AU1skPNrvAHgRxXJbjn9vbMxnDPY` (12 September).
 
 ## Build and hosting
 
