@@ -16,7 +16,8 @@ namespace Ferraris
         {
             var tokens=(query??"").Trim().Split(' ',StringSplitOptions.RemoveEmptyEntries);
             if(tokens.Length==0||book?.addresses==null)return Array.Empty<CurrentAddress>();
-            return book.addresses.Where(a=>tokens.All(t=>a.Label.IndexOf(t,StringComparison.OrdinalIgnoreCase)>=0)).ToArray();
+            return book.addresses.Where(a=>tokens.All(t=>a.Label.IndexOf(t,StringComparison.OrdinalIgnoreCase)>=0))
+                .OrderByDescending(a=>tokens.Any(t=>string.Equals(t,a.number,StringComparison.OrdinalIgnoreCase))).ToArray();
         }
         public static bool Covered(CurrentAddress a,float size)=>a!=null&&Mathf.Abs(a.x)<=size/2-.7f&&Mathf.Abs(a.z)<=size/2-.7f;
         public static string LandUse(WorldData data,float x,float z)

@@ -2,11 +2,13 @@
 
 A web-first historical walk through Winksele around 1775. Open the website on a computer, choose a place on the Ferraris map and walk through the landscape. A small north-up map follows your location and viewing direction. Native desktop and Quest editions share the same world.
 
-The complete map-to-world journey runs on desktop and has been confirmed on a physical Quest 3. See `docs/validation.md` for the test/build evidence and measured limits.
+The original map-to-world journey runs on desktop and was confirmed on a physical Quest 3. The current web-first navigation has no new headset validation. See `docs/validation.md` for the test/build evidence and measured limits.
 
 The Dutch discovery features added in issues #2–#7 include current nearby addresses, home-address search with historical land use, a five-stop day story, spatial landscape sounds with captions, local place-name stories, and selectable object explanations. These additions pass the desktop journey and Android build; their integrated physical-headset acceptance is still pending.
 
 ## Website — Toenland
+
+The web-first navigation described below is implemented and tested locally on `codex/web-first-ux`, based on `codex/period-building-forms`. It has not been deployed to the live site.
 
 **[Toenland — Wandel door het Vlaanderen van toen](https://toenland.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. The landscape fills the browser window. One start button leads into the experience; Kaart, Ontdek and Hulp are the main controls. Stories, search and sound settings live under Ontdek. M enlarges the live map without leaving the world or changing position and heading. Escape releases the mouse or closes a panel. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
 
@@ -22,7 +24,7 @@ Set `VERCEL_CLI` to the CLI executable if it is not on PATH. Deployment targets 
 
 Vercel automatically assigned the first default deployment to production on 12 September 2026. Subsequent default deployments are previews; the live site uses the domain above.
 
-The browser fetches the historical map directly from the public Digitaal Vlaanderen WMS with KBR attribution. The local raster is excluded from the hosted build and restored after building; an internet connection is needed for the map. Native builds keep their bundled offline map. The generated website is about 68 MiB; the first visit downloads the 3D assets after pressing **Stap binnen in 1775**.
+The browser fetches the historical map directly from the public Digitaal Vlaanderen WMS with KBR attribution. The local raster is excluded from the hosted build and restored after building; an internet connection is needed for the map. Native builds keep their bundled offline map. The generated website is about 68 MiB; the first visit downloads the 3D assets after pressing **Begin je wandeling**.
 
 ## Requirements and setup
 

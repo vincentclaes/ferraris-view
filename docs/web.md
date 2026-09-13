@@ -30,9 +30,17 @@ The native cached raster is temporarily moved outside Resources while building, 
 
 ## Building review — 13 September 2026
 
-The website build now contains 53 reviewed building polygons and source-supported categories, including the corrected church anchor. Ordinary building selection and collision preserve concave courtyards. V / **Toon lijnen** displays readable yellow building outlines for comparison with the raster. [Review and validation](period-buildings.md) records the scope and uncertainty.
+The website build now contains 53 reviewed building polygons and source-supported categories, including the corrected church anchor. Ordinary building selection and collision preserve concave courtyards. V displays readable yellow building outlines for comparison with the raster. [Review and validation](period-buildings.md) records the scope and uncertainty.
 
 The full Chrome mouse/keyboard journey passed on this update. A final build check confirmed visible outlines and the Dutch unknown-function explanation, with no JavaScript application errors. GIS tests: 5; standalone coordinate checks: 1,089; Unity EditMode: 16; desktop journey: 321. Earlier validation below remains historical context.
+
+## Web-first navigation — local validation, 13 September 2026
+
+Branch `codex/web-first-ux` builds on the local `codex/period-building-forms` branch, preserving its 53 reviewed building polygons and historical explanations. These navigation changes have not been deployed.
+
+The start page has one primary action. Kaart, Ontdek and Hulp replace the expanded toolbar. The live north-up map follows player position and camera heading; opening and closing it preserves both. Escape releases the mouse without leaving the world. Address search uses the physical keyboard and ranks an exact house number before partial matches.
+
+Validation: 5 GIS tests, 1,089 standalone coordinate checks, 20 Unity EditMode tests and 326 native journey checks passed. WebGL release compilation and the packed-raster exclusion check passed. Chrome checks covered the actual world, walking and looking, map consultation, keyboard menus, address entry with spaces, help, full screen, a 1024×768 window, a 390×844 touch start page, Dutch loading errors and recovery after a rejected pointer-lock request. No JavaScript application errors occurred. Rendered screenshots were inspected; temporary evidence is in `/tmp/toenland-ux-*.png` and `/tmp/toenland-ux-qa.json`.
 
 ## Previous-release validation — 12 September 2026
 
