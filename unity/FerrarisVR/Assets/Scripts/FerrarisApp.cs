@@ -181,7 +181,7 @@ namespace Ferraris
                     if(pan!=Vector2.zero)PanMap(pan.normalized*Area.size*.3f*Time.deltaTime/MapZoom);
                     if(keyboard.equalsKey.wasPressedThisFrame||keyboard.numpadPlusKey.wasPressedThisFrame)ZoomMap(1.4f);
                     if(keyboard.minusKey.wasPressedThisFrame||keyboard.numpadMinusKey.wasPressedThisFrame)ZoomMap(1/1.4f);
-                    if(keyboard.rKey.wasPressedThisFrame){MapZoom=1;MapPan=Vector2.zero;ApplyMapView();}
+                    if(keyboard.rKey.wasPressedThisFrame)ResetMap();
                     if(keyboard.vKey.wasPressedThisFrame){overlayShown=!overlayShown;overlay.SetActive(overlayShown);}
                     if(keyboard.enterKey.wasPressedThisFrame||keyboard.numpadEnterKey.wasPressedThisFrame){SelectUV(MapPan.x/Area.size+.5f,MapPan.y/Area.size+.5f);return;}
                 }
@@ -271,10 +271,12 @@ namespace Ferraris
             rayLine.enabled=!InWorld||discovery?.Active==true||story?.CanTalk==true;if(InWorld){rayLine.SetPosition(0,uiOrigin);rayLine.SetPosition(1,uiOrigin+uiDirection*12);}triggerHeld=down;
         }
         public void ZoomMap(float factor){MapZoom=Mathf.Clamp(MapZoom*factor,1,8);ApplyMapView();}
-        public void PanMap(Vector2 delta){MapPan+=delta;float limit=Area.size*.5f*(1-1/MapZoom);MapPan=new Vector2(Mathf.Clamp(MapPan.x,-limit,limit),Mathf.Clamp(MapPan.y,-limit,limit));ApplyMapView();}
+        public void ResetMap(){MapZoom=1;MapPan=Vector2.zero;ApplyMapView();}
+        public void PanMap(Vector2 delta){MapPan+=delta;ApplyMapView();}
         void ApplyMapView()
         {
-            float limit=Area.size*.5f*(1-1/MapZoom);MapPan=new Vector2(Mathf.Clamp(MapPan.x,-limit,limit),Mathf.Clamp(MapPan.y,-limit,limit));
+            // Desktop can centre every map edge; the XR texture stays within its UV bounds.
+            float limit=Area.size*.5f*(xr?1-1/MapZoom:1);MapPan=new Vector2(Mathf.Clamp(MapPan.x,-limit,limit),Mathf.Clamp(MapPan.y,-limit,limit));
             if(xr)
             {
                 mapPlane.transform.localScale=Vector3.one*2.4f;

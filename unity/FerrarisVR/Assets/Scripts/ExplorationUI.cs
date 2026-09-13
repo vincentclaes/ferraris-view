@@ -35,7 +35,7 @@ namespace Ferraris
                 zoomControls=ui.Box(new Rect(24,ui.Root.rect.height-88,276,64));
                 ui.Button(new Rect(36,ui.Root.rect.height-78,54,44),"-",()=>app.ZoomMap(1/1.4f),zoomControls.transform,28);
                 ui.Button(new Rect(102,ui.Root.rect.height-78,54,44),"+",()=>app.ZoomMap(1.4f),zoomControls.transform,28);
-                ui.Button(new Rect(168,ui.Root.rect.height-78,118,44),"Overzicht",()=>{app.ZoomMap(1/app.MapZoom);},zoomControls.transform,20);
+                ui.Button(new Rect(168,ui.Root.rect.height-78,118,44),"Overzicht",app.ResetMap,zoomControls.transform,20);
                 return;
             }
             float x=ui.Root.rect.width-292;
@@ -57,7 +57,7 @@ namespace Ferraris
                 ? app.InWorld?"Linker joystick: wandelen · Rechter: draaien.\nB: kaart · Richt en druk de trekker voor knoppen.":"Richt op een plek en druk de rechter trekker.\nLinker joystick: verschuiven · Rechter: zoom."
                 : app.InWorld
                 ? Cursor.lockState==CursorLockMode.Locked?"WASD: wandelen   ·   Muis: kijken   ·   M: kaart":"Klik in het landschap om verder te wandelen.\nEscape maakt de muis vrij; je blijft op je plek."
-                : app.MapStatus??"Klik een plek op de kaart om daar te wandelen.\nSleep om te verschuiven. Scrol om te zoomen.";
+                : app.MapStatus??"Klik om te wandelen. Sleep of gebruik pijltjes.\nScrol of +/−: zoom · Enter: wandel vanaf het midden.";
             UpdateMap(miniImage,miniHeading);
             if(MapOpen)
             {
@@ -141,6 +141,7 @@ namespace Ferraris
             BeginPanel("Zo wandel je door Land van Weleer");
             ui.Text(new Rect(48,270,700,480),app.IsXR
                 ?"Bewegen: linker stick.\nDraaien: rechter stick.\nKiezen: rechter richtstraal en trekker.\n\nGebruik Kaart om je locatie en kijkrichting te bekijken.\nMet Sluiten blijf je op dezelfde plek.\n\nOnder Ontdek vind je adressen, verhalen, plaatsnamen en geluiden."
+                :!app.InWorld?"Klik een plek op de kaart om daar te wandelen.\n\nSleep de kaart of gebruik de pijltjestoetsen.\nZoomen: scrol of gebruik + en −.\nEnter: wandel vanaf het midden van de kaart.\nR of Overzicht: zet zoom en verschuiving terug.\n\nOok hoeken en randen kun je naar het midden schuiven.\nKlikken buiten de kaart doet niets.\n\nTab kiest een knop. Shift + Tab gaat terug.\nEnter of spatie bevestigt. F2 gaat naar de website.\nEscape sluit dit paneel."
                 :"Wandel met W A S D of de pijltjestoetsen.\nKijk rond met de muis. Shift laat je sneller gaan.\n\nM opent en sluit je kaart. De pijl toont waar je bent en waar je naar kijkt. Je wandeling blijft op dezelfde plek.\n\nEscape maakt de muis vrij of sluit een paneel.\nKlik in het landschap om weer rond te kijken.\n\nTab kiest een knop. Shift + Tab gaat terug.\nEnter of spatie bevestigt. F2 gaat naar de website.\n\nOnder Ontdek vind je adressen, verhalen en geluiden.",25,panel.transform);
             ui.Text(new Rect(48,769,704,70),"Kaart: KBR · Digitaal Vlaanderen, blad 93.\nHet landschap is deels een illustratieve reconstructie.",21,panel.transform);
         }

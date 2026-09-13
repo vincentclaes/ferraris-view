@@ -22,6 +22,7 @@ namespace Ferraris
 #if UNITY_STANDALONE || UNITY_EDITOR
             if(Array.IndexOf(args,"-xr-input-study")>=0){yield return XRInputStudy.Run(app,output);yield break;}
             if(Array.IndexOf(args,"-field-study")>=0){yield return FieldStudy(app,output);yield break;}
+            if(Array.IndexOf(args,"-map-edge-study")>=0){yield return MapEdgeStudy(app,output);yield break;}
 #endif
             if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
             if(Array.IndexOf(args,"-building-study")>=0){yield return BuildingStudy(app,output);yield break;}
@@ -305,6 +306,44 @@ namespace Ferraris
             for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
         }
 #if UNITY_STANDALONE || UNITY_EDITOR
+        IEnumerator MapEdgeStudy(FerrarisApp app,string output)
+        {
+            InputSystem.settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
+            foreach(var device in InputSystem.devices)if(device is Mouse or Keyboard)InputSystem.DisableDevice(device);
+            var mouse=InputSystem.AddDevice<Mouse>();var keyboard=InputSystem.AddDevice<Keyboard>();var ui=app.GetComponent<VisitorUI>();int checks=0;
+            app.GetComponent<ExplorationUI>().ShowHelp();yield return null;
+            if(!Check(TextFits(ui),"Map keyboard help fits",output))yield break;checks++;app.GetComponent<ExplorationUI>().Close();yield return null;
+            void Click(Vector2 p){InputSystem.QueueStateEvent(mouse,new MouseState{position=p}.WithButton(MouseButton.Left));InputSystem.QueueStateEvent(mouse,new MouseState{position=p});}
+            foreach(float zoom in new[]{1f,2f,8f})foreach(var target in new[]{new Vector2(-499,499),new Vector2(499,499),new Vector2(499,-499),new Vector2(-499,-499)})
+            {
+                app.ReturnToMap();yield return null;yield return null;
+                Click(new Vector2(210*Screen.width/ui.Root.rect.width,56*Screen.height/ui.Root.rect.height));yield return null;yield return null;
+                if(!Check(app.MapZoom==1&&app.MapPan==Vector2.zero,"Overview resets map zoom and pan",output))yield break;checks++;
+                app.ZoomMap(zoom);var centre=new Vector2(Screen.width/2f,Screen.height/2f);
+                for(int attempt=0;attempt<32&&(app.MapPan-target).magnitude>.02f;attempt++)
+                {
+                    var delta=(target-app.MapPan)*(-Screen.height/(2*app.View.orthographicSize));delta=new Vector2(Mathf.Clamp(delta.x,-Screen.width*.3f,Screen.width*.3f),Mathf.Clamp(delta.y,-Screen.height*.3f,Screen.height*.3f));
+                    var before=app.MapPan;
+                    InputSystem.QueueStateEvent(mouse,new MouseState{position=centre}.WithButton(MouseButton.Left));InputSystem.QueueStateEvent(mouse,new MouseState{position=centre+delta}.WithButton(MouseButton.Left));InputSystem.QueueStateEvent(mouse,new MouseState{position=centre+delta});
+                    yield return null;yield return null;
+                    if(!Check(!app.InWorld&&(app.MapPan-target).sqrMagnitude<(before-target).sqrMagnitude,"Drag advances toward map edge at zoom "+zoom,output)){yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,"edge-failure.png"));yield break;}checks++;
+                }
+                Vector2 screen=app.View.WorldToScreenPoint(new Vector3(target.x,target.y,0));
+                if(!Check((screen-centre).magnitude<.05f&&!ui.BlocksScreen(screen),"Map corner reaches unobscured screen centre",output))yield break;checks++;
+                if(zoom==1){yield return new WaitForEndOfFrame();CaptureStill(Path.Combine(output,$"edge-{target.x}-{target.y}.png"));}
+                Click(screen);yield return null;yield return null;
+                if(!Check(app.InWorld&&Vector2.Distance(new Vector2(app.Selected.x,app.Selected.z),target)<.02f&&Vector2.Distance(new Vector2(app.Player.position.x,app.Player.position.z),target)<26&&app.Player.position.y>=app.Area.Height(app.Player.position.x,app.Player.position.z)-.1f,"Edge click selects the exact coordinate and enters supported world",output))yield break;checks++;
+            }
+            app.Locate(480,-480);yield return null;yield return null;
+            if(!Check(Vector2.Distance(app.MapPan,new Vector2(480,-480))<.01f,"Edge address is centred on the map",output))yield break;checks++;
+            Click(new Vector2(Screen.width*.9f,Screen.height*.5f));yield return null;yield return null;
+            if(!Check(!app.InWorld,"Blank area beyond map does not enter the world",output))yield break;checks++;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.R));yield return null;yield return null;InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.LeftArrow,Key.UpArrow));yield return new WaitForSeconds(2.7f);InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return null;
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Enter));yield return null;yield return null;InputSystem.QueueStateEvent(keyboard,new KeyboardState());
+            if(!Check(app.InWorld&&Mathf.Abs(app.Selected.x+500)<.02f&&Mathf.Abs(app.Selected.z-500)<.02f,"Keyboard can pan to and enter the northwest boundary",output))yield break;checks++;
+            File.WriteAllText(Path.Combine(output,"map-edges.json"),"{\"passed\":true,\"checks\":"+checks+",\"hardwareVerified\":false}");Debug.Log("FERRARIS_MAP_EDGES_PASS "+checks);Application.Quit(0);
+        }
         IEnumerator FieldStudy(FerrarisApp app,string output)
         {
             if(!GroundFadeStudy(app,output))yield break;

@@ -57,11 +57,12 @@ open builds/Winksele1775.app
 bash scripts/smoke-desktop.sh
 bash scripts/smoke-desktop.sh -xr-input-study  # input replay; no hardware certification
 bash scripts/smoke-desktop.sh -field-study     # four grain fields, walking and close views
+bash scripts/smoke-desktop.sh -map-edge-study  # all four corners at 1x, 2x and 8x zoom
 ```
 
 Set `UNITY_EDITOR` to override the installed editor executable. Close the editor before running batch builds/tests on the same project.
 
-- Map: drag or arrow keys to pan; scroll, +/− or buttons to zoom; click or Enter at the map centre to enter the world. R resets Winksele; V toggles extracted roads/building footprints/vegetation.
+- Map: drag or arrow keys to pan, including bringing any corner to the centre; scroll, +/− or buttons to zoom; click or Enter at the map centre to enter the world. R or Overzicht resets zoom and pan; V toggles extracted roads/building footprints/vegetation.
 - World: WASD, mouse look, Shift to walk faster, M to consult the map; choose Andere startplek to return to location selection. Click the world to recapture the mouse after focus loss.
 - A map click inside a building spawns at a nearby free point within 25m. The selected coordinate remains available separately.
 - The compact map shows your live position and viewing direction. Technical coordinates and FPS are hidden from the visitor interface.
