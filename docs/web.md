@@ -26,6 +26,12 @@ The [official historical-cartography service](https://www.vlaanderen.be/datavind
 
 The native cached raster is temporarily moved outside Resources while building, restored in `finally`, and checked against the packed-asset report. The website therefore does not redistribute that raster from Vercel. Unlike the native edition, initial map loading needs internet. A failed map request gives a Dutch reload instruction. Bundled object explanations, addresses, stories and sounds remain local after the initial application download.
 
+## Building review — 13 September 2026
+
+The website build now contains 53 reviewed building polygons and source-supported categories, including the corrected church anchor. Ordinary building selection and collision preserve concave courtyards. V / **Toon lijnen** displays readable yellow building outlines for comparison with the raster. [Review and validation](period-buildings.md) records the scope and uncertainty.
+
+The full Chrome mouse/keyboard journey passed on this update. A final build check confirmed visible outlines and the Dutch unknown-function explanation, with no JavaScript application errors. GIS tests: 5; standalone coordinate checks: 1,089; Unity EditMode: 16; desktop journey: 321. Earlier validation below remains historical context.
+
 ## Validation — 12 September 2026
 
 - Unity WebGL release build succeeded; packed-asset check excludes the cached Ferraris raster. Unity EditMode suite passes all 13 tests, including modal focus order and repeated activation after a panel redraw.

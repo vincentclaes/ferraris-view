@@ -330,6 +330,7 @@ namespace Ferraris
 
         bool Occupied(Vector3 p)
         {
+            foreach(var building in data.buildings)if(building.Contains(p.x,p.z))return true;
             foreach(Collider c in Physics.OverlapCapsule(p+Vector3.up*.4f,p+Vector3.up*1.5f,.3f))if(c!=character&&c.gameObject!=World.TerrainObject)return true;
             return false;
         }
@@ -364,6 +365,7 @@ namespace Ferraris
             foreach(Road road in data.roads)Line(road.points,new Color(0,.8f,1),false);
             foreach(Building b in data.buildings)
             {
+                if(b.footprint!=null){Line(b.footprint,Color.yellow,true);continue;}
                 Quaternion q=Quaternion.Euler(0,b.yaw,0);var points=new List<MapPoint>();
                 foreach(Vector3 p in new[]{new Vector3(-b.width/2,0,-b.depth/2),new Vector3(b.width/2,0,-b.depth/2),new Vector3(b.width/2,0,b.depth/2),new Vector3(-b.width/2,0,b.depth/2)}){Vector3 v=q*p;points.Add(new MapPoint(b.x+v.x,b.z+v.z));}Line(points.ToArray(),Color.yellow,true);
             }
@@ -371,7 +373,7 @@ namespace Ferraris
         }
         void Line(MapPoint[] points,Color color,bool loop)
         {
-            var line=new GameObject("Extracted feature").AddComponent<LineRenderer>();line.transform.SetParent(overlay.transform,false);line.useWorldSpace=false;line.loop=loop;line.positionCount=points.Length;line.startWidth=line.endWidth=.0015f;line.material=new Material(Shader.Find("Unlit/Color"));line.material.color=color;
+            var line=new GameObject("Extracted feature").AddComponent<LineRenderer>();line.transform.SetParent(overlay.transform,false);line.useWorldSpace=false;line.loop=loop;line.positionCount=points.Length;line.startWidth=line.endWidth=xr?.0036f:Area.size*.0015f;line.material=new Material(Shader.Find("Unlit/Color"));line.material.color=color;
             for(int i=0;i<points.Length;i++)line.SetPosition(i,new Vector3(points[i].x/Area.size,points[i].z/Area.size,-.005f));
         }
         void OnGUI()

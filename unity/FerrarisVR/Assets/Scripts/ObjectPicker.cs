@@ -35,11 +35,13 @@ namespace Ferraris
                     foreach(var lod in world.GetComponentsInChildren<LODGroup>(true))foreach(var r in lod.GetLODs()[0].renderers)if(r!=null)bounds.Encapsulate(r.bounds);
                     Volumes.Add(new PickVolume{key="church",centre=bounds.center,size=bounds.size,rotation=Quaternion.identity});continue;
                 }
-                bool barn=b.kind=="barn";float h=barn?4:b.width>15?4.7f:3.3f,rise=barn?2.5f:3.2f;
-                Add(b.kind,new Vector3(0,(h+rise+1.5f)/2,0),new Vector3(b.width+1,h+rise+1.5f,b.depth+1.8f));
-                Add("barrel",new Vector3(b.width/2-.65f,.55f,-b.depth/2-1.2f),new Vector3(.8f,1,.8f),true);
-                Add("woodpile",new Vector3(-b.width/2+.8f,.4f,-b.depth/2-1.15f),new Vector3(1.7f,.7f,.45f),true);
-                if(barn)Add("fence",new Vector3(0,.7f,b.depth/2+2),new Vector3(b.width+ .12f,1.4f,.18f),true);
+                if(b.kind=="building")continue;
+                var form=HistoricalWorld.RuralForm(b);q=form.rotation;
+                float height=form.height+.35f+form.rise+1f;
+                Add(b.kind,new Vector3(0,height/2,0),new Vector3(form.length+.6f,height,form.span+.7f));
+                Add("barrel",new Vector3(form.length/2-.65f,.48f,-form.span/2-.9f),new Vector3(.65f,.8f,.65f),true);
+                Add("woodpile",new Vector3(-form.length/2+.8f,.38f,-form.span/2-.85f),new Vector3(1.4f,.6f,.4f),true);
+                if(b.kind=="barn")Add("fence",new Vector3(0,.7f,form.span/2+2),new Vector3(form.length+.12f,1.4f,.18f),true);
             }
             var vegetation=world.GetComponent<WorldVegetation>();
             foreach(var matrix in vegetation.TreeTransforms)
@@ -58,8 +60,8 @@ namespace Ferraris
             // Map positions use the reviewed geometry, not oversized world selection envelopes.
             foreach(var b in data.buildings)
             {
-                var p=Quaternion.Euler(0,-b.yaw,0)*new Vector3(x-b.x,0,z-b.z);
-                if(Mathf.Abs(p.x)<=b.width/2&&Mathf.Abs(p.z)<=b.depth/2)return Result(b.kind,new Vector3(x,area.Height(x,z),z),Mathf.Max(b.width,b.depth)/2);
+
+                if(b.Contains(x,z))return Result(b.kind,new Vector3(x,area.Height(x,z),z),Mathf.Max(b.width,b.depth)/2);
             }
             foreach(var road in data.roads)for(int i=1;i<road.points.Length;i++)if(HomeSearch.SegmentDistance(new Vector2(x,z),road.points[i-1],road.points[i])<=road.width/2)return Result("road",new Vector3(x,area.Height(x,z),z),road.width);
             foreach(var patch in data.patches)if(WorldVegetation.Contains(patch,x,z))return Result(patch.kind,new Vector3(x,area.Height(x,z),z),7);
@@ -68,10 +70,15 @@ namespace Ferraris
         public PickedObject Ray(Ray ray)
         {
             float nearest=1800;PickedObject selected=null;
-            // Terrain and horizon are exact mesh hits. Existing building colliders
-            // are superseded by semantic envelopes including roof and facade details.
-            foreach(var hit in Physics.RaycastAll(ray,1800))if(hit.collider.gameObject.name is "DHMV terrain" or "Distant countryside")
-                if(hit.distance<nearest){nearest=hit.distance;selected=Map(hit.point.x,hit.point.z);selected.point=hit.point;}
+            foreach(var hit in Physics.RaycastAll(ray,1800))
+            {
+                string name=hit.collider.gameObject.name;
+                if(hit.distance>=nearest)continue;
+                if(name.StartsWith("Mapped building: ",StringComparison.Ordinal))
+                {nearest=hit.distance;selected=Result("building",hit.point,8);}
+                else if(name is "DHMV terrain" or "Distant countryside")
+                {nearest=hit.distance;selected=Map(hit.point.x,hit.point.z);selected.point=hit.point;}
+            }
             foreach(var volume in Volumes)if(volume.Intersect(ray,out float distance)&&distance>=0&&distance<nearest)
             {nearest=distance;selected=Result(volume.key,ray.GetPoint(distance),Mathf.Max(volume.size.x,volume.size.z)/2);selected.volume=volume;}
             return selected??Result("sky",ray.origin+ray.direction*100,0);

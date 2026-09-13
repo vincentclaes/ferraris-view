@@ -23,8 +23,8 @@ namespace Ferraris
         {
             foreach(var b in data.buildings)
             {
-                Vector3 p=Quaternion.Euler(0,-b.yaw,0)*new Vector3(x-b.x,0,z-b.z);
-                if(Mathf.Abs(p.x)<=b.width/2&&Mathf.Abs(p.z)<=b.depth/2)return b.kind=="church"?"kerk":"bebouwing (functie niet zeker)";
+
+                if(b.Contains(x,z))return b.kind=="church"?"kerk":"bebouwing (functie niet zeker)";
             }
             foreach(var road in data.roads)
                 for(int i=1;i<road.points.Length;i++)if(SegmentDistance(new Vector2(x,z),road.points[i-1],road.points[i])<=road.width/2)return "weg";
