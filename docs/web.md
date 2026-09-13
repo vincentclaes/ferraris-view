@@ -2,7 +2,9 @@
 
 Brand: **Land van Weleer**, with **Wandel door het Vlaanderen van toen.**
 
-Website: **https://land-van-weleer.vercel.app**. Latest production release: `dpl_7syKx1QrhsZ6T7kZAzXvsVoz5aHV`, READY on 13 September 2026. It contains the five [daily-life tableaux](tableaux.md), harvest transfers, hinged flail and readable source pages from runtime commit `e892c1e`. The pushed branch `codex/living-tableaux` is in [draft PR #20](https://github.com/vincentclaes/ferraris-view/pull/20), not merged. The project remains `land-van-weleer` (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`); production publication uses `--prod`. Locally tested build hashes: `artifacts/tableaux-web-hashes.json`.
+Website: **https://land-van-weleer.vercel.app**. Latest production release: `dpl_HW6zxgRuzeEWzQwHjyUSda6DGdcw`, READY on 13 September 2026. Runtime commit `9697a2c` adds [recessed contour-building facades and aligned roof details](period-buildings.md) to the existing tableaux and readable source pages. The pushed branch is `codex/mapped-building-detail`, in [draft PR #21](https://github.com/vincentclaes/ferraris-view/pull/21) based on [PR #20](https://github.com/vincentclaes/ferraris-view/pull/20); neither is merged. The project remains `land-van-weleer` (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`). Locally tested build hashes: `artifacts/building-detail-web-hashes.json`.
+
+This release passes 19 Unity tests and 340 built-player journey checks. The final Chrome/Playwright run at 1440×1100 visits all five scenes, object explanations, ending, sources and map return through mouse/keyboard controls without application errors. The updated buildings are visible in the inspected scene screenshots; native close-ups cover three actual mapped facades. Mobile information at 390×844 remains readable. Browser plugin unavailable; installed Chrome/Playwright used. Evidence: `/tmp/land-van-weleer-tableaux/` and `/tmp/ferraris-building-detail/`.
 
 The preceding map-alignment release was `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv`, containing code commit `a275a9e` merged through PR #16 as `a630661`. Its locally tested WebGL hashes remain in `artifacts/building-review/web-release-hashes.json`.
 
