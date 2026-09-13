@@ -105,6 +105,10 @@ namespace Ferraris
             {
                 day.Open();ui.ClickScreen(new Vector2(500,1000-668));yield return new WaitForSeconds(.4f);
                 if(!Check(app.InWorld&&!ui.PanelOpen&&day.Progress.Step==stop&&day.Distance<7,"Visit tableau without advancing story "+stop,output))yield break;
+                var resident=app.World.Tableaux.Sites[stop].GetComponentInChildren<TableauResident>();
+                var before=resident.Torso.localRotation;float motion=0;
+                for(int frame=0;frame<3;frame++){yield return new WaitForSeconds(.7f);motion=Mathf.Max(motion,Quaternion.Angle(before,resident.Torso.localRotation));}
+                if(!Check(motion>.05f,"Live resident animation "+stop,output))yield break;
                 ScreenCapture.CaptureScreenshot(Path.Combine(output,"tableau-"+stop+".png"));yield return new WaitForSeconds(.5f);
                 day.Open();yield return new WaitForSeconds(.4f);
                 if(stop==0){ScreenCapture.CaptureScreenshot(Path.Combine(output,"09-story.png"));yield return new WaitForSeconds(.5f);}

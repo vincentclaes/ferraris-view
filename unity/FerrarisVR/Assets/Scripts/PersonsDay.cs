@@ -35,7 +35,8 @@ namespace Ferraris
             if(!active)return;
             var stop=Content.stops[Progress.Step];beacon.transform.position=new Vector3(stop.x,app.Area.Height(stop.x,stop.z)+3,stop.z);
             int metres=Mathf.RoundToInt(Distance);
-            direction.text=$"Dag van Marie • {Progress.Step+1}/{Content.stops.Length}: {stop.title}\n{metres} m naar het gouden richtpunt • Volg een dag: lees verder";
+            beacon.SetActive(metres>10);
+            direction.text=$"Dag van Marie • {Progress.Step+1}/{Content.stops.Length}: {stop.title}\n"+(metres<=10?"Je staat bij het tafereel • Volg een dag: lees verder":$"{metres} m naar het gouden richtpunt • Volg een dag: lees verder");
             if(panel!=null&&metres!=lastMetres&&(metres<=22||lastMetres<=22))Draw();lastMetres=metres;
         }
         public void Open(){ui.ClosePanel?.Invoke();evidence=false;Draw();}

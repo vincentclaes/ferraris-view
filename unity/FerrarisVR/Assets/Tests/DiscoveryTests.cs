@@ -23,6 +23,11 @@ namespace Ferraris.Tests
             try
             {
                 var world=go.AddComponent<HistoricalWorld>();world.Build(area,data);Physics.SyncTransforms();var picker=new ObjectPicker(area,data,world);
+                foreach(var site in world.Tableaux.Sites)
+                {
+                    var resident=site.GetComponentInChildren<TableauResident>();var centre=resident.transform.position+Vector3.up*.85f;
+                    Assert.That(picker.Ray(new Ray(centre+Vector3.back,Vector3.forward)).key,Is.EqualTo("tableau"),site.name);
+                }
                 foreach(string key in new[]{"church","tree","cow","sheep"})
                 {
                     bool found=false;

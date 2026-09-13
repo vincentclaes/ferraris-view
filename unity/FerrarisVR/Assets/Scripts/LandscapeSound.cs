@@ -25,8 +25,8 @@ namespace Ferraris
             var church=System.Array.Find(app.Data.buildings,b=>b.kind=="church");
             Add("Kerkklok","Een klokslag bij de kerk. Illustratieve opname; de klank en het uurrooster van Winksele in 1775 zijn niet bekend.",new Vector3(church.x,app.Area.Height(church.x,church.z)+18,church.z),"bell",180);
             foreach(var animal in app.World.GetComponentsInChildren<GrazingAnimal>(true))if(animal.transform.parent.name=="Grazing sheep"){Add("Blatend schaap","Een schaap roept bij de grazende dieren. Dit maakt de illustratieve veestapel ook zonder geluid vindbaar.",animal.transform.position,"sheep",65);break;}
-            var barn=System.Array.Find(app.Data.buildings,b=>b.kind=="building");
-            if(barn!=null)Add("Houtwerk op het erf","Schurend en kloppend hout bij een erfgebouw. Een illustratie van handwerk, geen bewijs van een historische werkplaats op deze plek.",new Vector3(barn.x+8,app.Area.Height(barn.x,barn.z)+1,barn.z),"wood",80);
+            var work=app.World.Tableaux.Sites[4].position;
+            Add("Houtwerk op het erf","Kloppend hout bij het illustratieve dorstafereel. De opname is algemene klankillustratie, geen reconstructie van dit werktuig of bewijs van een historische werkplaats.",work+Vector3.up,"wood",80);
             ui.Button(new Rect(594,125,194,45),"Luister",Open);
             hud=ui.Box(new Rect(835,650,580,102));cue=ui.Text(new Rect(852,660,545,86),"",21,hud.transform);ApplyVolume();
         }
