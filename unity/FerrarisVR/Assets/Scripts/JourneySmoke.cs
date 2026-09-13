@@ -16,10 +16,11 @@ namespace Ferraris
             string output=Path.GetFullPath(Path.Combine(Application.dataPath,"../../../../artifacts"));
             string[] args=Environment.GetCommandLineArgs();
             int i=Array.IndexOf(args,"-evidence-dir");if(i>=0&&i+1<args.Length)output=args[i+1];Directory.CreateDirectory(output);
-            StartCoroutine(Record(output));
             var app=FerrarisApp.Instance;
             yield return new WaitForSeconds(1);
             if(!Check(app.Ready&&!app.InWorld,"Map bootstrap",output))yield break;
+            if(Array.IndexOf(args,"-tableau-work-study")>=0){yield return WorkStudy(app,output);yield break;}
+            StartCoroutine(Record(output));
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"01-map.png"));yield return new WaitForSeconds(.4f);
             // Feed real Input System events, including a whole drag within one
             // frame. This regression failed when input was polled only per frame.
@@ -225,6 +226,23 @@ namespace Ferraris
             string frames=Path.Combine(output,"journey-frames");Directory.CreateDirectory(frames);
             foreach(string old in Directory.GetFiles(frames,"frame-*.png"))File.Delete(old);
             for(int frame=0;frame<180;frame++){yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(frames,$"frame-{frame:D4}.png"));yield return new WaitForSeconds(.5f);}
+        }
+        IEnumerator WorkStudy(FerrarisApp app,string output)
+        {
+            // Close views of a complete running cycle; no manual pose injection.
+            foreach(int stop in new[]{1,2,4})
+            {
+                var site=app.World.Tableaux.Sites[stop];app.EnterWorld(site.position.x,site.position.z-5.5f);
+                app.enabled=false;app.GetComponent<VisitorUI>().Root.gameObject.SetActive(false);
+                app.View.transform.position=site.position+new Vector3(2.7f,2,-3.2f);app.View.transform.LookAt(site.position+Vector3.up*.8f);
+                for(int frame=0;frame<36;frame++)
+                {
+                    yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(output,$"work-{stop}-{frame:D3}.png"));
+                    yield return new WaitForSeconds(.26f);
+                }
+                app.enabled=true;
+            }
+            Application.Quit(0);
         }
         bool Check(bool ok,string check,string output)
         {

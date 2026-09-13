@@ -27,6 +27,13 @@ namespace Ferraris.Tests
                 {
                     var resident=site.GetComponentInChildren<TableauResident>();var centre=resident.transform.position+Vector3.up*.85f;
                     Assert.That(picker.Ray(new Ray(centre+Vector3.back,Vector3.forward)).key,Is.EqualTo("tableau"),site.name);
+                    if(resident.Work!=null)
+                    {
+                        resident.Work.Sample(.34f);Physics.SyncTransforms();
+                        var head=resident.Torso.Find("Gezicht en hoofddeksel").GetComponent<BoxCollider>();
+                        var ray=new Ray(head.bounds.center+resident.transform.forward*.7f,-resident.transform.forward);
+                        Assert.That(picker.Ray(ray).key,Is.EqualTo("tableau"),"Bent resident remains selectable");
+                    }
                 }
                 foreach(string key in new[]{"church","tree","cow","sheep"})
                 {

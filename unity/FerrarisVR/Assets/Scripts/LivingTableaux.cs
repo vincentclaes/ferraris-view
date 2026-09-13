@@ -8,12 +8,13 @@ namespace Ferraris
     public class LivingTableaux : MonoBehaviour
     {
         public StoryContent Content { get; private set; }
+        public AreaData Area { get; private set; }
         public readonly List<Transform> Sites=new();
         static readonly Color Linen=new(.76f,.70f,.55f),Oak=new(.31f,.20f,.10f),Straw=new(.64f,.47f,.20f);
         Material material;
         public void Build(AreaData area,WorldData data)
         {
-            Content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
+            Area=area;Content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
             material=HistoricalWorld.Surface(null);
             for(int i=0;i<Content.stops.Length;i++)
             {
@@ -35,11 +36,11 @@ namespace Ferraris
                 else if(i==1)
                 {
                     Person(-.7f,0,true,"halmen verzamelen",180,new Color(.39f,.24f,.20f));Person(.95f,.45f,false,"schoven binden",160,new Color(.30f,.32f,.22f));
-                    for(int s=0;s<4;s++)Sheaf(props,Ground(-1.35f+s*.75f,-.9f),s*.7f);
+                    for(int s=0;s<4;s++)Sheaf(props,Ground(s%2==0?-1.7f:1.7f,.8f+s/2*.55f),s*.7f);
                 }
                 else if(i==2)
                 {
-                    Person(-.55f,0,true,"fruit rapen",160,new Color(.31f,.35f,.23f));Basket(props,Ground(.5f,-.5f));
+                    Person(-.55f,0,true,"fruit rapen",160,new Color(.31f,.35f,.23f));
                     for(int f=0;f<12;f++){var fruit=Ground(Mathf.Sin(f*2.4f)*1.3f,Mathf.Cos(f*2.4f)*1.2f);props.Ellipsoid(fruit+Vector3.up*.065f,new Vector3(.068f,.063f,.065f),Quaternion.identity,f%3==0?new Color(.43f,.13f,.06f):new Color(.49f,.47f,.14f),8,5);}
                 }
                 else if(i==3)
@@ -51,7 +52,12 @@ namespace Ferraris
                 {
                     Person(-.35f,.35f,false,"dorsen",180,new Color(.34f,.28f,.20f));Person(1.25f,.25f,true,"mand dragen",215,new Color(.36f,.24f,.22f));
                     for(int b=0;b<6;b++)props.Box(Ground(-.45f,-.8f)+new Vector3((b-2.5f)*.25f,.045f,0),new Vector3(.24f,.07f,1.9f),Quaternion.identity,Oak);
-                    for(int s=0;s<3;s++)Sheaf(props,Ground(-1.25f+s*.7f,-.7f),s*.5f);
+                    for(int s=0;s<3;s++)
+                    {
+                        var bundle=new WorldMesh();Sheaf(bundle,Vector3.zero,s*.5f);var laid=bundle.Object("Uitgespreid graan",site.transform,material);
+                        laid.transform.localPosition=Ground(-.9f+s*.55f,-.65f)+Vector3.up*.20f;laid.transform.localRotation=Quaternion.Euler(-90,0,0);
+                        laid.AddComponent<MeshCollider>().sharedMesh=laid.GetComponent<MeshFilter>().sharedMesh;
+                    }
                     Basket(props,Ground(1.45f,-.9f));
                 }
                 var objects=props.Object("Manden en oogstgerei",site.transform,material);objects.AddComponent<MeshCollider>().sharedMesh=objects.GetComponent<MeshFilter>().sharedMesh;
@@ -107,7 +113,7 @@ namespace Ferraris
             mesh.Ellipsoid(p+Vector3.up*.018f,new Vector3(.18f,.018f,.18f),Quaternion.identity,Straw,16,3);
             for(int n=0;n<16;n++){float a=n*Mathf.PI/16,b=(n+1)*Mathf.PI/16;mesh.Beam(p+new Vector3(Mathf.Cos(a)*.25f,.25f+Mathf.Sin(a)*.28f,0),p+new Vector3(Mathf.Cos(b)*.25f,.25f+Mathf.Sin(b)*.28f,0),.017f,Oak,5);}
         }
-        static void Sheaf(WorldMesh mesh,Vector3 p,float phase)
+        public static void Sheaf(WorldMesh mesh,Vector3 p,float phase)
         {
             for(int k=0;k<28;k++)
             {
@@ -121,13 +127,21 @@ namespace Ferraris
     public class TableauResident : MonoBehaviour
     {
         public Transform Torso { get; private set; }
-        Transform left,right,leftForearm,rightForearm,head;
+        Transform left,right,leftForearm,rightForearm,head,gown;
+        public TableauWork Work { get; private set; }
+        public Vector3 RightHand=>rightForearm.TransformPoint(new Vector3(0,-.26f,0));
+        public Vector3 LeftHand=>leftForearm.TransformPoint(new Vector3(0,-.26f,0));
         string action;float phase;
         static readonly Color Skin=new(.57f,.37f,.25f),Linen=new(.76f,.71f,.59f),Leather=new(.16f,.11f,.08f);
         public void Build(Material material,bool skirt,string activity,Color coat,float offset)
         {
             action=activity;phase=offset;
-            Transform Piece(string name,WorldMesh mesh,Transform parent,Vector3 position){var part=mesh.Object(name,parent,material);part.transform.localPosition=position;return part.transform;}
+            Transform Piece(string name,WorldMesh mesh,Transform parent,Vector3 position)
+            {
+                var part=mesh.Object(name,parent,material);part.transform.localPosition=position;
+                var bounds=part.GetComponent<MeshFilter>().sharedMesh.bounds;var pick=part.AddComponent<BoxCollider>();pick.center=bounds.center;pick.size=bounds.size;pick.isTrigger=true;
+                return part.transform;
+            }
             var lower=new WorldMesh();
             for(int side=-1;side<=1;side+=2)
             {
@@ -135,6 +149,7 @@ namespace Ferraris
                 lower.Beam(new Vector3(side*.12f,.12f,0),new Vector3(side*.12f,.48f,0),.053f,Linen,10,.065f);
                 if(!skirt)lower.Beam(new Vector3(side*.12f,.44f,0),new Vector3(side*.13f,.98f,0),.095f,coat,12,.115f);
             }
+            Piece("Kousen en schoenen",lower,transform,Vector3.zero);lower=new WorldMesh();
             if(skirt)
             {
                 for(int n=0;n<48;n++)
@@ -146,7 +161,7 @@ namespace Ferraris
                     if(n>=4&&n<20)lower.Quad(P(a,.2f,.38f),P(a,.92f,.18f),P(b,.92f,.18f),P(b,.2f,.38f),Linen);
                 }
             }
-            Piece("Rok, kousen en schoenen",lower,transform,Vector3.zero);
+            if(skirt)gown=Piece("Rok en schort",lower,transform,Vector3.zero);
             var body=new WorldMesh();body.Ellipsoid(new Vector3(0,.23f,0),new Vector3(.20f,.30f,.115f),Quaternion.identity,coat,18,12);
             body.Beam(new Vector3(0,.45f,0),new Vector3(0,.56f,0),.055f,Skin,10);
             body.Triangle(new Vector3(-.15f,.45f,.095f),new Vector3(0,.16f,.13f),new Vector3(.15f,.45f,.095f),Linen);
@@ -186,15 +201,16 @@ namespace Ferraris
             {
                 var basket=new WorldMesh();LivingTableaux.Basket(basket,new Vector3(0,-.78f,0));Piece("Gedragen mand",basket,leftForearm,Vector3.zero);
             }
-            if(action=="dorsen")
+            if(action is "fruit rapen" or "halmen verzamelen" or "schoven binden" or "dorsen")
             {
-                var tool=new WorldMesh();tool.Beam(new Vector3(0,-.27f,0),new Vector3(0,.85f,0),.022f,Leather,9);tool.Beam(new Vector3(0,.85f,0),new Vector3(0,.86f,.56f),.035f,coat,9);Piece("Illustratieve dorsvlegel",tool,rightForearm,Vector3.zero);
+                Work=gameObject.AddComponent<TableauWork>();Work.Build(this,material,action,GetComponentInParent<LivingTableaux>().Area);
             }
             var collider=gameObject.AddComponent<CapsuleCollider>();collider.center=Vector3.up*.85f;collider.height=1.7f;collider.radius=.34f;
             Pose(0);
         }
         public void Pose(float time)
         {
+            if(Work!=null){Work.Sample(Mathf.Repeat((time+phase)/9,1));return;}
             float wave=Mathf.Sin(time*1.4f+phase),slow=Mathf.Sin(time*.65f+phase);
             bool bending=action is "halmen verzamelen" or "fruit rapen" or "schoven binden";
             Torso.localRotation=Quaternion.Euler(bending?22+15*wave:action=="dorsen"?10+9*wave:2*slow,0,0);
@@ -203,6 +219,24 @@ namespace Ferraris
             right.localRotation=Quaternion.Euler(bending?-30:action=="dorsen"?-65-45*wave:-15-10*wave,0,7);
             leftForearm.localRotation=Quaternion.Euler(action=="mand dragen"?-12:bending?-18:-35-10*wave,0,0);
             rightForearm.localRotation=Quaternion.Euler(action=="dorsen"?-45:bending?-20:-35+10*wave,0,0);
+        }
+        public void WorkPose(float bend,float crouch,float turn)
+        {
+            Torso.localPosition=new Vector3(0,.93f-.48f*crouch,0);Torso.localRotation=Quaternion.Euler(bend,turn,0);
+            head.localRotation=Quaternion.Euler(-bend*.3f,0,0);
+            if(gown!=null)gown.localScale=new Vector3(1+crouch*.12f,1-crouch*.48f/.93f,1+crouch*.18f);
+        }
+        public void Reach(bool rightSide,Vector3 target)
+        {
+            var upper=rightSide?right:left;var fore=rightSide?rightForearm:leftForearm;
+            var shoulder=upper.position;var offset=target-shoulder;float distance=Mathf.Clamp(offset.magnitude,.03f,.529f);var direction=offset.normalized;
+            // Two rigid arm segments: solve the elbow rather than stretching the mesh.
+            float along=(.27f*.27f-.26f*.26f+distance*distance)/(2*distance);
+            var pole=transform.TransformDirection(new Vector3(rightSide?1:-1,-.25f,-.4f));
+            var bend=(pole-direction*Vector3.Dot(pole,direction)).normalized;
+            var elbow=shoulder+direction*along+bend*Mathf.Sqrt(Mathf.Max(0,.27f*.27f-along*along));
+            upper.rotation=Quaternion.FromToRotation(Vector3.down,elbow-shoulder);
+            fore.rotation=Quaternion.FromToRotation(Vector3.down,shoulder+direction*distance-elbow);
         }
         void Update()
         {
