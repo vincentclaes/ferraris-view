@@ -4,6 +4,15 @@ namespace Ferraris.Tests
 {
     public class HomeTests
     {
+        [Test] public void ExactHouseNumberPrecedesPartialMatches()
+        {
+            var book=new AddressBook{addresses=System.Array.ConvertAll(new[]{"14","24","34","34A","34B","4"},
+                number=>new CurrentAddress{street="Dalenstraat",number=number,locality="Herent"})};
+            var results=HomeSearch.Search(book,"Dalenstraat 4");
+            Assert.That(results.Length,Is.EqualTo(6));
+            Assert.That(results[0].number,Is.EqualTo("4"));
+        }
+
         [Test] public void AddressSearchSupportsAmbiguousResultsAndHistoricalLandUse()
         {
             var a=new CurrentAddress{street="Dalenstraat",number="1",locality="Herent"};var b=new CurrentAddress{street="Dalenstraat",number="2",locality="Herent",x=600};

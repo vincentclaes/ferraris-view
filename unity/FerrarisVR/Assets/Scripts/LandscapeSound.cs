@@ -27,7 +27,6 @@ namespace Ferraris
             foreach(var animal in app.World.GetComponentsInChildren<GrazingAnimal>(true))if(animal.transform.parent.name=="Grazing sheep"){Add("Blatend schaap","Een schaap roept bij de grazende dieren. Dit maakt de illustratieve veestapel ook zonder geluid vindbaar.",animal.transform.position,"sheep",65);break;}
             var barn=System.Array.Find(app.Data.buildings,b=>b.kind=="building");
             if(barn!=null)Add("Houtwerk op het erf","Schurend en kloppend hout bij een erfgebouw. Een illustratie van handwerk, geen bewijs van een historische werkplaats op deze plek.",new Vector3(barn.x+8,app.Area.Height(barn.x,barn.z)+1,barn.z),"wood",80);
-            ui.Button(new Rect(594,125,194,45),"Luister",Open);
             hud=ui.Box(new Rect(835,650,580,102));cue=ui.Text(new Rect(852,660,545,86),"",21,hud.transform);ApplyVolume();
         }
         void Add(string name,string description,Vector3 position,string clip,float range)
@@ -41,18 +40,19 @@ namespace Ferraris
         void ApplyVolume(){foreach(var site in Sites)site.source.volume=Muted?0:Volume;PlayerPrefs.SetFloat("landscape-volume",Volume);PlayerPrefs.SetInt("landscape-muted",Muted?1:0);PlayerPrefs.Save();}
         void Update()
         {
-            if(hud==null)return;hud.SetActive(app.InWorld);if(!app.InWorld)return;
+            if(hud==null)return;hud.SetActive(app.InWorld&&!ui.PanelOpen);if(!app.InWorld)return;
             foreach(var site in Sites)if(Time.time>=site.next&&!site.source.isPlaying){site.source.Play();site.next=Time.time+(site.source.clip?.length??1)+12;}
             if(Time.unscaledTime<nextCaption)return;nextCaption=Time.unscaledTime+.25f;
             SoundSite nearest=null;float best=0;
             foreach(var site in Sites){float gain=Gain(Vector3.Distance(app.View.transform.position,site.source.transform.position),site.range);if(gain>best){best=gain;nearest=site;}}
-            cue.text=nearest==null?"Geluidsplekken: geen bron dichtbij.\nOpen Luister om de plekken te vinden.":$"{(Muted||Volume==0?"Geluid gedempt • ":"")}{nearest.name}\n{Vector3.Distance(app.View.transform.position,nearest.source.transform.position):F0} m • {Bearing(app.View.transform.InverseTransformPoint(nearest.source.transform.position))}\nIllustratief geluid • Open Luister voor uitleg";
+            hud.SetActive(nearest!=null&&nearest.source.isPlaying&&!ui.PanelOpen);
+            cue.text=nearest==null?"Geluidsplekken: geen bron dichtbij.\nKies Ontdek voor de geluidsplekken.":$"{(Muted||Volume==0?"Geluid gedempt • ":"")}{nearest.name}\n{Vector3.Distance(app.View.transform.position,nearest.source.transform.position):F0} m • {Bearing(app.View.transform.InverseTransformPoint(nearest.source.transform.position))}\nIllustratief geluid • Ontdek: geluid en ondertitels";
         }
         public void Open(){ui.ClosePanel?.Invoke();evidence=false;Draw();}
         public void Close(){ui.RemovePanel(panel);panel=null;ui.PanelOpen=false;ui.ClosePanel=null;ui.ClearKeyboardFocus();}
         void Draw()
         {
-            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelRoot=panel.transform;ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,197,610,42),"Luister naar het landschap",28,panel.transform);ui.Button(new Rect(690,197,76,40),"Sluiten",Close,panel.transform,19);
             ui.Text(new Rect(48,258,710,45),$"Omgevingsgeluid: {Volume*100:F0}% {(Muted?"(gedempt)":"")}",25,panel.transform);
             ui.Button(new Rect(48,310,160,48),"Zachter",()=>SetVolume(Volume-.2f),panel.transform);ui.Button(new Rect(224,310,160,48),"Luider",()=>SetVolume(Volume+.2f),panel.transform);ui.Button(new Rect(400,310,210,48),Muted?"Geluid aan":"Dempen",()=>SetMuted(!Muted),panel.transform);

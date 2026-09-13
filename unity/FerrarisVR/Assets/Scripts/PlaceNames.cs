@@ -12,14 +12,13 @@ namespace Ferraris
         void Start()
         {
             app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();Content=JsonUtility.FromJson<PlaceNameContent>(Resources.Load<TextAsset>("Discovery/names").text);
-            ui.Button(new Rect(835,215,580,45),"Ontdek plaatsnamen",Open);
         }
         public void Open(){ui.ClosePanel?.Invoke();Selected=-1;evidence=false;Draw();}
         public void Choose(int index){Selected=index;evidence=false;var n=Content.entries[index];app.Locate(n.x,n.z);Draw();}
         public void Close(){ui.RemovePanel(panel);panel=null;ui.PanelOpen=false;ui.ClosePanel=null;ui.ClearKeyboardFocus();}
         void Draw()
         {
-            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,760,680));ui.PanelRoot=panel.transform;ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,197,610,42),"Wat vertelt een plaatsnaam?",28,panel.transform);ui.Button(new Rect(690,197,76,40),"Sluiten",Close,panel.transform,19);
             if(Selected<0)
             {

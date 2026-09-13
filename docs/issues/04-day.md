@@ -4,7 +4,7 @@ Voortzetting van het oorspronkelijke tekstverhaal, op de gebouwcontouren van `co
 
 ## Spelen
 
-Open **Dag van Marie** of druk **J**. Kies op de kaart **Zoek Marie**, of loop zelf naar haar toe. Binnen drie meter en zonder muur ertussen kun je haar aanklikken, aanwijzen met de controller of via het menu aanspreken. **Ik loop mee** accepteert haar uitnodiging. **Niet nu** laat je vrij verkennen.
+Kies **Ontdek**, daarna **Volg een dag in 1775**, of druk **J**. Kies op de kaart **Zoek Marie**, of loop zelf naar haar toe. Binnen drie meter en zonder muur ertussen kun je haar aanklikken, aanwijzen met de controller of via het menu aanspreken. **Ik loop mee** accepteert haar uitnodiging. **Niet nu** laat je vrij verkennen.
 
 Marie vertelt in het Nederlands met een gebundelde Vlaamse computerstem. Elke stop heeft een korte scène, een optionele vraag, het antwoord en een reden om verder te lopen. **Nog eens vertellen** herhaalt de tekst; **Stem: aan/uit** regelt de stem apart van de omgevingsgeluiden. Alle tekst blijft leesbaar zonder geluid of internet.
 
@@ -26,7 +26,7 @@ Het [verhaalontwerp](../interactive-story.md) bevat de scènes, spelregels en ac
 
 ## Verificatie
 
-24/24 EditMode-tests zijn geslaagd, inclusief de vijf verbonden buitenlocaties, stoppen en hervatten in elke actieve fase, wachten, vooruitlopen en alle gesproken scènes. De oorspronkelijke fout in objectselectie kwam door een lokaal gegenereerd wereldbestand van een andere codeversie; na het samenbrengen van code en kaartgegevens zijn de regressietests groen.
+28/28 EditMode-tests zijn geslaagd, inclusief de vijf verbonden buitenlocaties, stoppen en hervatten in elke actieve fase, wachten, vooruitlopen en alle gesproken scènes. De oorspronkelijke fout in objectselectie kwam door een lokaal gegenereerd wereldbestand van een andere codeversie; na het samenbrengen van code en kaartgegevens zijn de regressietests groen.
 
 De desktopspeltest controleert benaderen zonder accepteren, selecteren via een straal, accepteren via de knop, hoorbare stem, vragen, echt lopen, wachten, direct annuleren, dezelfde Marie hervatten, kaartpauze, alle vijf scènes en het einde. De controllerinterface wordt in de desktopspeler als wereldcanvas getest. Beelden en logbestanden staan lokaal in `artifacts`; fysieke Quest-validatie en gebruikerstests op natuurlijkheid blijven apart te doen.
 

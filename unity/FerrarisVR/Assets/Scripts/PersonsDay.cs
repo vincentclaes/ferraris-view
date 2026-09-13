@@ -37,7 +37,6 @@ namespace Ferraris
         {
             app=GetComponent<FerrarisApp>();ui=GetComponent<VisitorUI>();
             Content=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
-            ui.Button(new Rect(335,125,242,45),"Dag van Marie",Open);
             hud=ui.Box(new Rect(28,695,760,165));direction=ui.Text(new Rect(48,709,710,92),"",22,hud.transform);
             ui.Button(new Rect(48,807,290,42),"Praat met Marie",Open,hud.transform,21);
             ui.Button(new Rect(370,807,390,42),"Verhaal verlaten",Pause,hud.transform,21);hud.SetActive(false);
@@ -168,7 +167,7 @@ namespace Ferraris
         void OnApplicationFocus(bool hasFocus){focused=hasFocus;if(!hasFocus){StopVoice();if(agent!=null&&agent.isOnNavMesh)agent.isStopped=true;}}
         void Draw()
         {
-            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,620,680));ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+            ui.RemovePanel(panel);panel=ui.Box(new Rect(28,180,620,680));ui.PanelRoot=panel.transform;ui.PanelOpen=true;ui.ClosePanel=Close;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
             ui.Text(new Rect(48,197,485,40),Content.title,28,panel.transform);ui.Button(new Rect(550,197,76,40),"Sluiten",Close,panel.transform,19);
             if(!Ready){ui.Text(new Rect(48,255,575,300),"Marie kan deze route niet lopen. Je kunt het landschap vrij verkennen en het verhaal later opnieuw proberen.",25,panel.transform);return;}
             bool end=Progress.State==GuideState.Completed;
