@@ -8,6 +8,8 @@ The Android build report confirms that the imported road-mask texture is packed 
 
 Hardware status: ADB found no attached device on 13 September. This package has **not** been installed or tested on the headset. The earlier simple prototype was installed and launched on 12 September; Vincent confirmed map → world → movement → B return, and a short sample reported 72–73 FPS. Those results do not validate the current graphics, polygon colliders or discovery interfaces. The package contains the harvest transfer and hinged-flail work cycles, readable story sources and shared visitor controls plus recessed contour-building facades and aligned roof detail and terrain-integrated roads with matched horizon edges from `e723f42`; these also need headset validation.
 
+The website integration at `3cdb7a3` has passed desktop and browser checks but has not been rebuilt as the local Quest APK described above.
+
 Connect an unlocked Quest 3 over USB with developer mode enabled and accept USB debugging inside the headset. Run the `quest-device.sh` commands in the README. Keep the headset's normal boundary active and begin seated or standing in a clear space.
 
 1. Launch from the installed app or the device script. The Ferraris map should appear ahead. Turn your head and confirm stable, correct stereo tracking in both eyes.

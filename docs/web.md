@@ -2,11 +2,12 @@
 
 Brand: **Land van Weleer**, with **Wandel door het Vlaanderen van toen.**
 
-Website: **https://land-van-weleer.vercel.app**. Latest production release: `dpl_FrABjrYmP2Uyqv35aCB7Pqv9NhCp`, READY on 13 September 2026. Commit `e723f42` adds terrain-integrated roads and matched horizon edges to the existing building details and tableaux. The pushed branch is `codex/terrain-roads`, in [draft PR #23](https://github.com/vincentclaes/ferraris-view/pull/23) based on [PR #21](https://github.com/vincentclaes/ferraris-view/pull/21). This stack remains unmerged. The project is `land-van-weleer` (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`). Locally tested build hashes: `artifacts/terrain-roads-web-hashes.json`.
+Website: **https://land-van-weleer.vercel.app**. Latest production release: `dpl_CLorvzRqBXGB9LwyZrD9BcCLW95c`, READY on 13 September 2026. Runtime commit `3cdb7a3` merges remote mainline `032fa89` (PRs #19 and #22) into `codex/terrain-roads`: the new navigation and voiced Marie guide run alongside mapped buildings, terrain roads and five animated tableaux. Marie uses the tableaux's actual locations. The exact browser title remains Land van Weleer. The project is `land-van-weleer` (`prj_Fc3TN3FPfmYxSPhqD3H72RrWEOUQ`). Locally tested build hashes: `artifacts/remote-merge-web-hashes.json`. The pushed integration remains in [draft PR #23](https://github.com/vincentclaes/ferraris-view/pull/23); the world-detail PR stack is not merged into mainline.
 
-This release passes 6 GIS tests, 1,089 coordinate checks, 19 Unity tests and 340 built-player journey checks. The final Chrome/Playwright run at 1440×1100 visits all five scenes, object explanations, ending and sources, then clicks a road on the map, walks with W and returns with M. Inspected screenshots show road entry at X 51.5 / Z 224.4 and movement to Z 227.0, with no application errors. Native road views confirm continuous bends and the repaired northern horizon gap. Mobile information at 390×844 remains readable. Browser plugin unavailable; installed Chrome/Playwright used. Evidence: `/tmp/land-van-weleer-roads/` and `/tmp/ferraris-terrain-roads/`.
+Validation: 6 GIS tests, 1,089 coordinate checks, 31 Unity tests and 356 built-player journey checks pass. The journey covers every guide destination, voice, questions, waiting, cancellation/resume, all five animated tableaux, map position/heading preservation and world-space ray controls. The merge exposed clipped source text; increasing its panel height fixed both source pages, verified in the repeated journey.
 
-The preceding map-alignment release was `dpl_BoUev3QQ3DXAm12yPG3NyVDTC9Zv`, containing code commit `a275a9e` merged through PR #16 as `a630661`. Its locally tested WebGL hashes remain in `artifacts/building-review/web-release-hashes.json`.
+The flow under browser test was start → map → world → mouse look/walking → current-location map → address search → Marie invitation/question/sources → leave story. Chrome/Playwright checks passed at 1440×1000 and 1024×768; mobile information passed at 390×844. Page identity, rendering, interaction screenshots, full screen, keyboard focus, loading errors and recovery after denied pointer lock were checked. No application errors occurred. The first scripted story attempt stayed too far from Marie; the corrected run explicitly returned to map selection, used Zoek Marie, and the inspected images show the accepted dialogue and distinct question answer. Browser plugin not available; existing Playwright/Chrome used. Evidence: `/tmp/land-van-weleer-publish-qa.json`, `/tmp/land-van-weleer-publish-*.png`. These are local checks of the exact published files; no deployed URL was fetched. Current Quest hardware validation remains open, and this website integration does not replace the earlier local APK.
+
 
 ## Build and hosting
 
@@ -42,9 +43,9 @@ The website build now contains 53 reviewed building polygons and source-supporte
 
 The full Chrome mouse/keyboard journey passed on this update. A final build check confirmed visible outlines and the Dutch unknown-function explanation, with no JavaScript application errors. GIS tests: 5; standalone coordinate checks: 1,089; Unity EditMode: 16; desktop journey: 321. Earlier validation below remains historical context.
 
-## Web-first navigation — local validation, 13 September 2026
+## Web-first navigation — earlier local validation, 13 September 2026
 
-Branch `codex/web-first-ux` builds on the local `codex/period-building-forms` branch, preserving its 53 reviewed building polygons and historical explanations. These navigation changes have not been deployed.
+Branch `codex/web-first-ux` builds on the local `codex/period-building-forms` branch, preserving its 53 reviewed building polygons and historical explanations. These navigation changes were subsequently integrated and published in the release recorded above.
 
 The start page has one primary action. Kaart, Ontdek and Hulp replace the expanded toolbar. The live north-up map follows player position and camera heading; opening and closing it preserves both. Escape releases the mouse without leaving the world. Address search uses the physical keyboard and ranks an exact house number before partial matches.
 
