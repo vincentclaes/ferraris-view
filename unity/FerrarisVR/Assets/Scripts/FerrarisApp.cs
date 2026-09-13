@@ -283,7 +283,7 @@ namespace Ferraris
             if(xr)
             {
                 mapPlane.transform.localScale=Vector3.one*2.4f;
-                mapPlane.transform.localPosition=new Vector3(0,1.6f,2.4f);
+                mapPlane.transform.localPosition=new Vector3(0,0,2.4f);
                 mapMaterial.mainTextureScale=Vector2.one/MapZoom;mapMaterial.mainTextureOffset=MapPan/Area.size+Vector2.one*(.5f-.5f/MapZoom);
                 // UV overlays need the same affine mapping as the zoomed raster.
                 overlay.transform.localScale=Vector3.one*MapZoom;overlay.transform.localPosition=new Vector3(-MapPan.x/Area.size*MapZoom,-MapPan.y/Area.size*MapZoom,0);
@@ -312,7 +312,7 @@ namespace Ferraris
             InWorld=true;View.clearFlags=CameraClearFlags.Skybox;mapRoot.SetActive(false);World.gameObject.SetActive(true);rayLine.enabled=false;
             character.enabled=false;Player.SetPositionAndRotation(new Vector3(x,Area.Height(x,z)+.08f,z),Quaternion.identity);
             yaw=pitch=verticalSpeed=0;View.orthographic=false;if(!xr)View.fieldOfView=75;
-            View.transform.localPosition=xr?headPosition.ReadValue<Vector3>():Vector3.up*1.65f;View.transform.localRotation=Quaternion.identity;
+            View.transform.localPosition=xr?headPosition.ReadValue<Vector3>():Vector3.up*1.65f;View.transform.localRotation=xr?headRotation.ReadValue<Quaternion>():Quaternion.identity;
             Physics.SyncTransforms();character.enabled=true;
             // Map symbols can be clicked inside buildings. Find the nearest free
             // spawn within 25m; keep Selected unchanged for alignment diagnostics.
@@ -362,7 +362,10 @@ namespace Ferraris
             InWorld=false;View.backgroundColor=new Color(.956f,.941f,.898f);View.clearFlags=CameraClearFlags.SolidColor;character.enabled=false;World.gameObject.SetActive(false);mapRoot.SetActive(true);
             pressed=pointerReleased=false;pendingPan=Vector2.zero;
             Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
-            Player.SetPositionAndRotation(Vector3.zero,Quaternion.identity);View.transform.SetLocalPositionAndRotation(Vector3.zero,Quaternion.identity);View.orthographic=!xr;
+            Player.SetPositionAndRotation(Vector3.zero,Quaternion.identity);
+            View.transform.SetLocalPositionAndRotation(xr?headPosition.ReadValue<Vector3>():Vector3.zero,xr?headRotation.ReadValue<Quaternion>():Quaternion.identity);View.orthographic=!xr;
+            // Place the map in the current gaze once; keep it anchored during head movement and zoom.
+            mapRoot.transform.SetPositionAndRotation(xr?View.transform.position:Vector3.zero,xr?View.transform.rotation:Quaternion.identity);
             rayLine.enabled=xr;ApplyMapView();
         }
         void BuildOverlay()
