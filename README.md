@@ -8,7 +8,7 @@ The Dutch discovery features added in issues #2–#7 include current nearby addr
 
 ## Website — Land van Weleer
 
-The web-first navigation described below is implemented and tested locally on `codex/web-first-ux`, based on `codex/period-building-forms`. It has not been deployed to the live site.
+The navigation and interactive Marie story are published together with the mapped buildings, roads and tableaux. See [the current release and validation](docs/web.md).
 
 **[Land van Weleer — Wandel door het Vlaanderen van toen](https://land-van-weleer.vercel.app).** The browser edition runs the same map, landscape and Dutch discovery features on a computer with mouse and keyboard. The landscape fills the browser window. One start button leads into the experience; Kaart, Ontdek and Hulp are the main controls. Stories, search and sound settings live under Ontdek. M enlarges the live map without leaving the world or changing position and heading. Escape releases the mouse or closes a panel. Mobile visitors get readable information and a desktop-play notice. Immersive Quest VR remains the native Android app.
 
@@ -70,7 +70,7 @@ Set `UNITY_EDITOR` to override the installed editor executable. Close the editor
 
 ```bash
 bash scripts/unity.sh quest-configure
-bash scripts/unity.sh quest  # also verifies packaged data and OpenXR libraries
+bash scripts/unity.sh quest  # verifies packaged data, story speech and OpenXR libraries
 # Developer mode and USB debugging must be enabled on your headset:
 bash scripts/quest-device.sh devices
 bash scripts/quest-device.sh install

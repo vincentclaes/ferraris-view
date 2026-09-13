@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Build;
@@ -159,14 +160,22 @@ namespace Ferraris.Editor
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName=path,target=target,options=target==BuildTarget.WebGL?BuildOptions.None:BuildOptions.Development});
             if(report.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Build failed: "+report.summary.result);
+            var story=JsonUtility.FromJson<StoryContent>(Resources.Load<TextAsset>("Discovery/day").text);
+            var missingVoice=new HashSet<string>();
+            foreach(string clip in new[]{"greeting","invitation","wait","rejoin"})missingVoice.Add("Assets/Resources/Discovery/Voice/Marie/"+clip+".wav");
+            for(int i=0;i<story.stops.Length;i++)foreach(string kind in new[]{"stop","answer","follow"})missingVoice.Add($"Assets/Resources/Discovery/Voice/Marie/{kind}-{i}.wav");
+            int voiceCount=missingVoice.Count;
             bool roadMaskPacked=false;
             foreach(var pack in report.packedAssets)foreach(var asset in pack.contents)
             {
+                missingVoice.Remove(asset.sourceAssetPath);
                 if(asset.sourceAssetPath.EndsWith("/Winksele/roads.png"))roadMaskPacked=true;
                 if(target==BuildTarget.WebGL&&(asset.sourceAssetPath.EndsWith("/ferraris.png")||asset.sourceAssetPath.EndsWith("/WebMapExcluded.png")))throw new InvalidOperationException("Local map raster must not be included in the website");
             }
             if(!roadMaskPacked)throw new InvalidOperationException("Generated road mask missing from built player");
+            if(missingVoice.Count>0)throw new InvalidOperationException("Story voice missing from built player: "+string.Join(", ",missingVoice));
             Debug.Log("FERRARIS_ROAD_MASK_PACKED");
+            Debug.Log("FERRARIS_STORY_VOICE_PACKED "+voiceCount);
             Debug.Log("FERRARIS_BUILD_SUCCESS "+path);
         }
     }
