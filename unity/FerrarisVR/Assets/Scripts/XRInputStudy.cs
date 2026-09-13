@@ -97,6 +97,26 @@ namespace Ferraris
             ScreenCapture.CaptureScreenshot(Path.Combine(output,"xr-world.png"));yield return Frames(2);
             Set(right,"secondaryButton",1f);yield return Frames(2);
             if(!Check(!app.InWorld,"B returns after movement and snap turning"))yield break;
+            var centre=app.View.WorldToViewportPoint(app.MapSurface.position);
+            if(!Check(centre.z>0&&Vector2.Distance(new Vector2(centre.x,centre.y),Vector2.one*.5f)<.01f,"Returned map is centred after headset yaw and snap turn"))yield break;
+            Set(right,"secondaryButton",0f);yield return Frames(2);
+            var anchoredPosition=app.MapSurface.position;var anchoredRotation=app.MapSurface.rotation;
+            var movedHead=new Vector3(.35f,1.1f,-.4f);var tiltedHead=Quaternion.Euler(20,-135,5);
+            Set(head,"centerEyePosition",movedHead);Set(head,"centerEyeRotation",tiltedHead);yield return Frames(2);
+            app.ZoomMap(1.1f);
+            if(!Check(Vector3.Distance(app.MapSurface.position,anchoredPosition)<.001f&&Quaternion.Angle(app.MapSurface.rotation,anchoredRotation)<.01f,"Map stays anchored while looking around and zooming"))yield break;
+            Set(right,"secondaryButton",1f);yield return Frames(1);
+            centre=app.View.WorldToViewportPoint(app.MapSurface.position);
+            if(!Check(centre.z>0&&Vector2.Distance(new Vector2(centre.x,centre.y),Vector2.one*.5f)<.01f&&Vector3.Distance(app.View.transform.localPosition,movedHead)<.001f&&Quaternion.Angle(app.View.transform.localRotation,tiltedHead)<.01f,"B recentres for seated translated tilted head without resetting tracked pose"))yield break;
+            Set(right,"secondaryButton",0f);yield return Frames(2);
+            ScreenCapture.CaptureScreenshot(Path.Combine(output,"xr-return-map.png"));yield return Frames(2);
+            expected=new Vector2(app.MapPan.x,app.MapPan.y-app.Area.size*.1f/app.MapZoom);
+            target=app.MapSurface.TransformPoint(new Vector3(0,-.1f,0));
+            Set(right,"deviceRotation",Quaternion.LookRotation(target-hand));yield return Frames(2);
+            Set(right,"triggerPressed",1f);yield return Frames(1);
+            if(!Check(app.InWorld&&Vector2.Distance(new Vector2(app.Selected.x,app.Selected.z),expected)<.02f&&Quaternion.Angle(app.View.transform.localRotation,tiltedHead)<.01f,"Reoriented map ray preserves selected coordinates and first world-frame head pose"))yield break;
+            Set(right,"triggerPressed",0f);yield return Frames(2);
+            Set(right,"secondaryButton",1f);yield return Frames(2);Set(right,"secondaryButton",0f);yield return Frames(2);
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             UnityEngine.UI.Text diagnostic=null;
             foreach(var text in ui.Root.GetComponentsInChildren<UnityEngine.UI.Text>(true))if(text.name=="Ontwikkeldiagnostiek")diagnostic=text;

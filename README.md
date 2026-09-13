@@ -86,6 +86,8 @@ bash scripts/quest-device.sh logs
 
 The build script selects Android ARM64, IL2CPP, Vulkan, OpenXR, Meta Quest support, Oculus Touch profile and single-pass instanced rendering. The runtime uses the Input System for head/controller poses and controls. Desktop remains available without an XR runtime.
 
+In VR, returning to map places it in front of the current head pose; it then stays anchored while you look around or zoom. Press B again in map mode to place it in front of you again. Open panels consume B first. Both transitions preserve the tracked head pose, including their first rendered frame.
+
 The device script finds ADB inside the Unity installation; set `ADB` to override it. With multiple devices, pass the Quest serial as the second argument. Installation does not proceed when the device is absent or unauthorized. See [headset acceptance steps](docs/quest-validation.md).
 
 - Map: right controller ray + trigger selects; left stick pans; right stick up/down zooms; B returns to map.
